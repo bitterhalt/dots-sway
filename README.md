@@ -1,8 +1,8 @@
-# Dotfiles
+# Sway setup
 
+This is purely hobby for me. I am not a developer or Linux expert. Everything here changes sometimes and bugs may appear.
+Please do not try to copy my entire setup, as it is very disorganized and specific to my needs. Instead, try copying bits and pieces as you put together your own system. 
 
-This is purely hobby for me. I am not a developer or Linux expert. Everything here changes sometimes and bugs may appear. 
-Please do not try to copy my entire setup, as it is very disorganized and specific to my needs. Instead, try copying bits and pieces as you put together your own system.
 
 ## Details
 - Distro: [Arch Linux](https://archlinux.org/)
@@ -15,7 +15,7 @@ Please do not try to copy my entire setup, as it is very disorganized and specif
  - Shell: [zsh](https://www.zsh.org/)
  - Editor: [neovim](https://neovim.io/)
  - Filemanager: [Ranger](https://github.com/ranger/ranger)
- - Launcher: [rofi](https://github.com/davatorium/rofi) + [dmenu](https://github.com/newmanls/dmenu)
+ - Launcher: [Rofi Wayland fork by lbonn](https://github.com/lbonn/rofi)
  - Image Viewer: [imv](nsxiv)
 - Media Player: [mpv](https://mpv.io/)
 - Notification daemon: [Mako](https://github.com/emersion/mako)
