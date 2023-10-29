@@ -1,0 +1,184 @@
+/* Colors */
+@define-color bg #14161b;
+@define-color bg2 #33363d;
+@define-color fg #abb2bf;
+@define-color fg2 #545862;
+@define-color red #e06c75;
+@define-color green #98c379;
+@define-color yellow #e5c07b;
+@define-color blue #61afef;
+@define-color purple #c678dd;
+@define-color cyan #56b6c2;
+
+
+/* Reset all styles */
+* {
+    font-family: Jetbrains Mono, Symbols Nerd Font;
+    font-size: 14px;
+    border-radius: 0;
+    border: none;
+}
+tooltip {
+  background: @bg;
+}
+
+window#waybar {
+    background-color: @bg;
+    color: @fg;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+
+#workspaces button:hover {
+    background-color: @bg2;
+}
+
+
+#workspaces button {
+    padding: 0 5px;
+    color: @fg;
+    background-color: @bg;
+}
+
+
+#workspaces button.focused {
+    color: @fg;
+    background-color: @bg2;
+}
+
+#workspaces button.urgent {
+    color: @bg;
+    background-color: @purple;
+}
+
+#mode {
+    background-color: @purple;
+    color: @bg;
+}
+
+#battery,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#mode,
+#scratchpad {
+    padding: 0 6px;
+}
+
+#clock,
+#tray {
+    padding: 0 10px;
+}
+
+#window,
+#workspaces {
+    margin: 0 5px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#clock {
+    color: @fg;
+}
+
+#battery {
+    color: @fg;
+}
+
+#battery.charging, #battery.plugged {
+    color: @fg;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: @red;
+    color: @fg;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background-color: @bg;
+}
+
+#cpu {
+    color: @fg;
+}
+
+#memory {
+    color: @fg;
+}
+
+
+#network {
+    color: @fg;
+    padding-left: 10px;
+}
+
+#network.disconnected {
+    color: @fg2;
+}
+
+
+#pulseaudio {
+    color: @fg;
+}
+
+
+#pulseaudio.muted {
+    color: @fg2;
+}
+
+#pulseaudio.mic {
+  color: @fg;
+}
+
+#pulseaudio.mic.source-muted {
+  color: @fg2;
+}
+
+
+#tray {
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @red;
+}
+
+
+#scratchpad {
+    color: @fg;
+}
+
+#scratchpad.empty {
+	background-color: transparent;
+}
+
