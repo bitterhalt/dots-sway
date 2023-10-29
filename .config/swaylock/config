@@ -3,7 +3,7 @@
 # daemonize
 indicator-caps-lock
 # datestr=%A
-image=$HOME/.config/bg
+image=$HOME/Pictures/.wall
 scaling=fill
 font=JetBrains Mono
 font-size=20

@@ -14,7 +14,7 @@ suppress_default_binds = true
 
 [binds]
 # Define some key bindings
-<Shift+W> = exec cp -f "$imv_current_file" ~/Pictures/.wall && swaymsg output "*" background ~/Pictures/.wall fill
+<Shift+W> = exec cp -f "$imv_current_file" ~/.wall/.wall && swaymsg output "*" background ~/.wall/.wall fill
 q = quit
 y = exec echo working!
 

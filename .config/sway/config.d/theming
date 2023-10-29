@@ -9,7 +9,7 @@ bar {
 }
 
 # Wallpaper
-output * bg ~/Pictures/.wall fill
+output * bg ~/.wall/.wall fill
 
 ## Onedark
 

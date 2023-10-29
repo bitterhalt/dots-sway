@@ -16,9 +16,9 @@ input type:pointer {
 ## Idle configuration
 
 exec swayidle -w \
-         timeout 1800 'swaylock -f -i $HOME/.config/bg' \
+         timeout 1800 'swaylock -f -C ~/.config/swaylock/config' \
          timeout 3600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep 'swaylock -f -i $HOME/.config/bg'
+         before-sleep 'swaylock -f -C ~/.config/swaylock/config'
 
 
 
