@@ -2,6 +2,7 @@
 
 # Small helper script to take Screenshots in Sway
 # Depends on: swaywm, grim, swappy, and slurp
+# Github @ bitterhalt
 
 set -e
 

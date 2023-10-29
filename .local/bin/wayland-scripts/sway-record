@@ -2,6 +2,7 @@
 
 # Small helper script to record your desktop on sway
 # Depends on: swaywm, wf-recoder, and slurp
+# Github @ bitterhalt
 
 set -e
 
