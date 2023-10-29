@@ -1,8 +1,8 @@
 # Sway setup
+![2023-10-29-19-12-08_screenshot](https://github.com/bitterhalt/wayland-dots/assets/95308907/9d7b3bf4-aeeb-4f89-ae6c-3646dab304ca)
 
 This is purely hobby for me. I am not a developer or Linux expert. Everything here changes sometimes and bugs may appear.
 Please do not try to copy my entire setup, as it is very disorganized and specific to my needs. Instead, try copying bits and pieces as you put together your own system. 
-
 
 ## Details
 - Distro: [Arch Linux](https://archlinux.org/)
