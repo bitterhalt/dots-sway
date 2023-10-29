@@ -6,6 +6,7 @@ export BROWSER="librewolf"
 
 # PATH
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin/wayland-scripts:$PATH"
 
 # XDG Base Directory
 export XDG_CONFIG_HOME="$HOME/.config"
