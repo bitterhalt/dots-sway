@@ -1,0 +1,22 @@
+## Theming and colors
+
+# Apply gtk theming
+exec_always ~/.config/sway/scripts/import-gsettings
+
+
+bar {
+    swaybar_command waybar
+}
+
+# Wallpaper
+output * bg ~/Pictures/.wall fill
+
+## Onedark
+
+# class                 border  bground text    indicator
+client.focused          #abb2bf #abb2bf #1e2127 #abb2bf
+client.focused_inactive #282c34 #282c34 #ebdbb2 #282c34
+client.unfocused        #282c34 #282c34 #abb2bf #282c34
+client.placeholder      #000000 #0c0c0c #ebdbb2 #000000
+client.urgent           #000000 #eb4d4b #000000 #eb4d4b
+client.background       #abb2bf
