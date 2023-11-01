@@ -24,7 +24,6 @@ tooltip {
 
 window#waybar {
     background-color: @bg;
-    color: @fg;
     transition-property: background-color;
     transition-duration: .5s;
 }
