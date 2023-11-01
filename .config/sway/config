@@ -16,7 +16,7 @@ set $right l
 
 # Terminal
 
-set $term footclient  # single instance
+set $term footclient
 #set $term foot
 set $menu $HOME/.local/bin/rofi_applauncher
 set $power-menu $HOME/.config/sway/scripts/rofi_powermenu
@@ -40,8 +40,6 @@ bindsym $mod+Shift+c reload
 # Exit sway (logs you out of your Wayland session)
 bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
-# Moving around:
-
 # Move your focus around
 bindsym $mod+$left focus left
 bindsym $mod+$down focus down
@@ -58,7 +56,7 @@ bindsym $mod+Shift+$left move left
 bindsym $mod+Shift+$down move down
 bindsym $mod+Shift+$up move up
 bindsym $mod+Shift+$right move right
-# Ditto, with arrow keys
+# Same with arrow keys
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
@@ -89,10 +87,8 @@ bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
 # Note: workspaces can have any name you want, not just numbers.
-# We just use 1-10 as the default.
 
 # Layout stuff:
-
 bindsym $mod+b splith
 bindsym $mod+v splitv
 
@@ -144,22 +140,24 @@ bindsym XF86Calculator  exec --no-startup-id galculator
 bindsym $mod+control+i exec --no-startup-id $HOME/.local/bin/sysnfo
 bindsym $mod+control+w exec --no-startup-id $HOME/.local/bin/weather-notify
 bindsym $mod+control+c exec --no-startup-id $HOME/.local/bin/dunst-calendar
-bindsym $mod+Shift+t exec $term --app-id scpterm
+bindsym $mod+Shift+t exec foot --app-id scpterm
+bindsym $mod+shift+r exec foot --app-id scpranger
 bindsym $mod+t [app_id="scpterm"] scratchpad show
 bindsym $mod+r exec foot -e ranger
-bindsym $mod+shift+n exec $term -e nvim Documents/.vimwiki/index.md
+bindsym $mod+shift+n exec footclient -e nvim Documents/.vimwiki/index.md
 bindsym $mod+c [app_id="discord"] scratchpad show
+
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@
-bindsym $mod+Print exec ~/.local/bin/sway-shot -f
-bindsym $mod+Shift+Print exec ~/.local/bin/sway-shot -re
+bindsym $mod+Print exec ~/.local/bin/wayland-scripts/sway-shot -f
+bindsym $mod+Shift+Print exec ~/.local/bin/wayland-scripts/sway-shot -re
 bindsym $mod+F6 exec keepassxc
 bindsym $mod+F8 exec pavucontrol
 bindsym $mod+control+u exec ~/.local/bin/update-notify
-bindsym $mod+Shift+u exec $term -e ~/.local/bin/popupgrade
+bindsym $mod+Shift+u exec foot -e ~/.local/bin/popupgrade
 bindsym $mod+F4 exec ~/.local/bin/rofi_kill_process
 bindsym $mod+control+p exec ~/.local/bin/wayland-scripts/swaypick
 bindsym $mod+f7 exec ~/.config/sway/scripts/rofi_swayshot
@@ -181,32 +179,39 @@ assign [class="Signal"] 3
 assign [app_id="keepassxc"] 6
 assign [app_id="discord"] 3
 assign [class="steam"] 5
+assign [app_id="virt-manager"] 8
 
-# set floating (nontiling) for special apps:
+# set floating 
+for_window [instance="origin.exe"] floating enable
 for_window [class="Xsane" instance="xsane"] floating enable
 for_window [app_id="imv"] floating enable
+for_window [app_id="nwg-look"] floating enable, resize set width 40 ppt height 50 ppt
 for_window [class="steam" instance="steam"] floating enable
 for_window [app_id="pavucontrol" ] floating enable, resize set width 40 ppt height 50 ppt
 for_window [app_id="mpv"] floating enable
 for_window [class="qt5ct" instance="qt5ct"] floating enable, resize set width 60 ppt height 50 ppt
 for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
-for_window [app_id="galculator"] floating enable
-for_window [app_id="nm-connection-editor"] floating enable
-
-# set floating for window roles
+for_window [app_id="(?i)(?:blueman-manager|azote|gnome-disks|nwg-shell-config)"] floating enable
+for_window [app_id="(?i)(?:pavucontrol|nm-connection-editor|gsimplecal|galculator)"] floating enable
 for_window [class="Lxappearance"] floating enable
+for_window [app_id="scpterm"] floating enable, move scratchpad, resize set 800 600
+for_window [app_id="floating_shell_portrait"] floating enable, border pixel 1, sticky enable, resize set width 30 ppt height 40 ppt
+for_window [app_id="virt-manager"] floating enable
+# set floating for window roles
+for_window [title="Choose User Profile"] floating enable
+for_window [window_role="GtkFileChooserDialog"] resize set 590 340
+for_window [window_role="GtkFiileChooserDialog"] move position center
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [window_role="Preferences"] floating enable
 for_window [window_type="dialog"] floating enable
+for_window [window_role="dialog"] floating enable
 for_window [window_type="menu"] floating enable
-for_window [window_role="About"] floating enable
+for_window [title="About"] floating enable
 for_window [title="File Operation Progress"] floating enable, border pixel 1, resize set width 40 ppt height 30 ppt
 for_window [title="Save File"] floating enable
-for_window [app_id="floating_shell_portrait"] floating enable, border pixel 1, sticky enable, resize set width 30 ppt height 40 ppt
-for_window [title="Picture in picture"] floating enable
-for_window [app_id="scpterm"] floating enable, move scratchpad, resize set 800 600
+for_window [title="Picture-in-Picture"] floating enable
 
 include /etc/sway/config.d/*
 include $HOME/.config/sway/config.d/*

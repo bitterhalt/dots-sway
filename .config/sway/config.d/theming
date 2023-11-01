@@ -1,7 +1,7 @@
 ## Theming and colors
 
 # Apply gtk theming
-exec_always ~/.config/sway/scripts/import-gsettings
+#exec_always ~/.config/sway/scripts/import-gsettings
 
 
 bar {

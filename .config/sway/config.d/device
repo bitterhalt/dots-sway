@@ -10,7 +10,8 @@ input type:keyboard {
 }
 # Mouse
 input type:pointer {
-    accel_profile "flat" 
+    accel_profile "flat"
+#        dwt enabled
         pointer_accel 0
 }
 ## Idle configuration
