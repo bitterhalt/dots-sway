@@ -21,7 +21,7 @@ Please do not try to copy my entire setup, as it is very disorganized and specif
  - Launcher: [Rofi Wayland fork by lbonn](https://github.com/lbonn/rofi)
  - Image Viewer: [imv](nsxiv)
 - Media Player: [mpv](https://mpv.io/)
-- Notification daemon: [Mako](https://github.com/emersion/mako)
+- Notification daemon: [Dunst](https://github.com/dunst-project/dunst)
 
 ## Inspiration 
 - [See my stars](https://github.com/bitterhalt?tab=stars) 
