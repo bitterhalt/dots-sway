@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-# rofi theme
 THEME="$HOME/.config/rofi/rofi_screenshot/theme.rasi"
 
 get_options() {
@@ -14,15 +13,12 @@ get_options() {
 
 main() {
 
-  # Get choice from rofi
   choice=$( (get_options) | rofi -dmenu -i -fuzzy -p "Capture" -theme "$THEME")
 
-  # If user has not picked anything, exit
   if [[ -z "${choice// /}" ]]; then
     exit 1
   fi
 
-  # run the selected command
   case $choice in
   '  Record Screen (MP4)')
     sway-record -f
@@ -44,7 +40,6 @@ main() {
     ;;
   esac
 
-  # done
   set -e
 }
 

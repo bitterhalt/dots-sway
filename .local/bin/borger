@@ -12,7 +12,7 @@ if [[ ! -d ~/temp ]]; then
     mkdir ~/temp > /dev/null 2>&1
 fi
 
-options=("Take snapshot" "Mount snapshot" "Umount snapshot")
+options=("Take snapshot" "Mount latest snapshot" "Mount all archives" "Umount snapshot")
 selected=$(printf '%s\n' "${options[@]}" | dmenu -i -p "Quick snapshot")
 
 
@@ -23,9 +23,13 @@ if [[ -n "$selected" ]]; then
             borgmatic --verbosity -1 --syslog-verbosity 1
             notify-send -i "check-circle" "Snapshot ready!"  
             ;;
-        "Mount snapshot") # Mounts latest snapshot to ~/temp
+        "Mount latest snapshot") # Mounts latest snapshot to ~/temp
             borgmatic mount --archive latest --mount-point $HOME/temp
             notify-send -i "folder" "Latest snapshot mounted at $HOME/temp/"
+            ;;
+        "Mount all archives")
+            borgmatic mount  --mount-point $HOME/temp
+            notify-send -i "folder" "Snapshots mounted at $HOME/temp/"
             ;;
         "Umount snapshot") # Umounts snapshot
             borgmatic umount --mount-point $HOME/temp
