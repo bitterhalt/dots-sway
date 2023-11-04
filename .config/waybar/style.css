@@ -1,14 +1,14 @@
 /* Colors */
 @define-color bg #14161b;
-@define-color bg2 #33363d;
+@define-color bg2 #282c34;
+@define-color bg3 #535965;
 @define-color fg #abb2bf;
-@define-color fg2 #545862;
-@define-color red #e06c75;
-@define-color green #98c379;
-@define-color yellow #e5c07b;
-@define-color blue #61afef;
-@define-color purple #c678dd;
-@define-color cyan #56b6c2;
+@define-color red #e55561;
+@define-color green #8ebd6b;
+@define-color yellow #e2b86b;
+@define-color blue #4fa6ed;
+@define-color purple #bf68d9;
+@define-color cyan #48b0bd;
 
 
 /* Reset all styles */
@@ -66,11 +66,11 @@ window#waybar.hidden {
 #network,
 #pulseaudio,
 #mode,
+#clock,
 #scratchpad {
     padding: 0 6px;
 }
 
-#clock,
 #tray {
     padding: 0 10px;
 }
@@ -91,7 +91,9 @@ window#waybar.hidden {
 }
 
 #clock {
-    color: @fg;
+    color: @purple;
+    margin: 3px 3px 3px 3px;
+    border-radius: 0px;
 }
 
 #battery {
@@ -138,7 +140,7 @@ label:focus {
 }
 
 #network.disconnected {
-    color: @fg2;
+    color: @red;
 }
 
 
@@ -148,15 +150,16 @@ label:focus {
 
 
 #pulseaudio.muted {
-    color: @fg2;
-}
+    color: @bg3;
+    }
 
 #pulseaudio.mic {
   color: @fg;
+  padding-right: 10px;
 }
 
 #pulseaudio.mic.source-muted {
-  color: @fg2;
+  color: @bg3;
 }
 
 
@@ -175,6 +178,7 @@ label:focus {
 
 #scratchpad {
     color: @fg;
+    background-color: @bg2;
 }
 
 #scratchpad.empty {

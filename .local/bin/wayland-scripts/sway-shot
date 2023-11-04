@@ -15,6 +15,7 @@ FILENAME="$SAVEDIR/${TIMESTAMP}_screenshot.png"
 fullscreen() {
     grim "$FILENAME"
     notify-send "Screenshot" "File saved as $SAVEDIR" -i "$FILENAME"
+   
 }
 
 fullscreen-edit() {
@@ -63,3 +64,5 @@ while [[ $# -gt 0 ]]; do
     esac
     shift
 done
+
+wl-copy < "$FILENAME"

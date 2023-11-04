@@ -2,8 +2,8 @@
 # no-unlock-indicator
 # daemonize
 indicator-caps-lock
-# datestr=%A
-image=$HOME/Pictures/.wall
+show-failed-attempts
+image=$HOME/.wall/.wall
 scaling=fill
 font=JetBrains Mono
 font-size=20
