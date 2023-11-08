@@ -5,8 +5,8 @@ set -e
 cupd=$(checkupdates | wc -l)
 updates=$(checkupdates | awk '{print $1}')
 if [ -z "$updates" ]; then
-    notify-send "No updates available"
+    notify-send -a fat_notify "No updates available"
 else
-    notify-send " $cupd Updates Available:" "$updates"
+    notify-send -a fat_notify " $cupd Updates Available:" "$updates"
 fi
 
