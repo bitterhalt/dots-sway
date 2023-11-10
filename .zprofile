@@ -2,7 +2,7 @@
 export EDITOR="nvim"
 export VISUAL="nvim"
 export TERM="footclient"
-export BROWSER="librewolf"
+export BROWSER="firefox"
 
 # PATH
 export PATH="$HOME/.local/bin:$PATH"

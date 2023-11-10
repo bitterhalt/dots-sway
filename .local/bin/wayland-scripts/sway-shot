@@ -15,7 +15,6 @@ FILENAME="$SAVEDIR/${TIMESTAMP}_screenshot.png"
 fullscreen() {
     grim "$FILENAME"
     notify-send "Screenshot" "File saved as $SAVEDIR" -i "$FILENAME"
-   
 }
 
 fullscreen-edit() {

@@ -7,13 +7,12 @@
 # Author: bitterhalt@github
 
 set -e
-
 if [[ ! -d ~/temp ]]; then
     mkdir ~/temp > /dev/null 2>&1
 fi
 
 options=("Take snapshot" "Mount latest snapshot" "Mount all archives" "Umount snapshot")
-selected=$(printf '%s\n' "${options[@]}" | dmenu -i -p "Quick snapshot")
+selected=$(printf '%s\n' "${options[@]}" | bemenu.sh -i -p  "Quick snapshot")
 
 
 if [[ -n "$selected" ]]; then

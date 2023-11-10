@@ -1,17 +1,18 @@
 ## Theming and colors
 
-# Apply gtk theming
+# Apply gtk theming (use only if you don't have nwg-look)
 #exec_always ~/.config/sway/scripts/import-gsettings
 
-
+# Bar command
 bar {
     swaybar_command waybar
 }
 
 # Wallpaper
-output * bg ~/.wall/.wall fill
+output * bg ~/.wall/bg fill
 
-## Onedark
+## Sway colors
+# Onedark
 
 # class                 border  bground text    indicator
 client.focused          #abb2bf #abb2bf #1e2127 #abb2bf

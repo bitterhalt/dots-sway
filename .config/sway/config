@@ -1,24 +1,22 @@
 font pango: JetBrains Mono 10
 
-# disable_window_borders
+# Disable_window_borders
 default_border pixel 2
 default_floating_border pixel 0
 
-# set inner/outer gaps
+# Set inner/outer gaps
 gaps inner 5
 gaps outer 0
 
+# Defaults
 set $mod Mod4
 set $left h
 set $down j
 set $up k
 set $right l
-
-# Terminal
-
 set $term footclient
-#set $term foot
 set $menu $HOME/.local/bin/rofi_applauncher
+set $win-list $HOME/.local/bin/rofiwindow
 set $power-menu $HOME/.config/sway/scripts/rofi_powermenu
 
 ## Key bindings
@@ -28,11 +26,14 @@ bindsym $mod+Return exec $term
 
 # Kill focused window
 bindsym $mod++q kill
+# Change normal to inverse to use left mouse button for resizing and right
+# mouse button for dragging.
+floating_modifier $mod normal
 
 # Start your launcher
 bindsym $mod+d exec $menu
 bindsym $mod+Shift+p exec $power-menu
-floating_modifier $mod normal
+bindsym $mod+tab exec $win-list
 
 # Reload the configuration file
 bindsym $mod+Shift+c reload
@@ -133,7 +134,7 @@ bindsym $mod+control+shift+minus  gaps outer current minus 5
 
 
 # Shortcuts
-bindsym $mod+w exec --no-startup-id /usr/bin/librewolf
+bindsym $mod+w exec --no-startup-id /usr/bin/firefox
 bindsym $mod+e exec --no-startup-id /usr/bin/thunar
 bindsym $mod+m exec --no-startup-id thunderbird
 bindsym XF86Calculator  exec --no-startup-id galculator
@@ -146,11 +147,9 @@ bindsym $mod+t [app_id="scpterm"] scratchpad show
 bindsym $mod+r exec foot -e ranger
 bindsym $mod+shift+n exec footclient -e nvim Documents/.vimwiki/index.md
 bindsym $mod+c [app_id="discord"] scratchpad show
-
-
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec ~/.config/sway/scripts/volume.sh up
+bindsym XF86AudioLowerVolume exec ~/.config/sway/scripts/volume.sh down
+bindsym XF86AudioMute exec ~/.config/sway/scripts/volume.sh mute
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@
 bindsym $mod+Print exec ~/.local/bin/wayland-scripts/sway-shot -f
 bindsym $mod+Shift+Print exec ~/.local/bin/wayland-scripts/sway-shot -re
@@ -163,6 +162,7 @@ bindsym $mod+control+p exec ~/.local/bin/wayland-scripts/swaypick
 bindsym $mod+f7 exec ~/.config/sway/scripts/rofi_swayshot
 bindsym $mod+Shift+f7 exec ~/.local/bin/wayland-scripts/sway-record -k
 bindsym $mod+f11 exec ~/.config/sway/scripts/screenlocker
+bindsym $mod+Shift+f11 exec ~/.config/sway/scripts/swayidle-toggle.sh toggle
 
 
 ## Rules
@@ -184,6 +184,7 @@ assign [app_id="virt-manager"] 8
 # set floating 
 for_window [instance="origin.exe"] floating enable
 for_window [class="Xsane" instance="xsane"] floating enable
+for_window [class="Nsxiv"] floating enable, resize set width 60 ppt height 80 ppt
 for_window [app_id="imv"] floating enable
 for_window [app_id="nwg-look"] floating enable, resize set width 40 ppt height 50 ppt
 for_window [class="steam" instance="steam"] floating enable
@@ -212,6 +213,11 @@ for_window [title="About"] floating enable
 for_window [title="File Operation Progress"] floating enable, border pixel 1, resize set width 40 ppt height 30 ppt
 for_window [title="Save File"] floating enable
 for_window [title="Picture-in-Picture"] floating enable
+for_window [app_id="floatterm"] floating enable, resize set width 40 ppt height 60 ppt
+
+
+for_window [app_id="firefox"] inhibit_idle fullscreen
+for_window [app_id="mpv"] inhibit_idle fullscreen
 
 include /etc/sway/config.d/*
 include $HOME/.config/sway/config.d/*

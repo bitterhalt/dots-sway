@@ -1,5 +1,5 @@
 /* Colors */
-@define-color bg #14161b;
+@define-color bg #101419;
 @define-color bg2 #282c34;
 @define-color bg3 #535965;
 @define-color fg #abb2bf;
@@ -42,17 +42,19 @@ window#waybar.hidden {
     padding: 0 5px;
     color: @fg;
     background-color: @bg;
+    margin: 1px 0px;
 }
 
 
 #workspaces button.focused {
-    color: @fg;
-    background-color: @bg2;
+    color: @bg;
+    background-color: @purple;
+    margin: 1px 0px;
 }
 
 #workspaces button.urgent {
-    color: @bg;
-    background-color: @purple;
+    color: @fg;
+    background-color: @bg2;
 }
 
 #mode {
@@ -65,8 +67,8 @@ window#waybar.hidden {
 #memory,
 #network,
 #pulseaudio,
+#custom-swayidle,
 #mode,
-#clock,
 #scratchpad {
     padding: 0 6px;
 }
@@ -92,7 +94,7 @@ window#waybar.hidden {
 
 #clock {
     color: @purple;
-    margin: 3px 3px 3px 3px;
+    padding: 0 10px;
     border-radius: 0px;
 }
 
@@ -147,15 +149,19 @@ label:focus {
 #pulseaudio {
     color: @fg;
 }
+#custom-swayidle {
+    color: @bg;
+    background-color: @purple;
+    margin: 1 3px;
 
+}
 
 #pulseaudio.muted {
     color: @bg3;
-    }
+}
 
 #pulseaudio.mic {
   color: @fg;
-  padding-right: 10px;
 }
 
 #pulseaudio.mic.source-muted {
@@ -179,6 +185,8 @@ label:focus {
 #scratchpad {
     color: @fg;
     background-color: @bg2;
+    border-radius: 0px;
+    margin: 1px 0px;
 }
 
 #scratchpad.empty {
