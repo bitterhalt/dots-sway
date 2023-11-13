@@ -1,8 +1,8 @@
 #/bin/bash
-
+set -euo pipefail
 
 status() {
-    if wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -q "MUTED"; then
+    if pactl get-source-mute @DEFAULT_SOURCE@ | grep -Po '(?<=Mute: )(yes|no)'; then
         echo ""
     else
         echo ""
@@ -10,14 +10,13 @@ status() {
 }
 
 toggle () {
-wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
-if wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -q "MUTED"; then
+if pactl list sources | grep -q "Mute: yes"; then
     notify-send -a tiny_notify "  off"
 else
     notify-send -a tiny_notify  " on"
 fi
-pkill -RTMIN+6 waybar
 }
 
 
