@@ -1,7 +1,7 @@
 {
     // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
-     "height": 26, // Waybar height (to be removed for auto height)
+     "height": 28, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
 
     // Choose the order of the modules
@@ -18,7 +18,7 @@
         "format": "{icon} {count}",
         "show-empty": false,
         "format-icons": ["", "󰊠"],
-        "tooltip": true,
+        "tooltip": false,
         "tooltip-format": "{app}: {title}"
     },
 
@@ -27,7 +27,8 @@
         "spacing": 10
     },
     "clock": {
-        "format": "{:%a %d.%m %H:%M}",
+        "format": "{:%H:%M}",
+        "format-alt": "{:%a, %m.%d %H:%M}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
             "mode"          : "month",
@@ -50,6 +51,11 @@
         }
     },
 
+    "sway/window": {
+        "max-length": 80,
+        "tooltip": false
+
+    },
     "cpu": {
         "format": "CPU: {usage}%",
         "tooltip": false,

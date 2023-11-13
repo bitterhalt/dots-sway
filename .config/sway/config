@@ -155,6 +155,7 @@ bindsym $mod+Print exec ~/.local/bin/wayland-scripts/sway-shot -f
 bindsym $mod+Shift+Print exec ~/.local/bin/wayland-scripts/sway-shot -re
 bindsym $mod+F6 exec keepassxc
 bindsym $mod+F8 exec pavucontrol
+bindsym $mod+F9 exec ~/.config/waybar/custom/mic-toggle.sh toggle
 bindsym $mod+control+u exec ~/.local/bin/update-notify
 bindsym $mod+Shift+u exec foot -e ~/.local/bin/popupgrade
 bindsym $mod+F4 exec ~/.local/bin/rofi_kill_process
@@ -181,39 +182,38 @@ assign [app_id="discord"] 3
 assign [class="steam"] 5
 assign [app_id="virt-manager"] 8
 
-# set floating 
-for_window [instance="origin.exe"] floating enable
-for_window [class="Xsane" instance="xsane"] floating enable
-for_window [class="Nsxiv"] floating enable, resize set width 60 ppt height 80 ppt
-for_window [app_id="imv"] floating enable
-for_window [app_id="nwg-look"] floating enable, resize set width 40 ppt height 50 ppt
-for_window [class="steam" instance="steam"] floating enable
-for_window [app_id="pavucontrol" ] floating enable, resize set width 40 ppt height 50 ppt
-for_window [app_id="mpv"] floating enable
-for_window [class="qt5ct" instance="qt5ct"] floating enable, resize set width 60 ppt height 50 ppt
-for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
+# set floating
 for_window [app_id="(?i)(?:blueman-manager|azote|gnome-disks|nwg-shell-config)"] floating enable
 for_window [app_id="(?i)(?:pavucontrol|nm-connection-editor|gsimplecal|galculator)"] floating enable
-for_window [class="Lxappearance"] floating enable
-for_window [app_id="scpterm"] floating enable, move scratchpad, resize set 800 600
 for_window [app_id="floating_shell_portrait"] floating enable, border pixel 1, sticky enable, resize set width 30 ppt height 40 ppt
-for_window [app_id="virt-manager"] floating enable
-# set floating for window roles
-for_window [title="Choose User Profile"] floating enable
-for_window [window_role="GtkFileChooserDialog"] resize set 590 340
-for_window [window_role="GtkFiileChooserDialog"] move position center
-for_window [window_role="pop-up"] floating enable
-for_window [window_role="bubble"] floating enable
-for_window [window_role="task_dialog"] floating enable
-for_window [window_role="Preferences"] floating enable
-for_window [window_type="dialog"] floating enable
-for_window [window_role="dialog"] floating enable
-for_window [window_type="menu"] floating enable
-for_window [title="About"] floating enable
-for_window [title="File Operation Progress"] floating enable, border pixel 1, resize set width 40 ppt height 30 ppt
-for_window [title="Save File"] floating enable
-for_window [title="Picture-in-Picture"] floating enable
 for_window [app_id="floatterm"] floating enable, resize set width 40 ppt height 60 ppt
+for_window [app_id="imv"] floating enable
+for_window [app_id="mpv"] floating enable
+for_window [app_id="nwg-look"] floating enable, resize set width 40 ppt height 50 ppt
+for_window [app_id="pavucontrol" ] floating enable, resize set width 40 ppt height 50 ppt
+for_window [app_id="scpterm"] floating enable, move scratchpad, resize set 800 600
+for_window [app_id="virt-manager"] floating enable
+for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
+for_window [class="Lxappearance"] floating enable
+for_window [class="Nsxiv"] floating enable, resize set width 60 ppt height 80 ppt
+for_window [class="Xsane" instance="xsane"] floating enable
+for_window [class="qt5ct" instance="qt5ct"] floating enable, resize set width 60 ppt height 50 ppt
+for_window [class="steam" instance="steam"] floating enable
+for_window [instance="origin.exe"] floating enable
+for_window [title="About"] floating enable
+for_window [title="Choose User Profile"] floating enable
+for_window [title="File Operation Progress"] floating enable, border pixel 1, resize set width 40 ppt height 30 ppt
+for_window [title="Picture-in-Picture"] floating enable
+for_window [title="Save File"] floating enable
+for_window [window_role="GtkFiileChooserDialog"] move position center
+for_window [window_role="GtkFileChooserDialog"] resize set 590 340
+for_window [window_role="Preferences"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="dialog"] floating enable
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
 
 
 for_window [app_id="firefox"] inhibit_idle fullscreen

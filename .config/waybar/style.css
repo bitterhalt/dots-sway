@@ -10,7 +10,6 @@
 @define-color purple #bf68d9;
 @define-color cyan #48b0bd;
 
-
 /* Reset all styles */
 * {
     font-family: Jetbrains Mono, Symbols Nerd Font;
@@ -39,17 +38,16 @@ window#waybar.hidden {
 
 
 #workspaces button {
-    padding: 0 5px;
+    min-width: 20px;
     color: @fg;
     background-color: @bg;
-    margin: 1px 0px;
+    padding: 0 5px;
 }
 
 
 #workspaces button.focused {
-    color: @bg;
-    background-color: @purple;
-    margin: 1px 0px;
+    color: @fg;
+    background-color: @bg2;
 }
 
 #workspaces button.urgent {
@@ -67,29 +65,24 @@ window#waybar.hidden {
 #memory,
 #network,
 #pulseaudio,
+#pulseaudio#mic,
 #custom-swayidle,
-#mode,
-#scratchpad {
+#mode {
     padding: 0 6px;
 }
 
-#tray {
+
+#window {
+    color: @fg;
     padding: 0 10px;
 }
 
-#window,
-#workspaces {
-    margin: 0 5px;
-}
 
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
-}
-
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
 }
 
 #clock {
@@ -106,13 +99,6 @@ window#waybar.hidden {
     color: @fg;
 }
 
-@keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: #000000;
-    }
-}
-
 #battery.critical:not(.charging) {
     background-color: @red;
     color: @fg;
@@ -123,10 +109,6 @@ window#waybar.hidden {
     animation-direction: alternate;
 }
 
-label:focus {
-    background-color: @bg;
-}
-
 #cpu {
     color: @fg;
 }
@@ -134,7 +116,6 @@ label:focus {
 #memory {
     color: @fg;
 }
-
 
 #network {
     color: @fg;
@@ -145,15 +126,8 @@ label:focus {
     color: @red;
 }
 
-
 #pulseaudio {
     color: @fg;
-}
-#custom-swayidle {
-    color: @bg;
-    background-color: @purple;
-    margin: 1 3px;
-
 }
 
 #pulseaudio.muted {
@@ -164,12 +138,12 @@ label:focus {
   color: @fg;
 }
 
-#pulseaudio.mic.source-muted {
-  color: @bg3;
+#custom-swayidle {
+    color: @fg;
 }
 
-
 #tray {
+    padding-right: 10px;
 }
 
 #tray > .passive {
@@ -181,12 +155,9 @@ label:focus {
     background-color: @red;
 }
 
-
 #scratchpad {
     color: @fg;
-    background-color: @bg2;
-    border-radius: 0px;
-    margin: 1px 0px;
+    padding: 0 10px;
 }
 
 #scratchpad.empty {
