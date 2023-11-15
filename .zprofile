@@ -26,7 +26,7 @@ export XDG_SESSION_TYPE=wayland
 export QT_QPA_PLATFORM=wayland
 
 if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-  exec sway > ~/.sway.log 2>&1
+  exec sway > ~/.local/state/sway.log 2>&1
 fi
 
 
