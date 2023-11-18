@@ -2,6 +2,7 @@ configuration {
  modi:                       "drun,run";
     disable-history: false;
     sorting-method: "normal";
+    icon-theme: "Papirus";
 
 }
 

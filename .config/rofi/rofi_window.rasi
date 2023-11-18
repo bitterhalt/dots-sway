@@ -1,133 +1,111 @@
-*  {
-    font: "Jetbrains Mono 12";
-    selected-background: @active-background;
-    selected-urgent-background: @urgent-background;
-    selected-active-background: @active-background;
-    separatorcolor: @active-background;
-    bordercolor: @active-background;
+
+// Forked from: https://github.com/newmanls/dotfiles/tree/master/.config/rofi //
+* {
+  font: "JetBrains Mono Medium 10";
+  background-color : transparent;
+  text-color       : @fg0;
+  margin  : 0;
+  padding : 0;
+  spacing : 0;
 }
+@import                          "~/.config/rofi/themes/onedark.rasi"
 
-@import                          "~/.config/rofi/theme.rasi"
-
+element-icon, element-text, scrollbar {
+  cursor: pointer;
+}
 configuration {
     modi:                       "window";
     show-icons:      false;
     disable-history: false;
-    window-format: "{c} :: {t}";
+    window-format:              "{c} :: {t}";
+}
+window {
+  location : center;
+  width    : 600;
+
+  background-color : @bg1;
+  border: 1px solid;
+  border-color: @fg1;
 }
 
-#window {
-    background-color: @background-color;
-    border:           2;
-    border-radius:    0;
-    border-color:     @bordercolor;
-    padding:          15;
-    width:            800px;
+mainbox {
+  padding : 16px;
+  spacing : 16px;
 }
-#mainbox {
-    border:  0;
-    padding: 0;
+
+inputbar {
+  padding          : 8px;
+  spacing          : 4px;
+  background-color : @bg0;
+  children         : [ icon-search, entry ];
 }
-#message {
-    border:       0px;
-    border-color: @separatorcolor;
-    padding:      1px;
+
+icon-search,
+entry,
+element-icon,
+element-text {
+  vertical-align: 0.5;
 }
-#textbox {
-    text-color: @foreground;
+
+icon-search {
+  expand   : false;
+  filename : "search-symbolic";
+  size     : 16px;
 }
-#listview {
-    fixed-height: 0;
-    border:       0px;
-    border-color: @bordercolor;
-    spacing:      2px ;
-    scrollbar:    false;
-    padding:      2px 0px 0px ;
-    lines:           15;
+
+entry {
+  font              : "Inter 11";
+  placeholder       : "Type";
+  placeholder-color : @fg1;
 }
-#element {
-    border:  0;
-    padding: 3px ;
+
+textbox {
+  padding          : 4px 8px;
+  background-color : @bg2;
 }
-#element.normal.normal {
-    background-color: @background-color;
-    text-color:       @foreground;
+
+listview {
+  columns : 1;
+  lines   : 8;
+  spacing : 4px;
+  fixed-columns: true;
+  fixed-height: true;
+  scrollbar: true;
 }
-#element.normal.urgent {
-    background-color: @urgent-background;
-    text-color:       @urgent-foreground;
+
+scrollbar {
+  handle-width: 4px;
+  handle-color: @fg1;
 }
-#element.normal.active {
-    background-color: @active-background;
-    text-color:       @foreground;
+
+element {
+  orientation   : horizontal;
+  spacing       : 8px;
+  padding       : 8px;
 }
-#element.selected.normal {
-    background-color: @selected-background;
-    text-color:       @selected-foreground;
+
+element normal urgent {
+  text-color: @yellow;
 }
-#element.selected.urgent {
-    background-color: @selected-urgent-background;
-    text-color:       @foreground;
+
+element normal active {
+  text-color: @fg1;
 }
-#element.selected.active {
-    background-color: @selected-active-background;
-    text-color:       @background-color;
+
+element selected {
+  background-color: @bg2;
 }
-#element.alternate.normal {
-    background-color: @background-color;
-    text-color:       @foreground;
+
+element selected urgent {
+  background-color: @yellow;
 }
-#element.alternate.urgent {
-    background-color: @urgent-background;
-    text-color:       @foreground;
+
+element-icon {
+  size: 1.5em;
 }
-#element.alternate.active {
-    background-color: @active-background;
-    text-color:       @background-color;
+
+element-text {
+  text-color: inherit;
+  highlight: none;
 }
-#scrollbar {
-    width:        2px ;
-    border:       0;
-    handle-width: 8px ;
-    padding:      0;
-}
-#sidebar {
-    border:       2px dash 0px 0px ;
-    border-color: @separatorcolor;
-}
-#button.selected {
-    background-color: @selected-background;
-    text-color:       @foreground;
-}
-#inputbar {
-    spacing:    0;
-    text-color: @foreground;
-    padding:    1px ;
-}
-#case-indicator {
-    spacing:    0;
-    text-color: @foreground;
-}
-#entry {
-    spacing:    0;
-    text-color: @foreground;
-    placeholder:     "Type";
-    placeholder-color: @urgent-foreground;
-}
-#prompt {
-    spacing:    0;
-    text-color: @foreground;
-}
-#inputbar {
-    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
-}
-#textbox-prompt-colon {
-    expand:     false;
-    str:        ">";
-    margin:     0px 0.3em 0em 0em ;
-    text-color: @foreground;
-}
-element-text, element-icon {
-    background-color: inherit;
-    text-color: inherit;
-}
+
