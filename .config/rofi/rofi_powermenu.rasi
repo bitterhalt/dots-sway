@@ -1,6 +1,6 @@
 // Forked from: https://github.com/newmanls/dotfiles/tree/master/.config/rofi //
 * {
-  font: "JetBrains Mono Medium 13";
+  font: "JetBrains Mono 10";
   background-color : transparent;
   text-color       : @fg0;
   margin  : 0;
@@ -14,11 +14,10 @@ element-text {
 }
 configuration {
     show-icons:      false;
-    disable-history: false;
 }
 window {
   location : center;
-  width    : 400px;
+  width    : 300px;
 
   background-color : @bg1;
   border: 1px solid;
@@ -26,20 +25,20 @@ window {
 }
 
 mainbox {
-  padding : 16px;
-  spacing : 16px;
+  padding : 14px;
+  spacing : 14px;
 }
 
 inputbar {
   padding          : 8px;
   spacing          : 4px;
   background-color : @bg0;
-  children         : [entry ];
+  children         : [prompt ];
 }
 
-entry {
-  placeholder       : "Type";
-  placeholder-color : @fg1;
+#prompt {
+    spacing:    0;
+    text-color: @fg1;
 }
 
 textbox {

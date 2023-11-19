@@ -13,9 +13,6 @@ element-icon, element-text, scrollbar {
   cursor: pointer;
 }
 configuration {
-    modi:                       "drun,run";
-    show-icons:      true;
-    disable-history: false;
     window-format:              "{c} :: {t}";
 }
 window {
