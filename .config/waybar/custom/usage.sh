@@ -9,8 +9,9 @@ cpu () {
 }
 
 ram () {
-    notify-send -a fat_notify "RAM usage" "$(ps axch -o cmd,rss | awk '{printf "%-30s %s\n", $1, $2/1024}' | sort -k2 -n -r | head | awk '{printf "%-30s %s\n", $1, $2}')"
+    notify-send -a fat_notify "RAM usage" "$(ps axch -o cmd,rss | awk '{printf "%-30s %s\n", $1, $2/1024}'| sort -k2 -n -r | head | awk '{printf "%-30s %s\n", $1, $2}')"
 }
+
 case "$1" in
     "cpu")
         cpu

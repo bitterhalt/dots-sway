@@ -1,7 +1,7 @@
 # Defaults
 export EDITOR="nvim"
 export VISUAL="nvim"
-export TERM="footclient"
+export TERM="foot"
 export BROWSER="firefox"
 
 # PATH
