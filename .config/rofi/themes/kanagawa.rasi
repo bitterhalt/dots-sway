@@ -1,8 +1,0 @@
-* {
-    foreground: #dcd7ba;
-    background-color: #1f1f28;
-    active-background: #957fb8;
-    selected-foreground: #1f1f28;
-    urgent-background: #c34043;
-    urgent-foreground: #dcd7ba;
-}
