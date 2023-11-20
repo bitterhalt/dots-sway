@@ -34,18 +34,13 @@ inputbar {
   padding          : 8px;
   spacing          : 4px;
   background-color : @bg0;
-  children         : [entry ];
+  children         : [prompt, entry ];
 }
 
-entry {
-  placeholder       : "Type";
-  placeholder-color : @fg1;
+prompt {
+    text-color: @fg1;
 }
 
-textbox {
-  padding          : 4px 8px;
-  background-color : @bg2;
-}
 
 listview {
   columns : 1;

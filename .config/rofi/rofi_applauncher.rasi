@@ -14,7 +14,12 @@ element-icon, element-text, scrollbar {
 }
 configuration {
     window-format:              "{c} :: {t}";
-}
+    display-ssh:    "ssh:";
+    display-run:    "run:";
+    display-drun:   "drun:";
+    display-window: "window:";
+    display-combi:  "combi:";}
+
 window {
   location : center;
   width    : 480;
@@ -30,34 +35,19 @@ mainbox {
 }
 
 inputbar {
-  padding          : 8px;
+  padding          : 10px;
   spacing          : 4px;
   background-color : @bg0;
-  children         : [ icon-search, entry ];
+  children         : [ prompt, entry ];
 }
 
-icon-search,
 entry,
-element-icon,
 element-text {
   vertical-align: 0.5;
 }
 
-icon-search {
-  expand   : false;
-  filename : "search-symbolic";
-  size     : 16px;
-}
-
-entry {
-  font              : "Inter 11";
-  placeholder       : "Type";
-  placeholder-color : @fg1;
-}
-
-textbox {
-  padding          : 4px 8px;
-  background-color : @bg2;
+prompt {
+    text-color: @fg1;
 }
 
 listview {
@@ -66,7 +56,7 @@ listview {
   spacing : 4px;
   fixed-columns: true;
   fixed-height: true;
-  scrollbar: true;
+  scrollbar: false;
 }
 
 scrollbar {

@@ -17,7 +17,11 @@ set $right l
 set $term footclient
 set $menu $HOME/.local/bin/rofi_applauncher
 set $win-list $HOME/.local/bin/rofiwindow
-set $power-menu $HOME/.config/sway/scripts/rofi_powermenu
+
+## Power-menu
+# Uses https://github.com/jluttine/rofi-power-menu
+# Make sure that it is in your path!
+set $power-menu "rofi -show power-menu -no-symbols -modi power-menu:rofi_powermenu -theme .config/rofi/rofi_powermenu.rasi"
 
 ## Key bindings
 

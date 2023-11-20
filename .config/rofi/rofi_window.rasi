@@ -37,32 +37,17 @@ inputbar {
   padding          : 8px;
   spacing          : 4px;
   background-color : @bg0;
-  children         : [ icon-search, entry ];
-}
-
-icon-search,
-entry,
-element-icon,
-element-text {
-  vertical-align: 0.5;
-}
-
-icon-search {
-  expand   : false;
-  filename : "search-symbolic";
-  size     : 16px;
+  children         : [ prompt, entry ];
 }
 
 entry {
-  font              : "Inter 11";
-  placeholder       : "Type";
-  placeholder-color : @fg1;
+  vertical-align: 0.5;
 }
 
-textbox {
-  padding          : 4px 8px;
-  background-color : @bg2;
+prompt {
+    text-color: @fg1;
 }
+
 
 listview {
   columns : 1;
