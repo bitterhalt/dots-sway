@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+# https://gitlab.com/wef/dotfiles/-/blob/master/bin/sway-start
+
+[[ "$1" ]] && {
+    echo "Usage: $( basename "$0" ): start a sway session from a console tty"
+    exit 0
+}
+
+# Spit log
+LOGFILE=.swaylog
+exec 1> ~/.local/state/$LOGFILE 2>&1
+echo "sway Starting: $( date )"
+set -x
+
+## Defaults
+export EDITOR="nvim"
+export VISUAL="nvim"
+export TERM="foot"
+export BROWSER="firefox"
+
+# PATH
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin/wayland-scripts:$PATH"
+
+# XDG Base Directory
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+
+# ~/ Clean-up:
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export GOPATH="$XDG_DATA_HOME/go"
+
+## Wayland
+#
+# Make sure that Mozilla uses wayland
+export MOZ_ENABLE_WAYLAND=1
+
+# Run Qt applications with wayland plugin
+export QT_QPA_PLATFORM=wayland
+
+# I hink that these are not necesary in Arch but I leave them here
+# See: https://wiki.archlinux.org/title/Sway#Configuration
+
+export XDG_CURRENT_DESKTOP=sway
+export XDG_SESSION_DESKTOP=sway
+export XDG_SESSION_TYPE=wayland
+
+# to stop warnings like "dbind-WARNING **: ... Couldn't register with accessibility bus: Did not receive a reply."
+#export NO_AT_BRIDGE=1
+
+
+# Start sway
+exec sway
+
+
