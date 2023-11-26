@@ -7,7 +7,7 @@ This is purely hobby for me. I am not a developer or Linux expert. Everything he
 Please do not try to copy my entire setup, as it is very disorganized and specific to my needs. Instead, try copying bits and pieces as you put together your own system. 
 
 ## Details
-- Distro: [Arch Linux](https://archlinux.org/)
+- Distro: [EndeavourOS](https://endeavouros.com/)
  - WM: [Sway](https://github.com/swaywm/sway)
  - Bar: [Waybar](https://github.com/Alexays/Waybar)
 - Colorscheme is based: [onedark.nvim](https://github.com/navarasu/onedark.nvim) [onedark.vim](https://github.com/joshdick/onedark.vim)
