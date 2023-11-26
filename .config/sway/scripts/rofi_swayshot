@@ -33,7 +33,7 @@ main() {
     sway-shot -r
     ;;
    '  Screenshot Full+delay')
-    sway-shot -d
+    sway-shot -t
     ;;
   '  Stop Recording')
     sway-record -k
