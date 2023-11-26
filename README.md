@@ -1,9 +1,8 @@
 # Sway setup
 #####  Totally work in process. Still learning nature of Wayland so duck tape is used and things are messy
-![2023-10-29-19-12-08_screenshot](https://github.com/bitterhalt/wayland-dots/assets/95308907/9d7b3bf4-aeeb-4f89-ae6c-3646dab304ca)
+![2023-11-25-17-47-03_screenshot](https://github.com/bitterhalt/Sway-Dotfiles/assets/95308907/39e17dc4-a071-4453-87e5-a581aa040634)
 
-
-
+![output](https://github.com/bitterhalt/Sway-Dotfiles/assets/95308907/d07b543c-7908-4621-8454-44a2480ae36f)
 This is purely hobby for me. I am not a developer or Linux expert. Everything here changes sometimes and bugs may appear.
 Please do not try to copy my entire setup, as it is very disorganized and specific to my needs. Instead, try copying bits and pieces as you put together your own system. 
 
