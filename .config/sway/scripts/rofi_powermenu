@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-# This uses https://github.com/jluttine/rofi-power-menu script. Make sure that it is in your path
-
-rofi \
-  -show p \
-  -modi p:'rofi-power-menu --symbols-font "Symbols Nerd Font Mono"' \
-  -theme $HOME/.config/rofi/rofi_powermenu.rasi
-
