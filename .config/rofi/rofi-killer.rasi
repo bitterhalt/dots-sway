@@ -1,6 +1,7 @@
+
 // Forked from: https://github.com/newmanls/dotfiles/tree/master/.config/rofi //
 * {
-  font: "JetBrains Mono Medium 13";
+  font: "JetBrains Mono Medium 10";
   background-color : transparent;
   text-color       : @fg0;
   margin  : 0;
@@ -9,16 +10,15 @@
 }
 @import                          "~/.config/rofi/themes/onedark.rasi"
 
-element-text {
+element-icon, element-text, scrollbar {
   cursor: pointer;
 }
 configuration {
-    show-icons:      false;
-    disable-history: false;
+   show-icons:      false;
 }
 window {
   location : center;
-  width    : 400px;
+  width    : 480;
 
   background-color : @bg1;
   border: 1px solid;
@@ -34,22 +34,39 @@ inputbar {
   padding          : 8px;
   spacing          : 4px;
   background-color : @bg0;
-  children         : [prompt, entry ];
+  children         : [ prompt, entry ];
+}
+
+entry,
+element-text {
+  vertical-align: 0.5;
 }
 
 prompt {
     text-color: @fg1;
 }
 
+entry {
+  placeholder-color : @fg1;
+}
+
+textbox {
+  padding          : 4px 8px;
+  background-color : @bg2;
+}
 
 listview {
   columns : 1;
-  lines   : 6;
   spacing : 4px;
   fixed-columns: true;
   fixed-height: true;
+  scrollbar: true;
 }
 
+scrollbar {
+  handle-width: 4px;
+  handle-color: @fg1;
+}
 
 element {
   orientation   : horizontal;
@@ -73,8 +90,8 @@ element selected urgent {
   background-color: @yellow;
 }
 
+
 element-text {
   text-color: inherit;
   highlight: none;
 }
-
