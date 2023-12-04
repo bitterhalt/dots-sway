@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# https://github.com/bitterhalt
+set -e
+
+THEME="$HOME/.config/tofi/tofikiller"
+CONF="$HOME/.config/tofi/confirm"
+selected="$(ps -a -u $USER | \
+            tofi -c $THEME | \
+            awk '{print $1" "$4}')"
+
+if [[ ! -z $selected ]]; then
+    answer="$(echo -e "yes\nno" | \
+        tofi -c $CONF)"
+
+    if [[ $answer == "yes" ]]; then
+        selpid="$(awk '{print $1}' <<< $selected)"
+        kill -9 $selpid
+    fi
+fi
+
+exit 0
+

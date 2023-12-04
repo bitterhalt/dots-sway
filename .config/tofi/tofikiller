@@ -1,0 +1,42 @@
+font = JetBrains Mono
+font-size= 14
+text-cursor = true
+text-cursor-style = underscore
+text-cursor-color = #abb2bf
+text-cursor-thickness = 1
+corner-radius = 4
+outline-width = 0
+border-color = #535965
+border-width = 1
+background-color = #181B20
+text-color = #abb2bf
+selection-color = #101419
+selection-background = #C678DD
+selection-background-corner-radius = 4
+selection-background-padding = 2, 10
+#default-result-background = #282C34
+padding-top = 25
+padding-left = 25
+padding-bottom = 25
+result-spacing = 5
+prompt-text = "Kill! "
+hide-cursor = false
+width = 640
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

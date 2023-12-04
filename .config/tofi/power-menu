@@ -1,0 +1,23 @@
+font = JetBrains Mono
+font-size= 34
+hide-cursor = false
+
+border-color = #000A
+border-width = 0
+background-color = #000A
+text-color = #abb2bf
+selection-color = #101419
+selection-background = #C678DD
+selection-background-corner-radius = 8
+selection-background-padding = 4, 20
+#default-result-background = #282C34
+#default-result-background-corner-radius = 8
+#default-result-background-padding = 4, 20
+
+prompt-text = " "
+result-spacing = 15
+width = 100%
+height = 100%
+padding-left = 45%
+padding-top = 35%
+hide-input=false

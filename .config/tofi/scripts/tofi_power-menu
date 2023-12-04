@@ -1,0 +1,24 @@
+#!/bin/bash
+set -e
+
+case $(printf "%s\n" "Lock"  "Logout" "Suspend" "Reboot" "Shutdown" | tofi -c ~/.config/tofi/power-menu) in
+    "Shutdown")
+        systemctl poweroff
+        ;;
+    "Reboot")
+        systemctl reboot
+        ;;
+    "Suspend")
+        systemctl suspend
+        ;;
+    "Lock")
+        swaylock
+        ;;
+    "Logout")
+        if [[ "$DESKTOP_SESSION" == "hyprland" ]]; then
+            hyprctl dispatch exit 1
+        elif [[ "$DESKTOP_SESSION" == "sway" ]]; then
+            swaymsg exit
+        fi
+        ;;
+esac
