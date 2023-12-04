@@ -1,9 +1,5 @@
 font = JetBrains Mono
 font-size= 14
-text-cursor = true
-text-cursor-style = underscore
-text-cursor-color = #abb2bf
-text-cursor-thickness = 1
 corner-radius = 4
 outline-width = 0
 border-color = #535965
@@ -19,24 +15,6 @@ padding-top = 25
 padding-left = 25
 padding-bottom = 25
 result-spacing = 5
-prompt-text = "Kill! "
+prompt-text = "Kill"
 hide-cursor = false
 width = 640
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

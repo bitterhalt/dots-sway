@@ -1,6 +1,5 @@
 font = JetBrains Mono
 font-size= 34
-hide-cursor = false
 
 border-color = #000A
 border-width = 0
@@ -20,4 +19,5 @@ width = 100%
 height = 100%
 padding-left = 45%
 padding-top = 35%
-hide-input=false
+hide-input = false
+hide-cursor = true
