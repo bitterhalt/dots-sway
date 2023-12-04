@@ -18,7 +18,7 @@ set $term footclient
 set $rofi $HOME/.local/bin/rofi_applauncher
 set $tofi-drun  tofi-drun --drun-launch=true
 set $tofi-run tofi-run | xargs swaymsg exec --
-set $win-list $HOME/.local/bin/rofiwindow
+set $win-list $HOME/.config/tofi/scripts/tofi_window
 #set $power-menu "rofi -show power-menu -no-symbols -modi power-menu:rofi_powermenu -theme .config/rofi/rofi_powermenu.rasi"
 set $power-menu $HOME/.config/tofi/scripts/tofi_power-menu
 
@@ -172,6 +172,7 @@ bindsym $mod+m exec --no-startup-id thunderbird
 bindsym XF86Calculator  exec --no-startup-id galculator
 bindsym $mod+control+i exec --no-startup-id $HOME/.local/bin/sysnfo
 bindsym $mod+control+w exec --no-startup-id $HOME/.local/bin/weather-notify
+bindsym $mod+control+t exec --no-startup-id $HOME/.local/bin/date_notif
 bindsym $mod+control+c exec --no-startup-id $HOME/.local/bin/dunst-calendar
 bindsym $mod+Shift+t exec foot --app-id scpterm
 bindsym $mod+shift+r exec foot --app-id scpranger

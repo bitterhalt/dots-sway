@@ -38,12 +38,12 @@ group-by=app-name
 default-timeout=1500
 border-size=2
 
-[app-name=medium_notify]
-font=JetBrains Mono, Symbols Nerd Font 10
-height=300
+[app-name=small_notify]
+font=JetBrains Mono, Symbols Nerd Font 12
+width=200
 anchor=top-right
 group-by=app-name
-default-timeout=2000
+default-timeout=5000
 border-size=2
 
 [app-name=fat_notify]

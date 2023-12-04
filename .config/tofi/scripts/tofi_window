@@ -32,7 +32,12 @@ CON_ID=$(swaymsg -t get_tree | \
            id: .apps.id, app_id: .apps.app_id, name: .apps.name }
         | $FORMAT
         | tostring" | \
-    tofi --prompt-text="windows:")
+    tofi --text-cursor false \
+    --font-size 14 \
+    --prompt-text "" \
+    --padding-left 20 \
+    --width 640 \
+    --padding-right 20)
 
 # Requires the actual `id` to be at the end and between paretheses
 CON_ID=${CON_ID##*(}
