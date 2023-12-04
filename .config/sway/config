@@ -15,8 +15,12 @@ set $down j
 set $up k
 set $right l
 set $term footclient
-set $menu $HOME/.local/bin/rofi_applauncher
+set $rofi $HOME/.local/bin/rofi_applauncher
+set $tofi-drun  tofi-drun --drun-launch=true
+set $tofi-run tofi-run | xargs swaymsg exec --
 set $win-list $HOME/.local/bin/rofiwindow
+#set $power-menu "rofi -show power-menu -no-symbols -modi power-menu:rofi_powermenu -theme .config/rofi/rofi_powermenu.rasi"
+set $power-menu $HOME/.config/tofi/scripts/tofi_power-menu
 
 ## Output configuration
 output DP-1 res 2560x1440@75Hz
@@ -41,10 +45,6 @@ exec swayidle -w \
          timeout 3600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
          before-sleep 'swaylock -f -C ~/.config/swaylock/config'
 
-## Power-menu
-# Uses https://github.com/jluttine/rofi-power-menu
-# Make sure that it is in your path!
-set $power-menu "rofi -show power-menu -no-symbols -modi power-menu:rofi_powermenu -theme .config/rofi/rofi_powermenu.rasi"
 
 ## Key bindings
 
@@ -61,7 +61,9 @@ bindsym $mod+shift+b exec killall -SIGUSR1 waybar
 floating_modifier $mod normal
 
 # Start your launcher
-bindsym $mod+d exec $menu
+#bindsym $mod+d exec $tofi
+bindsym $mod+shift+d exec $tofi-run
+bindsym $mod+d exec $tofi-drun
 bindsym $mod+Shift+p exec $power-menu
 bindsym $mod+tab exec $win-list
 
@@ -188,7 +190,8 @@ bindsym $mod+F8 exec pavucontrol
 bindsym $mod+F9 exec ~/.config/waybar/custom/mic-toggle.sh toggle
 bindsym $mod+control+u exec ~/.local/bin/update-notify
 bindsym $mod+Shift+u exec foot -e ~/.local/bin/popupgrade
-bindsym $mod+F4 exec ~/.local/bin/rofi_kill_process
+#bindsym $mod+F4 exec ~/.local/bin/rofi_kill_process
+bindsym $mod+F4 exec ~/.config/tofi/scripts/tofi_kill-process
 bindsym $mod+control+p exec ~/.local/bin/wayland-scripts/swaypick
 bindsym $mod+f7 exec ~/.config/sway/scripts/rofi_swayshot
 bindsym $mod+Shift+f7 exec ~/.local/bin/wayland-scripts/sway-record -k

@@ -9,13 +9,13 @@ GPUTemp=$(sensors | grep 'edge:' | awk '{print $2}' )
 uptime=$(uptime -p | sed 's/up //')
 kernel=$(uname -r)
 notify-send -t 8000 "$(
-printf " Kernel: $kernel\n"
-free -m | awk 'NR==2{printf " MEM usage: %s/%sMB\n", $3,$2,$3*100/$2 }'
-top -bn1 | grep load | awk '{printf " CPU load: %.2f\n", $(NF-2)}'
-df -h / | awk 'FNR==2 { gsub(/[A-Za-z]/, ""); printf " Free: %i GiB \n", $4 }'
-printf " CPU Tctl: $CPUTemp\n"
-printf " CPU Tccd1: $CPUTemp2\n"
-printf " GPU temp: $GPUTemp\n"
-printf " $uptime"
+printf "Kernel: $kernel\n"
+free -m | awk 'NR==2{printf "Ram: %s/%sMB\n", $3,$2,$3*100/$2 }'
+top -bn1 | grep load | awk '{printf "Load: %.2f\n", $(NF-2)}'
+df -h / | awk 'FNR==2 { gsub(/[A-Za-z]/, ""); printf "Free: %i GiB \n", $4 }'
+printf "CPU Tctl: $CPUTemp\n"
+printf "CPU Tccd1: $CPUTemp2\n"
+printf "GPU temp: $GPUTemp\n"
+printf "Up:$uptime"
 )"
 

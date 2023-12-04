@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # https://github.com/bitterhalt
+set -e
 
 lines="-l 17"
 theme_path="~/.config/rofi/rofi-killer.rasi"

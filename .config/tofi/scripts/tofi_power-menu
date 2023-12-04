@@ -3,10 +3,16 @@ set -e
 
 case $(printf "%s\n" "Lock"  "Logout" "Suspend" "Reboot" "Shutdown" | tofi -c ~/.config/tofi/power-menu) in
     "Shutdown")
+        confirm=$(echo -e "Yes\nNo" | tofi -c $HOME/.config/tofi/confirm)
+        if [[ "$confirm" == "Yes" ]]; then
         systemctl poweroff
+        fi
         ;;
     "Reboot")
+        confirm=$(echo -e "Yes\nNo" | tofi -c $HOME/.config/tofi/confirm)
+        if [[ "$confirm" == "Yes" ]]; then
         systemctl reboot
+        fi
         ;;
     "Suspend")
         systemctl suspend
