@@ -11,6 +11,7 @@ border-color = #535965
 border-width = 1
 background-color = #181B20
 text-color = #abb2bf
+input-color =  #545862
 selection-color = #C678DD
 #selection-background = #C678DD
 #selection-background-corner-radius = 8
