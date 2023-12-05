@@ -19,7 +19,7 @@ Please do not try to copy my entire setup, as it is very disorganized and specif
  - Filemanager: [Ranger](https://github.com/ranger/ranger)
  - Launcher: [Rofi Wayland fork by lbonn](https://github.com/lbonn/rofi) [Tofi](https://github.com/philj56/tofi)
  - Image Viewer: [imv](https://sr.ht/~exec64/imv/)
- - Wallpaper tool: [Swaypaper](https://github.com/anufrievroman/waypaper)
+ - Wallpaper tool: [Waypaper](https://github.com/anufrievroman/waypaper)
 - Media Player: [mpv](https://mpv.io/)
 - Notification daemon: Mako
 
