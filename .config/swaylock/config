@@ -1,9 +1,11 @@
 # indicator
 # no-unlock-indicator
 # daemonize
+color=#101419
 indicator-caps-lock
 show-failed-attempts
-image=$HOME/.wall/bg
+#image=$HOME/.wall/bg
+image=$HOME/.wall/lock.png
 scaling=fill
 font=JetBrains Mono
 font-size=20
@@ -14,12 +16,12 @@ inside-clear-color=#E5C07B
 inside-ver-color=#61AFEF
 inside-wrong-color=#E06C75
 key-hl-color=#98C379
-line-color=#1E2127
+line-color=#535965
 line-clear-color=#000000
 line-caps-lock-color=#000000
 line-ver-color=#1E2127
 line-wrong-color=#1E2127
-ring-color=#61AFEF
+ring-color=#282C34
 ring-clear-color=#E5C07B
 ring-ver-color=#61AFEF
 ring-wrong-color=#E06C75

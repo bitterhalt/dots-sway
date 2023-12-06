@@ -15,36 +15,31 @@ FILENAME="$SAVEDIR/${TIMESTAMP}_screenshot.png"
 fullscreen() {
     grim "$FILENAME"
     notify-send "Screenshot" "File saved as $SAVEDIR" -i "$FILENAME"
-}
-
-fullscreen-edit() {
-    grim "$FILENAME"
-    swappy -f "$FILENAME"
-    notify-send "Screenshot" "File saved as $SAVEDIR" -i "$FILENAME"
+    wl-copy < "$FILENAME"
 }
 
 region() {
     grim -g "$(slurp)" "$FILENAME"
     notify-send "Screenshot" "File saved as $SAVEDIR" -i "$FILENAME"
+    wl-copy < "$FILENAME"
 }
 
 region-edit() {
-    grim -g "$(slurp)" "$FILENAME"
-    swappy -f "$FILENAME"
-    notify-send "Screenshot" "File saved as $SAVEDIR" -i "$FILENAME"
+    grim -g "$(slurp)"  - | swappy -f -
+    notify-send "Screenshot" "File saved as $SAVEDIR" 
 }
 
 timer() {
     sleep 3 
     grim "$FILENAME"
     notify-send "Screenshot" "File saved as $SAVEDIR" -i "$FILENAME"
+    wl-copy < "$FILENAME"
 }
 
 print_help() {
     echo "Usage: sway-shot [options]"
     echo "Options:"
     echo "  -f,  --fullscreen           Capture the fullscreen."
-    echo "  -fe, --fullscreen-edit      Capture fullscreen and edit output with swappy"
     echo "  -r,  --region               Select a region to capture."
     echo "  -re, --fullscreen-edit      Capture region and edit output with swappy"
     echo "  -t,  --timer                Capture fullscreen after a 3-second delay."
@@ -54,7 +49,6 @@ print_help() {
 while [[ $# -gt 0 ]]; do
     case "$1" in
         -f|--fullscreen) fullscreen;;
-        -fe|--fullscreen-edit) fullscreen-edit;;
         -r|--region) region;;
         -re|--region-edit) region-edit;;
         -t|--timer) timer;;
@@ -64,4 +58,3 @@ while [[ $# -gt 0 ]]; do
     shift
 done
 
-wl-copy < "$FILENAME"

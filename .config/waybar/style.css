@@ -145,14 +145,6 @@ window#waybar.hidden {
     padding: 0 6px;
 }
 
-#tray > .passive {
-    -gtk-icon-effect: dim;
-}
-
-#tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-    background-color: @red;
-}
 
 #scratchpad {
     color: @fg;
