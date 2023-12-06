@@ -5,7 +5,7 @@ color=#101419
 indicator-caps-lock
 show-failed-attempts
 #image=$HOME/.wall/bg
-image=$HOME/.wall/lock.png
+image=$HOME/.config/swaylock/lock.png
 scaling=fill
 font=JetBrains Mono
 font-size=20
@@ -21,7 +21,7 @@ line-clear-color=#000000
 line-caps-lock-color=#000000
 line-ver-color=#1E2127
 line-wrong-color=#1E2127
-ring-color=#282C34
+ring-color=#101419
 ring-clear-color=#E5C07B
 ring-ver-color=#61AFEF
 ring-wrong-color=#E06C75
