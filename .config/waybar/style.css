@@ -1,6 +1,6 @@
 /* Colors */
-@define-color bg #101419;
-@define-color bg2 #282c34;
+@define-color bg #14161B;
+@define-color bg2 #1f2329;
 @define-color bg3 #545862;
 @define-color fg #abb2bf;
 @define-color red #e55561;
@@ -84,11 +84,6 @@ window#waybar.hidden {
     }
 }
 
-#clock {
-    color: @purple;
-    padding: 0 10px;
-    border-radius: 0px;
-}
 
 #battery {
     color: @fg;
@@ -108,12 +103,24 @@ window#waybar.hidden {
     animation-direction: alternate;
 }
 
+#clock {
+    color: @purple;
+    padding: 0 10px;
+    border-radius: 0px;
+/*     background-color: @bg2;a */
+/*         margin: 3 3 3 3px; */
+}
+
 #cpu {
     color: @fg;
+/*     background-color: @bg2;a */
+/*         margin: 3 3 3 3px; */
 }
 
 #memory {
     color: @fg;
+/*     background-color: @bg2;a */
+/*         margin: 3 3 3 3px; */
 }
 
 #network {

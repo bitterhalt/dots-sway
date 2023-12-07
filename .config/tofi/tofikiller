@@ -16,6 +16,7 @@ padding-left = 25
 padding-bottom = 25
 result-spacing = 5
 prompt-text = "Kill"
+prompt-color = #545862
 prompt-padding = 5
 hide-cursor = false
 width = 640

@@ -1,5 +1,4 @@
 font pango: JetBrains Mono 10
-
 # Disable_window_borders
 default_border pixel 2
 default_floating_border pixel 2
@@ -195,7 +194,7 @@ bindsym $mod+Shift+u exec foot -e ~/.local/bin/popupgrade
 #bindsym $mod+F4 exec ~/.local/bin/rofi_kill_process
 bindsym $mod+F4 exec ~/.config/tofi/scripts/tofi_kill-process
 bindsym $mod+control+p exec ~/.local/bin/wayland-scripts/swaypick
-bindsym $mod+f7 exec ~/.config/tofi/scripts/rofi_swayshot
+bindsym $mod+f7 exec ~/.config/tofi/scripts/tofi_screenshot
 bindsym $mod+Shift+f7 exec ~/.local/bin/wayland-scripts/sway-record -k
 bindsym $mod+f11 exec ~/.config/sway/scripts/screenlocker
 bindsym $mod+Shift+f11 exec ~/.config/sway/scripts/swayidle-toggle.sh toggle
@@ -286,4 +285,4 @@ client.background       #abb2bf
 ## AUTO-START
 exec foot --server
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-
+exec wl-paste -t text --watch clipman store
