@@ -20,6 +20,7 @@ set $tofi-run tofi-run | xargs swaymsg exec --
 set $win-list $HOME/.config/tofi/scripts/tofi_window
 #set $power-menu "rofi -show power-menu -no-symbols -modi power-menu:rofi_powermenu -theme .config/rofi/rofi_powermenu.rasi"
 set $power-menu $HOME/.config/tofi/scripts/tofi_power-menu
+set $clipmenu $HOME/.config/tofi/scripts/tofi_cliphist
 
 ## Output configuration
 output DP-1 res 2560x1440@75Hz
@@ -65,6 +66,7 @@ bindsym $mod+shift+d exec $tofi-run
 bindsym $mod+d exec $tofi-drun
 bindsym $mod+Shift+p exec $power-menu
 bindsym $mod+tab exec $win-list
+bindsym $mod+F2 exec $clipmenu
 
 # Reload the configuration file
 bindsym $mod+Shift+c reload
@@ -285,4 +287,4 @@ client.background       #abb2bf
 ## AUTO-START
 exec foot --server
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec wl-paste -t text --watch clipman store
+exec wl-paste --watch cliphist store
