@@ -30,6 +30,7 @@ output DP-1 res 2560x1440@75Hz
 # Keyboard
 input type:keyboard {
     xkb_layout fi
+ xkb_variant ,nodeadkeys
 # xkb_options grp:rctrl_toggle
 }
 # Mouse
