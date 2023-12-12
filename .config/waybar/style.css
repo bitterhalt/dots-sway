@@ -1,5 +1,5 @@
 /* Colors */
-@define-color bg #14161B;
+@define-color bg #181B20;
 @define-color bg2 #1f2329;
 @define-color bg3 #545862;
 @define-color fg #abb2bf;
@@ -46,7 +46,7 @@ window#waybar.hidden {
 
 
 #workspaces button.focused {
-    color: @fg;
+    color: @purple;
     background-color: @bg2;
 }
 

@@ -23,15 +23,13 @@ set $power-menu $HOME/.config/tofi/scripts/tofi_power-menu
 set $clipmenu $HOME/.config/tofi/scripts/tofi_cliphist
 
 ## Output configuration
-output DP-1 res 2560x1440@75Hz
-
 # You can get the names of your outputs by running: swaymsg -t get_outputs
+output DP-1 res 2560x1440@75Hz
 
 # Keyboard
 input type:keyboard {
     xkb_layout fi
  xkb_variant ,nodeadkeys
-# xkb_options grp:rctrl_toggle
 }
 # Mouse
 input type:pointer {
@@ -57,20 +55,17 @@ bindsym $mod+q kill
 
 # Hide/show waybar
 bindsym $mod+shift+b exec killall -SIGUSR1 waybar
-# Change normal to inverse to use left mouse button for resizing and right
-# mouse button for dragging.
 floating_modifier $mod normal
 
 # Start your launcher
-#bindsym $mod+d exec $tofi
-bindsym $mod+shift+d exec $tofi-run
+bindsym $mod+p exec $tofi-run
 bindsym $mod+d exec $tofi-drun
 bindsym $mod+Shift+p exec $power-menu
 bindsym $mod+tab exec $win-list
-bindsym $mod+F2 exec $clipmenu
+bindsym $mod+Shift+c exec $clipmenu
 
 # Reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r reload
 
 # Exit sway (logs you out of your Wayland session)
 bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
@@ -178,7 +173,6 @@ bindsym $mod+control+w exec --no-startup-id $HOME/.local/bin/weather-notify
 bindsym $mod+control+t exec --no-startup-id $HOME/.local/bin/date_notif
 bindsym $mod+control+c exec --no-startup-id $HOME/.local/bin/dunst-calendar
 bindsym $mod+Shift+t exec foot --app-id scpterm
-bindsym $mod+shift+r exec foot --app-id scpranger
 bindsym $mod+t [app_id="scpterm"] scratchpad show
 bindsym $mod+r exec kitty -e ranger
 bindsym $mod+shift+n exec footclient -e nvim Documents/.vimwiki/index.md
@@ -266,17 +260,8 @@ include /etc/sway/config.d/*
 bar {
     swaybar_command waybar
 }
-## Wallpaper
 
-# With swaybg
-#output * bg ~/.wall/bg fill
-
-# With waypaper
-# https://github.com/anufrievroman/waypaper
-exec waypaper --restore
-
-
-## Sway colors
+## Colors
 # class                 border  bground text    indicator
 client.focused          #a0a8b7 #a0a8b7 #1e2127 #a0a8b7
 client.focused_inactive #282c34 #282c34 #ebdbb2 #282c34
@@ -285,7 +270,9 @@ client.placeholder      #000000 #0c0c0c #ebdbb2 #000000
 client.urgent           #000000 #eb4d4b #000000 #eb4d4b
 client.background       #abb2bf
 
-## AUTO-START
+## Auto start
 exec foot --server
+exec waypaper --restore
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec wl-paste --watch cliphist store
+#output * bg ~/.wall/bg fill
