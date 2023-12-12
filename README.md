@@ -1,11 +1,11 @@
 # Sway setup
-#####  Totally work in process. Still learning nature of Wayland so duck tape is used and things are messy. If you find missing scripts be free to ping me.. :D
+#####  Totally work in process. Still learning nature of Wayland so duck tape is used and things are messy. If you find missing parts ort scripts feel free to ping me... :D
 
 ### Shots
-![de](https://github.com/bitterhalt/Sway-Dotfiles/assets/95308907/aad111d0-ebc9-4afd-8930-736f18d392ff)
+![de](https://github.com/bitterhalt/Sway-Dotfiles/assets/95308907/c72a8e12-26ec-4404-8738-b78157ea36dd)
 
 ### Tofi
-![tofi](https://github.com/bitterhalt/Sway-Dotfiles/assets/95308907/7a0f3924-fef8-4994-9bb3-bef1713152ac)
+![tofi](https://github.com/bitterhalt/Sway-Dotfiles/assets/95308907/1d70efd8-7898-48af-ad55-69813f184767)
 
 This is purely hobby for me. I am not a developer or Linux expert. Everything here changes sometimes and bugs may appear.
 Please do not try to copy my entire setup, as it is very disorganized and specific to my needs. Instead, try copying bits and pieces as you put together your own system. 
