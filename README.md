@@ -1,8 +1,12 @@
 # Sway setup
-#####  Totally work in process. Still learning nature of Wayland so duck tape is used and things are messy
-![2023-11-25-17-47-03_screenshot](https://github.com/bitterhalt/Sway-Dotfiles/assets/95308907/39e17dc4-a071-4453-87e5-a581aa040634)
+#####  Totally work in process. Still learning nature of Wayland so duck tape is used and things are messy. If you find missing scripts be free to ping me.. :D
 
-![output](https://github.com/bitterhalt/Sway-Dotfiles/assets/95308907/d07b543c-7908-4621-8454-44a2480ae36f)
+### Shots
+![de](https://github.com/bitterhalt/Sway-Dotfiles/assets/95308907/aad111d0-ebc9-4afd-8930-736f18d392ff)
+
+### Tofi
+![tofi](https://github.com/bitterhalt/Sway-Dotfiles/assets/95308907/7a0f3924-fef8-4994-9bb3-bef1713152ac)
+
 This is purely hobby for me. I am not a developer or Linux expert. Everything here changes sometimes and bugs may appear.
 Please do not try to copy my entire setup, as it is very disorganized and specific to my needs. Instead, try copying bits and pieces as you put together your own system. 
 
@@ -17,7 +21,7 @@ Please do not try to copy my entire setup, as it is very disorganized and specif
  - Shell: [zsh](https://www.zsh.org/)
  - Editor: [neovim](https://neovim.io/)
  - Filemanager: [Ranger](https://github.com/ranger/ranger)
- - Launcher: [Rofi Wayland fork by lbonn](https://github.com/lbonn/rofi) [Tofi](https://github.com/philj56/tofi)
+ - Launcher: [Tofi](https://github.com/philj56/tofi) There is also Rofi but I prefer Tofi since it is more simple
  - Image Viewer: [imv](https://sr.ht/~exec64/imv/)
  - Wallpaper tool: [Waypaper](https://github.com/anufrievroman/waypaper)
 - Media Player: [mpv](https://mpv.io/)
