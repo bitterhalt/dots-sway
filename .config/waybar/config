@@ -7,7 +7,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad", ],
     "modules-center": ["sway/window"],
-    "modules-right": ["cpu", "memory", "network", "pulseaudio", "pulseaudio#mic", "custom/swayidle", "tray", "clock"],
+    "modules-right": ["cpu", "memory", "network", "pulseaudio", "pulseaudio#mic", "custom/swayidle", "tray", "clock", "custom/power"],
 
     // Modules configuration
      "sway/workspaces": {
@@ -101,28 +101,17 @@
     },
 
     "custom/swayidle": {
-    "interval": "once",
-    "format": "{}",
-    "exec": "~/.config/sway/scripts/swayidle-toggle.sh status",
-    "signal": 8,
-    "on-click": "~/.config/sway/scripts/swayidle-toggle.sh toggle",
+        "interval": "once",
+        "format": "{}",
+        "exec": "~/.config/sway/scripts/swayidle-toggle.sh status",
+        "signal": 8,
+        "on-click": "~/.config/sway/scripts/swayidle-toggle.sh toggle",
     },
-      // Separators
-  "custom/separator#dot": {
-    "format": "",
-    "interval": "once",
-    "tooltip": false
-  },
-  
-  "custom/separator#dot-line": {
-    "format": "",
-    "interval": "once",
-    "tooltip": false
-  },
-  
-  "custom/separator#line": {
-    "format": ":",
-    "interval": "once",
-    "tooltip": false
-  },
+
+    "custom/power": {
+        "interval": "once",
+        "format": "",
+        "tooltip": false,
+        "on-click": "~/.config/sway/scripts/swaypower"
+    },
 }
