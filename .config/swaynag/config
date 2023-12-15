@@ -6,11 +6,11 @@ layer=overlay
 [warning]
 background=#181B20
 border-bottom-size=1
-border-bottom=#a0a8b7
+border-bottom=#a0a8b8
 button-background=#BF68D9
 button-border-size=0
 button-gap=10
 button-text=#181B20
 dismiss-button=Cancel
 message-padding=5
-text=#E55561
+text=#ABB2BF
