@@ -29,7 +29,6 @@ output DP-1 res 2560x1440@75Hz
 # Keyboard
 input type:keyboard {
     xkb_layout fi
- xkb_variant ,nodeadkeys
 }
 # Mouse
 input type:pointer {

@@ -1,4 +1,4 @@
 #!/bin/bash
 set -e
 
-swaynag -t warning -m 'Power Menu Options' -b 'Logout' 'swaymsg exit' -b 'Suspend' 'swaymsg exec systemctl suspend' -b 'Shutdown' 'shutdown now'
+swaynag -t warning -m 'Power Menu Options' -b 'Logout' 'swaymsg exit' -b 'Suspend' 'swaymsg exec systemctl suspend' -b 'Shutdown' 'shutdown now' -b 'Reboot' 'reboot'

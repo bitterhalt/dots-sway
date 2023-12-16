@@ -147,10 +147,6 @@ window#waybar.hidden {
 #custom-swayidle {
     color: @fg;
 }
-#custom-power {
-    color: @bg3;
-    padding-right: 10px;
-}
 
 #tray {
     padding: 0 6px;
@@ -166,3 +162,7 @@ window#waybar.hidden {
 	background-color: transparent;
 }
 
+#custom-power {
+    color: @bg3;
+    padding-right: 10px;
+}
