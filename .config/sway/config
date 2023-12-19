@@ -123,7 +123,7 @@ bindsym $mod+v splitv
 
 # Switch the current container between different layout styles
 bindsym $mod+Shift+s layout stacking
-bindsym $mod+Shift+w layout tabbed
+bindsym $mod+Shift+t layout tabbed
 bindsym $mod+Shift+e layout toggle split
 
 # Make the current focus fullscreen
@@ -171,8 +171,6 @@ bindsym $mod+control+i exec --no-startup-id $HOME/.local/bin/sysnfo
 bindsym $mod+control+w exec --no-startup-id $HOME/.local/bin/weather-notify
 bindsym $mod+control+t exec --no-startup-id $HOME/.local/bin/date_notif
 bindsym $mod+control+c exec --no-startup-id $HOME/.local/bin/dunst-calendar
-bindsym $mod+Shift+t exec foot --app-id scpterm
-bindsym $mod+t [app_id="scpterm"] scratchpad show
 bindsym $mod+r exec kitty -e ranger
 bindsym $mod+shift+n exec footclient -e nvim Documents/.vimwiki/index.md
 bindsym $mod+c [app_id="discord"] scratchpad show
