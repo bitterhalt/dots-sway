@@ -2,15 +2,25 @@
 # https://github.com/bitterhalt
 set -e
 
-THEME="$HOME/.config/tofi/tofikiller"
-CONF="$HOME/.config/tofi/confirm"
 selected="$(ps -a -u $USER | \
-            tofi -c $THEME | \
-            awk '{print $1" "$4}')"
+    tofi  --text-cursor false \
+    --font-size 13 \
+    --prompt-text "Kill process:" \
+    --width 30% \
+    --height 45% \
+    --padding-bottom 20 \
+    --anchor center \
+    --corner-radius 0 \
+    --border-width 1  |
+    awk '{print $1" "$4}')"
 
 if [[ ! -z $selected ]]; then
-    answer="$(echo -e "yes\nno" | \
-        tofi -c $CONF)"
+    answer="$(echo -e "yes\nno" |
+        tofi --text-cursor false \
+        --prompt-text "Sure?" \
+        --width 10% \
+        --height  12% \
+        --font-size 20)"
 
     if [[ $answer == "yes" ]]; then
         selpid="$(awk '{print $1}' <<< $selected)"

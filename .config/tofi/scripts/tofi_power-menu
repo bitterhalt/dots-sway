@@ -1,30 +1,52 @@
 #!/bin/bash
 set -e
 
-case $(printf "%s\n" "Lock"  "Logout" "Suspend" "Reboot" "Shutdown" | tofi -c ~/.config/tofi/power-menu) in
-    "Shutdown")
-        confirm=$(echo -e "Yes\nNo" | tofi -c $HOME/.config/tofi/confirm)
-        if [[ "$confirm" == "Yes" ]]; then
+case $(printf "%s\n" "Lock"  "Logout" "Suspend" "Reboot" "Shutdown" | tofi --font-size 34 \
+    --border-width 0 \
+    --background-color 000A \
+    --selection-color 101419 \
+    --selection-background C678DD \
+    --selection-background-corner-radius 8 \
+    --selection-background-padding "4, 20" \
+    --prompt-text  " " \
+    --result-spacing  15 \
+    --width 100% \
+    --height  100% \
+    --padding-left  45% \
+    --padding-top  35% \
+    --hide-input  false \
+    --hide-cursor  true) in
+ "Shutdown")
+    confirm=$(echo -e "Yes\nNo" |  tofi --text-cursor false \
+        --prompt-text "Sure?" \
+        --width 10% \
+        --height  12% \
+        --font-size 20)
+    if [[ "$confirm" == "Yes" ]]; then
         systemctl poweroff
-        fi
-        ;;
-    "Reboot")
-        confirm=$(echo -e "Yes\nNo" | tofi -c $HOME/.config/tofi/confirm)
-        if [[ "$confirm" == "Yes" ]]; then
+    fi
+    ;;
+"Reboot")
+    confirm=$(echo -e "Yes\nNo" |  tofi --text-cursor false \
+        --prompt-text "Sure?" \
+        --width 10% \
+        --height  12% \
+        --font-size 20)
+    if [[ "$confirm" == "Yes" ]]; then
         systemctl reboot
-        fi
-        ;;
-    "Suspend")
-        systemctl suspend
-        ;;
-    "Lock")
-        swaylock
-        ;;
-    "Logout")
-        if [[ "$DESKTOP_SESSION" == "hyprland" ]]; then
-            hyprctl dispatch exit 1
-        elif [[ "$DESKTOP_SESSION" == "sway" ]]; then
-            swaymsg exit
-        fi
-        ;;
+    fi
+    ;;
+"Suspend")
+    systemctl suspend
+    ;;
+"Lock")
+    swaylock
+    ;;
+"Logout")
+    if [[ "$DESKTOP_SESSION" == "hyprland" ]]; then
+        hyprctl dispatch exit 1
+    elif [[ "$DESKTOP_SESSION" == "sway" ]]; then
+        swaymsg exit
+    fi
+    ;;
 esac
