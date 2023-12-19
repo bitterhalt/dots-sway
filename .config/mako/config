@@ -39,7 +39,7 @@ default-timeout=1500
 border-size=2
 
 [app-name=small_notify]
-font=JetBrains Mono, Symbols Nerd Font 12
+font=JetBrains Mono, Symbols Nerd Font 10
 width=200
 anchor=top-right
 group-by=app-name

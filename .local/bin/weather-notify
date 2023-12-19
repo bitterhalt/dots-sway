@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-notify-send -a medium_notify  "$(curl -s 'wttr.in/{oulu}?format=3')"
+notify-send -a small_notify  "$(curl -s 'wttr.in/{oulu}?format=3')"
 

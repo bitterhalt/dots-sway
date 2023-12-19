@@ -29,26 +29,8 @@
     "clock": {
         "format": "{:%H:%M}",
         "format-alt": "{:%a, %d.%m %H:%M}",
-        "tooltip-format": "<tt><small>{calendar}</small></tt>",
-        "calendar": {
-            "mode"          : "month",
-            "mode-mon-col"  : 3,
-            "on-scroll"     : 1,
-            "on-click-right": "mode",
-            "format": {
-                "months":     "<span color='#C678DD'><b>{}</b></span>",
-                "days":       "<span color='#C8CCD4'><b>{}</b></span>",
-                "weekdays":   "<span color='#ABB2BF'><b>{}</b></span>",
-                "today":      "<span color='#E06C75'><b>{}</b></span>"
-            }
-        },
-        "actions": {
-            "on-click-right": "mode",
-            "on-click-forward": "tz_up",
-            "on-click-backward": "tz_down",
-            "on-scroll-up": "shift_up",
-            "on-scroll-down": "shift_down"
-        }
+        "tooltip": false,
+        "on-click-right": "~/.local/bin/wayland-scripts/mako-calendar",
     },
 
     "sway/window": {
