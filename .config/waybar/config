@@ -31,6 +31,7 @@
         "format-alt": "{:%a, %d.%m %H:%M}",
         "tooltip": false,
         "on-click-right": "~/.local/bin/wayland-scripts/mako-calendar",
+        "on-click-middle": "foot -e calcurse",
     },
 
     "sway/window": {
