@@ -35,6 +35,7 @@ CON_ID=$(swaymsg -t get_tree | \
     tofi --text-cursor false \
     --font-size 13 \
     --prompt-text "" \
+    --placeholder-text "Window list:" \
     --padding-left 20 \
     --width 640 )
 

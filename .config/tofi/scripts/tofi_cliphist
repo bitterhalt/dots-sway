@@ -3,9 +3,10 @@
 set -e
 
 cliphist list | tofi  --text-cursor false \
-    --font-size 13 \
-    --prompt-text "Clipboard: " \
-    --width 30% \
+    --font-size 14 \
+    --prompt-text "" \
+    --placeholder-text "Clipboard:"\
+    --width 20% \
     --height 40% \
     --anchor center \
     --corner-radius 0 \

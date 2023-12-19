@@ -12,9 +12,12 @@ get_options() {
 main() {
 
     choice=$( (get_options) | tofi --width 410 \
-        --height 270 \
-        --prompt-text "Shot" \
-        --font-size 14)
+        --height 310 \
+        --padding-top 20 \
+        --result-spacing 8 \
+        --prompt-text "" \
+        --placeholder-text "Tofi screenhot:" \
+        --font-size 16)
 
   if [[ -z "${choice// /}" ]]; then
     exit 1

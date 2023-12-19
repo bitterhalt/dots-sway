@@ -1,5 +1,7 @@
 #!/bin/bash
+# https://github.com/bitterhalt
 set -e
+
 
 case $(printf "%s\n" "Lock"  "Logout" "Suspend" "Reboot" "Shutdown" | tofi --font-size 34 \
     --border-width 0 \
@@ -15,7 +17,7 @@ case $(printf "%s\n" "Lock"  "Logout" "Suspend" "Reboot" "Shutdown" | tofi --fon
     --padding-left  45% \
     --padding-top  35% \
     --hide-input  false \
-    --hide-cursor  true) in
+    --hide-cursor true) in
  "Shutdown")
     confirm=$(echo -e "Yes\nNo" |  tofi --text-cursor false \
         --prompt-text "Sure?" \
