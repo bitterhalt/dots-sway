@@ -38,6 +38,14 @@ group-by=app-name
 default-timeout=1500
 border-size=2
 
+[app-name=sysnfo_notify]
+font=JetBrains Mono, Symbols Nerd Font 10
+width=220
+anchor=top-right
+group-by=app-name
+default-timeout=8000
+border-size=2
+
 [app-name=fat_notify]
 font=JetBrains Mono 10
 height=800
@@ -51,7 +59,7 @@ font=JetBrains Mono, Symbols Nerd Font 12
 width=160
 anchor=top-right
 group-by=app-name
-default-timeout=8000
+default-timeout=4000
 border-size=2
 
 [app-name=cal_notify]
