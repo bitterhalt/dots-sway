@@ -8,7 +8,7 @@ CPUTemp2=$(sensors | grep 'Tccd1:' | awk '{print $2}' )
 GPUTemp=$(sensors | grep 'edge:' | awk '{print $2}' )
 upt="$(uptime --pretty | sed -e 's/up //g' -e 's/ days/d/g' -e 's/ day/d/g' -e 's/ hours/h/g' -e 's/ hour/h/g' -e 's/ minutes/m/g' -e 's/, / /g')"
 kernel=$(uname -r)
-notify-send -t 8000 "$(
+notify-send -a sysnfo_notify "$(
 printf "Kernel: $kernel\n"
 free -m | awk 'NR==2{printf "Ram: %s/%sMB\n", $3,$2,$3*100/$2 }'
 top -bn1 | grep load | awk '{printf "Load: %.2f\n", $(NF-2)}'
