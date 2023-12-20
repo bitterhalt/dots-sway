@@ -167,10 +167,10 @@ bindsym $mod+w exec --no-startup-id /usr/bin/firefox
 bindsym $mod+e exec --no-startup-id /usr/bin/thunar
 bindsym $mod+m exec --no-startup-id thunderbird
 bindsym XF86Calculator  exec --no-startup-id galculator
-bindsym $mod+control+i exec --no-startup-id $HOME/.local/bin/sysnfo
-bindsym $mod+control+w exec --no-startup-id $HOME/.local/bin/weather-notify
-bindsym $mod+control+t exec --no-startup-id $HOME/.local/bin/date_notif
-bindsym $mod+control+c exec --no-startup-id $HOME/.local/bin/wayland-scripts/mako-calendar
+bindsym $mod+control+i exec --no-startup-id $HOME/.config/sway/scripts/mako_sysnfo
+bindsym $mod+control+w exec --no-startup-id $HOME/.config/sway/scripts/mako_weather
+bindsym $mod+control+t exec --no-startup-id $HOME/.config/sway/scripts/mako_date
+bindsym $mod+control+c exec --no-startup-id $HOME/.config/sway/scripts/mako-calendar
 bindsym $mod+r exec kitty -e ranger
 bindsym $mod+shift+n exec footclient -e nvim Documents/.vimwiki/index.md
 bindsym $mod+c [app_id="discord"] scratchpad show
@@ -182,8 +182,8 @@ bindsym $mod+Print exec ~/.local/bin/wayland-scripts/sway-shot -f
 bindsym $mod+Shift+Print exec ~/.local/bin/wayland-scripts/sway-shot -re
 bindsym $mod+F6 exec keepassxc
 bindsym $mod+F8 exec pavucontrol
-bindsym $mod+F9 exec ~/.config/waybar/custom/mic-toggle.sh toggle
-bindsym $mod+control+u exec ~/.local/bin/update-notify
+bindsym $mod+F9 exec ~/.config/sway/scripts/mic-toggle.sh toggle
+bindsym $mod+control+u exec ~/.config/sway/scripts/mako_updates
 bindsym $mod+Shift+u exec foot -e ~/.local/bin/popupgrade
 #bindsym $mod+F4 exec ~/.local/bin/rofi_kill_process
 bindsym $mod+F4 exec ~/.config/tofi/scripts/tofi_kill-process

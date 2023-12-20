@@ -30,7 +30,7 @@ default-timeout=2000
 group-by=category
 
 
-[app-name=tiny_notify]
+[app-name=vol_notify]
 font=JetBrains Mono, Symbols Nerd Font 12
 width=90
 anchor=top-right
@@ -38,17 +38,25 @@ group-by=app-name
 default-timeout=1500
 border-size=2
 
-[app-name=small_notify]
-font=JetBrains Mono, Symbols Nerd Font 10
-width=200
-anchor=top-right
-group-by=app-name
-default-timeout=5000
-border-size=2
-
 [app-name=fat_notify]
 font=JetBrains Mono 10
 height=800
+anchor=top-right
+group-by=app-name
+default-timeout=8000
+border-size=2
+
+[app-name=date_notify]
+font=JetBrains Mono, Symbols Nerd Font 12
+width=160
+anchor=top-right
+group-by=app-name
+default-timeout=8000
+border-size=2
+
+[app-name=cal_notify]
+font=JetBrains Mono, Symbols Nerd Font 10
+width=200
 anchor=top-right
 group-by=app-name
 default-timeout=8000

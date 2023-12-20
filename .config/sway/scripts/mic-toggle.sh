@@ -13,9 +13,9 @@ toggle () {
 pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 if pactl list sources | grep -q "Mute: yes"; then
-    notify-send -a tiny_notify "  off"
+    notify-send -a vol_notify "  off"
 else
-    notify-send -a tiny_notify  " on"
+    notify-send -a vol_notify  " on"
 fi
 }
 

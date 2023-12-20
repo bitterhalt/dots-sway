@@ -32,6 +32,6 @@ else
 fi
 
 notify-send \
-    -a tiny_notify \
+    -a vol_notify \
     "${icon} ${volume}" \
     -h string:x-dunst-stack-tag:volume
