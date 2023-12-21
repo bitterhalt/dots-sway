@@ -45,6 +45,7 @@ anchor=top-right
 group-by=app-name
 default-timeout=1500
 border-size=2
+text-alignment=center
 
 [app-name=sysnfo_notify]
 font=JetBrains Mono, Symbols Nerd Font 10
@@ -77,6 +78,15 @@ anchor=top-right
 group-by=app-name
 default-timeout=8000
 border-size=2
+
+[app-name=weather_notify]
+font=JetBrains Mono, Symbols Nerd Font 12
+width=140
+anchor=top-right
+group-by=app-name
+default-timeout=8000
+border-size=2
+text-alignment=center
 
 [mode=dnd]
 invisible=1

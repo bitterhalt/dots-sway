@@ -1,4 +1,39 @@
 #!/usr/bin/env bash
+# https://github.com/endeavouros-team/endeavouros-i3wm-setup/blob/main/etc/skel/.config/i3/scripts/openweather-city
 
-notify-send -a small_notify  "$(curl -s 'wttr.in/{oulu}?format=3')"
+command -v jq >/dev/null 2>&1 || { echo >&2 "Program 'jq' required but it is not installed.
+Aborting."; exit 1; }
+command -v wget >/dev/null 2>&1 || { echo >&2 "Program 'wget' required but is not installed.
+Aborting."; exit 1; }
 
+# To use this script you need to create an API key here https://home.openweathermap.org
+APIKEY=`cat $HOME/credentials/open_weather_apikey`
+# find your City ID here: https://openweathermap.org/
+# search for your city and copy the ID from the URL inside the browser.
+CITY_ID="643492"
+URL="http://api.openweathermap.org/data/2.5/weather?id=${CITY_ID}&units=metric&APPID=${APIKEY}"
+
+WEATHER_RESPONSE=$(wget -qO- "${URL}")
+
+WEATHER_CONDITION=$(echo $WEATHER_RESPONSE | jq '.weather[0].main' | sed 's/"//g')
+WEATHER_TEMP=$(echo $WEATHER_RESPONSE | jq '.main.temp')
+
+case $WEATHER_CONDITION in
+  'Thunderstorm')
+    WEATHER_ICON=""
+    ;;
+  'Clouds')
+    WEATHER_ICON=""
+    ;;
+  'Rain')
+    WEATHER_ICON=""
+    ;;
+  'Snow')
+    WEATHER_ICON=""
+    ;;
+  *)
+    WEATHER_ICON=""
+    ;;
+esac
+
+notify-send -a weather_notify "${WEATHER_ICON}  ${WEATHER_TEMP}"
