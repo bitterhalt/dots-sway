@@ -1,0 +1,22 @@
+#!/bin/sh
+set -e
+
+# Dead simple emoji picker script for Sway and other wlroots based compositors
+# Copied from: https://github.com/LukeSmithxyz/voidrice/blob/master/.local/bin/dmenuunicode
+
+# MENU="rofi -dmenu -p type..."
+MENU="tofi"
+
+chosen=$(cut -d ';' -f1 ~/.local/share/emoji/emoji | $MENU | sed "s/ .*//")
+
+# Exit if none chosen.
+[ -z "$chosen" ] && exit
+
+# If you run this command with an argument, it will automatically insert the
+# character. Otherwise, show a message that the emoji has been copied.
+if [ -n "$1" ]; then
+	wl-copy "$chosen"
+else
+		printf "$chosen" | wl-copy
+		notify-send "$chosen Copied to clipboard!" &
+fi
