@@ -34,7 +34,7 @@ export GOPATH="$XDG_DATA_HOME/go"
 
 ## Wayland
 #
-# Make sure that Mozilla uses wayland
+# Make sure that Mozilla uses wayland (Not needed after Firefox 121.0-1)
 export MOZ_ENABLE_WAYLAND=1
 
 # Run Qt applications with wayland plugin

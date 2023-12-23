@@ -1,9 +1,0 @@
-configuration {
- modi:                       "drun,run";
-    show-icons: true;
-    disable-history: false;
-    sorting-method: "normal";
-    icon-theme: "Papirus";
-
-}
-@theme "~/.config/rofi/rofi_applauncher.rasi"

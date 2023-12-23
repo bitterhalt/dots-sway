@@ -162,7 +162,9 @@ bindsym $mod+control+shift+minus  gaps outer current minus 5
 
 
 # Shortcuts
-bindsym $mod+F1 exec --no-startup-id waypaper
+# Note: "no-startup-id" is useless on Sway and you can delete those if u are not lazy like me..
+bindsym $mod+F1 exec ~/.config/sway/scripts/keyhint.sh
+bindsym $mod+F2 exec --no-startup-id waypaper
 bindsym $mod+w exec --no-startup-id /usr/bin/firefox
 bindsym $mod+e exec --no-startup-id /usr/bin/thunar
 bindsym $mod+m exec --no-startup-id thunderbird
@@ -172,7 +174,7 @@ bindsym $mod+control+i exec --no-startup-id $HOME/.config/sway/scripts/mako_sysn
 bindsym $mod+control+p exec ~/.local/bin/wayland-scripts/swaypick
 bindsym $mod+control+t exec --no-startup-id $HOME/.config/sway/scripts/mako_date
 bindsym $mod+control+u exec ~/.config/sway/scripts/mako_updates
-bindsym $mod+control+w exec --no-startup-id $HOME/.config/sway/scripts/mako_weather
+bindsym $mod+control+w exec notify-send -a weather_notify  "$(curl -s 'wttr.in/{oulu}?format=1')"
 bindsym $mod+r exec kitty -e ranger
 bindsym $mod+shift+n exec footclient -e nvim Documents/.vimwiki/index.md
 bindsym $mod+c [app_id="discord"] scratchpad show
