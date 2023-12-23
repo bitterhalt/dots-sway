@@ -21,7 +21,7 @@ Please do not try to copy my entire setup, as it is very disorganized and specif
  - Shell: [zsh](https://www.zsh.org/)
  - Editor: [neovim](https://neovim.io/)
  - Filemanager: [Ranger](https://github.com/ranger/ranger)
- - Launcher: [Tofi](https://github.com/philj56/tofi) There is also Rofi but i prefer Tofi since it is more simple and feels faster
+ - Launcher: [Tofi](https://github.com/philj56/tofi)
  - Image Viewer: [imv](https://sr.ht/~exec64/imv/)
  - Wallpaper tool: [Waypaper](https://github.com/anufrievroman/waypaper)
 - Media Player: [mpv](https://mpv.io/)
