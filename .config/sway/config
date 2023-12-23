@@ -25,7 +25,7 @@ set $clipmenu $HOME/.config/tofi/scripts/tofi_cliphist
 ## Output configuration
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 output DP-1 res 2560x1440@75Hz
-
+output * bg ~/.wall/bg fill
 # Keyboard
 input type:keyboard {
     xkb_layout fi
@@ -164,7 +164,6 @@ bindsym $mod+control+shift+minus  gaps outer current minus 5
 # Shortcuts
 # Note: "no-startup-id" is useless on Sway and you can delete those if u are not lazy like me..
 bindsym $mod+F1 exec ~/.config/sway/scripts/keyhint.sh
-bindsym $mod+F2 exec --no-startup-id waypaper
 bindsym $mod+w exec --no-startup-id /usr/bin/firefox
 bindsym $mod+e exec --no-startup-id /usr/bin/thunar
 bindsym $mod+m exec --no-startup-id thunderbird
@@ -271,7 +270,6 @@ client.background       #E55561
 
 ## Auto start
 exec foot --server
-exec waypaper --restore
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec wl-paste --watch cliphist store
-#output * bg ~/.wall/bg fill
+
