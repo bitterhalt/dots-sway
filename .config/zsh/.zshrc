@@ -33,9 +33,9 @@ bindkey "^F" history-incremental-pattern-search-forward
 bindkey '^x' autosuggest-toggle
 
 # Load aliases and functions if existent.
-[ -f "$HOME/.config/zsh/aliases.zsh" ] && source "$HOME/.config/zsh/aliases.zsh"
-[ -f "$HOME/.config/zsh/functions.zsh" ] && source "$HOME/.config/zsh/functions.zsh"
-[ -f "$HOME/.config/zsh/git_prompt.zsh" ] && source "$HOME/.config/zsh/git_prompt.zsh"
+[ -f "$HOME/.config/zsh/aliases" ] && source "$HOME/.config/zsh/aliases"
+[ -f "$HOME/.config/zsh/functions" ] && source "$HOME/.config/zsh/functions"
+[ -f "$HOME/.config/zsh/git_prompt" ] && source "$HOME/.config/zsh/git_prompt"
 
 # Plugin list; put syntax-highlighting last!
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
