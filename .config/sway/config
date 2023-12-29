@@ -261,12 +261,12 @@ bar {
 
 ## Colors
 # class                 border  bground text    indicator
-client.focused          #a0a8b7 #a0a8b7 #1e2127 #a0a8b7
-client.focused_inactive #1f2329 #1f2329 #ebdbb2 #1f2329
-client.unfocused        #1f2329 #1f2329 #ebdbb2 #1f2329
-client.placeholder      #000000 #0c0c0c #ebdbb2 #000000
+client.focused          #a0a8b7 #a0a8b7 #181B20 #a0a8b7
+client.focused_inactive #282C34 #181B20 #ABB2BF #181B20
+client.unfocused        #282C34 #1f2329 #ABB2BF #1f2329
+client.placeholder      #000000 #0c0c0c #ABB2BF #000000
 client.urgent           #000000 #eb4d4b #000000 #eb4d4b
-client.background       #E55561
+client.background       #ffffff
 
 ## Auto start
 exec foot --server
