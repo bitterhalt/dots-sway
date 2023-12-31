@@ -2,7 +2,8 @@
 ##### Still learning nature of Wayland so things are bit messy. If you find missing parts or scripts feel free to ping me.
 
 ### Shots
-![de](https://github.com/bitterhalt/Sway-Dotfiles/assets/95308907/c72a8e12-26ec-4404-8738-b78157ea36dd)
+
+![de](https://github.com/bitterhalt/Sway-Dotfiles/assets/95308907/80ac346d-3354-4834-8ea2-97678b914ee1)
 
 ### Tofi
 ![tofi](https://github.com/bitterhalt/Sway-Dotfiles/assets/95308907/1d70efd8-7898-48af-ad55-69813f184767)
