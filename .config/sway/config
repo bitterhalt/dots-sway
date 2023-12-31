@@ -16,6 +16,7 @@ set $right l
 set $term footclient
 set $rofi $HOME/.local/bin/rofi_applauncher
 set $tofi-drun  tofi-drun --drun-launch=true
+set $tofi-full tofi-drun --drun-launch=true -c ~/.config/tofi/fullscreen
 set $tofi-run tofi-run | xargs swaymsg exec --
 set $win-list $HOME/.config/tofi/scripts/tofi_window
 #set $power-menu "rofi -show power-menu -no-symbols -modi power-menu:rofi_powermenu -theme .config/rofi/rofi_powermenu.rasi"
@@ -59,6 +60,7 @@ floating_modifier $mod normal
 # Start your launcher
 bindsym $mod+p exec $tofi-run
 bindsym $mod+d exec $tofi-drun
+bindsym $mod+Shift+d exec $tofi-full
 bindsym $mod+Shift+p exec $power-menu
 bindsym $mod+tab exec $win-list
 bindsym $mod+Shift+c exec $clipmenu
@@ -173,7 +175,7 @@ bindsym $mod+control+i exec --no-startup-id $HOME/.config/sway/scripts/mako_sysn
 bindsym $mod+control+p exec ~/.local/bin/wayland-scripts/swaypick
 bindsym $mod+control+t exec --no-startup-id $HOME/.config/sway/scripts/mako_date
 bindsym $mod+control+u exec ~/.config/sway/scripts/mako_updates
-bindsym $mod+control+w exec notify-send -a weather_notify  "$(curl -s 'wttr.in/{oulu}?format=1')"
+bindsym $mod+control+w exec ~/.local/bin/weather_notify
 bindsym $mod+r exec kitty -e ranger
 bindsym $mod+shift+n exec footclient -e nvim Documents/.vimwiki/index.md
 bindsym $mod+c [app_id="discord"] scratchpad show

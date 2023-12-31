@@ -103,29 +103,24 @@ window#waybar.hidden {
     animation-direction: alternate;
 }
 
-#clock {
-    color: @purple;
-    padding: 0 10px;
-    border-radius: 0px;
-/*     background-color: @bg2;a */
-/*         margin: 3 3 3 3px; */
+#custom-arch {
+    color: @fg;
+    padding-right: 6px;
+    padding-left: 10px;
+    /*    font-size: 16px;*/
 }
 
 #cpu {
     color: @fg;
-/*     background-color: @bg2;a */
-/*         margin: 3 3 3 3px; */
 }
 
 #memory {
     color: @fg;
-/*     background-color: @bg2;a */
-/*         margin: 3 3 3 3px; */
 }
 
 #network {
     color: @fg;
-    padding-left: 10px;
+    padding-left: 15px;
 }
 
 #network.disconnected {
@@ -148,21 +143,33 @@ window#waybar.hidden {
     color: @fg;
 }
 
-#tray {
-    padding: 0 6px;
-}
-
-
 #scratchpad {
     color: @fg;
     padding: 0 10px;
 }
 
 #scratchpad.empty {
-	background-color: transparent;
+    background-color: transparent;
+}
+
+#tray {
+    padding-left: 6px;
+}
+
+#clock {
+    color: @purple;
+    padding: 0 15px;
+    font-size: 16px;
 }
 
 #custom-power {
     color: @bg3;
     padding-right: 10px;
 }
+
+#custom-sep,
+#custom-sep2,
+#custom-sep3 {
+    color: @bg3;
+}
+

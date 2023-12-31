@@ -12,9 +12,9 @@ status() {
 toggle() {
 if  pgrep swayidle >/dev/null; then
     pkill swayidle
-    notify-send -i ~/.local/share/icons/feather/coffee.svg "Swayidle Disabled"
+    notify-send -a idle_notify " Swayidle disabled" -h string:x-dunst-stack-tag:volume
 else
-    notify-send -i ~/.local/share/icons/feather/lock.svg "Swayidle Enabled"
+    notify-send -a idle_notify " Swayidle enabled" -h string:x-dunst-stack-tag:volume
     swayidle -w \
     timeout 1800 'swaylock -f -C ~/.config/swaylock/config' \
     timeout 3600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \

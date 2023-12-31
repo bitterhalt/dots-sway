@@ -39,12 +39,12 @@ group-by=category
 ## Custom notification rules ##
 ###############################
 [app-name=vol_notify]
-font=JetBrains Mono, Symbols Nerd Font 12
-width=90
+font=JetBrains Mono, Symbols Nerd Font 14
+width=95
 anchor=top-right
 group-by=app-name
 default-timeout=1500
-border-size=2
+border-size=1
 text-alignment=center
 
 [app-name=sysnfo_notify]
@@ -70,6 +70,7 @@ anchor=top-right
 group-by=app-name
 default-timeout=4000
 border-size=2
+text-alignment=center
 
 [app-name=cal_notify]
 font=JetBrains Mono, Symbols Nerd Font 10
@@ -81,7 +82,16 @@ border-size=2
 
 [app-name=weather_notify]
 font=JetBrains Mono, Symbols Nerd Font 12
-width=140
+width=360
+anchor=top-right
+group-by=app-name
+default-timeout=8000
+border-size=2
+
+
+[app-name=idle_notify]
+font=JetBrains Mono, Symbols Nerd Font 12
+width=260
 anchor=top-right
 group-by=app-name
 default-timeout=8000
@@ -90,3 +100,4 @@ text-alignment=center
 
 [mode=dnd]
 invisible=1
+
