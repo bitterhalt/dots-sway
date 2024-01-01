@@ -1,0 +1,19 @@
+#!/bin/bash
+
+command -v jq >/dev/null 2>&1 || { echo >&2 "Program 'jq' required but it is not installed. Aborting."; exit 1; }
+command -v wget >/dev/null 2>&1 || { echo >&2 "Program 'wget' required but is not installed. Aborting."; exit 1; }
+
+APIKEY=$(cat "$HOME/credentials/open_weather_apikey")
+CITY_ID="643492"
+URL="http://api.openweathermap.org/data/2.5/weather?id=${CITY_ID}&units=metric&APPID=${APIKEY}"
+
+if wget -q --spider "$URL"; then
+    WEATHER_RESPONSE=$(wget -qO- "${URL}")
+
+    WEATHER_TEMP=$(echo "$WEATHER_RESPONSE" | jq '.main.temp' | cut -d "." -f 1)
+
+
+    echo "$WEATHER_TEMP°C"
+else
+    exit 1
+    fi
