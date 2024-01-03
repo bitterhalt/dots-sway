@@ -16,9 +16,13 @@
     font-size: 14px;
     border-radius: 0;
     border: none;
+    box-shadow: none;
 }
 tooltip {
+  color: @fg;
   background: @bg;
+  border: solid 2px #282c34;
+  border-radius: 4px;
 }
 
 window#waybar {
@@ -83,7 +87,6 @@ window#waybar.hidden {
         color: #000000;
     }
 }
-
 
 #battery {
     color: @fg;
@@ -156,9 +159,14 @@ window#waybar.hidden {
     padding-left: 6px;
 }
 
+#custom-weather {
+    color: @fg;
+    padding-left: 15px;
+}
+
 #clock {
     color: @purple;
-    padding: 0 20px;
+    padding: 0 15px;
     font-size: 16px;
 }
 

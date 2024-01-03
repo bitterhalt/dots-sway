@@ -7,7 +7,7 @@
     // Choose the order of the modules
     "modules-left": ["custom/arch","sway/workspaces", "sway/mode", "sway/scratchpad", ],
     "modules-center": ["sway/window"],
-    "modules-right": ["cpu", "custom/sep", "memory", "network", "pulseaudio", "pulseaudio#mic", "custom/swayidle", "tray", "clock", "custom/power"],
+    "modules-right": ["cpu", "custom/sep", "memory", "network", "pulseaudio", "pulseaudio#mic", "custom/swayidle", "tray","custom/weather", "clock", "custom/power"],
 
     // Modules configuration
      "sway/workspaces": {
@@ -135,6 +135,13 @@
         "tooltip": false,
         "on-click": "tofi-drun --drun-launch=true -c ~/.config/tofi/fullscreen",
         "on-click-right": "~/.config/sway/scripts/mako_sysnfo"
+        },
+
+        "custom/weather": {
+        "interval": "3600",
+        "format": "{}",
+        "exec": "~/.config/sway/scripts/weather",
+        "on-click": "~/.local/bin/weather_notify"
         },
 
 }

@@ -53,6 +53,3 @@ map("n", "<C-p>", "<cmd>MarkdownPreviewToggle<CR>")
 
 -- replace word
 map("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-
--- toggle colors
-map("n", "<C-c>", "<cmd>ColorizerToggle<CR>")

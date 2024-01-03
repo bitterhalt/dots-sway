@@ -226,6 +226,7 @@ for_window [app_id="pavucontrol" ] floating enable, resize set width 40 ppt heig
 for_window [app_id="scpterm"] floating enable, move scratchpad, resize set 800 600
 for_window [app_id="virt-manager"] floating enable
 for_window [app_id="file-roller"] floating enable
+for_window [app_id="missioncenter"] floating enable
 for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="Nsxiv"] floating enable, resize set width 60 ppt height 80 ppt
