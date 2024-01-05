@@ -1,20 +1,26 @@
+# general
+prompt-text = " "
+hide-cursor = false
+history     = false
+
+# font
 font = JetBrains Mono
 font-size= 14
-outline-width = 0
-border-color = #535965
+
+# style
 border-width = 1
-background-color = #181B20
-text-color = #abb2bf
-selection-color = #C678DD
-#selection-background = #C678DD
-#selection-background-padding = 0, 10
-#default-result-background = #282C34
-padding-top = 20
-padding-left = 30
-result-spacing = 5
-#prompt-text = "Run:"
-prompt-text = " "
-prompt-padding = 5
-hide-cursor = false
-width = 450
 height = 540
+outline-width = 0
+padding-left = 30
+padding-top = 20
+prompt-padding = 5
+result-spacing = 5
+width = 450
+
+# color
+#default-result-background = #282C34
+#selection-background = #C678DD
+background-color = #181B20 
+border-color = #535965
+selection-color = #C678DD
+text-color = #abb2bf

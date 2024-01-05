@@ -14,13 +14,10 @@ selected="$(ps -a -u $USER | \
     --border-width 1  |
     awk '{print $1" "$4}')"
 
+# confirm window
 if [[ ! -z $selected ]]; then
     answer="$(echo -e "yes\nno" |
-        tofi --text-cursor false \
-        --prompt-text "Sure?" \
-        --width 10% \
-        --height  12% \
-        --font-size 20)"
+        tofi -c ~/.config/tofi/confirm)"
 
     if [[ $answer == "yes" ]]; then
         selpid="$(awk '{print $1}' <<< $selected)"

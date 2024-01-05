@@ -20,20 +20,30 @@ case $(printf "%s\n" "Lock"  "Logout" "Suspend" "Reboot" "Shutdown" | tofi --fon
     --hide-cursor true) in
  "Shutdown")
     confirm=$(echo -e "Yes\nNo" |  tofi --text-cursor false \
+        --border-width 0 \
+        --font-size 34 \
         --prompt-text "Sure?" \
-        --width 10% \
-        --height  12% \
-        --font-size 20)
+        --width 100% \
+        --background-color 000A \
+        --height  100% \
+        --padding-left  45% \
+        --hide-cursor true \
+        --padding-top  35%)
     if [[ "$confirm" == "Yes" ]]; then
         systemctl poweroff
     fi
     ;;
 "Reboot")
     confirm=$(echo -e "Yes\nNo" |  tofi --text-cursor false \
+        --border-width 0 \
+        --font-size 34 \
         --prompt-text "Sure?" \
-        --width 10% \
-        --height  12% \
-        --font-size 20)
+        --width 100% \
+        --background-color 000A \
+        --height  100% \
+        --padding-left  45% \
+        --hide-cursor true \
+        --padding-top  35%)
     if [[ "$confirm" == "Yes" ]]; then
         systemctl reboot
     fi

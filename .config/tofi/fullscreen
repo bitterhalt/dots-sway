@@ -1,16 +1,23 @@
+# general
+prompt-text = " "
+hide-cursor = true
+
+# font
 font = JetBrains Mono
 font-size= 24
-outline-width = 0
+
+# style
 border-width = 0
+height = 100%
+num-results = 25
+outline-width = 0
+padding-left = 40%
+padding-top = 10%
+prompt-padding = 5
+result-spacing = 5
+width = 100%
+
+# color
 background-color = #000B
 text-color = #abb2bf
 selection-color = #C678DD
-padding-top = 10%
-padding-left = 40%
-result-spacing = 5
-prompt-text = " "
-prompt-padding = 5
-hide-cursor = true
-width = 100%
-height = 100%
-num-results = 25
