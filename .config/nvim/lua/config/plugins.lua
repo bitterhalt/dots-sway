@@ -33,7 +33,7 @@ vim.cmd([[
 return packer.startup(function(use)
     use('goolord/alpha-nvim')
     use {
-        'norcalli/nvim-colorizer.lua',
+        'NvChad/nvim-colorizer.lua',
         config = function() require('colorizer').setup() end
     }
     use('moll/vim-bbye')
