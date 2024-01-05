@@ -7,7 +7,7 @@
     // Choose the order of the modules
     "modules-left": ["custom/arch","sway/workspaces", "sway/mode", "sway/scratchpad", ],
     "modules-center": ["sway/window"],
-    "modules-right": ["cpu", "custom/sep", "memory", "network", "pulseaudio", "pulseaudio#mic", "custom/swayidle", "tray","custom/weather", "clock", "custom/power"],
+    "modules-right": ["cpu", "memory", "network", "pulseaudio", "pulseaudio#mic", "custom/swayidle", "tray","custom/weather", "clock", "custom/power"],
 
     // Modules configuration
      "sway/workspaces": {
@@ -101,7 +101,7 @@
         "tooltip": true,
         "tooltip-format": "* Click right to show calcurse\n* Click left to show calendar\n* Click middle to show weather",
         "on-click": "~/.config/sway/scripts/mako_calendar",
-        "on-click-right": "foot -e calcurse",
+        "on-click-right": "$BROWSER https://calendar.proton.me/u/0/month",
         "on-click-middle": "~/.local/bin/weather_notify"
     },
 
