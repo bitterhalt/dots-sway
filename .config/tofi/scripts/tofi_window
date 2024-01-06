@@ -36,8 +36,8 @@ CON_ID=$(swaymsg -t get_tree | \
     --font-size 12 \
     --prompt-text "" \
     --placeholder-text "Window list:" \
-    --placeholder-color 535965 \
     --padding-left 20 \
+    --placeholder-color 535965 \
     --width 40% )
 
 # Requires the actual `id` to be at the end and between paretheses

@@ -21,7 +21,7 @@ set $tofi-run tofi-run | xargs swaymsg exec --
 set $win-list $HOME/.config/tofi/scripts/tofi_window
 #set $power-menu "rofi -show power-menu -no-symbols -modi power-menu:rofi_powermenu -theme .config/rofi/rofi_powermenu.rasi"
 set $power-menu $HOME/.config/tofi/scripts/tofi_power-menu
-set $clipmenu $HOME/.config/tofi/scripts/tofi_cliphist
+set $clipmenu $HOME/.config/tofi/scripts/tofi_cliphist -l
 
 ## Output configuration
 # You can get the names of your outputs by running: swaymsg -t get_outputs
@@ -173,7 +173,7 @@ bindsym $mod+F8 exec pavucontrol
 bindsym $mod+F9 exec ~/.config/sway/scripts/mic-toggle.sh toggle
 bindsym $mod+Print exec ~/.local/bin/wayland-scripts/sway-shot -f
 bindsym $mod+c [app_id="discord"] scratchpad show
-bindsym $mod+ctrl+c exec --no-startup-id $HOME/.config/sway/scripts/mako_calendar
+bindsym $mod+ctrl+c exec --no-startup-id $HOME/.config/tofi/scripts/tofi_cliphist -w
 bindsym $mod+ctrl+i exec --no-startup-id $HOME/.config/sway/scripts/mako_sysnfo
 bindsym $mod+ctrl+p exec ~/.local/bin/wayland-scripts/swaypick
 bindsym $mod+ctrl+t exec --no-startup-id $HOME/.config/sway/scripts/mako_date

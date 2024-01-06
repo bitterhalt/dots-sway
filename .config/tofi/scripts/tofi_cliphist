@@ -2,17 +2,47 @@
 # https://github.com/bitterhalt
 set -e
 
-cliphist list | tofi  --text-cursor false \
-    --font-size 12 \
-    --prompt-text "Clipboard:" \
-    --selection-color 101419 \
-    --selection-background BF68D9 \
-    --selection-background-padding "0, 6" \
-    --padding-left  10 \
-    --padding-top  10 \
-    --width 100% \
-    --height 40% \
-    --anchor top \
-    --corner-radius 0 \
-    --border-width 0 | \
-    cliphist decode | wl-copy
+list () {
+    cliphist list | tofi  --text-cursor false \
+        --font-size 12 \
+        --prompt-text "Clipboard:" \
+        --selection-color 101419 \
+        --selection-background BF68D9 \
+        --selection-background-padding "0, 6" \
+        --padding-left  10 \
+        --padding-top  10 \
+        --width 50% \
+        --height 40% \
+        --anchor center \
+        --corner-radius 0 \
+        --border-width 2 | \
+        cliphist decode | wl-copy
+    }
+
+    wipe () {
+        answer="$(echo -e "Yes\nNo" |
+            tofi  --prompt-text "Delete Clipboard?" \
+            --height   12% \
+            --border-width  2 \
+            --outline-width  0 \
+            --padding-left  20)"
+
+        if [[ $answer == "Yes" ]]; then
+            cliphist wipe
+            notify-send "Clipboard deleted!"
+        fi
+        exit 0
+    }
+
+    case "$1" in 
+        "-l")
+            list
+            ;;
+        "-w")
+            wipe
+            ;;
+        *)
+            echo "Invalid argument"
+            exit 1
+            ;;
+    esac
