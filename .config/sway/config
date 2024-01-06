@@ -264,7 +264,7 @@ bar {
 
 ## Colors
 # class                border  bground text   indicator childborder
-client.focused          #282C34 #1f2329 #a0a8b7 #a0a8b7 #a0a8b7
+client.focused          #282C34 #1f2329 #a0a8b7 #a0a8b7 #535965
 client.focused_inactive #282C34 #1f2329 #535965 #1f2329 #1f2329
 client.unfocused        #1f2329 #181B20 #535965 #1f2329 #1f2329
 client.placeholder      #000000 #0c0c0c #ABB2BF #000000 #000000

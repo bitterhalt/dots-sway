@@ -82,11 +82,12 @@ border-size=2
 
 [app-name=weather_notify]
 font=JetBrains Mono, Symbols Nerd Font 12
-width=360
+width=230
 anchor=top-right
 group-by=app-name
 default-timeout=8000
 border-size=2
+padding=20
 
 
 [app-name=idle_notify]

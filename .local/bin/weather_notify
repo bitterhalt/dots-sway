@@ -9,10 +9,12 @@ APIKEY=$(cat "$HOME/credentials/open_weather_apikey")
 # Search for your city and copy the ID from the URL inside the browser
 CITY_ID="643492"
 URL="http://api.openweathermap.org/data/2.5/weather?id=${CITY_ID}&units=metric&APPID=${APIKEY}"
+SUN_URL="http://api.openweathermap.org/data/2.5/weather?id=${CITY_ID}&APPID=${APIKEY}"
 
 # Check if the service is reachable before making the request
 if wget -q --spider "$URL"; then
     WEATHER_RESPONSE=$(wget -qO- "${URL}")
+    SUN_RESPONSE=$(wget -qO- "${SUN_URL}")
 
     CITY_NAME=$(echo "$WEATHER_RESPONSE" | jq '.name' | sed 's/"//g')
     WEATHER_CONDITION=$(echo "$WEATHER_RESPONSE" | jq '.weather[0].main' | sed 's/"//g')
@@ -50,7 +52,7 @@ if wget -q --spider "$URL"; then
            ;;
    esac
    notify-send -a weather_notify "Weather: ${CITY_NAME}" "$(
-   printf "${WEATHER_ICON} ${WEATHER_CONDITION} ${WEATHER_TEMP}°C (Feels like ${FEELS_LIKE_TEMP})"
+   printf "${WEATHER_ICON} ${WEATHER_CONDITION} ${WEATHER_TEMP}°C\n🌈 Feels like ${FEELS_LIKE_TEMP}\n🌞 Sunrise: $(date -d @"$SUNRISE" '+%H:%M')\n🌙 Sunset: $(date -d @"$SUNSET" '+%H:%M')"
    )"
 else
     # Service is dead or world has ended. Exit and sleep forever

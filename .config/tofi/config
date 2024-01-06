@@ -1,7 +1,7 @@
 # general
 prompt-text = " "
 hide-cursor = false
-history     = false
+history     = true
 
 # font
 font = JetBrains Mono
