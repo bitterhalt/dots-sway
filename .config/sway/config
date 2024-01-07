@@ -60,7 +60,7 @@ floating_modifier $mod normal
 # Start your launcher
 bindsym $mod+p exec $tofi-run
 bindsym $mod+d exec $tofi-drun
-bindsym $mod+shift+d exec $tofi-full
+bindsym $mod+section exec $tofi-full
 bindsym $mod+shift+p exec $power-menu
 bindsym $mod+tab exec $win-list
 bindsym $mod+shift+c exec $clipmenu
