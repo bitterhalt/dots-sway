@@ -52,7 +52,7 @@ case $(printf "%s\n" "Lock"  "Logout" "Suspend" "Reboot" "Shutdown" | tofi --fon
     systemctl suspend
     ;;
 "Lock")
-    swaylock
+    $HOME/.config/sway/scripts/screenlocker
     ;;
 "Logout")
     swaymsg exit
