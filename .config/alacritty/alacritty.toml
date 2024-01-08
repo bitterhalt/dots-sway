@@ -1,0 +1,39 @@
+import = ["/home/bazz/.config/alacritty/themes/everblush.toml"]
+
+[colors]
+draw_bold_text_with_bright_colors = false
+
+[cursor]
+style = "Block"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 11.0
+
+[font.normal]
+family = "JetBrains Mono"
+style = "Regular"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "Return"
+mods = "Control|Shift"
+
+[scrolling]
+history = 1000
+
+[selection]
+save_to_clipboard = false
+
+[window]
+title = "Alacritty"
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
+
+[window.padding]
+x = 5
+y = 5
