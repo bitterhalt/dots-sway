@@ -1,7 +1,7 @@
 #!/bin/bash
 
 command -v jq >/dev/null 2>&1 || { echo >&2 "Program 'jq' required but it is not installed. Aborting."; exit 1; }
-command -v wget >/dev/null 2>&1 || { echo >&2 "Program 'wget' required but is not installed. Aborting."; exit 1; }
+command -v curl >/dev/null 2>&1 || { echo >&2 "Program 'curl' required but is not installed. Aborting."; exit 1; }
 
 # To use this script you need to create an API key: https://home.openweathermap.org
 APIKEY=$(cat "$HOME/credentials/open_weather_apikey")
@@ -12,9 +12,8 @@ URL="http://api.openweathermap.org/data/2.5/weather?id=${CITY_ID}&units=metric&A
 SUN_URL="http://api.openweathermap.org/data/2.5/weather?id=${CITY_ID}&APPID=${APIKEY}"
 
 # Check if the service is reachable before making the request
-if wget -q --spider "$URL"; then
-    WEATHER_RESPONSE=$(wget -qO- "${URL}")
-    SUN_RESPONSE=$(wget -qO- "${SUN_URL}")
+    WEATHER_RESPONSE=$(curl -s "${URL}")
+    SUN_RESPONSE=$(curl -s "${SUN_URL}")
 
     CITY_NAME=$(echo "$WEATHER_RESPONSE" | jq '.name' | sed 's/"//g')
     WEATHER_CONDITION=$(echo "$WEATHER_RESPONSE" | jq '.weather[0].main' | sed 's/"//g')
@@ -52,10 +51,7 @@ if wget -q --spider "$URL"; then
            ;;
    esac
    notify-send -a weather_notify "Weather: ${CITY_NAME}" "$(
-   printf "${WEATHER_ICON} ${WEATHER_CONDITION} ${WEATHER_TEMP}°C\n🌈 Feels like ${FEELS_LIKE_TEMP}\n🌞 Sunrise: $(date -d @"$SUNRISE" '+%H:%M')\n🌙 Sunset: $(date -d @"$SUNSET" '+%H:%M')"
+   printf "$WEATHER_ICON $WEATHER_CONDITION $WEATHER_TEMP°C\n🌈 Feels like $FEELS_LIKE_TEMP\n🌞 Sunrise: $(date -d @"$SUNRISE" '+%H:%M')\n🌙 Sunset: $(date -d @"$SUNSET" '+%H:%M')"
    )"
-else
-    # Service is dead or world has ended. Exit and sleep forever
-    exit 1
-    fi
+
 
