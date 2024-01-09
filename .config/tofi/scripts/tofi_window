@@ -33,12 +33,12 @@ CON_ID=$(swaymsg -t get_tree | \
         | $FORMAT
         | tostring" | \
     tofi --text-cursor false \
-    --font-size 12 \
+    --font-size 16 \
     --prompt-text "" \
     --placeholder-text "Window list:" \
     --padding-left 20 \
     --placeholder-color 535965 \
-    --width 40% )
+    --width 55% )
 
 # Requires the actual `id` to be at the end and between paretheses
 CON_ID=${CON_ID##*(}

@@ -24,4 +24,5 @@ yellow = "0xe5c76b"
 
 [colors.primary]
 background = "0x141b1e"
+#background = "0x0D1417" #darker bg
 foreground = "0xdadada"

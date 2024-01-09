@@ -6,6 +6,7 @@ bibata-cursor-theme-bin
 downgrade
 evhz-git
 gloriousctl
+hyprpicker
 i3lock-color
 matcha-gtk-theme
 mprime
@@ -15,5 +16,4 @@ qogir-icon-theme
 rofi-lbonn-wayland-git
 simplescreenrecorder-git
 tofi
-waypaper-git
 yay
