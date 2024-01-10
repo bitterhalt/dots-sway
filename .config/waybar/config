@@ -99,10 +99,9 @@
     "clock": {
         "format": "{:%H:%M}",
         "tooltip": true,
-        "tooltip-format": "* Click right to open calendar\n* Click left to show calendar\n* Click middle to show weather",
+        "tooltip-format": "* Click right to open calendar\n* Click left to show calendar",
         "on-click": "~/.config/sway/scripts/mako_calendar",
         "on-click-right": "$BROWSER https://calendar.proton.me/u/0/month",
-        "on-click-middle": "~/.local/bin/weather_notify"
     },
 
         "custom/power": {

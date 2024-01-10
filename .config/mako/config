@@ -40,7 +40,7 @@ group-by=category
 ###############################
 [app-name=vol_notify]
 font=JetBrains Mono, Symbols Nerd Font 14
-width=95
+width=100
 anchor=top-right
 group-by=app-name
 default-timeout=1500
