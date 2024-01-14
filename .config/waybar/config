@@ -5,7 +5,7 @@
     // "width": 1280, // Waybar width
 
     // Choose the order of the modules
-    "modules-left": ["custom/arch","sway/workspaces", "sway/mode", "sway/scratchpad", ],
+    "modules-left": ["custom/useless","sway/workspaces", "sway/mode", "sway/scratchpad", ],
     "modules-center": ["sway/window"],
     "modules-right": ["cpu", "memory", "network", "pulseaudio", "pulseaudio#mic", "custom/swayidle", "tray","custom/weather", "clock", "custom/power"],
 
@@ -42,14 +42,14 @@
     "cpu": {
         "format": "CPU: {usage}%",
         "tooltip": false,
-        "on-click": "$TERM -a floatterm -e htop",
+        "on-click": "$TERMINAL -a floatterm -e htop",
         "on-click-right": "~/.config/waybar/custom/usage.sh cpu"
     },
 
     "memory": {
         "format": "RAM: {used:0.1f}GB",
         "tooltip": false,
-        "on-click": "$TERM -a floatterm -e htop",
+        "on-click": "$TERMINAL -a floatterm -e htop",
         "on-click-right": "~/.config/waybar/custom/usage.sh ram"
     },
 
@@ -109,7 +109,7 @@
         "format": "",
         "tooltip": false,
         "on-click": "~/.config/sway/scripts/swaypower",
-        "on-click-right": "$TERM -a floatterm -e ~/.local/bin/popupgrade"
+        "on-click-right": "$TERMINAL -a floatterm -e ~/.local/bin/popupgrade"
     },
         "custom/sep": {
         "interval": "once",
@@ -128,7 +128,7 @@
         "tooltip": false
         },
 
-        "custom/arch": {
+        "custom/useless": {
         "interval": "once",
         "format": "",
         "tooltip": false,

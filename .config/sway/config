@@ -138,12 +138,16 @@ bindsym $mod+space focus mode_toggle
 
 # Move focus to the parent container
 bindsym $mod+a focus parent
+
 # Scratchpad
 bindsym $mod+shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
-# Resizing containers:
+# Scratchpad terminal
+bindsym $mod+shift+x exec foot -a scpterm
+bindsym $mod+x [app_id="scpterm"] scratchpad show
 
+# Resizing containers:
 bindsym $mod+ctrl+Right resize shrink width 10 px
 bindsym $mod+ctrl+Up resize grow height 10 px
 bindsym $mod+ctrl+Down resize shrink height 10 px
@@ -157,6 +161,7 @@ bindsym $mod+ctrl+h resize grow width 10 px
 # Adjust inner gaps
 bindsym $mod+ctrl+plus   gaps inner current plus 5
 bindsym $mod+ctrl+minus  gaps inner current minus 5
+
 # Adjust outer gaps
 bindsym $mod+ctrl+shift+plus   gaps outer current plus 5
 bindsym $mod+ctrl+shift+minus  gaps outer current minus 5
@@ -182,7 +187,7 @@ bindsym $mod+e exec --no-startup-id /usr/bin/thunar
 bindsym $mod+f11 exec ~/.config/sway/scripts/screenlocker
 bindsym $mod+f7 exec ~/.config/tofi/scripts/tofi_screenshot
 bindsym $mod+m exec --no-startup-id thunderbird
-bindsym $mod+r exec kitty -e ranger
+bindsym $mod+r exec foot -e ranger
 bindsym $mod+shift+Print exec ~/.local/bin/wayland-scripts/sway-shot -re
 bindsym $mod+shift+f11 exec ~/.config/sway/scripts/swayidle-toggle.sh toggle
 bindsym $mod+shift+f7 exec ~/.local/bin/wayland-scripts/sway-record -k
@@ -213,7 +218,6 @@ assign [app_id="thunderbird"] 3
 assign [app_id="virt-manager"] 8
 assign [class="Signal"] 3
 assign [class="steam"] 5
-
 # set floating
 for_window [app_id="(?i)(?:blueman-manager|azote|gnome-disks|nwg-shell-config)"] floating enable
 for_window [app_id="(?i)(?:pavucontrol|nm-connection-editor|gsimplecal|galculator)"] floating enable
@@ -225,7 +229,7 @@ for_window [app_id="missioncenter"] floating enable
 for_window [app_id="mpv"] floating enable
 for_window [app_id="nwg-look"] floating enable, resize set width 40 ppt height 50 ppt
 for_window [app_id="pavucontrol" ] floating enable, resize set width 40 ppt height 50 ppt
-for_window [app_id="scpterm"] floating enable, move scratchpad, resize set 800 600
+for_window [app_id="scpterm"] floating enable, move scratchpad, resize set 700 600
 for_window [app_id="virt-manager"] floating enable
 for_window [app_id="waypaper"] floating enable, resize set width 50 ppt height 70 ppt
 for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
@@ -237,6 +241,7 @@ for_window [class="qt5ct" instance="qt5ct"] floating enable, resize set width 60
 for_window [class="steam" instance="steam"] floating enable
 for_window [instance="origin.exe"] floating enable
 for_window [title="About"] floating enable
+for_window [title="fzf-switcher"] floating enable
 for_window [title="Choose User Profile"] floating enable
 for_window [title="File Operation Progress"] floating enable, border pixel 1, resize set width 40 ppt height 30 ppt
 for_window [title="Picture-in-Picture"] floating enable
@@ -265,7 +270,7 @@ bar {
 
 ## Colors
 
-include ~/.config/sway/colors/onedark.conf
+include ~/.config/sway/colors/bitter-dark.conf
 
 ## Auto start
 exec foot --server

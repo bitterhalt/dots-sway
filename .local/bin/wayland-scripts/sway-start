@@ -15,7 +15,7 @@ set -x
 ## Defaults
 export EDITOR="nvim"
 export VISUAL="nvim"
-export TERM="foot"
+export TERMINAL="foot"
 export BROWSER="firefox"
 
 # PATH

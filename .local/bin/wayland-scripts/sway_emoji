@@ -5,7 +5,7 @@ set -e
 # Copied from: https://github.com/LukeSmithxyz/voidrice/blob/master/.local/bin/dmenuunicode
 
 # MENU="rofi -dmenu -p type..."
-MENU="tofi"
+MENU=("tofi --prompt-text Type:  --width 550 ")
 
 chosen=$(cut -d ';' -f1 ~/.local/share/emoji/emoji | $MENU | sed "s/ .*//")
 

@@ -1,5 +1,6 @@
 #!/bin/bash
-
+#
+# Forked from: https://github.com/endeavouros-team/endeavouros-i3wm-setup/blob/main/etc/skel/.config/i3/scripts/openweather-city
 command -v jq >/dev/null 2>&1 || { echo >&2 "Program 'jq' required but it is not installed. Aborting."; exit 1; }
 command -v curl >/dev/null 2>&1 || { echo >&2 "Program 'curl' required but is not installed. Aborting."; exit 1; }
 

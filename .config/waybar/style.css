@@ -97,7 +97,7 @@ window#waybar.hidden {
     animation-direction: alternate;
 }
 
-#custom-arch {
+#custom-useless {
     color: @fg;
     padding-right: 6px;
     padding-left: 10px;
