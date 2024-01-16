@@ -2,7 +2,6 @@
 # https://github.com/bitterhalt
 set -e
 
-
 case $(printf "%s\n" "Lock"  "Logout" "Suspend" "Reboot" "Shutdown" | tofi --font-size 34 \
     --border-width 0 \
     --background-color 000A \

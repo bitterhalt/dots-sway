@@ -35,9 +35,8 @@ CON_ID=$(swaymsg -t get_tree | \
     tofi --text-cursor false \
     --font-size 16 \
     --prompt-text "" \
-    --placeholder-text "Window list:" \
+    --placeholder-text "Window list" \
     --padding-left 20 \
-    --placeholder-color 535965 \
     --width 55% )
 
 # Requires the actual `id` to be at the end and between paretheses

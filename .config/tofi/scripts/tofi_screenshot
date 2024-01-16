@@ -18,8 +18,7 @@ main() {
         --padding-left 20 \
         --result-spacing 8 \
         --prompt-text "" \
-        --placeholder-text "Screenhot:" \
-        --placeholder-color 535965
+        --placeholder-text "Tofi screenhot" \
         --font-size 14)
 
   if [[ -z "${choice// /}" ]]; then
