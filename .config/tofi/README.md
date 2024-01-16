@@ -24,6 +24,7 @@ tofi-drun -c /path/to/config/file
 ```
 
 Remember chmod+x the scripts directory
+
 I should probably list the dependencies but it's easy to find them in scripts if they don't work.. :D
 
 ## Rest of the documentation
