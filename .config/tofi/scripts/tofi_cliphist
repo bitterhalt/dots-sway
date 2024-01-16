@@ -1,21 +1,20 @@
 #!/usr/bin/env bash
 # https://github.com/bitterhalt
+# Note: Yes you see numbers before results :(
+# Read: https://github.com/sentriz/cliphist#faq and https://github.com/philj56/tofi/issues/102
+
 set -e
 
 list () {
     cliphist list | tofi  --text-cursor false \
         --font-size 12 \
-        --prompt-text "Clipboard:" \
-        --selection-color 101419 \
-        --selection-background BF68D9 \
-        --selection-background-padding "0, 6" \
-        --padding-left  10 \
+        --prompt-text "Search:" \
         --padding-top  10 \
-        --width 50% \
+        --width 40% \
         --height 40% \
         --anchor center \
         --corner-radius 0 \
-        --border-width 2 | \
+        --border-width 1 | \
         cliphist decode | wl-copy
     }
 
@@ -28,8 +27,8 @@ list () {
             --padding-left  20)"
 
         if [[ $answer == "Yes" ]]; then
-            cliphist wipe
-            notify-send "Clipboard deleted!"
+            rm $XDG_CACHE_HOME/cliphist/db
+            notify-send "Clipboard database deleted!"
         fi
         exit 0
     }
