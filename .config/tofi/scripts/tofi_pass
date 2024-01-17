@@ -20,5 +20,5 @@ password=$(printf '%s\n' "${password_files[@]}" | tofi --prompt-text "Passmenu:"
 [[ -n $password ]] || exit
 
 if [[ $typeit -eq 0 ]]; then
-    pass show "$password" | { IFS= read -r pass; printf %s "$pass"; } | wl-copy
+    pass show "$password" | { IFS= read -r pass; printf %s "$pass"; } | wl-copy | notify-send "Password copied to clipboard"
 fi

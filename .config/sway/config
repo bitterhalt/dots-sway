@@ -195,6 +195,7 @@ bindsym $mod+shift+f11 exec ~/.config/sway/scripts/swayidle-toggle.sh toggle
 bindsym $mod+shift+f7 exec ~/.local/bin/wayland-scripts/sway-record -k
 bindsym $mod+shift+n exec $term -e nvim Documents/.vimwiki/index.md
 bindsym $mod+shift+u exec foot -e ~/.local/bin/popupgrade
+bindsym $mod+shift+f12 exec ~/.config/sway/scripts/autotiling-toggle
 bindsym $mod+w exec --no-startup-id /usr/bin/firefox
 
 # Media keys

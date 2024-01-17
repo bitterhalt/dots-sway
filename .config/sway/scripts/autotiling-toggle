@@ -1,0 +1,14 @@
+#!/bin/bash
+set -e
+# Check if autotiling is running
+if pgrep -f sway-autotiling > /dev/null; then
+   notify-send -a sysnfo_notify-l ' autotiling disabled!'
+   pkill -f sway-autotiling
+else
+   notify-send -a sysnfo_notify-l '󰄹 autotiling enabled!'
+   ~/.config/sway/scripts/sway-autotiling
+fi
+
+exit
+
+

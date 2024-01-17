@@ -7,6 +7,7 @@ border-radius=4
 border-size=2
 default-timeout=5000
 font=JetBrains Mono, Symbols Nerd Font 10
+width=300
 height=175
 icons=1
 ignore-timeout=1
@@ -16,7 +17,6 @@ max-icon-size=64
 padding=10
 sort=-time
 text-color=#abb2bf
-width=300
 
 ##################
 # Urgency levels #
@@ -55,6 +55,15 @@ group-by=app-name
 default-timeout=8000
 border-size=2
 
+[app-name=sysnfo_notify-l]
+font=JetBrains Mono, Symbols Nerd Font 13
+width=260
+anchor=top-right
+group-by=app-name
+default-timeout=4000
+border-size=2
+text-alignment=center
+
 [app-name=fat_notify]
 font=JetBrains Mono, Symbols Nerd Font 10
 height=800
@@ -88,7 +97,6 @@ group-by=app-name
 default-timeout=8000
 border-size=2
 padding=20
-
 
 [app-name=idle_notify]
 font=JetBrains Mono, Symbols Nerd Font 12
