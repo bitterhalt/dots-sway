@@ -8,8 +8,8 @@ repositories:
 
 one_file_system: true
 
-  #encryption_passcommand: sh -c "cat ~/credentials/.borg-passphrase"
-encryption_passcommand: pass Borg/borgmatic
+encryption_passcommand: sh -c "cat ~/credentials/.borg-passphrase"
+  #encryption_passcommand: pass Borg/borgmatic
 
 keep_daily: 7
 keep_weekly: 4
@@ -40,6 +40,7 @@ exclude_patterns:
   - /home/*/.npm
   - /home/*/.steam
   - /home/*/.steampath
+  - /home/*/Videos
   - /home/*/.steampid
   - /home/*/.themes
   - /home/*/.wget-hsts

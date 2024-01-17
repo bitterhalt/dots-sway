@@ -1,15 +1,22 @@
 #!/bin/bash
 # Small helper script to borgmatic
-# Uses dmenu
+# You can use this with dmenu, rofi or what ever applauncher you prefer
 # This script does not work if you run borgmatic as root!
 # You need to setup your borgmatic before using this script: https://torsion.org/borgmatic/docs/how-to/set-up-backups/
 #
 # Author: bitterhalt@github
 
 set -e
+
 if [[ ! -d ~/temp ]]; then
     mkdir ~/temp > /dev/null 2>&1
 fi
+
+umount_temp() {
+    if mountpoint -q ~/temp; then
+        borgmatic umount --mount-point $HOME/temp
+    fi
+}
 
 options=("Take snapshot" "Mount latest snapshot" "Mount all archives" "Umount snapshot")
 selected=$(printf '%s\n' "${options[@]}" | tofi)
@@ -18,6 +25,7 @@ selected=$(printf '%s\n' "${options[@]}" | tofi)
 if [[ -n "$selected" ]]; then
     case "$selected" in
         "Take snapshot")
+            umount_temp
             notify-send -i "info" "Taking snapshot! This could take a while.."
             borgmatic --verbosity -1 --syslog-verbosity 1
             notify-send -i "check-circle" "Snapshot ready!"  

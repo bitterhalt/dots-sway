@@ -15,7 +15,7 @@ password_files=( "$prefix"/**/*.gpg )
 password_files=( "${password_files[@]#"$prefix"/}" )
 password_files=( "${password_files[@]%.gpg}" )
 
-password=$(printf '%s\n' "${password_files[@]}" | tofi -c ~/.config/tofi/oneline --prompt-text " Passmenu: " "$@")
+password=$(printf '%s\n' "${password_files[@]}" | tofi --prompt-text "Passmenu:" --height 380 --width  400 "$@")
 
 [[ -n $password ]] || exit
 

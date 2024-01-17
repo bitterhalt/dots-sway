@@ -1,6 +1,5 @@
 #!/bin/bash
-#
-# Forked from: https://github.com/endeavouros-team/endeavouros-i3wm-setup/blob/main/etc/skel/.config/i3/scripts/openweather-city
+
 command -v jq >/dev/null 2>&1 || { echo >&2 "Program 'jq' required but it is not installed. Aborting."; exit 1; }
 command -v curl >/dev/null 2>&1 || { echo >&2 "Program 'curl' required but is not installed. Aborting."; exit 1; }
 
@@ -9,7 +8,7 @@ CITY_ID="643492"
 URL="http://api.openweathermap.org/data/2.5/weather?id=${CITY_ID}&units=metric&APPID=${APIKEY}"
 
 
-    WEATHER_RESPONSE=$(timeout --signal=1 5s curl -s "${URL}") ||  exit 1;
+    WEATHER_RESPONSE=$(timeout --signal=1 2s curl -s "${URL}") ||  exit 1;
 
     WEATHER_TEMP=$(echo "$WEATHER_RESPONSE" | jq '.main.temp' | cut -d "." -f 1)
 

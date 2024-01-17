@@ -1,33 +1,36 @@
 local status_ok, alpha = pcall(require, "alpha")
 if not status_ok then
-	return
+    return
 end
 
 local function footer()
-  local plugins_count = vim.fn.len(vim.fn.globpath("~/.local/share/nvim/site/pack/packer/start", "*", 0, 1))
-  local version = vim.version()
-  local nvim_version_info = "   v" .. version.major .. "." .. version.minor .. "." .. version.patch
-  return  "   Plugins " .. plugins_count .. nvim_version_info
+    local plugins_count = vim.fn.len(vim.fn.globpath("~/.local/share/nvim/site/pack/packer/start", "*", 0, 1))
+    local version = vim.version()
+    local nvim_version_info = "   v" .. version.major .. "." .. version.minor .. "." .. version.patch
+    return  "   Plugins " .. plugins_count .. nvim_version_info
 end
 
 local dashboard = require("alpha.themes.dashboard")
 dashboard.section.header.val = {
-    "                                                     ",
-    "  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
-    "  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ",
-    "  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ",
-    "  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
-    "  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
-    "  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
-    "                                                     ",
+    "",
+    " ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗",
+    " ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║",
+    " ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║",
+    " ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║",
+    " ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║",
+    " ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝",
+    "",
+    " [ TIP: To exit Neovim, just power off your computer ] ",
+    "",
+
 }
 dashboard.section.buttons.val = {
-  dashboard.button("e", "  > Create", ":ene <BAR> startinsert<CR>"),
-  dashboard.button("fr", "  > Recents", ":Telescope oldfiles<CR>"),
-  dashboard.button("ff", "  > Search", ":Telescope find_files<CR>"),
-  dashboard.button("ht", "  > Themes  ", ":Telescope colorscheme<CR>"),
-  dashboard.button("u", "  > Update plugins", "<cmd>PackerSync<CR>"),
-  dashboard.button("q", "  > Quit", ":qa!<CR>"),
+    dashboard.button("e", "  > Create", ":ene <BAR> startinsert<CR>"),
+    dashboard.button("fr", "  > Recents", ":Telescope oldfiles<CR>"),
+    dashboard.button("ff", "  > Search", ":Telescope find_files<CR>"),
+    dashboard.button("ht", "  > Themes  ", ":Telescope colorscheme<CR>"),
+    dashboard.button("u", "  > Update plugins", "<cmd>PackerSync<CR>"),
+    dashboard.button("q", "  > Quit", ":qa!<CR>"),
 }
 dashboard.section.header.opts.hl = "Include"
 dashboard.section.footer.opts.hl = "Include"

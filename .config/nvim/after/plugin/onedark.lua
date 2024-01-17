@@ -28,7 +28,9 @@ require('onedark').setup  {
 
     -- Custom Colors --
     colors = {
-        bg0 = '#181B20' -- darker background
+        bg0 = '#181B20',-- darker background
+     --   bg1 = '#1B1D24',
+      --  bg_d = '#14161B'
     },
     highlights = {}, -- Override highlight groups
 

@@ -24,10 +24,7 @@ alias yep='yay -Pw && yay'                       # Show Arch news before update
 #alias aptcl='sudo apt clean'
 #alias aptup='sudo apt update && sudo apt upgrade'
 
-# Rclone mount
-alias m-dbox='rclone --vfs-cache-mode writes mount --daemon "dropbox": ~/dropbox/'
-alias m-odrive='rclone --vfs-cache-mode writes mount --daemon "onedrive": ~/onedrive/'
-
+alias ..='cd ..'
 alias sensorwatch='watch -n 1 sensors'
 alias history='fc -l 1'
 

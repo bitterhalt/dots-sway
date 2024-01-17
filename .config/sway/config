@@ -172,11 +172,13 @@ bindsym $mod+ctrl+shift+minus  gaps outer current minus 5
 #bindsym $mod+F4 exec ~/.local/bin/rofi_kill_process
 bindsym $mod+F1 exec ~/.config/sway/scripts/keyhint.sh
 bindsym $mod+F4 exec ~/.config/tofi/scripts/tofi_kill-process
-bindsym $mod+F6 exec keepassxc
+bindsym $mod+F5 exec ~/.config/tofi/scripts/tofi_pass
+bindsym $mod+F6 exec ~/.config/tofi/scripts/tofi_network
 bindsym $mod+F8 exec pavucontrol
 bindsym $mod+F9 exec ~/.config/sway/scripts/mic-toggle.sh toggle
 bindsym $mod+Print exec ~/.local/bin/wayland-scripts/sway-shot -f
 bindsym $mod+c [app_id="discord"] scratchpad show
+#bindsym $mod+c [app_id="WebCord"] scratchpad show
 bindsym $mod+ctrl+c exec --no-startup-id $HOME/.config/tofi/scripts/tofi_cliphist -w
 bindsym $mod+ctrl+i exec --no-startup-id $HOME/.config/sway/scripts/mako_sysnfo
 bindsym $mod+ctrl+p exec ~/.local/bin/wayland-scripts/swaypick
@@ -191,7 +193,7 @@ bindsym $mod+r exec foot -e ranger
 bindsym $mod+shift+Print exec ~/.local/bin/wayland-scripts/sway-shot -re
 bindsym $mod+shift+f11 exec ~/.config/sway/scripts/swayidle-toggle.sh toggle
 bindsym $mod+shift+f7 exec ~/.local/bin/wayland-scripts/sway-record -k
-bindsym $mod+shift+n exec $TERM -e nvim Documents/.vimwiki/index.md
+bindsym $mod+shift+n exec $term -e nvim Documents/.vimwiki/index.md
 bindsym $mod+shift+u exec foot -e ~/.local/bin/popupgrade
 bindsym $mod+w exec --no-startup-id /usr/bin/firefox
 
@@ -276,4 +278,4 @@ include ~/.config/sway/colors/bitter-dark.conf
 exec foot --server
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec wl-paste --watch cliphist store
-
+#exec_always sway-autotiling
