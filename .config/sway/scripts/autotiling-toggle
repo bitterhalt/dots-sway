@@ -1,6 +1,16 @@
 #!/bin/bash
 set -e
-# Check if autotiling is running
+
+status() {
+    if pgrep -f sway-autotiling > /dev/null; then
+        echo "󰄹"
+    else
+        echo ""
+    fi
+}
+
+
+toggle() {
 if pgrep -f sway-autotiling > /dev/null; then
    notify-send -a sysnfo_notify-l ' autotiling disabled!'
    pkill -f sway-autotiling
@@ -8,7 +18,20 @@ else
    notify-send -a sysnfo_notify-l '󰄹 autotiling enabled!'
    ~/.config/sway/scripts/sway-autotiling
 fi
+pkill -SIGRTMIN+7 waybar
+}
 
-exit
 
+case "$1" in
+    "status")
+        status
+        ;;
+    "toggle")
+        toggle
+        ;;
+    *)
+        echo "Invalid argument"
+        exit 1
+        ;;
+esac
 

@@ -170,12 +170,12 @@ bindsym $mod+ctrl+shift+minus  gaps outer current minus 5
 # Shortcuts
 # Note: "no-startup-id" is useless on Sway and you can delete those if u are not lazy like me..
 #bindsym $mod+F4 exec ~/.local/bin/rofi_kill_process
-bindsym $mod+F1 exec ~/.config/sway/scripts/keyhint.sh
+bindsym $mod+F1 exec ~/.config/sway/scripts/keyhint
 bindsym $mod+F4 exec ~/.config/tofi/scripts/tofi_kill-process
 bindsym $mod+F5 exec ~/.config/tofi/scripts/tofi_pass
 bindsym $mod+F6 exec ~/.config/tofi/scripts/tofi_network
 bindsym $mod+F8 exec pavucontrol
-bindsym $mod+F9 exec ~/.config/sway/scripts/mic-toggle.sh toggle
+bindsym $mod+F9 exec ~/.config/sway/scripts/mic-toggle toggle
 bindsym $mod+Print exec ~/.local/bin/wayland-scripts/sway-shot -f
 bindsym $mod+c [app_id="discord"] scratchpad show
 #bindsym $mod+c [app_id="WebCord"] scratchpad show
@@ -191,18 +191,18 @@ bindsym $mod+f7 exec ~/.config/tofi/scripts/tofi_screenshot
 bindsym $mod+m exec --no-startup-id thunderbird
 bindsym $mod+r exec foot -e ranger
 bindsym $mod+shift+Print exec ~/.local/bin/wayland-scripts/sway-shot -re
-bindsym $mod+shift+f11 exec ~/.config/sway/scripts/swayidle-toggle.sh toggle
+bindsym $mod+shift+f11 exec ~/.config/sway/scripts/swayidle-toggle toggle
 bindsym $mod+shift+f7 exec ~/.local/bin/wayland-scripts/sway-record -k
 bindsym $mod+shift+n exec $term -e nvim Documents/.vimwiki/index.md
 bindsym $mod+shift+u exec foot -e ~/.local/bin/popupgrade
-bindsym $mod+shift+f12 exec ~/.config/sway/scripts/autotiling-toggle
+bindsym $mod+shift+f12 exec ~/.config/sway/scripts/autotiling-toggle toggle
 bindsym $mod+w exec --no-startup-id /usr/bin/firefox
 
 # Media keys
-bindsym XF86AudioLowerVolume exec ~/.config/sway/scripts/volume.sh down
+bindsym XF86AudioLowerVolume exec ~/.config/sway/scripts/volume-thing down
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@
-bindsym XF86AudioMute exec ~/.config/sway/scripts/volume.sh mute
-bindsym XF86AudioRaiseVolume exec ~/.config/sway/scripts/volume.sh up
+bindsym XF86AudioMute exec ~/.config/sway/scripts/volume-thing mute
+bindsym XF86AudioRaiseVolume exec ~/.config/sway/scripts/volume-thing up
 bindsym XF86Calculator  exec --no-startup-id galculator
 
 

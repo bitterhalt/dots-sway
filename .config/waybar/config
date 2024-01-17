@@ -86,9 +86,9 @@
     "custom/swayidle": {
         "interval": "once",
         "format": "{}",
-        "exec": "~/.config/sway/scripts/swayidle-toggle.sh status",
+        "exec": "~/.config/sway/scripts/swayidle-toggle status",
         "signal": 8,
-        "on-click": "~/.config/sway/scripts/swayidle-toggle.sh toggle"
+        "on-click": "~/.config/sway/scripts/swayidle-toggle toggle"
     },
 
     "tray": {
