@@ -2,7 +2,7 @@
 set -e
 
 status() {
-    if pgrep -f sway-autotiling > /dev/null; then
+    if pgrep -f i3-autotile > /dev/null; then
         echo "󰄹"
     else
         echo ""
@@ -11,12 +11,12 @@ status() {
 
 
 toggle() {
-if pgrep -f sway-autotiling > /dev/null; then
+if pgrep -f i3-autotile > /dev/null; then
+    pkill -f i3-autotile
    notify-send -a sysnfo_notify-l ' autotiling disabled!'
-   pkill -f sway-autotiling
 else
    notify-send -a sysnfo_notify-l '󰄹 autotiling enabled!'
-   ~/.config/sway/scripts/sway-autotiling
+   ~/.local/bin/i3-autotile
 fi
 pkill -SIGRTMIN+7 waybar
 }
