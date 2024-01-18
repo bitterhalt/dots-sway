@@ -139,7 +139,8 @@ window#waybar.hidden {
 
 #scratchpad {
     color: @fg;
-    padding: 0 10px;
+    padding-left: 10px;
+    padding-right: 6px;
 }
 
 #scratchpad.empty {
@@ -164,6 +165,11 @@ window#waybar.hidden {
 #custom-power {
     color: @bg3;
     padding-right: 10px;
+}
+
+#custom-at {
+    color: @fg;
+    padding: 0 6px;
 }
 
 #custom-sep,

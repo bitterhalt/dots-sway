@@ -52,8 +52,11 @@ bindsym $mod+Return exec $term
 # Kill focused window
 bindsym $mod+q kill
 
-# Hide/show waybar
+# Hide/restart waybar
 bindsym $mod+shift+b exec killall -SIGUSR1 waybar
+bindsym $mod+ctrl+b exec killall -SIGUSR2 waybar
+
+# When the modifier key is held down, you may hold left click to move windows, and right click to resize them
 floating_modifier $mod normal
 
 # Start your launcher
@@ -279,4 +282,4 @@ include ~/.config/sway/colors/bitter-dark.conf
 exec foot --server
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec wl-paste --watch cliphist store
-#exec_always sway-autotiling
+#exec_always i3-autotile

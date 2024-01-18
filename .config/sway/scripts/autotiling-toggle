@@ -3,7 +3,7 @@ set -e
 
 status() {
     if pgrep -f i3-autotile > /dev/null; then
-        echo "󰄹"
+        echo "[]="
     else
         echo ""
     fi
@@ -12,11 +12,13 @@ status() {
 
 toggle() {
 if pgrep -f i3-autotile > /dev/null; then
-   notify-send -a sysnfo_notify-l ' autotiling disabled!'
+   notify-send -a sysnfo_notify-l 'Autotiling disabled!'
    pkill -f i3-autotile
+   pkill -SIGRTMIN+7 waybar
 else
     ~/.local/bin/i3-autotile &
-   notify-send -a sysnfo_notify-l '󰄹 autotiling enabled!'
+   notify-send -a sysnfo_notify-l '[]= Autotiling enabled!'
+   pkill -SIGRTMIN+7 waybar
 fi
 }
 

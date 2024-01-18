@@ -5,7 +5,7 @@
     // "width": 1280, // Waybar width
 
     // Choose the order of the modules
-    "modules-left": ["custom/useless","sway/workspaces", "sway/mode", "sway/scratchpad", ],
+    "modules-left": ["custom/useless","sway/workspaces", "sway/mode", "sway/scratchpad", "custom/at"],
     "modules-center": ["sway/window"],
     "modules-right": ["cpu", "memory", "network", "pulseaudio", "pulseaudio#mic", "custom/swayidle", "tray","custom/weather", "clock", "custom/power"],
 
@@ -90,6 +90,13 @@
         "signal": 8,
         "on-click": "~/.config/sway/scripts/swayidle-toggle toggle"
     },
+    "custom/at": {
+        "interval": "once",
+        "format": "{}",
+        "exec": "~/.config/sway/scripts/autotiling-toggle status",
+        "signal": 7,
+        "on-click": "~/.config/sway/scripts/autotiling-toggle toggle"
+    },
 
     "tray": {
         // "icon-size": 14,
@@ -110,7 +117,9 @@
         "tooltip": false,
         "on-click": "~/.config/sway/scripts/swaypower",
         "on-click-right": "$TERMINAL -a floatterm -e ~/.local/bin/popupgrade"
+
     },
+
         "custom/sep": {
         "interval": "once",
         "format": "|",
@@ -141,6 +150,5 @@
         "format": "{}",
         "exec": "~/.config/sway/scripts/weather",
         "on-click": "~/.local/bin/weather_notify"
-        }
-
+        },
 }
