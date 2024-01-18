@@ -107,7 +107,7 @@
         "format": "{:%H:%M}",
         "tooltip": true,
         "tooltip-format": "* Click right to open calendar\n* Click left to show calendar",
-        "on-click": "~/.config/sway/scripts/mako_calendar",
+        "on-click": "~/.config/mako/scripts/mako_calendar",
        // "on-click-right": "$TERMINAL -e calcurse",
     },
 
@@ -149,6 +149,6 @@
         "interval": "3600",
         "format": "{}",
         "exec": "~/.config/waybar/custom/weather",
-        "on-click": "~/.local/bin/weather_notify"
+        "on-click": "~/.local/bin/weather_notify",
         },
 }

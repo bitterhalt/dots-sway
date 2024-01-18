@@ -5,12 +5,16 @@ layer=overlay
 
 [warning]
 background=#181B20
+border=#535965
 border-bottom-size=1
-border-bottom=#a0a8b8
-button-background=#BF68D9
-button-border-size=0
+button-border-size=1
+border-bottom=#535965
+button-background=#282C34
 button-gap=10
-button-text=#181B20
+button-text=#ABB2BF
 dismiss-button=Cancel
-message-padding=5
+message-padding=6
 text=#ABB2BF
+button-margin-right=5
+button-dismiss-gap=20
+#dismiss-button=X

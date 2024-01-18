@@ -16,7 +16,7 @@ if pgrep -f i3-autotile > /dev/null; then
    pkill -f i3-autotile
    pkill -SIGRTMIN+7 waybar
 else
-    ~/.local/bin/i3-autotile &
+    ~/.local/bin/i3-autotile --limit 2 &
    notify-send -a sysnfo_notify-l '[]= Autotiling enabled!'
    pkill -SIGRTMIN+7 waybar
 fi

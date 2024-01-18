@@ -183,10 +183,10 @@ bindsym $mod+Print exec ~/.local/bin/wayland-scripts/sway-shot -f
 bindsym $mod+c [app_id="discord"] scratchpad show
 #bindsym $mod+c [app_id="WebCord"] scratchpad show
 bindsym $mod+ctrl+c exec --no-startup-id $HOME/.config/tofi/scripts/tofi_cliphist -w
-bindsym $mod+ctrl+i exec --no-startup-id $HOME/.config/sway/scripts/mako_sysnfo
+bindsym $mod+ctrl+i exec --no-startup-id $HOME/.config/mako/scripts/mako_sysnfo
 bindsym $mod+ctrl+p exec ~/.local/bin/wayland-scripts/swaypick
-bindsym $mod+ctrl+t exec --no-startup-id $HOME/.config/sway/scripts/mako_date
-bindsym $mod+ctrl+u exec ~/.config/sway/scripts/mako_updates
+bindsym $mod+ctrl+t exec --no-startup-id $HOME/.config/mako/scripts/mako_date
+bindsym $mod+ctrl+u exec ~/.config/mako/scripts/mako_updates
 bindsym $mod+ctrl+w exec ~/.local/bin/weather_notify
 bindsym $mod+e exec --no-startup-id /usr/bin/thunar
 bindsym $mod+f11 exec ~/.config/sway/scripts/screenlocker
