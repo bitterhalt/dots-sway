@@ -1,0 +1,3 @@
+#!/bin/bash
+
+notify-send -a date_notify " $(date '+%d.%m %H:%M')" 

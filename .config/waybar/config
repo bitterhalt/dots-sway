@@ -148,7 +148,7 @@
         "custom/weather": {
         "interval": "3600",
         "format": "{}",
-        "exec": "~/.config/sway/scripts/weather",
+        "exec": "~/.config/waybar/custom/weather",
         "on-click": "~/.local/bin/weather_notify"
         },
 }
