@@ -198,7 +198,6 @@ bindsym $mod+shift+f11 exec ~/.config/sway/scripts/swayidle-toggle toggle
 bindsym $mod+shift+f7 exec ~/.local/bin/wayland-scripts/sway-record -k
 bindsym $mod+shift+n exec $term -e nvim Documents/.vimwiki/index.md
 bindsym $mod+shift+u exec foot -e ~/.local/bin/popupgrade
-bindsym $mod+shift+f12 exec ~/.config/sway/scripts/autotiling-toggle toggle
 bindsym $mod+w exec --no-startup-id /usr/bin/firefox
 
 # Media keys
@@ -246,8 +245,8 @@ for_window [class="Xsane" instance="xsane"] floating enable
 for_window [class="qt5ct" instance="qt5ct"] floating enable, resize set width 60 ppt height 50 ppt
 for_window [class="steam" instance="steam"] floating enable
 for_window [instance="origin.exe"] floating enable
-for_window [title="About"] floating enable
 for_window [title="fzf-switcher"] floating enable
+for_window [title = "About Mozilla Firefox"] floating enable
 for_window [title="Choose User Profile"] floating enable
 for_window [title="File Operation Progress"] floating enable, border pixel 1, resize set width 40 ppt height 30 ppt
 for_window [title="Picture-in-Picture"] floating enable
@@ -256,6 +255,7 @@ for_window [title="(?:Open|Save) (?:File|Folder|As)"] floating enable
 for_window [window_role="GtkFiileChooserDialog"] move position center
 for_window [window_role="GtkFileChooserDialog"] resize set 590 340
 for_window [window_role="Preferences"] floating enable
+for_window [window_role="About"] floating enable
 for_window [window_role="bubble"] floating enable
 for_window [window_role="dialog"] floating enable
 for_window [window_role="pop-up"] floating enable
@@ -276,7 +276,7 @@ bar {
 
 ## Colors
 
-include ~/.config/sway/colors/bitter-dark.conf
+include ~/.config/sway/colors/onedark.conf
 
 ## Auto start
 exec foot --server

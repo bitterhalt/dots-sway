@@ -5,7 +5,7 @@
     // "width": 1280, // Waybar width
 
     // Choose the order of the modules
-    "modules-left": ["custom/useless","sway/workspaces", "sway/mode", "sway/scratchpad", "custom/at"],
+    "modules-left": ["custom/useless","sway/workspaces", "sway/mode", "sway/scratchpad"],
     "modules-center": ["sway/window"],
     "modules-right": ["cpu", "memory", "network", "pulseaudio", "pulseaudio#mic", "custom/swayidle", "tray","custom/weather", "clock", "custom/power"],
 
@@ -70,7 +70,7 @@
         "format-icons": {
             "headphone": "",
             "headset": "󰋎",
-            "default": ["", "", " "]
+            "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
     },
@@ -89,13 +89,6 @@
         "exec": "~/.config/sway/scripts/swayidle-toggle status",
         "signal": 8,
         "on-click": "~/.config/sway/scripts/swayidle-toggle toggle"
-    },
-    "custom/at": {
-        "interval": "once",
-        "format": "{}",
-        "exec": "~/.config/sway/scripts/autotiling-toggle status",
-        "signal": 7,
-        "on-click": "~/.config/sway/scripts/autotiling-toggle toggle"
     },
 
     "tray": {
@@ -149,6 +142,6 @@
         "interval": "3600",
         "format": "{}",
         "exec": "~/.config/waybar/custom/weather",
-        "on-click": "~/.local/bin/weather_notify",
+        "on-click": "~/.local/bin/weather_notify"
         },
 }

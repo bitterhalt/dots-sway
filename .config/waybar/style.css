@@ -5,6 +5,7 @@
 * {
     font-family: JetBrains Mono, Symbols Nerd Font;
     font-size: 14px;
+    font-weight: normal;
     border-radius: 0;
     border: none;
     box-shadow: none;
@@ -12,7 +13,7 @@
 tooltip {
   color: @fg;
   background: @bg;
-  border: solid 2px #282c34;
+  border: solid 2px @bg2;
   border-radius: 4px;
 }
 
@@ -126,7 +127,7 @@ window#waybar.hidden {
 }
 
 #pulseaudio.muted {
-    color: @bg3;
+    color: @bg4;
 }
 
 #pulseaudio.mic {
@@ -163,18 +164,14 @@ window#waybar.hidden {
 }
 
 #custom-power {
-    color: @bg3;
+    color: @bg4;
     padding-right: 10px;
 }
 
-#custom-at {
-    color: @fg;
-    padding: 0 6px;
-}
 
 #custom-sep,
 #custom-sep2,
 #custom-sep3 {
-    color: @bg3;
+    color: @bg4;
 }
 
