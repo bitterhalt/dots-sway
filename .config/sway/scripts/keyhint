@@ -1,9 +1,6 @@
 #!/bin/bash
 
 cat ~/.config/sway/config | grep 'bindsym' | grep -v '^\s*#' | sed 's/bindsym / /' | tofi --prompt-text "Search " \
-    --background-color 000D \
-    --selection-color 181B20 \
-    --selection-background C678DD \
     --selection-background-corner-radius 0 \
     --selection-background-padding "2, 10" \
     --width 100% \
@@ -11,7 +8,6 @@ cat ~/.config/sway/config | grep 'bindsym' | grep -v '^\s*#' | sed 's/bindsym / 
     --anchor center \
     --padding-left  30% \
     --padding-top  2% \
-    --border-color  BF68D9 \
     --border-width 0
 
 

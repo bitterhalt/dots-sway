@@ -1,38 +1,47 @@
 #####################
 # General settings #
 #####################
-background-color=#181B20
-border-radius=4
-border-size=2
-default-timeout=5000
 font=JetBrains Mono, Symbols Nerd Font 10
-width=300
-height=175
+default-timeout=5000
 icons=1
 ignore-timeout=1
 layer=overlay
+sort=-time
+#####################
+#       Style       #
+#####################
+border-radius=4
 max-history=20
 max-icon-size=64
+border-size=2
+width=300
+height=175
 padding=10
-sort=-time
-text-color=#a0a8b7
+
+##################
+#   Colors       #
+##################
+background-color=#1D2021
+text-color=#bdae93
+border-color=#282828
+#border-color=#5F332F
+#border-color=#3C3836
+#progress-color=over #d5c4a1
 
 ##################
 # Urgency levels #
 ##################
-[urgency=low]
-border-color=#282c34
+#[urgency=low]
+#border-color=#1e1e1e
+##border-color=#17191b
 
-[urgency=normal]
-border-color=#282c34
+#[urgency=normal]
+#border-color=#1e1e1e
+##border-color=#17191b
 
 [urgency=high]
-border-color=#ff0000
+border-color=#CC241D
 default-timeout=0
-
-[category=mpd]
-default-timeout=2000
-group-by=category
 
 ###############################
 ## Custom notification rules ##

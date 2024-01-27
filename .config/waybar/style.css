@@ -1,5 +1,5 @@
 /* Colors */
-@import "colors/onedark.css";
+@import "colors/gruvbox.css";
 
 /* Reset all styles */
 * {
@@ -36,19 +36,19 @@ window#waybar.hidden {
 
 #workspaces button {
     min-width: 20px;
-    color: @fg;
+    color: @fg2;
     padding: 0 5px;
 }
 
 
 #workspaces button.focused {
-    color: @purple;
+    color: @fg;
     background-color: @bg2;
 }
 
 #workspaces button.urgent {
-    color: @fg;
-    background-color: @bg2;
+    color: @bg;
+    background-color: @purple;
 }
 
 #mode {
@@ -127,7 +127,7 @@ window#waybar.hidden {
 }
 
 #pulseaudio.muted {
-    color: @bg4;
+    color: @fg2;
 }
 
 #pulseaudio.mic {
@@ -139,7 +139,7 @@ window#waybar.hidden {
 }
 
 #scratchpad {
-    color: @fg;
+    color: @fg2;
     padding-left: 10px;
     padding-right: 6px;
 }
@@ -164,7 +164,7 @@ window#waybar.hidden {
 }
 
 #custom-power {
-    color: @bg4;
+    color: @fg2;
     padding-right: 10px;
 }
 
@@ -172,6 +172,6 @@ window#waybar.hidden {
 #custom-sep,
 #custom-sep2,
 #custom-sep3 {
-    color: @bg4;
+    color: @fg2;
 }
 

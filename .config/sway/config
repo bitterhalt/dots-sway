@@ -16,7 +16,7 @@ set $right l
 set $term footclient
 set $rofi $HOME/.local/bin/rofi_applauncher
 set $tofi-drun  tofi-drun --drun-launch=true
-set $tofi-full tofi-drun --drun-launch=true -c ~/.config/tofi/fullscreen
+set $tofi-full ~/.config/tofi/scripts/drun_full.sh
 set $tofi-run tofi-run | xargs swaymsg exec --
 set $win-list $HOME/.config/tofi/scripts/tofi_window
 #set $power-menu "rofi -show power-menu -no-symbols -modi power-menu:rofi_powermenu -theme .config/rofi/rofi_powermenu.rasi"
@@ -276,7 +276,7 @@ bar {
 
 ## Colors
 
-include ~/.config/sway/colors/onedark.conf
+include ~/.config/sway/colors/gruvbox.conf
 
 ## Auto start
 exec foot --server
