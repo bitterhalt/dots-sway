@@ -1,0 +1,22 @@
+/* Gruvbox */
+@define-color bg  #1D2021;
+@define-color bg2 #282828;
+@define-color bg3 #3C3836;
+@define-color bg4 #504945;
+@define-color bg5 #665C54;
+@define-color bg6 #7C6F64;
+
+@define-color fg  #D5C4A1;
+@define-color fg2 #A89984;
+@define-color red #CC241D;
+@define-color red2 #FB4934;
+@define-color green #98971A;
+@define-color green2 #B8BB26;
+@define-color yellow #D79921;
+@define-color yellow2 #FABD2F;
+@define-color blue #458588;
+@define-color blue2 #83A598;
+@define-color purple #B16286;
+@define-color purple2 #D3869B;
+@define-color cyan #689D6A;
+@define-color cyan2 #8EC07C;
