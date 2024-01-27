@@ -17,7 +17,11 @@ selected="$(ps -a -u $USER | \
 # confirm window
 if [[ ! -z $selected ]]; then
     answer="$(echo -e "yes\nno" |
-        tofi -c ~/.config/tofi/confirm)"
+        tofi  --prompt-text "Delete Clipboard?" \
+            --height   12% \
+            --border-width  2 \
+            --outline-width  0 \
+            --padding-left  20)"
 
     if [[ $answer == "yes" ]]; then
         selpid="$(awk '{print $1}' <<< $selected)"

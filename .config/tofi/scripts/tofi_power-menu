@@ -4,9 +4,10 @@ set -e
 
 case $(printf "%s\n" "Lock"  "Logout" "Suspend" "Reboot" "Shutdown" | tofi --font-size 34 \
     --border-width 0 \
-    --background-color 000A \
-    --selection-color 101419 \
-    --selection-background C678DD \
+    --background-color 000D \
+    --selection-color 1e1e1e \
+    --text-color 8f8f8f \
+    --selection-background B16286 \
     --selection-background-corner-radius 8 \
     --selection-background-padding "4, 20" \
     --prompt-text  " " \
