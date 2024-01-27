@@ -11,7 +11,7 @@ selected="$(ps -a -u $USER | \
     --padding-bottom 20 \
     --anchor center \
     --corner-radius 0 \
-    --border-width 1  |
+    --border-width 2  |
     awk '{print $1" "$4}')"
 
 # confirm window
@@ -20,7 +20,7 @@ if [[ ! -z $selected ]]; then
         tofi  --prompt-text "Delete Clipboard?" \
             --height   12% \
             --border-width  2 \
-            --outline-width  0 \
+            --outline-width  1 \
             --padding-left  20)"
 
     if [[ $answer == "yes" ]]; then

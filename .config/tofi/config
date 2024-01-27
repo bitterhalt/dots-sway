@@ -9,8 +9,8 @@ font-size= 14
 
 # style
 border-width = 2
+outline-width = 1
 height = 540
-outline-width = 0
 padding-left = 30
 padding-top = 20
 prompt-padding = 5
@@ -21,7 +21,8 @@ width = 450
 
 placeholder-color = #928374
 background-color = #1D2021
-border-color = #282828
+border-color = #458588
+outline-color= #070d0e
 selection-color = #B16286
 text-color = #D5C4A1
 prompt-color = #928374
