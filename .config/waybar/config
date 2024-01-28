@@ -134,7 +134,7 @@
         "interval": "once",
         "format": "",
         "tooltip": false,
-        "on-click": "tofi-drun --drun-launch=true -c ~/.config/tofi/fullscreen",
+        "on-click": "~/.config/tofi/scripts/drun_full.sh",
         "on-click-right": "~/.config/sway/scripts/mako_sysnfo"
         },
 

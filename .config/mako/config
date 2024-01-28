@@ -22,8 +22,8 @@ padding=10
 #   Colors       #
 ##################
 background-color=#1D2021
-text-color=#bdae93
-border-color=#282828
+text-color=#bcaf8e
+border-color=#282b2c
 #border-color=#5F332F
 #border-color=#3C3836
 #progress-color=over #d5c4a1

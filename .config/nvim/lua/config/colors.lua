@@ -11,7 +11,7 @@
 -- local ok, _ = pcall(vim.cmd, 'colorscheme palenight')
 -- local ok, _ = pcall(vim.cmd, 'colorscheme base16-solarized-dark')
 -- local ok, _ = pcall(vim.cmd, 'colorscheme base16-solarized-light')
- local ok, _ = pcall(vim.cmd, 'colorscheme base16-bitterglow')
+ local ok, _ = pcall(vim.cmd, 'colorscheme base16-gruvbox-dark-hard')
 
 -- Custon Afterglow
 ---require('base16-colorscheme').setup({

@@ -1,15 +1,23 @@
 /* Colors */
 @import "colors/gruvbox.css";
 
-/* Reset all styles */
+/* -----------------------------------------------------
+ * General 
+ * ----------------------------------------------------- */
+
 * {
-    font-family: JetBrains Mono, Symbols Nerd Font;
+    font-family: JetBrains Mono, Symbols Nerd Font,sans-serif;
     font-size: 14px;
     font-weight: normal;
     border-radius: 0;
     border: none;
     box-shadow: none;
 }
+
+/* -----------------------------------------------------
+ * Tooltip
+ * ----------------------------------------------------- */
+
 tooltip {
   color: @fg;
   background: @bg;
@@ -17,18 +25,22 @@ tooltip {
   border-radius: 4px;
 }
 
+/* -----------------------------------------------------
+ * Window
+ * ----------------------------------------------------- */
+
 window#waybar {
    /* background-color: rgba(16, 20, 25,0.5); */
     background-color: @bg;
-    transition-property: background-color;
-    transition-duration: .5s;
 }
 
 window#waybar.hidden {
     opacity: 0.2;
 }
 
-/* Workspaces */
+/* -----------------------------------------------------
+ * Workspaces
+ * ----------------------------------------------------- */
 
 #workspaces {
   background-color: @bg;
@@ -61,6 +73,10 @@ window#waybar.hidden {
     color: @fg;
     padding: 0 10px;
 }
+
+/* -----------------------------------------------------
+ * Modules and other
+ * ----------------------------------------------------- */
 
 #mode {
     background-color: @purple;
