@@ -28,18 +28,19 @@ window#waybar.hidden {
     opacity: 0.2;
 }
 
+/* Workspaces */
 
-#workspaces button:hover {
-    background-color: @bg2;
+#workspaces {
+  background-color: @bg;
+  padding: 0 10px;
+
 }
-
 
 #workspaces button {
     min-width: 20px;
     color: @fg2;
-    padding: 0 5px;
+    padding: 0 6px;
 }
-
 
 #workspaces button.focused {
     color: @fg;
@@ -49,6 +50,16 @@ window#waybar.hidden {
 #workspaces button.urgent {
     color: @bg;
     background-color: @purple;
+}
+
+#workspaces button:hover {
+    background-color: @bg2;
+
+}
+
+#window {
+    color: @fg;
+    padding: 0 10px;
 }
 
 #mode {
@@ -66,11 +77,6 @@ window#waybar.hidden {
     padding: 0 6px;
 }
 
-
-#window {
-    color: @fg;
-    padding: 0 10px;
-}
 
 
 @keyframes blink {
@@ -100,7 +106,6 @@ window#waybar.hidden {
 
 #custom-useless {
     color: @fg;
-    padding-right: 6px;
     padding-left: 10px;
     /*    font-size: 16px;*/
 }
@@ -140,8 +145,6 @@ window#waybar.hidden {
 
 #scratchpad {
     color: @fg2;
-    padding-left: 10px;
-    padding-right: 6px;
 }
 
 #scratchpad.empty {
