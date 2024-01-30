@@ -32,6 +32,7 @@ tooltip {
 window#waybar {
    /* background-color: rgba(16, 20, 25,0.5); */
     background-color: @bg;
+
 }
 
 window#waybar.hidden {
@@ -55,13 +56,13 @@ window#waybar.hidden {
 }
 
 #workspaces button.focused {
-    color: @fg;
+    color: @blue;
     background-color: @bg2;
 }
 
 #workspaces button.urgent {
-    color: @bg;
-    background-color: @purple;
+    color: @purple;
+    background-color: @bg;
 }
 
 #workspaces button:hover {
@@ -74,12 +75,22 @@ window#waybar.hidden {
     padding: 0 10px;
 }
 
+#scratchpad {
+    color: @fg;
+}
+
+#scratchpad.empty {
+    background-color: transparent;
+}
+
 /* -----------------------------------------------------
  * Modules and other
  * ----------------------------------------------------- */
 
 #mode {
-    background-color: @purple;
+    color: @bg;
+    background-color: @yellow;
+    margin: 0 3px;
 }
 
 #battery,
@@ -159,13 +170,6 @@ window#waybar.hidden {
     color: @fg;
 }
 
-#scratchpad {
-    color: @fg2;
-}
-
-#scratchpad.empty {
-    background-color: transparent;
-}
 
 #tray {
     padding-left: 6px;
@@ -177,7 +181,7 @@ window#waybar.hidden {
 }
 
 #clock {
-    color: @purple;
+    color: @blue;
     padding: 0 15px;
     font-size: 16px;
 }
