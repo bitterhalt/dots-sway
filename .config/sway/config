@@ -54,7 +54,7 @@ bindsym $mod+q kill
 
 # Hide/restart waybar
 bindsym $mod+shift+b exec killall -SIGUSR1 waybar
-bindsym $mod+ctrl+b exec killall -SIGUSR2 waybar
+bindsym $mod+ctrl+b exec ~/.config/waybar/custom/waybar_togle
 
 # When the modifier key is held down, you may hold left click to move windows, and right click to resize them
 floating_modifier $mod normal
@@ -68,10 +68,10 @@ bindsym $mod+tab exec $win-list
 bindsym $mod+shift+c exec $clipmenu
 
 # Reload the configuration file
-bindsym $mod+shift+r reload
+bindsym $mod+ctrl+r reload
 
 # Exit sway (logs you out of your Wayland session)
-bindsym $mod+shift+q exec swaynag -t warning -m 'You are about to lose your shit! Are your sure?' -B 'Yes, end session' 'swaymsg exit'
+bindsym $mod+ctrl+q exec swaynag -t warning -m 'You are about to lose your shit! Are your sure?' -B 'Yes, end session' 'swaymsg exit'
 
 # Move your focus around
 bindsym $mod+$left focus left
@@ -146,9 +146,13 @@ bindsym $mod+a focus parent
 bindsym $mod+shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
-# Scratchpad terminal
+# Scratchpads
 bindsym $mod+shift+x exec foot -a scpterm
 bindsym $mod+x [app_id="scpterm"] scratchpad show
+
+bindsym $mod+shift+r exec foot -a scpranger -e ranger
+bindsym $mod+r [app_id="scpranger"] scratchpad show
+
 
 # Resizing containers:
 bindsym $mod+ctrl+Right resize shrink width 10 px
@@ -192,7 +196,6 @@ bindsym $mod+e exec --no-startup-id /usr/bin/thunar
 bindsym $mod+f11 exec ~/.config/sway/scripts/screenlocker
 bindsym $mod+f7 exec ~/.config/tofi/scripts/tofi_screenshot
 bindsym $mod+m exec --no-startup-id thunderbird
-bindsym $mod+r exec foot -e ranger
 bindsym $mod+shift+Print exec ~/.local/bin/wayland-scripts/sway-shot -re
 bindsym $mod+shift+f11 exec ~/.config/sway/scripts/swayidle-toggle toggle
 bindsym $mod+shift+f7 exec ~/.local/bin/wayland-scripts/sway-record -k
@@ -235,6 +238,7 @@ for_window [app_id="mpv"] floating enable
 for_window [app_id="nwg-look"] floating enable, resize set width 40 ppt height 50 ppt
 for_window [app_id="pavucontrol" ] floating enable, resize set width 40 ppt height 50 ppt
 for_window [app_id="scpterm"] floating enable, move scratchpad, resize set 700 600
+for_window [app_id="scpranger"] floating enable, move scratchpad, resize set 1000 700
 for_window [app_id="virt-manager"] floating enable
 for_window [app_id="waypaper"] floating enable, resize set width 50 ppt height 70 ppt
 for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
