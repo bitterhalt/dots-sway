@@ -1,0 +1,27 @@
+#!/bin/bash
+# https://github.com/bitterhalt
+set -e
+
+case $(printf "%s\n" "Lock"  "Logout" "Suspend" "Reboot" "Shutdown" | fuzzel -d -l 5 -w 20 -f "JetBrains Mono:size=18" --line-height=40px -p "Powermenu ") in
+ "Shutdown")
+    confirm=$(echo -e "Yes\nNo" | fuzzel -d -l 2 -w 10 -p "Sure? " )
+    if [[ "$confirm" == "Yes" ]]; then
+        systemctl poweroff
+    fi
+    ;;
+"Reboot")
+    confirm=$(echo -e "Yes\nNo" | fuzzel -d -l 2 -w 10 -p  "Sure? " )
+    if [[ "$confirm" == "Yes" ]]; then
+        systemctl reboot
+    fi
+    ;;
+"Suspend")
+    systemctl suspend
+    ;;
+"Lock")
+    $HOME/.config/sway/scripts/screenlocker
+    ;;
+"Logout")
+    swaymsg exit
+    ;;
+esac
