@@ -1,6 +1,5 @@
 # PATH
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.local/bin/wayland-scripts:$PATH"
 
 # XDG Base Directory
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -16,7 +15,7 @@ export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 
 # Start sway environment 
  if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-   exec $HOME/.local/bin/wayland-scripts/sway-start
+   exec $HOME/.local/bin/sway-start
  fi
 
 

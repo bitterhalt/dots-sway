@@ -90,8 +90,9 @@ border-size=2
 text-alignment=center
 
 [app-name=cal_notify]
-font=JetBrains Mono, Symbols Nerd Font 10
-width=200
+font=JetBrains Mono 12
+width=230
+height=250
 anchor=top-right
 group-by=app-name
 default-timeout=8000

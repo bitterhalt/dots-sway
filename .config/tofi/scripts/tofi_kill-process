@@ -17,7 +17,7 @@ selected="$(ps -a -u $USER | \
 # confirm window
 if [[ ! -z $selected ]]; then
     answer="$(echo -e "yes\nno" |
-        tofi  --prompt-text "Delete Clipboard?" \
+        tofi  --prompt-text "Sure?" \
             --height   12% \
             --border-width  2 \
             --outline-width  1 \
