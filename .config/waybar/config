@@ -59,14 +59,14 @@
         "format-ethernet": "󰈀",
         "tooltip-format": "{ifname} via {gwaddr}",
         "format-linked": "{ifname} (No IP) ?",
-        "format-disconnected": "",
+        "format-disconnected": "x",
         "on-click": "nm-connection-editor"
     },
 
     "pulseaudio": {
         "format": "{icon}",
         "format-bluetooth": "{volume}% {icon}",
-        "format-muted": "Mute",
+        "format-muted": "",
         "format-icons": {
             "headphone": "",
             "headset": "󰋎",
@@ -113,20 +113,26 @@
 
     },
 
-        "custom/sep": {
+        "custom/pipe": {
         "interval": "once",
         "format": "|",
         "tooltip": false
     },
-        "custom/sep2": {
+        "custom/bracket": {
         "interval": "once",
         "format": "[",
         "tooltip": false
         },
 
-        "custom/sep3": {
+        "custom/bracket1": {
         "interval": "once",
-        "format": "[",
+        "format": "]",
+        "tooltip": false
+        },
+
+        "custom/slash": {
+        "interval": "once",
+        "format": "]",
         "tooltip": false
         },
 

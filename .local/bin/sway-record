@@ -13,6 +13,7 @@ FILENAME="$SAVEDIR/${TIMESTAMP}_capture.mp4"
 
 fullscreen() {
     wf-recorder  \
+    -r 30 \
     -c libx264rgb \
     -f "$FILENAME"
     notify-send "Screen record" "File saved as $SAVEDIR" -i "$FILENAME"
@@ -20,6 +21,7 @@ fullscreen() {
 
 region() {
     wf-recorder \
+    -r 30 \
     -c libx264rgb \
     -g "$(slurp)" \
     -f "$FILENAME"

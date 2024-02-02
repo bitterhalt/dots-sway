@@ -1,5 +1,5 @@
 /* Gruvbox */
-@define-color bg  #1D2021;
+@define-color bg  #1c1e1f;
 @define-color bg2 #282b2c;  /* or: #282828 */
 @define-color bg3 #3C3836;
 @define-color bg4 #504945;
@@ -7,7 +7,7 @@
 @define-color bg6 #7C6F64;
 @define-color bg7 #928374;
 
-@define-color fg  #D5C4A1;
+@define-color fg  #BDAE93;
 @define-color fg2 #A89984;
 @define-color red #CC241D;
 @define-color red2 #FB4934;

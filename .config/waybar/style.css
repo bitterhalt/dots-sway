@@ -137,10 +137,7 @@ window#waybar.hidden {
     /*    font-size: 16px;*/
 }
 
-#cpu {
-    color: @fg;
-}
-
+#cpu,
 #memory {
     color: @fg;
 }
@@ -159,7 +156,7 @@ window#waybar.hidden {
 }
 
 #pulseaudio.muted {
-    color: @fg2;
+    color: @fg;
 }
 
 #pulseaudio.mic {
