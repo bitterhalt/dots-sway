@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=calcurse
+TryExec=calcurse
+Exec=/usr/bin/calcurse
+Terminal=true
