@@ -1,0 +1,41 @@
+[[bookmark]]
+key = "x"
+path = "/home/bazz/Documents"
+
+[[bookmark]]
+key = "h"
+path = "~/"
+
+[[bookmark]]
+key = "r"
+path = "/"
+
+[[bookmark]]
+key = ":"
+path = "/home/bazz/Documents"
+
+[[bookmark]]
+key = "e"
+path = "/etc"
+
+[[bookmark]]
+key = "escape"
+path = "/home/bazz/Documents"
+
+[[bookmark]]
+key = "\t"
+path = "/home/bazz/Documents"
+
+[[bookmark]]
+key = """
+
+"""
+path = "/home/bazz/Documents"
+
+[[bookmark]]
+key = "j"
+path = "/home/bazz/Documents"
+
+[[bookmark]]
+key = "g"
+path = "/home/bazz"
