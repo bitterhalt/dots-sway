@@ -141,6 +141,7 @@ bindsym $mod+space focus mode_toggle
 
 # Move focus to the parent container
 bindsym $mod+a focus parent
+bindsym $mod+shift+a focus child
 
 # Scratchpad
 bindsym $mod+shift+minus move scratchpad
@@ -184,8 +185,8 @@ bindsym $mod+F6 exec ~/.config/tofi/scripts/tofi_network
 bindsym $mod+F8 exec pavucontrol
 bindsym $mod+F9 exec ~/.config/sway/scripts/mic-toggle toggle
 bindsym $mod+Print exec ~/.local/bin/sway-shot -f
-bindsym $mod+c [app_id="discord"] scratchpad show
-#bindsym $mod+c [app_id="WebCord"] scratchpad show
+#bindsym $mod+c [app_id="discord"] scratchpad show
+bindsym $mod+c [app_id="WebCord"] scratchpad show
 bindsym $mod+ctrl+c exec --no-startup-id $HOME/.config/tofi/scripts/tofi_cliphist -w
 bindsym $mod+ctrl+i exec --no-startup-id $HOME/.config/mako/scripts/mako_sysnfo
 bindsym $mod+ctrl+p exec ~/.local/bin/swaypick
@@ -221,7 +222,6 @@ assign [app_id="LibreWolf"] 2
 assign [app_id="com.transmissionbt.transmission_66306_3673930"] 4
 assign [app_id="discord"] 3
 assign [app_id="firefox"] 2
-assign [app_id="keepassxc"] 6
 assign [app_id="thunderbird"] 3
 assign [app_id="virt-manager"] 8
 assign [class="Signal"] 3
@@ -234,7 +234,7 @@ for_window [app_id="floating_shell_portrait"] floating enable, border pixel 1, s
 for_window [app_id="floatterm"] floating enable, resize set width 40 ppt height 60 ppt
 for_window [app_id="imv"] floating enable
 for_window [app_id="missioncenter"] floating enable
-for_window [app_id="mpv"] floating enable
+for_window [app_id="mpv"] floating enable, sticky enable
 for_window [app_id="nwg-look"] floating enable, resize set width 40 ppt height 50 ppt
 for_window [app_id="pavucontrol" ] floating enable, resize set width 40 ppt height 50 ppt
 for_window [app_id="scpterm"] floating enable, move scratchpad, resize set 700 600
@@ -253,7 +253,7 @@ for_window [title="fzf-switcher"] floating enable
 for_window [title = "About Mozilla Firefox"] floating enable
 for_window [title="Choose User Profile"] floating enable
 for_window [title="File Operation Progress"] floating enable, border pixel 1, resize set width 40 ppt height 30 ppt
-for_window [title="Picture-in-Picture"] floating enable
+for_window [title="Picture-in-Picture"] floating enable, sticky enable
 #for_window [title="Save File"] floating enable
 for_window [title="(?:Open|Save) (?:File|Folder|As)"] floating enable
 for_window [window_role="GtkFiileChooserDialog"] move position center
