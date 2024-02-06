@@ -13,7 +13,7 @@ sort=-time
 border-radius=4
 max-history=20
 max-icon-size=64
-border-size=2
+border-size=1
 width=300
 height=175
 padding=10
@@ -22,25 +22,27 @@ padding=10
 #   Colors       #
 ##################
 background-color=#1D2021
-text-color=#bcaf8e
+text-color=#BDAE93
 border-color=#282b2c
-#border-color=#5F332F
-#border-color=#3C3836
 #progress-color=over #d5c4a1
 
 ##################
 # Urgency levels #
 ##################
 #[urgency=low]
-#border-color=#1e1e1e
-##border-color=#17191b
+#background-color=#1d2021
+#text-color=#BDAE93
+#border-color=#282b2c
 
 #[urgency=normal]
-#border-color=#1e1e1e
-##border-color=#17191b
+#background-color=#1D2021
+#text-color=#BDAE93
+#border-color=#282b2c
 
 [urgency=high]
+background-color=#1D2021
 border-color=#CC241D
+text-color=#FABD2F
 default-timeout=0
 
 ###############################
@@ -52,7 +54,6 @@ width=100
 anchor=top-right
 group-by=app-name
 default-timeout=1500
-border-size=2
 text-alignment=center
 
 [app-name=sysnfo_notify]
@@ -61,7 +62,6 @@ width=200
 anchor=top-right
 group-by=app-name
 default-timeout=8000
-border-size=2
 
 [app-name=sysnfo_notify-l]
 font=JetBrains Mono, Symbols Nerd Font 13
@@ -69,7 +69,6 @@ width=260
 anchor=top-right
 group-by=app-name
 default-timeout=4000
-border-size=2
 text-alignment=center
 
 [app-name=fat_notify]
@@ -78,7 +77,6 @@ height=800
 anchor=top-right
 group-by=app-name
 default-timeout=8000
-border-size=2
 
 [app-name=date_notify]
 font=JetBrains Mono, Symbols Nerd Font 12
@@ -86,7 +84,6 @@ width=160
 anchor=top-right
 group-by=app-name
 default-timeout=4000
-border-size=2
 text-alignment=center
 
 [app-name=cal_notify]
@@ -96,7 +93,6 @@ height=250
 anchor=top-right
 group-by=app-name
 default-timeout=8000
-border-size=2
 
 [app-name=weather_notify]
 font=JetBrains Mono, Symbols Nerd Font 12
@@ -104,7 +100,6 @@ width=230
 anchor=top-right
 group-by=app-name
 default-timeout=8000
-border-size=2
 padding=20
 
 [app-name=idle_notify]
@@ -113,7 +108,6 @@ width=260
 anchor=top-right
 group-by=app-name
 default-timeout=8000
-border-size=2
 text-alignment=center
 
 [mode=dnd]
