@@ -13,6 +13,10 @@ export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export GOPATH="$XDG_DATA_HOME/go"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 
+# Gnupg
+export SSH_AGENT_PID=""
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
+
 # Start sway environment 
  if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
    exec $HOME/.local/bin/sway-start
