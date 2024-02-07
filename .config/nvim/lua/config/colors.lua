@@ -2,7 +2,6 @@
 -- RRethy/nvim-base16 collection
 -------------------------------------------------
 
--- Uncomment just ONE of the following colorschemes!
 -- local ok, _ = pcall(vim.cmd, 'colorscheme base16-dracula')
 -- local ok, _ = pcall(vim.cmd, 'colorscheme base16-monokai')
 -- local ok, _ = pcall(vim.cmd, 'colorscheme base16-nord')
@@ -11,15 +10,15 @@
 -- local ok, _ = pcall(vim.cmd, 'colorscheme palenight')
 -- local ok, _ = pcall(vim.cmd, 'colorscheme base16-solarized-dark')
 -- local ok, _ = pcall(vim.cmd, 'colorscheme base16-solarized-light')
- local ok, _ = pcall(vim.cmd, 'colorscheme base16-gruvbox-dark-hard')
+-- local ok, _ = pcall(vim.cmd, 'colorscheme base16-gruvbox-dark-hard')
 
--- Custon Afterglow
----require('base16-colorscheme').setup({
----     base00 = '#212121', base01 = '#373737', base02 = '#4d4d4d', base03 = '#646464',
----     base04 = '#7a7a7a', base05 = '#bcbcbc', base06 = '#a6a6a6', base07 = '#e9e9e9',
----     base08 = '#AC4142', base09 = '#dd7a1c', base0A = '#e5b567', base0B = '#A2B568',
----     base0C = '#589591', base0D = '#6C9ABB', base0E = '#9e86c8', base0F = '#935e51'
----    })
+-- Custon Gruvbox Darker
+require('base16-colorscheme').setup({
+     base00 = '#1C1E1F', base01 = '#3c3836', base02 = '#504945', base03 = '#665c54',
+     base04 = '#bdae93', base05 = '#d5c4a1', base06 = '#ebdbb2', base07 = '#fbf1c7',
+     base08 = '#fb4934', base09 = '#fe8019', base0A = '#fabd2f', base0B = '#b8bb26',
+     base0C = '#8ec07c', base0D = '#83a598', base0E = '#d3869b', base0F = '#d65d0e'
+    })
 
 
 

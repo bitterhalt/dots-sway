@@ -7,7 +7,7 @@
     // Choose the order of the modules
     "modules-left": ["custom/useless","sway/workspaces", "sway/mode", "sway/scratchpad"],
     "modules-center": ["sway/window"],
-    "modules-right": ["cpu", "memory", "network", "pulseaudio", "pulseaudio#mic", "custom/swayidle", "tray","custom/weather", "clock", "custom/power"],
+    "modules-right": ["cpu", "memory", "network", "pulseaudio", "pulseaudio#mic", "custom/swayidle","custom/weather", "clock", "custom/power"],
 
     // Modules configuration
      "sway/workspaces": {
@@ -57,7 +57,7 @@
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "({signalStrength}%) ",
         "format-ethernet": "󰈀",
-        "tooltip-format": "{ifname} via {gwaddr}",
+        "tooltip-format": "󱘖 {ipaddr}  {bandwidthUpBytes}  {bandwidthDownBytes}",
         "format-linked": "{ifname} (No IP) ?",
         "format-disconnected": "x",
         "on-click": "nm-connection-editor"
@@ -98,10 +98,9 @@
 
     "clock": {
         "format": "{:%H:%M}",
-        "tooltip": true,
-        "tooltip-format": "* Click right to open calendar\n* Click left to show calendar",
-        "on-click": "~/.config/mako/scripts/mako_calendar",
-       // "on-click-right": "$TERMINAL -e calcurse",
+        "format-alt": "{:%d.%m.%Y | %H:%M }",
+        "tooltip": false,
+        "on-click-right": "~/.config/mako/scripts/mako_calendar"
     },
 
         "custom/power": {

@@ -144,7 +144,7 @@ window#waybar.hidden {
 
 #network {
     color: @fg;
-    padding-left: 15px;
+    padding-left: 10px;
 }
 
 #network.disconnected {
@@ -174,12 +174,12 @@ window#waybar.hidden {
 
 #custom-weather {
     color: @fg;
-    padding-left: 15px;
+    padding-left: 10px;
 }
 
 #clock {
     color: @blue;
-    padding: 0 15px;
+    padding: 0 10px;
     font-size: 16px;
 }
 
