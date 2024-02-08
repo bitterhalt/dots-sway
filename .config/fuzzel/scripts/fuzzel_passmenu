@@ -18,7 +18,7 @@ IFS=$'\n\t'
 #          ENV           #
 # ---------------------- #
 MODE=""
-MENUCMD=(fuzzel -d -p "Tofipass:" -w 30)
+MENUCMD=(fuzzel -d -p "Passmenu:" -w 30)
 TIMEOUT="45"
 STOREDIR="${PASSWORD_STORE_DIR-$HOME/.password-store}"
 
