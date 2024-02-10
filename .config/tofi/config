@@ -9,16 +9,16 @@ font-size=14
 # style
 border-width = 1
 outline-width = 1
-height = 540
+height = 450
+width = 450
 padding-left = 30
 padding-top = 20
 prompt-padding = 5
 result-spacing = 5
-width = 450
 # colors
 
 placeholder-color = #928374
-background-color = #1D2021
+background-color = #1C1E1F
 border-color = #458588
 outline-color= #000000
 selection-color = #458588
