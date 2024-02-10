@@ -1,9 +1,8 @@
+/* -----------------------------------------------------
+ *                      General
+ * ----------------------------------------------------- */
 /* Colors */
 @import "colors/gruvbox.css";
-
-/* -----------------------------------------------------
- * General 
- * ----------------------------------------------------- */
 
 * {
     font-family: JetBrains Mono, Symbols Nerd Font,sans-serif;
@@ -15,7 +14,7 @@
 }
 
 /* -----------------------------------------------------
- * Tooltip
+ *                      Tooltip
  * ----------------------------------------------------- */
 
 tooltip {
@@ -26,7 +25,7 @@ tooltip {
 }
 
 /* -----------------------------------------------------
- * Window
+ *                      Window
  * ----------------------------------------------------- */
 
 window#waybar {
@@ -39,8 +38,13 @@ window#waybar.hidden {
     opacity: 0.2;
 }
 
+#window {
+    color: @fg;
+    padding: 0 10px;
+}
+
 /* -----------------------------------------------------
- * Workspaces
+ *                  Workspaces
  * ----------------------------------------------------- */
 
 #workspaces {
@@ -51,7 +55,7 @@ window#waybar.hidden {
 
 #workspaces button {
     min-width: 20px;
-    color: @fg2;
+    color: @bg4;
     padding: 0 6px;
 }
 
@@ -70,41 +74,41 @@ window#waybar.hidden {
 
 }
 
-#window {
-    color: @fg;
-    padding: 0 10px;
-}
-
-#scratchpad {
-    color: @fg;
-}
-
-#scratchpad.empty {
-    background-color: transparent;
-}
-
 /* -----------------------------------------------------
- * Modules and other
+ *                      Modules
  * ----------------------------------------------------- */
+
+#battery,
+#cpu,
+#memory,
+#pulseaudio,
+#pulseaudio.muted,
+#pulseaudio.mic {
+    color: @fg;
+    padding: 0 6px;
+}
+
+#network {
+    color: @fg;
+    padding: 0px 6px 0px 10px;
+}
+
+#network.disconnected {
+    color: @red;
+}
+
+#clock {
+    color: @blue;
+    padding: 0 10px;
+    font-size: 16px;
+}
 
 #mode {
     color: @bg;
     background-color: @yellow;
     margin: 0 3px;
-}
-
-#battery,
-#cpu,
-#memory,
-#network,
-#pulseaudio,
-#pulseaudio#mic,
-#custom-swayidle,
-#mode {
     padding: 0 6px;
 }
-
-
 
 @keyframes blink {
     to {
@@ -115,6 +119,7 @@ window#waybar.hidden {
 
 #battery {
     color: @fg;
+
 }
 
 #battery.charging, #battery.plugged {
@@ -131,45 +136,20 @@ window#waybar.hidden {
     animation-direction: alternate;
 }
 
+/* -----------------------------------------------------
+ *                      Custom
+ * ----------------------------------------------------- */
+#custom-swayidle {
+    padding: 0 6px;
+}
+
 #custom-useless {
     color: @fg;
     padding-left: 10px;
-    /*    font-size: 16px;*/
-}
-
-#cpu,
-#memory {
-    color: @fg;
-}
-
-#network {
-    color: @fg;
-    padding-left: 10px;
-}
-
-#network.disconnected {
-    color: @red;
-}
-
-#pulseaudio {
-    color: @fg;
-}
-
-#pulseaudio.muted {
-    color: @fg;
-}
-
-#pulseaudio.mic {
-  color: @fg;
 }
 
 #custom-swayidle {
     color: @fg;
-}
-
-
-#tray {
-    padding-left: 6px;
 }
 
 #custom-weather {
@@ -177,21 +157,13 @@ window#waybar.hidden {
     padding-left: 10px;
 }
 
-#clock {
-    color: @blue;
-    padding: 0 10px;
-    font-size: 16px;
-}
-
 #custom-power {
     color: @fg2;
     padding-right: 10px;
 }
-
 
 #custom-sep,
 #custom-sep2,
 #custom-sep3 {
     color: @fg2;
 }
-
