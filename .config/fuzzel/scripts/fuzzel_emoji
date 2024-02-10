@@ -5,7 +5,7 @@ set -e
 # Copied from: https://github.com/LukeSmithxyz/voidrice/blob/master/.local/bin/dmenuunicode
 
 # MENU="rofi -dmenu -p type..."
-MENU=("fuzzel -d -p "Type: " -w 55 ")
+MENU=("fuzzel -d -l 10 -p "Type: " -w 55 ")
 
 chosen=$(cut -d ';' -f1 ~/.local/share/emoji/emoji | $MENU | sed "s/ .*//")
 
