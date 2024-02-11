@@ -25,7 +25,7 @@ if [ "${is_muted}" = "yes" ]; then
     icon=""
 elif (( vol == 0 )); then
     icon="󰝟"
-elif (( vol <= 35 )); then
+elif (( vol <= 45 )); then
     icon=""
 else
     icon=""

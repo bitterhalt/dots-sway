@@ -1,4 +1,6 @@
+# Sway config
 font pango: JetBrains Mono 10
+
 # Disable_window_borders
 default_border pixel 2
 default_floating_border pixel 2
@@ -95,7 +97,7 @@ bindsym $mod+shift+Down move down
 bindsym $mod+shift+Up move up
 bindsym $mod+shift+Right move right
 
-# Workspaces:
+## Workspaces:
 
 # Switch to workspace
 bindsym $mod+1 workspace number 1
@@ -175,8 +177,9 @@ bindsym $mod+ctrl+shift+plus   gaps outer current plus 5
 bindsym $mod+ctrl+shift+minus  gaps outer current minus 5
 
 
-# Shortcuts
+## Shortcuts
 # Note: "no-startup-id" is useless on Sway and you can delete those if u are not lazy like me..
+
 #bindsym $mod+F4 exec ~/.local/bin/rofi_kill_process
 bindsym $mod+F1 exec ~/.config/sway/scripts/keyhint
 bindsym $mod+F4 exec ~/.config/tofi/scripts/tofi_kill-process
@@ -205,12 +208,11 @@ bindsym $mod+shift+u exec foot -e ~/.local/bin/popupgrade
 bindsym $mod+w exec --no-startup-id /usr/bin/firefox
 
 # Media keys
-bindsym XF86AudioLowerVolume exec ~/.config/sway/scripts/volume-thing down
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@
-bindsym XF86AudioMute exec ~/.config/sway/scripts/volume-thing mute
 bindsym XF86AudioRaiseVolume exec ~/.config/sway/scripts/volume-thing up
+bindsym XF86AudioLowerVolume exec ~/.config/sway/scripts/volume-thing down
+bindsym XF86AudioMute exec ~/.config/sway/scripts/volume-thing mute
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@
 bindsym XF86Calculator  exec --no-startup-id galculator
-
 
 ## Rules
 for_window [class="Yad" instance="yad"] floating enable
@@ -226,6 +228,7 @@ assign [app_id="thunderbird"] 3
 assign [app_id="virt-manager"] 8
 assign [class="Signal"] 3
 assign [class="steam"] 5
+
 # set floating
 for_window [app_id="(?i)(?:blueman-manager|azote|gnome-disks|nwg-shell-config)"] floating enable
 for_window [app_id="(?i)(?:pavucontrol|nm-connection-editor|gsimplecal|galculator)"] floating enable
@@ -267,7 +270,7 @@ for_window [window_role="task_dialog"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
 
-
+# Inhibit idle
 for_window [app_id="firefox"] inhibit_idle fullscreen
 for_window [app_id="mpv"] inhibit_idle fullscreen
 
@@ -278,12 +281,11 @@ bar {
     swaybar_command waybar
 }
 
-## Colors
-
+# Colors
 include ~/.config/sway/colors/gruvbox.conf
 
-## Auto start
+# Auto start
 exec foot --server
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec wl-paste --watch cliphist store
-#exec_always i3-autotile
+#exec i3-autotile

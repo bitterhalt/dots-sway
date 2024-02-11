@@ -50,18 +50,19 @@ window#waybar.hidden {
 #workspaces {
   background-color: @bg;
   padding: 0 10px;
-
 }
 
 #workspaces button {
     min-width: 20px;
     color: @bg4;
-    padding: 0 6px;
+    border-radius: 2px;
+    padding: 0 5px;
+    margin: 2px 2px 2px 2px;
 }
 
 #workspaces button.focused {
-    color: @blue;
-    background-color: @bg2;
+    color: @bg;
+    background-color: @blue;
 }
 
 #workspaces button.urgent {
@@ -154,7 +155,7 @@ window#waybar.hidden {
 
 #custom-weather {
     color: @fg;
-    padding-left: 10px;
+    padding-left: 5px;
 }
 
 #custom-power {
