@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+#
+set -euo pipefail
 
 get_options() {
   echo "  Record Screen (MP4)"
@@ -45,8 +47,6 @@ main() {
     sway-record -k
     ;;
   esac
-
-  set -e
 }
 
 main &

@@ -1,16 +1,19 @@
 #!/bin/bash
 # https://github.com/bitterhalt
-set -e
+set -euo pipefail
 
-case $(printf "%s\n" "Lock"  "Logout" "Suspend" "Reboot" "Shutdown" | fuzzel -d -l 5 -w 20 -f "JetBrains Mono:size=16" --line-height=40px) in
+MENU="fuzzel -d --log-level error"
+CONFIRM="fuzzel -d -l 2 -w 10 --log-level error"
+
+case $(printf "%s\n" "Lock"  "Logout" "Suspend" "Reboot" "Shutdown" | $MENU -l 5 -w 20 -f "JetBrains Mono:size=16" --line-height=40px) in
  "Shutdown")
-    confirm=$(echo -e "Yes\nNo" | fuzzel -d -l 2 -w 10 -p "Sure? " )
+    confirm=$(echo -e "Yes\nNo" | $CONFIRM -p  "Sure? ")
     if [[ "$confirm" == "Yes" ]]; then
         systemctl poweroff
     fi
     ;;
 "Reboot")
-    confirm=$(echo -e "Yes\nNo" | fuzzel -d -l 2 -w 10 -p  "Sure? " )
+    confirm=$(echo -e "Yes\nNo" | $CONFIRM -p  "Sure? ")
     if [[ "$confirm" == "Yes" ]]; then
         systemctl reboot
     fi

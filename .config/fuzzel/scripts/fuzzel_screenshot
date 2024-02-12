@@ -11,7 +11,7 @@ get_options() {
 
 main() {
 
-    choice=$( (get_options) | fuzzel -d  -f "Jetbrains Mono:size=16" --line-height=35 -w 25 -l 5 -p "Screenshot menu " )
+    choice=$( (get_options) | fuzzel -d  -f "Jetbrains Mono:size=16" --line-height=35 -w 25 -l 5 -p "Screenshot menu " --log-level error)
 
   if [[ -z "${choice// /}" ]]; then
     exit 1

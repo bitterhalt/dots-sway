@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 # Wayland
-MENU="fuzzel -d"
+MENU="fuzzel -d --log-level error"
 # X11
 #MENU="$usr/bin/dmenu"
 
 
 selected="$(ps -a -u $USER | \
-            $MENU -l 30 -w 50 -f "JetBrains Mono:size=14" --line-height=25 -p "Kill!" | \
+            $MENU -l 30 -w 50 -f "JetBrains Mono:size=14" --line-height=25 -p "Kill! " | \
             awk '{print $1" "$4}')"; 
 
 if [[ ! -z $selected ]]; then

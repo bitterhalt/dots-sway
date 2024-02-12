@@ -1,6 +1,6 @@
 #!/bin/bash
 # https://github.com/bitterhalt
-set -e
+set -euo pipefail
 
 case $(printf "%s\n" "Lock"  "Logout" "Suspend" "Reboot" "Shutdown" | tofi --font-size 34 \
     --border-width 0 \

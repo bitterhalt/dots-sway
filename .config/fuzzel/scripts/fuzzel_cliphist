@@ -6,7 +6,7 @@
 set -e
 
 list () {
-    cliphist list | fuzzel -d -p "Cliphist " -l 17 -w 60  |
+    cliphist list | fuzzel -d -p "Cliphist " -l 17 -w 60 --log-level error |
         cliphist decode | wl-copy
     }
 

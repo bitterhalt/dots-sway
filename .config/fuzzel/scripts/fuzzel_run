@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#
+set -euo pipefail
+
+find $(echo $PATH | sed 's/:/ /g') -type f -printf '%P\n' | fuzzel -d --log-level error | sh

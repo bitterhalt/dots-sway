@@ -1,5 +1,5 @@
 #!/bin/sh
-set -e
+set -euo pipefail
 
 # Dead simple emoji picker script for Sway and other wlroots based compositors
 # Copied from: https://github.com/LukeSmithxyz/voidrice/blob/master/.local/bin/dmenuunicode
