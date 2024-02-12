@@ -86,8 +86,8 @@ default-timeout=4000
 text-alignment=center
 
 [app-name=cal_notify]
-font=JetBrains Mono 12
-width=230
+font=JetBrains Mono 10
+width=190
 height=250
 anchor=top-right
 group-by=app-name

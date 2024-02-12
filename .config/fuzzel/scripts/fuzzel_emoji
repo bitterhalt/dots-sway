@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 set -e
 
 # Dead simple emoji picker script for Sway and other wlroots based compositors

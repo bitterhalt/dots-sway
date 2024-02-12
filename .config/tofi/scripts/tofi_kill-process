@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # https://github.com/bitterhalt
-set -euo pipefail
 
 selected="$(ps -a -u $USER | \
     tofi  --text-cursor false \

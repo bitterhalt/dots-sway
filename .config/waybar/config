@@ -5,7 +5,7 @@
 
         // Modules
         "modules-left": ["custom/useless","sway/workspaces", "sway/mode"],
-        "modules-center": ["sway/window"],
+        //"modules-center": ["sway/window"],
         "modules-right": ["cpu", "memory", "network", "pulseaudio", "pulseaudio#mic", "custom/swayidle","custom/weather", "clock", "custom/power"],
 
         // Modules configuration
@@ -77,7 +77,7 @@
 
         "clock": {
             "format": "{:%H:%M}",
-            "format-alt": "{:%d.%m.%Y | %H:%M }",
+            "format-alt": "{:%d.%m %H:%M}",
             "tooltip": false,
             "on-click-right": "~/.config/mako/scripts/mako_calendar"
         },

@@ -54,7 +54,7 @@ window#waybar.hidden {
 
 #workspaces button {
     min-width: 20px;
-    color: @bg4;
+    color: @fg2;
     border-radius: 2px;
     padding: 0 5px;
     margin: 2px 2px 2px 2px;

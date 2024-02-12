@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 get_options() {
   echo "  Record Screen (MP4)"
   echo "  Record Region (MP4)"
@@ -11,7 +13,7 @@ get_options() {
 
 main() {
 
-    choice=$( (get_options) | fuzzel -d  -f "Jetbrains Mono:size=16" --line-height=35 -w 25 -l 5 -p "Screenshot menu " --log-level error)
+    choice=$( (get_options) | fuzzel -d  -f "Jetbrains Mono:size=16" --line-height=35 -w 25 -l 6 -p "Screenshot menu " --log-level error)
 
   if [[ -z "${choice// /}" ]]; then
     exit 1
@@ -38,7 +40,6 @@ main() {
     ;;
   esac
 
-  set -e
 }
 
 main &

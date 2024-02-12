@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+set -e
 # Wayland
 MENU="fuzzel -d --log-level error"
 # X11

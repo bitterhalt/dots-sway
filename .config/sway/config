@@ -16,14 +16,57 @@ set $down j
 set $up k
 set $right l
 set $term footclient
-set $rofi $HOME/.local/bin/rofi_applauncher
-set $tofi-run  tofi-run | xargs swaymsg exec --
-set $tofi-full ~/.config/tofi/scripts/drun_full.sh
-set $tofi-drun  tofi-drun --drun-launch=true
-set $win-list $HOME/.config/tofi/scripts/tofi_window
-#set $power-menu "rofi -show power-menu -no-symbols -modi power-menu:rofi_powermenu -theme .config/rofi/rofi_powermenu.rasi"
-set $power-menu $HOME/.config/tofi/scripts/tofi_power-menu
-set $clipmenu $HOME/.config/tofi/scripts/tofi_cliphist -l
+
+## Launchers
+# If you want to use Tofi comment Fuzzel part or vice versa
+
+#::::::::::#
+# Use Tofi #
+#::::::::::#
+
+#set $tofi_run  tofi-run | xargs swaymsg exec --
+#set $tofi_full $HOME/.config/tofi/scripts/drun_full.sh
+#set $tofi_drun  tofi-drun --drun-launch=true
+#set $tofi_winlist $HOME/.config/tofi/scripts/tofi_window
+#set $tofi_power $HOME/.config/tofi/scripts/tofi_power-menu
+#set $tofi_clipmenu $HOME/.config/tofi/scripts/tofi_cliphist -l
+#set $tofi_killer $HOME/.config/tofi/scripts/tofi_kill-process
+#set $tofi_pass $HOME/.config/tofi/scripts/tofi_pass
+#set $tofi_screenshot $HOME/.config/tofi/scripts/tofi_screenshot
+
+#bindsym $mod+d exec $tofi_drun
+#bindsym $mod+p exec $tofi_run
+#bindsym $mod+section exec $tofi_full
+#bindsym $mod+shift+p exec $power_menu
+#bindsym $mod+tab exec $tofi_winlist
+#bindsym $mod+shift+c exec $tofi_clipmenu
+#bindsym $mod+F4 exec $tofi_killer
+#bindsym $mod+F5 exec tofi_pass
+#bindsym $mod+f7 exec $tofi_screenshot
+
+#::::::::#
+# Fuzzel #
+#::::::::#
+
+set $fuzz_menu fuzzel --log-level error
+set $fuzz_run $HOME/.config/fuzzel/scripts/fuzzel_run
+set $fuzz_long fuzzel -l 20 -w 40 --log-level error
+set $fuzzel_windowlist $HOME/.config/fuzzel/scripts/fuzzel_windowlist
+set $fuzzel_power $HOME/.config/fuzzel/scripts/fuzzel_powermeu
+set $fuzzel_clipmenu $HOME/.config/fuzzel/scripts/fuzzel_cliphist -l
+set $fuzzel_killer $HOME/.config/fuzzel/scripts/fuzzel_killer_v.666
+set $fuzzel_pass $HOME/.config/fuzzel/scripts/fuzzel_passmenu
+set $fuzzel_screenshot $HOME/.config/fuzzel/scripts/fuzzel_screenshot
+
+bindsym $mod+d exec $fuzz_menu
+bindsym $mod+p exec $fuzz_run
+bindsym $mod+section exec $fuzz_long
+bindsym $mod+shift+p exec $fuzzel_power
+bindsym $mod+tab exec $fuzzel_windowlist
+bindsym $mod+shift+c exec $fuzzel_clipmenu
+bindsym $mod+F4 exec $fuzzel_killer
+bindsym $mod+F5 exec $fuzzel_pass
+bindsym $mod+f7 exec $fuzzel_screenshot
 
 ## Output configuration
 # You can get the names of your outputs by running: swaymsg -t get_outputs
@@ -60,14 +103,6 @@ bindsym $mod+ctrl+b exec ~/.config/waybar/custom/waybar_togle
 
 # When the modifier key is held down, you may hold left click to move windows, and right click to resize them
 floating_modifier $mod normal
-
-# Start your launcher
-bindsym $mod+p exec $tofi-run
-bindsym $mod+d exec $tofi-drun
-bindsym $mod+section exec $tofi-full
-bindsym $mod+shift+p exec $power-menu
-bindsym $mod+tab exec $win-list
-bindsym $mod+shift+c exec $clipmenu
 
 # Reload the configuration file
 bindsym $mod+ctrl+r reload
@@ -180,10 +215,9 @@ bindsym $mod+ctrl+shift+minus  gaps outer current minus 5
 ## Shortcuts
 # Note: "no-startup-id" is useless on Sway and you can delete those if u are not lazy like me..
 
-#bindsym $mod+F4 exec ~/.local/bin/rofi_kill_process
 bindsym $mod+F1 exec ~/.config/sway/scripts/keyhint
-bindsym $mod+F4 exec ~/.config/tofi/scripts/tofi_kill-process
-bindsym $mod+F5 exec ~/.config/tofi/scripts/tofi_pass
+
+
 bindsym $mod+F6 exec ~/.config/tofi/scripts/tofi_network
 bindsym $mod+F8 exec pavucontrol
 bindsym $mod+F9 exec ~/.config/sway/scripts/mic-toggle toggle
@@ -198,7 +232,7 @@ bindsym $mod+ctrl+u exec ~/.config/mako/scripts/mako_updates
 bindsym $mod+ctrl+w exec ~/.local/bin/weather_notify
 bindsym $mod+e exec --no-startup-id /usr/bin/thunar
 bindsym $mod+f11 exec ~/.config/sway/scripts/screenlocker
-bindsym $mod+f7 exec ~/.config/tofi/scripts/tofi_screenshot
+
 bindsym $mod+m exec --no-startup-id thunderbird
 bindsym $mod+shift+Print exec ~/.local/bin/sway-shot -re
 bindsym $mod+shift+f11 exec ~/.config/sway/scripts/swayidle-toggle toggle
