@@ -12,7 +12,7 @@ https://wiki.archlinux.org/index.php/NetworkManager#Set_up_PolicyKit_permissions
 OR running the script as root
 
 Add dmenu options and default terminal if desired to
-~/.config/tofi/networkmanager/config.ini
+~/.config/networkmanager-dmenu/config.ini
 
 """
 import pathlib

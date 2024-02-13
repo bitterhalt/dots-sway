@@ -5,7 +5,7 @@ set -euo pipefail
 MENU="fuzzel -d --log-level error"
 CONFIRM="fuzzel -d -l 2 -w 10 --log-level error"
 
-case $(printf "%s\n" "Lock"  "Logout" "Suspend" "Reboot" "Shutdown" | $MENU -l 5 -w 20 -f "JetBrains Mono:size=16" --line-height=40px) in
+case $(printf "%s\n" "Lock"  "Logout" "Suspend" "Reboot" "Shutdown" | $MENU -p "pmenu: " -l 5 -w 20 -f "JetBrains Mono:size=16" --line-height=40px) in
  "Shutdown")
     confirm=$(echo -e "Yes\nNo" | $CONFIRM -p  "Sure? ")
     if [[ "$confirm" == "Yes" ]]; then
