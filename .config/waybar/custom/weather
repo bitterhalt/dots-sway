@@ -7,7 +7,7 @@ APIKEY=$(cat "$HOME/credentials/open_weather_apikey")
 CITY_ID="643492"
 URL="http://api.openweathermap.org/data/2.5/weather?id=${CITY_ID}&units=metric&APPID=${APIKEY}"
 
-WEATHER_RESPONSE=$(curl -s "${URL}")
+WEATHER_RESPONSE=$(timeout --signal=1 2s curl -s "${URL}") ||  exit 1;
 
 WEATHER_CONDITION=$(echo "$WEATHER_RESPONSE" | jq '.weather[0].main' | sed 's/"//g')
 WEATHER_TEMP=$(echo "$WEATHER_RESPONSE" | jq '.main.temp' | cut -d "." -f 1)
@@ -16,6 +16,6 @@ WEATHER_TEMP=$(echo "$WEATHER_RESPONSE" | jq '.main.temp' | cut -d "." -f 1)
    SUNSET=$(echo "$WEATHER_RESPONSE" | jq '.sys.sunset')
    CURRENT_TIME=$(date +%s)
 
-   echo "$WEATHER_TEMP°C"
+   echo "${WEATHER_TEMP}°C"
 
 
