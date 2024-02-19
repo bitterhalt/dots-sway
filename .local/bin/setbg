@@ -4,7 +4,7 @@
 
 set -euo pipefail
 
-bg="${HOME}/.wall/bg"
+bg="${HOME}/.local/share/wall/bg"
 
 if [ "${1:-}" ]; then
     file=$(readlink -f "${1}")

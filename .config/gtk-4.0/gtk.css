@@ -38,7 +38,7 @@
 
 
 @define-color sidebar_bg_color @view_bg_color;
-@define-color sidebar_fg_color #bdae93;
+@define-color sidebar_fg_color @window_fg_color;
 @define-color headerbar_bg_color @window_bg_color;
 @define-color headerbar_fg_color @window_fg_color;
 @define-color popover_bg_color #202020;

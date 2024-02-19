@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#	ArchMaintainer 1.4
+#	ArchMaintainer
 #	Preforms maintenance and removes excess stuff from Arch.
 #	Dependencies: pacman, git, rankmirrors-systemd
 #
@@ -43,12 +43,11 @@ rm -rf $HOME/.local/share/Trash/files/*
 printf "\nNew size: "
 du -sh $HOME/.local/share/Trash/files
 
-
 # Updating and ranking mirrors
 printf "\n${GRN}>> Updating and ranking mirrors in mirrorlist.${NC}\n"
 sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 cd $HOME
-curl -s "https://archlinux.org/mirrorlist/?country=FI&country=SE&country=DE&protocol=https&use_mirror_status=on" | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 10 - > mirrorlist
+curl -s "https://archlinux.org/mirrorlist/?country=FI&country=SE&protocol=https&use_mirror_status=on" | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 10 - > mirrorlist
 sudo mv mirrorlist /etc/pacman.d/mirrorlist
 
 # Done

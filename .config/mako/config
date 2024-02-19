@@ -21,9 +21,9 @@ padding=10
 ##################
 #   Colors       #
 ##################
-background-color=#1c1e1f
+background-color=#1b1b1b
 text-color=#BDAE93
-border-color=#282b2c
+border-color=#262626
 
 ##################
 # Urgency levels #
@@ -31,15 +31,15 @@ border-color=#282b2c
 #[urgency=low]
 #background-color=#1d2021
 #text-color=#BDAE93
-#border-color=#282b2c
+#border-color=#262626
 
 #[urgency=normal]
 #background-color=#1D2021
 #text-color=#BDAE93
-#border-color=#282b2c
+#border-color=#262626
 
 [urgency=high]
-background-color=#1c1e1f
+background-color=#1b1b1b
 border-color=#CC241D
 text-color=#FABD2F
 default-timeout=0

@@ -159,7 +159,7 @@ window#waybar.hidden {
 }
 
 #custom-power {
-    color: @fg2;
+    color: @bg4;
     padding-right: 10px;
 }
 
