@@ -21,7 +21,7 @@
 @define-color view_fg_color @window_fg_color;
 @define-color accent_color #458588;
 @define-color accent_bg_color @accent_color;
-@define-color accent_fg_color #282828;
+@define-color accent_fg_color #222222;
 
 @define-color destructive_color #fb4934;
 @define-color destructive_bg_color #cc241d;
@@ -37,9 +37,8 @@
 @define-color error_fg_color #ffffff;
 
 
-@define-color sidebar_bg_color #458588;
+@define-color sidebar_bg_color @view_bg_color;
 @define-color sidebar_fg_color #bdae93;
-@define-color sidebar_backdrop_color #458588;
 @define-color headerbar_bg_color @window_bg_color;
 @define-color headerbar_fg_color @window_fg_color;
 @define-color popover_bg_color #202020;
@@ -80,35 +79,5 @@ window decoration {
 .navigation-sidebar {
 background-color: #1b1b1b;
 }
-/** Tweaks for WM:s */
 
-.titlebar,
-window {
-	border-radius: 0;
-	box-shadow: none;
-}
-.window-frame {
-    box-shadow: 0 0 0 0;
-    margin: 0;
-}
-/** also remove shaddows */
-decoration {
-    margin: 0;
-    padding: 0;
-    border: none;
-    box-shadow: none;
-}
-
-decoration:backdrop {
-	box-shadow: none;
-}
-window decoration {
-    margin: 0;
-    border: none;
-    padding: 0;
-}
-
-.navigation-sidebar {
-background-color: #1b1b1b;
-}
 
