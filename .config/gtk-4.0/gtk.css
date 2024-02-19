@@ -1,0 +1,114 @@
+/*
+
+  Gruvbox theme for libadwaita
+  and adw-gtk3 - https://github.com/lassekongo83/adw-gtk3
+
+  Colors from - https://github.com/morhetz/gruvbox
+
+  1. If ~/.config/gtk-4.0/gtk.css and/or ~/.config/gtk-3.0/gtk.css exists, make backups
+  2. Enable the adw-gtk3-dark theme
+  3. Save this file to ~/.config/gtk-4.0/gtk.css
+  4. Make the file a symbolic link to ~/.config/gtk-3.0/gtk.css (or copy it to that location)
+  5. Close and re-open any open apps or log out and in again
+
+*/
+
+/* Global color definitions */
+
+@define-color window_bg_color #1b1b1b;
+@define-color window_fg_color #bdae93;
+@define-color view_bg_color #1d1d1d;
+@define-color view_fg_color @window_fg_color;
+@define-color accent_color #458588;
+@define-color accent_bg_color @accent_color;
+@define-color accent_fg_color #282828;
+
+@define-color destructive_color #fb4934;
+@define-color destructive_bg_color #cc241d;
+@define-color destructive_fg_color #ebdbb2;
+@define-color success_color #b8bb26;
+@define-color success_bg_color #98971a;
+@define-color success_fg_color #ebdbb2;
+@define-color warning_color #fabd2f;
+@define-color warning_bg_color #d79921;
+@define-color warning_fg_color #282828;
+@define-color error_color #fb4934;
+@define-color error_bg_color #cc241d;
+@define-color error_fg_color #ffffff;
+
+
+@define-color sidebar_bg_color #458588;
+@define-color sidebar_fg_color #bdae93;
+@define-color sidebar_backdrop_color #458588;
+@define-color headerbar_bg_color @window_bg_color;
+@define-color headerbar_fg_color @window_fg_color;
+@define-color popover_bg_color #202020;
+@define-color popover_fg_color @view_fg_color;
+@define-color dialog_bg_color @popover_bg_color;
+@define-color dialog_fg_color @popover_fg_color;
+@define-color card_bg_color @view_bg_color;
+@define-color card_fg_color @window_fg_color;
+
+/** Tweaks for WM:s */
+
+.titlebar,
+window {
+	border-radius: 0;
+	box-shadow: none;
+}
+.window-frame {
+    box-shadow: 0 0 0 0;
+    margin: 0;
+}
+/** also remove shaddows */
+decoration {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+}
+
+decoration:backdrop {
+	box-shadow: none;
+}
+window decoration {
+    margin: 0;
+    border: none;
+    padding: 0;
+}
+
+.navigation-sidebar {
+background-color: #1b1b1b;
+}
+/** Tweaks for WM:s */
+
+.titlebar,
+window {
+	border-radius: 0;
+	box-shadow: none;
+}
+.window-frame {
+    box-shadow: 0 0 0 0;
+    margin: 0;
+}
+/** also remove shaddows */
+decoration {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+}
+
+decoration:backdrop {
+	box-shadow: none;
+}
+window decoration {
+    margin: 0;
+    border: none;
+    padding: 0;
+}
+
+.navigation-sidebar {
+background-color: #1b1b1b;
+}
+
