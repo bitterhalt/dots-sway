@@ -130,7 +130,7 @@
         },
 
         "custom/weather": {
-            "interval": "3600",
+            "restart-interval": "3600",
             "format": "{}",
             "exec": "~/.config/waybar/custom/weather",
             "on-click": "~/.local/bin/weather_notify"

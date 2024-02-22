@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
-
-#	ArchMaintainer
-#	Preforms maintenance and removes excess stuff from Arch.
-#	Dependencies: pacman, git, rankmirrors-systemd
 #
-#	By Joris van Dijk | Jorisvandijk.com
+#	Original script made by Joris van Dijk | Jorisvandijk.com
 #	Licensed under the GNU General Public License v3.0
+#	Do not use this if you don't understand what this script does!
 
 GRN='\033[0;32m'
 NC='\033[0m'
@@ -18,6 +15,14 @@ systemctl --failed
 printf "\n${GRN}>> Removing orphaned packages if any.${NC}\n"
 sudo pacman -Rs $(pacman -Qqtd)
 printf "If 'no targets specified', no orphaned packages were found.\n"
+
+# Make list of installed packages
+location="$HOME/.pkg-lists"
+printf "\n${GRN}>> Lists your installed packages${NC}\n"
+pacman -Qett | grep -v "$(pacman -Qem)" > $location/pkgs-pacman.txt
+pacman -Qqm > $location/pkgs-aur.txt
+pacman -Q > $location/packages.txt
+printf "listing done!.\n"
 
 # Delete Pacman cache
 printf "\n${GRN}>> Deleting Pacman cache.${NC}"
