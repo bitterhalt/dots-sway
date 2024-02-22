@@ -1,9 +1,5 @@
 # Sway setup
 
-![2024-02-02-04-07-45_screenshot](https://github.com/bitterhalt/Sway-Dotfiles/assets/95308907/b7879065-ead9-4bec-b97e-db2b4a9a994d)
-
-This is purely hobby for me. I am not a developer or Linux expert of any sort. Everything here changes sometimes and bugs may appear.
-Please do not try to copy my entire setup, as it is very disorganized and specific to my needs. Instead, try copying bits and pieces as you put together your own system.
 
 #### Details
 * Distro: [EndeavourOS](https://endeavouros.com/)
