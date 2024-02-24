@@ -321,4 +321,5 @@ include ~/.config/sway/colors/gruvbox.conf
 exec foot --server
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec wl-paste --watch cliphist store
+exec mako
 #exec i3-autotile

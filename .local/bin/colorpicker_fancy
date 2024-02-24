@@ -1,25 +1,5 @@
 #!/bin/bash
 
-
-TMPPST=$(wl-paste)
-CMD=$(echo "$TMPPST")
-TMP=/tmp/Colorpicker$CMD.png
-
-check_dependencies() {
-    ! command -v hyprpicker &>/dev/null &&
-        notify-send Colorpicker "hyprpicker needs to be installed" && exit 1
-
-    ! command -v magick &>/dev/null &&
-        notify-send Colorpicker "imagemagick needs to be installed" && exit 1
-}
-
-main() {
-    convert -size 120x120 xc:"$CMD" "$TMP"
-    printf %s "$CMD" | wl-paste 
-
-    notify-send -i "$TMP" Colorpicker "$CMD"
-}
-
-check_dependencies
-hyprpicker -a -n
-main
+color=$(hyprpicker -a)
+wl-copy $color
+notify-send 'Color to Clipboard' $color

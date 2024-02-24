@@ -1,3 +1,4 @@
+
 #!/bin/bash
 
 set -euo pipefail
@@ -23,15 +24,12 @@ is_muted=$(pactl get-sink-mute @DEFAULT_SINK@ | sed -n "s/Mute: //p")
 if [ "${is_muted}" = "yes" ]; then
     volume="Muted "
     icon=""
-elif (( vol == 0 )); then
-    icon="󰝟"
-elif (( vol <= 45 )); then
-    icon=""
 else
     icon=""
 fi
 
 notify-send \
-    -a vol_notify \
-    "${icon} ${volume}" \
+    -a vol_notify_c \
+    "${icon}  ${volume}" \
     -h string:x-dunst-stack-tag:volume
+

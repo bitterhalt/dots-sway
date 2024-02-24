@@ -4,6 +4,7 @@
 font=JetBrains Mono, Symbols Nerd Font 10
 default-timeout=5000
 icons=1
+icon-path=$HOME/.local/share/icons/Papirus-Dark
 ignore-timeout=1
 layer=overlay
 sort=-time
@@ -55,10 +56,22 @@ group-by=app-name
 default-timeout=1500
 text-alignment=center
 
+[app-name=vol_notify_c]
+text-color=#A89984
+#progress-color=over #262626
+border-color=#262626
+font=JetBrains Mono, Symbols Nerd Font 12
+width=120
+anchor=top-center
+group-by=app-name
+default-timeout=1500
+text-alignment=center
+border-size=2
+
 [app-name=sysnfo_notify]
 font=JetBrains Mono, Symbols Nerd Font 10
 width=200
-anchor=top-right
+anchor=top-left
 group-by=app-name
 default-timeout=8000
 
@@ -79,6 +92,7 @@ default-timeout=8000
 
 [app-name=date_notify]
 font=JetBrains Mono, Symbols Nerd Font 12
+text-color=#458588
 width=160
 anchor=top-right
 group-by=app-name
@@ -102,9 +116,19 @@ default-timeout=8000
 padding=20
 
 [app-name=idle_notify]
+text-color=#458588
 font=JetBrains Mono, Symbols Nerd Font 12
 width=260
-anchor=top-right
+anchor=top-center
+group-by=app-name
+default-timeout=8000
+text-alignment=center
+
+[app-name=idle_notify_d]
+text-color=#D79921
+font=JetBrains Mono, Symbols Nerd Font 12
+width=260
+anchor=top-center
 group-by=app-name
 default-timeout=8000
 text-alignment=center

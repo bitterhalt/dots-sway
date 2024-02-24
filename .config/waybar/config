@@ -6,7 +6,7 @@
         // Modules
         "modules-left": ["custom/useless","sway/workspaces", "sway/mode"],
         //"modules-center": ["sway/window"],
-        "modules-right": ["cpu", "memory", "network", "pulseaudio", "pulseaudio#mic", "custom/swayidle","custom/weather", "clock", "custom/power"],
+        "modules-right": ["cpu", "memory", "network", "pulseaudio", "pulseaudio#mic", "custom/swayidle", "clock", "custom/power"],
 
         // Modules configuration
         "sway/workspaces": {
@@ -14,7 +14,7 @@
         },
 
         "battery": {
-            "bat": "BAT2",
+            "bat": "BAT0",
             "interval": 60,
             "states": {
                 "warning": 30,
@@ -61,7 +61,7 @@
             "format-icons": {
                 "headphone": "",
                 "headset": "󰋎",
-                "default": ["",""]
+                "default": [""]
             },
             "on-click": "pavucontrol"
         },
@@ -125,8 +125,7 @@
             "interval": "once",
             "format": "",
             "tooltip": false,
-            "on-click": "~/.config/tofi/scripts/drun_full.sh",
-            "on-click-right": "~/.config/sway/scripts/mako_sysnfo"
+            "on-click": "~/.config/mako/scripts/mako_sysnfo"
         },
 
         "custom/weather": {

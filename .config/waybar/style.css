@@ -91,7 +91,7 @@ window#waybar.hidden {
 
 #network {
     color: @fg;
-    padding: 0px 6px 0px 10px;
+    padding: 0px 6px;
 }
 
 #network.disconnected {
@@ -151,11 +151,6 @@ window#waybar.hidden {
 
 #custom-swayidle {
     color: @fg;
-}
-
-#custom-weather {
-    color: @fg;
-    padding-left: 5px;
 }
 
 #custom-power {
