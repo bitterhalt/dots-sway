@@ -18,10 +18,11 @@
  * ----------------------------------------------------- */
 
 tooltip {
-  color: @fg;
   background: @bg;
-  border: solid 2px @bg2;
-  border-radius: 4px;
+  border: solid 1px @bg2;
+}
+tooltip label {
+  color: @fg;
 }
 
 /* -----------------------------------------------------
