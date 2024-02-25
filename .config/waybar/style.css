@@ -143,15 +143,12 @@ window#waybar.hidden {
  * ----------------------------------------------------- */
 #custom-swayidle {
     padding: 0 6px;
+    color: @fg;
 }
 
 #custom-useless {
     color: @fg;
     padding-left: 10px;
-}
-
-#custom-swayidle {
-    color: @fg;
 }
 
 #custom-power {

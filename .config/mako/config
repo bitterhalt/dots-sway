@@ -61,7 +61,7 @@ text-color=#A89984
 #progress-color=over #262626
 border-color=#262626
 font=JetBrains Mono, Symbols Nerd Font 14
-width=120
+width=130
 anchor=top-center
 group-by=app-name
 default-timeout=1500
@@ -116,15 +116,6 @@ default-timeout=8000
 padding=20
 
 [app-name=idle_notify]
-text-color=#458588
-font=JetBrains Mono, Symbols Nerd Font 12
-width=260
-anchor=top-center
-group-by=app-name
-default-timeout=8000
-text-alignment=center
-
-[app-name=idle_notify_d]
 text-color=#D79921
 font=JetBrains Mono, Symbols Nerd Font 12
 width=260
