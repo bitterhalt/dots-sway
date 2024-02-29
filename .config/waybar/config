@@ -59,8 +59,6 @@
             "format-bluetooth": "{volume}% {icon}",
             "format-muted": "",
             "format-icons": {
-                "headphone": "",
-                "headset": "󰋎",
                 "default": [""]
             },
             "on-click": "pavucontrol"
@@ -73,7 +71,6 @@
             "format-bluetooth": "{format_source}",
             "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
         },
-
 
         "clock": {
             "format": "{:%H:%M}",

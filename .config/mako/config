@@ -66,12 +66,12 @@ anchor=top-center
 group-by=app-name
 default-timeout=1500
 text-alignment=center
-border-size=2
+border-size=1
 
 [app-name=sysnfo_notify]
 font=JetBrains Mono, Symbols Nerd Font 10
 width=200
-anchor=top-left
+anchor=top-right
 group-by=app-name
 default-timeout=8000
 
