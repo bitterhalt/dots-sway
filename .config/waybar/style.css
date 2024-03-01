@@ -18,7 +18,7 @@
  * ----------------------------------------------------- */
 
 tooltip {
-  background: @bg;
+    background: @bg;
   border: solid 1px @bg2;
 }
 tooltip label {
@@ -81,6 +81,7 @@ window#waybar.hidden {
  * ----------------------------------------------------- */
 
 #battery,
+#backlight,
 #cpu,
 #memory,
 #pulseaudio,
@@ -96,6 +97,7 @@ window#waybar.hidden {
     padding-right: 5px;
     padding-left: 10px;
 }
+
 #network.disconnected {
     color: @red;
 }
@@ -132,11 +134,7 @@ window#waybar.hidden {
 #battery.critical:not(.charging) {
     background-color: @red;
     color: @fg;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+    margin: 2px 2px 2px 2px;
 }
 
 /* -----------------------------------------------------

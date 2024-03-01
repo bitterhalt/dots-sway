@@ -82,6 +82,13 @@ input type:pointer {
 #        dwt enabled
         pointer_accel 0
 }
+
+# Touchpad
+input "type:touchpad" {
+    dwt enabled
+    tap enabled
+    middle_emulation enabled
+}
 # Idle configuration
 
 exec swayidle -w \
@@ -247,6 +254,10 @@ bindsym XF86AudioLowerVolume exec ~/.config/sway/scripts/volume-thing down
 bindsym XF86AudioMute exec ~/.config/sway/scripts/volume-thing mute
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@
 bindsym XF86Calculator  exec --no-startup-id galculator
+
+# Brightness control
+bindsym XF86MonBrightnessUp exec sh -c "brightnessctl set 5%+; ~/.config/sway/scripts/brightness-thing"
+bindsym XF86MonBrightnessDown exec sh -c "brightnessctl set 5%-; ~/.config/sway/scripts/brightness-thing"
 
 ## Rules
 for_window [class="Yad" instance="yad"] floating enable

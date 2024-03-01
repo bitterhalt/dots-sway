@@ -1,14 +1,7 @@
 #!/bin/bash
 
-cat ~/.config/sway/config | grep 'bindsym' | grep -v '^\s*#' | sed 's/bindsym / /' | tofi --prompt-text "Search " \
-    --selection-background-corner-radius 0 \
-    --selection-background-padding "2, 10" \
-    --width 100% \
-    --height 100% \
-    --anchor center \
-    --padding-left  30% \
-    --padding-top  2% \
-    --border-width 0
+cat ~/.config/sway/config | grep 'bindsym' | grep -v '^\s*#' | sed 's/bindsym / /' | fuzzel -d -p "Search "
+
 
 
 
