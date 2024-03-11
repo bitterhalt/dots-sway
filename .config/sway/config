@@ -78,6 +78,7 @@ for_window [app_id="(?i)(?:pavucontrol|nm-connection-editor|gsimplecal|galculato
 for_window [app_id="file-roller"] floating enable
 for_window [app_id="floating_shell_portrait"] floating enable, border pixel 1, sticky enable, resize set width 30 ppt height 40 ppt
 for_window [app_id="floatterm"] floating enable, resize set width 40 ppt height 60 ppt
+for_window [app_id="quick_note"] floating enable, resize set width 40 ppt height 60 ppt
 for_window [app_id="fzf_menu"] floating enable, resize set width 30 ppt height 40 ppt
 for_window [app_id="^fzf_launcher$"] floating enable, resize set 30 ppt 60 ppt, border pixel 1
 for_window [app_id="slim_menu"] floating enable, resize set width 25 ppt height 60 ppt

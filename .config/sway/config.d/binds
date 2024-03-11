@@ -1,6 +1,4 @@
-#############
-# Launchers #
-#############
+# Launchers
 
 # Tofi
 # If you want to use Tofi comment Fuzzel part or vice versa
@@ -45,9 +43,6 @@ bindsym $mod+F4 exec $term -a slim_menu ~/.local/bin/fzf_killer
 set $fzf_app_runner exec $term -a fzf_launcher -e ~/.local/bin/fzf_app_runner
 bindsym $mod+section exec $fzf_app_runner
 
-################
-# Key bindings #
-################
 
 # Start a terminal
 bindsym $mod+Return exec $term
@@ -168,7 +163,7 @@ bindsym $mod+ctrl+shift+minus  gaps outer current minus 5
 
 # Note: "no-startup-id" is useless on Sway and you can delete those if u are not lazy like me..
 bindsym $mod+F1 exec ~/.config/sway/scripts/keyhint
-bindsym $mod+F5 exec $term -a fzf_menu -e fzf_pass
+bindsym $mod+F5 exec  ~/.local/bin/fzf_pass
 bindsym $mod+F6 exec ~/.config/tofi/scripts/tofi_network
 bindsym $mod+F8 exec pavucontrol
 bindsym $mod+F9 exec ~/.config/sway/scripts/mic-toggle toggle
@@ -183,7 +178,6 @@ bindsym $mod+ctrl+u exec ~/.config/mako/scripts/mako_updates
 bindsym $mod+ctrl+w exec ~/.local/bin/weather_notify
 bindsym $mod+e exec --no-startup-id /usr/bin/thunar
 bindsym $mod+f11 exec ~/.config/sway/scripts/screenlocker
-
 bindsym $mod+m exec --no-startup-id thunderbird
 bindsym $mod+shift+Print exec ~/.local/bin/sway-shot -re
 bindsym $mod+shift+f11 exec ~/.config/sway/scripts/swayidle-toggle toggle
@@ -191,6 +185,7 @@ bindsym $mod+shift+f7 exec ~/.local/bin/sway-record -k
 bindsym $mod+shift+n exec $term -e nvim Documents/.vimwiki/index.md
 bindsym $mod+shift+u exec foot -e ~/.local/bin/popupgrade
 bindsym $mod+w exec --no-startup-id /usr/bin/firefox
+bindsym $mod+n exec $term -a quick_note -e ~/.local/bin/quick_note
 
 # Media keys
 bindsym XF86AudioRaiseVolume exec ~/.config/sway/scripts/volume-thing up
