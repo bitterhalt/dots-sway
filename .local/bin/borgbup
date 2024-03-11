@@ -1,0 +1,4 @@
+#!/bin/bash
+
+borgmatic --verbosity -1 --syslog-verbosity 1
+notify-send -a center_notify "Borg snapshot ready" "$(date '+%d.%m-%H:%M')"
