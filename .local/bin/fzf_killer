@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -e
+
+MENU="fzf_menu"
+
+selected="$(ps -a -u $USER | \
+            $MENU ">" | \
+            awk '{print $1" "$4}')"; 
+
+if [[ ! -z $selected ]]; then
+
+    answer="$(echo -e "Yes\nNo" | \
+            $MENU "Kill $selected?")"
+
+    if [[ $answer == "Yes" ]]; then
+        selpid="$(awk '{print $1}' <<< $selected)"; 
+        kill -9 $selpid
+    fi
+fi
+
+exit 0
