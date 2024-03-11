@@ -1,0 +1,67 @@
+# Taken from Luke Smith:
+# https://github.com/LukeSmithxyz/voidrice/tree/7a96fb100cf385e05c211937b509d2bf166299e6/.config/lf
+# This is more shrunken version for Sway/Hyprland
+# Dependencies: I am too lazy to list them, so look for lfrc and preview script :p
+
+# Imports
+source ~/.config/lf/functions
+set previewer ~/.config/lf/preview
+
+# Basic settings
+set autoquit true
+set dircounts
+set drawbox
+set hidden true
+set icons true
+set ifs "\n"
+set ignorecase true
+set info size
+set ratios 1:2:3
+set shellopts '-eu'
+set sixel
+
+# Bindings
+map C edit-config
+map d
+map m
+map E unarchive
+map S shell
+map B bulkrename
+map . set hidden!
+map p : paste; clear # Clear mark from files after pasting (Ranger default)
+map P yank-path
+map N yank-basename
+map x cut
+map y copy
+map <enter> open
+map o &mimeopen "$f"
+map O $mimeopen --ask "$f"
+map e $$EDITOR "$f"
+map T $setsid -f $TERMINAL >/dev/null 2>&1
+map V push :!nvim<space>
+map <f-5> reload
+map <c-r> reload
+map mf mkfile
+map md mkdir
+map <c-c> clear
+map D delete
+map <delete> trash
+map bg $setbg $f
+
+# Movement
+map gh cd ~
+map ge cd /etc
+map gu cd /usr
+map gl cd -r .
+map gL cd -r %f
+map go cd /opt
+map gv cd /var
+map gm cd /mnt
+map gd cd ~/Downloads
+map gD cd ~/Documents
+map gl cd ~/.local
+map gc cd ~/.config
+map gs cd /srv
+map gP cd /tmp
+map gp cd ~/Pictures
+map gr cd /

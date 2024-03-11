@@ -1,0 +1,148 @@
+# Opener
+
+cmd open ${{
+    case $(file --mime-type "$(readlink -f $f)" -b) in
+	image/vnd.djvu|application/pdf|application/octet-stream|application/postscript) setsid -f zathura $fx >/dev/null 2>&1 ;;
+    text/*|application/json|inode/x-empty|application/x-subrip) $EDITOR $fx ;;
+	audio/*|video/x-ms-asf) mpv --audio-display=no $f ;;
+	video/*) setsid -f mpv $f -quiet >/dev/null 2>&1 ;;
+	application/pdf|application/vnd.djvu|application/epub*) setsid -f zathura $fx >/dev/null 2>&1 ;;
+        *) for f in $fx; do setsid -f $OPENER $f >/dev/null 2>&1; done ;;
+    esac
+}}
+
+# Yank paths into your clipboard
+cmd yank-path $printf '%s' "$fx" | wl-copy
+cmd yank-basename $basename -a -- $fx | head -c-1 | wl-copy
+
+# Make dir
+cmd mkdir ${{
+  printf "Directory Name: "
+  read ans
+  mkdir $ans
+}}
+
+# Make file
+cmd mkfile ${{
+  printf "File Name: "
+  read ans
+  $EDITOR $ans
+}}
+
+# Delete items
+cmd delete %{{
+	# put items into array that we can count them
+	files=()
+	while read -r line; do files+=("$line"); done <<< "$fx"
+	
+	# count how many items there are
+	len=${#files[@]}
+	
+	# confirm trashing
+	if [[ $len == 1 ]]; then
+		echo -n "delete '$fx' ?"
+	else
+		echo -n "delete $len items?"
+	fi
+	echo -n " [y/N] "
+	
+	# read answer
+	read -n 1 ans
+	# make it lowercase
+	ans="${ans,,}" 
+	
+	echo
+	
+	# nuke
+	if [[ $ans == y ]]; then
+		rm -rf $fx
+		if [[ $len == 1 ]]; then
+			echo "deleted '$files'"
+		else
+			echo "deleted $len items"
+		fi
+	else
+		# needed to clear the bottom row
+		echo
+	fi
+}}
+
+# Trash items
+cmd trash %{{
+	# put items into array that we can count them
+	files=()
+	while read -r line; do files+=("$line"); done <<< "$fx"
+	
+	# count how many items there are
+	len=${#files[@]}
+	
+	# confirm trashing
+	if [[ $len == 1 ]]; then
+		echo -n "trash '$fx' ?"
+	else
+		echo -n "trash $len items?"
+	fi
+	echo -n " [y/N] "
+	
+	# read answer
+	read -n 1 ans
+	# make it lowercase
+	ans="${ans,,}" 
+	
+	echo
+	
+	# nuke
+	if [[ $ans == y ]]; then
+		trash-put $fx
+		if [[ $len == 1 ]]; then
+			echo "trashed '$files'"
+		else
+			echo "trashed $len items"
+		fi
+	else
+		# needed to clear the bottom row
+		echo
+	fi
+}}
+
+# Bulkrename Ranger like
+cmd bulkrename ${{
+    tmpfile_old="$(mktemp)"
+    tmpfile_new="$(mktemp)"
+
+    [ -n "$fs" ] && fs=$(basename -a $fs) || fs=$(ls)
+
+    echo "$fs" > "$tmpfile_old"
+    echo "$fs" > "$tmpfile_new"
+    $EDITOR "$tmpfile_new"
+
+    [ "$(wc -l < "$tmpfile_old")" -eq "$(wc -l < "$tmpfile_new")" ] || { rm -f "$tmpfile_old" "$tmpfile_new"; exit 1; }
+
+    paste "$tmpfile_old" "$tmpfile_new" | while IFS="$(printf '\t')" read -r src dst
+    do
+        [ "$src" = "$dst" ] || [ -e "$dst" ] || mv -- "$src" "$dst"
+    done
+
+    rm -f "$tmpfile_old" "$tmpfile_new"
+    lf -remote "send $id unselect"
+}}
+
+# Archive bindings
+cmd unarchive ${{
+  case "$f" in
+      *.zip) unzip "$f" ;;
+      *.tar.gz) tar -xzvf "$f" ;;
+      *.tar.bz2) tar -xjvf "$f" ;;
+      *.tar) tar -xvf "$f" ;;
+      *) echo "Unsupported format" ;;
+  esac
+}}
+
+# Edit lf config
+cmd edit-config ${{
+    $EDITOR ~/.config/lf/lfrc
+    lf -remote "send $id source ~/.config/lf/lfrc"
+}}
+
+# Set bg
+cmd setbg "$1"
