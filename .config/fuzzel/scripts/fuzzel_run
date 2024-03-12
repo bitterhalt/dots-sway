@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-find $(echo $PATH | sed 's/:/ /g') -type f -printf '%P\n' | fuzzel -d  -p "run: " --log-level error | sh
