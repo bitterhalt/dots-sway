@@ -41,6 +41,7 @@ map T $setsid -f $TERMINAL >/dev/null 2>&1
 map V push :!nvim<space>
 map <f-5> reload
 map <c-r> reload
+map <c-f> search
 map mf mkfile
 map md mkdir
 map <c-c> clear

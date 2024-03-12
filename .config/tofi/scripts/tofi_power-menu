@@ -2,6 +2,19 @@
 # https://github.com/bitterhalt
 set -euo pipefail
 
+CONFIRM="tofi --text-cursor false \
+        --border-width 0 \
+        --font-size 34 \
+        --prompt-text "Sure?" \
+        --width 100% \
+        --prompt-color 8f8f8f \
+        --text-color 8f8f8f \
+        --background-color 000D \
+        --height  100% \
+        --padding-left  45% \
+        --hide-cursor true \
+        --padding-top  40%"
+
 case $(printf "%s\n" "Lock"  "Logout" "Suspend" "Reboot" "Shutdown" | tofi --font-size 34 \
     --border-width 0 \
     --outline-width  0 \
@@ -18,31 +31,13 @@ case $(printf "%s\n" "Lock"  "Logout" "Suspend" "Reboot" "Shutdown" | tofi --fon
     --hide-input  false \
     --hide-cursor true) in
  "Shutdown")
-    confirm=$(echo -e "Yes\nNo" |  tofi --text-cursor false \
-        --border-width 0 \
-        --font-size 34 \
-        --prompt-text "Sure?" \
-        --width 100% \
-        --background-color 000A \
-        --height  100% \
-        --padding-left  45% \
-        --hide-cursor true \
-        --padding-top  35%)
+    confirm=$(echo -e "Yes\nNo" | $CONFIRM )
     if [[ "$confirm" == "Yes" ]]; then
         systemctl poweroff
     fi
     ;;
 "Reboot")
-    confirm=$(echo -e "Yes\nNo" |  tofi --text-cursor false \
-        --border-width 0 \
-        --font-size 34 \
-        --prompt-text "Sure?" \
-        --width 100% \
-        --background-color 000A \
-        --height  100% \
-        --padding-left  45% \
-        --hide-cursor true \
-        --padding-top  35%)
+    confirm=$(echo -e "Yes\nNo" | $CONFIRM )
     if [[ "$confirm" == "Yes" ]]; then
         systemctl reboot
     fi

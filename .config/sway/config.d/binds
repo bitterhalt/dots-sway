@@ -15,7 +15,6 @@ bindsym $mod+shift+c exec ~/.local/bin/fzf_clipboard
 bindsym $mod+ctrl+c exec ~/.local/bin/fzf_clipboard wipe # wipes clipboard database
 bindsym $mod+F4 exec ~/.local/bin/fzf_killer
 
-
 # Start a terminal
 bindsym $mod+Return exec $term
 

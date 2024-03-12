@@ -3,4 +3,3 @@ Type=Application
 Name=Text editor
 Icon=nvim
 Exec=foot -e nvim %u
-

@@ -15,5 +15,5 @@ tofi-drun --prompt-text  " " \
    --padding-left 40% \
    --padding-top  10% \
    --prompt-padding  5 \
-   --background-color 000C \
-   --result-spacing  5 
+   --background-color 000D \
+   --result-spacing  5

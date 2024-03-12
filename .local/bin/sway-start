@@ -1,32 +1,26 @@
 #!/usr/bin/env bash
 
-
 # Spit log
 LOGFILE=~/.local/state/.swaylog
 exec 1> $LOGFILE 2>&1
 echo "sway Starting: $( date )"
 set -x
 
-## Defaults
+# Defaults
 export EDITOR="nvim"
 export VISUAL="nvim"
 export TERMINAL="foot"
 export BROWSER="firefox"
 
-## Wayland
+# Wayland
 export MOZ_ENABLE_WAYLAND=1
-# Run Qt applications with wayland plugin
 export QT_QPA_PLATFORM=wayland
 
 # I Think that these are not necesary in Arch but I leave them here
 # See: https://wiki.archlinux.org/title/Sway#Configuration
-
 export XDG_CURRENT_DESKTOP=sway
 export XDG_SESSION_DESKTOP=sway
 export XDG_SESSION_TYPE=wayland
 
-
 # Start sway
 exec sway
-
-

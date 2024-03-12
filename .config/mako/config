@@ -57,16 +57,13 @@ default-timeout=1500
 text-alignment=center
 
 [app-name=vol_notify_c]
-text-color=#A89984
-#progress-color=over #262626
-border-color=#262626
-font=JetBrains Mono, Symbols Nerd Font 14
-width=130
 anchor=top-center
-group-by=app-name
-default-timeout=1500
-text-alignment=center
 border-size=1
+default-timeout=1500
+font=JetBrains Mono, Symbols Nerd Font 14
+group-by=app-name
+text-alignment=center
+width=130
 
 [app-name=sysnfo_notify]
 font=JetBrains Mono, Symbols Nerd Font 10
@@ -92,7 +89,7 @@ default-timeout=8000
 
 [app-name=date_notify]
 font=JetBrains Mono, Symbols Nerd Font 12
-text-color=#458588
+border-color=#458588
 width=160
 anchor=top-right
 group-by=app-name
@@ -115,10 +112,21 @@ group-by=app-name
 default-timeout=8000
 padding=20
 
-[app-name=idle_notify]
+[app-name=center_notify]
 text-color=#D79921
+border-color=#458588
 font=JetBrains Mono, Symbols Nerd Font 12
 width=260
+anchor=top-center
+group-by=app-name
+default-timeout=8000
+text-alignment=center
+
+[app-name=center_notify_s]
+text-color=#D79921
+border-color=#458588
+font=JetBrains Mono, Symbols Nerd Font 12
+width=130
 anchor=top-center
 group-by=app-name
 default-timeout=8000

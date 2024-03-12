@@ -14,10 +14,7 @@
 * Terminal [foot](https://codeberg.org/dnkl/foot)
 * Shell: [zsh](https://www.zsh.org/)
 * Editor: [neovim](https://neovim.io/)
-* Filemanager: [Ranger](https://github.com/ranger/ranger)
-#### Launchers: 
-   * [Tofi](https://github.com/philj56/tofi) 
-   * [Fuzzel](https://codeberg.org/dnkl/fuzzel)
-
+* Filemanager: [lf](https://github.com/gokcehan/lf)
+* Launcher [Tofi](https://github.com/philj56/tofi) 
 ## Inspiration
 - [See my stars](https://github.com/bitbitterhalt?tab=stars)

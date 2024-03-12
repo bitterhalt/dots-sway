@@ -18,10 +18,9 @@ result-spacing = 5
 # colors
 
 placeholder-color = #928374
-background-color = #1B1B1B
+background-color = #1D1D1D
 border-color = #458588
 outline-color= #000000
 selection-color = #458588
-text-color = #BDAE93
-prompt-color = #928374
-
+text-color = #A89984
+prompt-color = #A89984
