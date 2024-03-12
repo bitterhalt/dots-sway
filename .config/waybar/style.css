@@ -109,10 +109,12 @@ window#waybar.hidden {
 }
 
 #mode {
-    color: @bg;
-    background-color: @yellow;
-    margin: 0 3px;
-    padding: 0 5px;
+    color: @yellow;
+    background-color: @bg;
+    border: solid 1px @blue;
+    border-radius: 2px;
+    padding: 0 10px;
+    margin: 2px 2px 2px 2px;
 }
 
 @keyframes blink {

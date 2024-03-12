@@ -20,7 +20,16 @@ set $down j
 set $up k
 set $right l
 set $term footclient
-set $pass $HOME/.local/bin/pass_menu
+set $pass ~/.local/bin/pass_menu
+set $lock ~/.config/sway/scripts/screenlocker
+
+# Tofi
+set $tofi_run  tofi-run | xargs swaymsg exec --
+set $tofi_full $HOME/.config/tofi/scripts/drun_full.sh
+set $tofi_drun  tofi-drun --drun-launch=true
+set $tofi_winlist $HOME/.config/tofi/scripts/tofi_window
+set $tofi_power $HOME/.config/tofi/scripts/tofi_power-menu
+set $tofi_screenshot $HOME/.config/tofi/scripts/tofi_screenshot
 
 ###########
 # io-conf #
@@ -79,8 +88,7 @@ for_window [app_id="file-roller"] floating enable
 for_window [app_id="floating_shell_portrait"] floating enable, border pixel 1, sticky enable, resize set width 30 ppt height 40 ppt
 for_window [app_id="floatterm"] floating enable, resize set width 40 ppt height 60 ppt
 for_window [app_id="quick_note"] floating enable, resize set width 40 ppt height 60 ppt
-for_window [app_id="fzf_menu"] floating enable, resize set width 30 ppt height 40 ppt
-for_window [app_id="^fzf_launcher$"] floating enable, resize set 30 ppt 60 ppt, border pixel 1
+for_window [app_id="fzf_menu"] floating enable, resize set width 40 ppt height 40 ppt, border pixel 1
 for_window [app_id="slim_menu"] floating enable, resize set width 25 ppt height 60 ppt
 for_window [app_id="imv"] floating enable
 for_window [app_id="missioncenter"] floating enable
@@ -131,6 +139,7 @@ bar {
 include /etc/sway/config.d/*
 include ~/.config/sway/colors/gruvbox.conf
 include $HOME/.config/sway/config.d/*
+
 
 # Auto start
 exec foot --server

@@ -13,9 +13,9 @@ toggle () {
 pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 if pactl list sources | grep -q "Mute: yes"; then
-    notify-send -a vol_notify_c " Mic off" -h string:x-dunst-stack-tag:volume
+    notify-send -a center_notify_s " Mic off" -h string:x-dunst-stack-tag:volume
 else
-    notify-send -a vol_notify_c  " Mic on" -h string:x-dunst-stack-tag:volume
+    notify-send -a center_notify_s  " Mic on" -h string:x-dunst-stack-tag:volume
 fi
 }
 

@@ -4,8 +4,8 @@
         "height": 30, // (Remove for auto height)
 
         // Modules
-        "modules-left": ["custom/useless","sway/workspaces", "sway/mode"],
-        //"modules-center": ["sway/window"],
+        "modules-left": ["custom/useless","sway/workspaces"],
+        "modules-center": ["sway/mode"],
         "modules-right": ["cpu", "memory", "network", "pulseaudio", "pulseaudio#mic", "custom/swayidle", "clock", "custom/power"],
 
         // Modules configuration
@@ -51,13 +51,13 @@
             "tooltip-format": "󱘖 {ipaddr}  {bandwidthUpBytes}  {bandwidthDownBytes}",
             "format-linked": "{ifname} (No IP) ?",
             "format-disconnected": "x",
-            "on-click": "nm-connection-editor"
+            "on-click": "$TERMINAL -e nmtui"
         },
 
         "pulseaudio": {
             "format": "{icon}",
             "format-bluetooth": "{volume}% {icon}",
-            "format-muted": "",
+            "format-muted": "Muted",
             "format-icons": {
                 "default": [""]
             },
