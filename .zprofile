@@ -8,10 +8,11 @@ export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
 
 # Path
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export FZF_DEFAULT_OPTS_FILE="$XDG_CONFIG_HOME/fzf/fzf-opts"
 export GOPATH="$XDG_DATA_HOME/go"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # Gnupg
 export SSH_AGENT_PID=""

@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # https://github.com/sentriz/dotfiles/blob/master/conf_desktop/.local/bin/dmenu
 
-export FZF_DEFAULT_OPTS=$(cat ~/.config/fzf_conf/fzf-opts)
 lock_file="$XDG_CACHE_HOME/fzf_menu-lock"
 
 exec 9>"$lock_file"
