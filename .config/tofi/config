@@ -1,5 +1,5 @@
 # general
-prompt-text = " "
+prompt-text = "drun: "
 hide-cursor = false
 history     = true
 
@@ -17,10 +17,10 @@ prompt-padding = 5
 result-spacing = 5
 # colors
 
-placeholder-color = #928374
+placeholder-color = #A89984
 background-color = #1D1D1D
 border-color = #458588
 outline-color= #000000
 selection-color = #458588
 text-color = #A89984
-prompt-color = #A89984
+prompt-color = #D79921
