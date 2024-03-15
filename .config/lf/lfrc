@@ -42,6 +42,7 @@ map V push :!nvim<space>
 map <f-5> reload
 map <c-r> reload
 map <c-f> search
+map F $lf -remote "send $id select \"$(fzf --prompt "Search: ")\""
 map mf mkfile
 map md mkdir
 map <c-c> clear

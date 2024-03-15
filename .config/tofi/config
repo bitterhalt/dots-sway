@@ -1,5 +1,5 @@
 # general
-prompt-text = "drun: "
+prompt-text = "> "
 hide-cursor = false
 history     = true
 
