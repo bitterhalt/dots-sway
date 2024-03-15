@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Yes, it is just hyprpicker
+
 color=$(hyprpicker -a)
 wl-copy $color
 notify-send 'Color to Clipboard' $color
