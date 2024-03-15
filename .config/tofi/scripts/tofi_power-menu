@@ -7,8 +7,6 @@ CONFIRM="tofi --text-cursor false \
         --font-size 34 \
         --prompt-text "Sure?" \
         --width 100% \
-        --prompt-color 8f8f8f \
-        --text-color 8f8f8f \
         --background-color 000D \
         --height  100% \
         --padding-left  45% \
@@ -19,7 +17,6 @@ case $(printf "%s\n" "Lock"  "Logout" "Suspend" "Reboot" "Shutdown" | tofi --fon
     --border-width 0 \
     --outline-width  0 \
     --background-color 000D \
-    --text-color 8f8f8f \
     --selection-background-corner-radius 8 \
     --selection-background-padding "4, 20" \
     --prompt-text  " " \
