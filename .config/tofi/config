@@ -1,5 +1,5 @@
 # general
-prompt-text = "> "
+prompt-text = ">"
 hide-cursor = false
 history     = true
 
@@ -23,4 +23,4 @@ border-color = #458588
 outline-color= #000000
 selection-color = #458588
 text-color = #A89984
-prompt-color = #D79921
+prompt-color = #B16286
