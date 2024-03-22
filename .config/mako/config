@@ -48,15 +48,8 @@ default-timeout=0
 ###############################
 ## Custom notification rules ##
 ###############################
-[app-name=vol_notify]
-font=JetBrains Mono, Symbols Nerd Font 14
-width=100
-anchor=top-right
-group-by=app-name
-default-timeout=1500
-text-alignment=center
 
-[app-name=vol_notify_c]
+[app-name=vol_notify]
 anchor=top-center
 border-size=1
 default-timeout=1500
