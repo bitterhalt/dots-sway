@@ -1,5 +1,3 @@
-# Launchers
-
 # Tofi
 bindsym $mod+d exec $tofi_drun
 bindsym $mod+p exec $tofi_run
@@ -30,21 +28,6 @@ floating_modifier $mod normal
 
 # Reload the configuration file
 bindsym $mod+ctrl+r reload
-
-# Exit sway (logs you out of your Wayland session)
-
-# Powermenu
-set $mode_exit "Exit: [s]uspend [r]eboot shut[d]own e[x]it"
-mode $mode_exit {
-    bindsym d exec systemctl poweroff,  mode default
-        bindsym r exec systemctl reboot,  mode default
-        bindsym s exec systemctl suspend,  mode default
-        bindsym x exit
-        bindsym Return mode default
-        bindsym Escape mode default
-}
-
-bindsym $mod+ctrl+q mode $mode_exit
 
 # Move your focus around
 bindsym $mod+$left focus left
