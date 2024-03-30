@@ -11,13 +11,14 @@ bindsym $mod+f7 exec $tofi_screenshot
 # FZF
 bindsym $mod+shift+c exec ~/.local/bin/fzf_clipboard
 bindsym $mod+ctrl+c exec ~/.local/bin/fzf_clipboard wipe # wipes clipboard database
-bindsym $mod+F4 exec ~/.local/bin/fzf_killer
 
 # Start a terminal
 bindsym $mod+Return exec $term
 
 # Kill focused window
 bindsym $mod+q kill
+
+bindsym $mod+F4 exec $killer
 
 # Hide/restart waybar
 bindsym $mod+shift+b exec killall -SIGUSR1 waybar
@@ -90,6 +91,9 @@ bindsym $mod+f fullscreen
 
 # Toggle the current focus between tiling and floating mode
 bindsym $mod+shift+space floating toggle
+
+# Toggle sticky
+bindsym $mod+y sticky toggle
 
 # Swap focus between the tiling area and the floating area
 bindsym $mod+space focus mode_toggle

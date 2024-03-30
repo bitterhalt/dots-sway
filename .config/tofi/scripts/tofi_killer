@@ -3,8 +3,9 @@ set -e
 
 MENU="tofi \
    --prompt-color CC241D \
-   --border-width 0 \
-   --outline-width 0 \
+   --border-width 1 \
+   --border-color CC241D \
+   --outline-width 1 \
    --font-size 10 \
    --anchor top \
    --width 100% \

@@ -46,10 +46,6 @@ alias weather='curl wttr.in/'
 # Most usefull alias
 alias fortunec='fortune | cowsay'
 
-# Yle-dl
-alias yle-update='pip3 install --user --upgrade yle-dl'
-alias yle-down='yle-dl --destdir ~/Downloads'
-
 # System Journal
 alias loger='journalctl -p 3 -xb'
 alias logf='journalctl -f'

@@ -5,7 +5,7 @@ color=#101419
 indicator-caps-lock
 show-failed-attempts
 #image=$HOME/.wall/bg
-image=$HOME/.config/swaylock/lock.png
+image=$HOME/.config/swaylock/gruv.png
 scaling=fill
 font=JetBrains Mono
 font-size=20

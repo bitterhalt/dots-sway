@@ -6,7 +6,7 @@
         // Modules
         "modules-left": ["custom/useless","sway/workspaces"],
         "modules-center": ["sway/mode"],
-        "modules-right": ["cpu", "memory", "network", "pulseaudio", "pulseaudio#mic", "custom/swayidle", "clock", "custom/power"],
+        "modules-right": ["cpu", "memory", "network", "custom/mako","custom/clipboard", "pulseaudio", "pulseaudio#mic", "custom/swayidle", "clock", "custom/power"],
 
         // Modules configuration
         "sway/workspaces": {
@@ -51,7 +51,7 @@
             "tooltip-format": "󱘖 {ipaddr}  {bandwidthUpBytes}  {bandwidthDownBytes}",
             "format-linked": "{ifname} (No IP) ?",
             "format-disconnected": "x",
-            "on-click": "$TERMINAL -e nmtui"
+            "on-click": "~/.local/bin/dmenu_network"
         },
 
         "pulseaudio": {
@@ -93,6 +93,29 @@
             "exec": "~/.config/sway/scripts/swayidle-toggle status",
             "signal": 8,
             "on-click": "~/.config/sway/scripts/swayidle-toggle toggle"
+        },
+
+        "custom/mako": {
+            "interval": "once",
+            "return-type": "json",
+            "format": "{}{icon}",
+            "format-icons": {
+                "default": "󰂚",
+                "dnd": "󰂛"
+            },
+            "on-click": "makoctl mode | grep 'dnd' && makoctl mode -r dnd || makoctl mode -a dnd; pkill -RTMIN+7 waybar",
+            "exec": "printf '{\"alt\":\"%s\",\"tooltip\":\"mode: %s\"}' $(makoctl mode | grep -q 'dnd' && echo dnd || echo default) $(makoctl mode | tail -1)",
+            "signal": 7
+        },
+
+        "custom/clipboard": {
+            "format": "󰅍",
+            "interval": "once",
+            "return-type": "json",
+            "on-click": "~/.local/bin/fzf_clipboard; pkill -RTMIN+9 waybar",
+            "on-click-middle": "~/.local/bin/fzf_clipboard wipe; pkill -RTMIN+9 waybar",
+            "exec": "printf '{\"tooltip\":\"%s\"}' $(cliphist list | wc -l)' item(s) in the clipboard\r(Mid click to clear)'",
+            "signal": 9
         },
 
         "custom/pipe": {

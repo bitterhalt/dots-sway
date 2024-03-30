@@ -80,19 +80,23 @@ window#waybar.hidden {
  *                      Modules
  * ----------------------------------------------------- */
 
-#battery,
-#backlight,
 #cpu,
-#memory,
+#memory {
+    color: @fg;
+    padding: 0 5px;
+}
+
+#battery,
 #pulseaudio,
+#custom-mako,
+#custom-clipboard,
 #pulseaudio.muted,
 #pulseaudio.mic {
     color: @fg;
     padding: 0 5px;
 }
 
-#network,
-#network.disconnected {
+#network {
     color: @fg;
     padding-right: 5px;
     padding-left: 10px;
@@ -122,13 +126,9 @@ window#waybar.hidden {
     }
 }
 
-#battery {
-    color: @fg;
-
-}
-
 #battery.charging, #battery.plugged {
     color: @fg;
+    padding: 0 5px;
 }
 
 #battery.critical:not(.charging) {
@@ -142,7 +142,7 @@ window#waybar.hidden {
  * ----------------------------------------------------- */
 #custom-swayidle {
     padding: 0 5px;
-    color: @fg;
+    color: @fg2;
 }
 
 #custom-useless {
