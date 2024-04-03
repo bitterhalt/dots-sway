@@ -106,7 +106,6 @@ bar {
 
 # Inc's
 include /etc/sway/config.d/*
-include ~/.config/sway/colors/gruvbox.conf
 include $HOME/.config/sway/config.d/*
 
 
