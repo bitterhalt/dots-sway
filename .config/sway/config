@@ -27,7 +27,7 @@ set $killer ~/.config/tofi/scripts/tofi_killer
 # Tofi
 set $tofi_full $HOME/.config/tofi/scripts/drun_full.sh
 set $tofi_drun  tofi-drun --promp "drun:" --drun-launch=true
-set $tofi_run  tofi-run --promp "run:"| xargs swaymsg exec --
+set $tofi_run  tofi-run --promp "run:"| xargs swaymsg exec -- >/dev/null 2>&1
 set $tofi_winlist $HOME/.config/tofi/scripts/tofi_window
 set $tofi_power $HOME/.config/tofi/scripts/tofi_power-menu
 set $tofi_screenshot $HOME/.config/tofi/scripts/tofi_screenshot

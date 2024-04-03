@@ -1,7 +1,6 @@
 # Tofi
 bindsym $mod+d exec $tofi_drun
 bindsym $mod+p exec $tofi_run
-bindsym $mod+control+d exec $tofi_full
 bindsym $mod+shift+p exec $tofi_power
 bindsym $mod+tab exec $tofi_winlist
 #bindsym $mod+shift+c exec $tofi_clipmenu
