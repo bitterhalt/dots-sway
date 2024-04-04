@@ -79,7 +79,7 @@ return packer.startup(function(use)
         config = function()
             vim.g.vimwiki_list = {
                 {
-                    path = '~/Documents/.vimwiki/',
+                    path = '~/Documents/personal/notes/',
                     syntax = 'markdown',
                     ext = '.md',
                 }

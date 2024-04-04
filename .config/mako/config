@@ -82,7 +82,6 @@ default-timeout=8000
 
 [app-name=date_notify]
 font=JetBrains Mono, Symbols Nerd Font 12
-border-color=#458588
 width=160
 anchor=top-right
 group-by=app-name
@@ -100,14 +99,11 @@ default-timeout=8000
 [app-name=weather_notify]
 font=JetBrains Mono, Symbols Nerd Font 12
 width=230
-anchor=top-right
 group-by=app-name
 default-timeout=8000
 padding=20
 
 [app-name=center_notify]
-text-color=#D79921
-border-color=#458588
 font=JetBrains Mono, Symbols Nerd Font 12
 width=260
 anchor=top-center
@@ -116,8 +112,6 @@ default-timeout=8000
 text-alignment=center
 
 [app-name=center_notify_s]
-text-color=#D79921
-border-color=#458588
 font=JetBrains Mono, Symbols Nerd Font 12
 width=130
 anchor=top-center

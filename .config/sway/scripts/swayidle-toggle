@@ -13,7 +13,7 @@ status() {
 toggle() {
 if  pgrep swayidle >/dev/null; then
     pkill swayidle
-    notify-send -a center_notify "󰒳 Swayidle disabled" -h string:x-dunst-stack-tag:volume
+    notify-send -a center_notify " Swayidle disabled" -h string:x-dunst-stack-tag:volume
 else
     notify-send -a center_notify "󰒲 Swayidle enabled" -h string:x-dunst-stack-tag:volume
     swayidle -w \

@@ -5,12 +5,14 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' --border-label="EDIT SETTINGS"'
 # Menu options
 ARCHIVE="SWAY
 FOOT
-FUZZEL
+TOFI
 WAYBAR
+SWAYLOCK
 ZSH
 NEOVIM
+GTK-SETTINGS
 MAKO"
-CHOICE=$(printf "$ARCHIVE" | fzf)
+CHOICE=$(printf "$ARCHIVE" | fzf_menu ">")
 
 # Launch nvim on with foot as floating window
 TERMCMD=("foot -a floatterm")
@@ -18,9 +20,11 @@ TERMCMD=("foot -a floatterm")
 case $CHOICE in
      SWAY) $TERMCMD -e nvim $HOME/.config/sway/config ;;
      FOOT) $TERMCMD -e nvim $HOME/.config/foot/foot.ini ;;
-     FUZZEL) $TERMCMD -e nvim $HOME/.config/fuzzel ;;
+     TOFI) $TERMCMD -e nvim $HOME/.config/tofi ;;
      WAYBAR) $TERMCMD -e nvim $HOME/.config/waybar ;;
+     SWAYLOCK) $TERMCMD -e nvim $HOME/.config/swaylock/config ;;
      NEOVIM) $TERMCMD -e nvim $HOME/.config/nvim ;;
+     GTK-SETTINGS) nwg-look ;;
      MAKO) $TERMCMD -e nvim $HOME/.config/mako ;;
      ZSH) $TERMCMD -e nvim $HOME/.config/zsh/.zshrc ;;
 esac

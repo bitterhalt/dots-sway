@@ -83,7 +83,7 @@
             "interval": "once",
             "format": "",
             "tooltip": false,
-            "on-click": "~/.config/sway/scripts/swaypower",
+            "on-click": "~/.config/sway/scripts/power_thing",
             "on-click-right": "$TERMINAL -a floatterm -e ~/.local/bin/popupgrade"
         },
 
@@ -113,8 +113,8 @@
             "interval": "once",
             "return-type": "json",
             "on-click": "~/.local/bin/fzf_clipboard; pkill -RTMIN+9 waybar",
-            "on-click-middle": "~/.local/bin/fzf_clipboard wipe; pkill -RTMIN+9 waybar",
-            "exec": "printf '{\"tooltip\":\"%s\"}' $(cliphist list | wc -l)' item(s) in the clipboard\r(Mid click to clear)'",
+            "on-click-right": "~/.local/bin/fzf_clipboard wipe; pkill -RTMIN+9 waybar",
+            "exec": "printf '{\"tooltip\":\"%s\"}' $(cliphist list | wc -l)' item(s) in the clipboard\rClick <b>left</b> to open clipboard\rClick <b>right</b> to clear'",
             "signal": 9
         },
 
@@ -145,7 +145,8 @@
             "interval": "once",
             "format": "",
             "tooltip": false,
-            "on-click": "~/.config/mako/scripts/mako_sysnfo"
+            "on-click": "~/.config/sway/scripts/settings",
+            "on-click-right": "~/.config/mako/scripts/mako_sysnfo"
         },
 
         "custom/weather": {

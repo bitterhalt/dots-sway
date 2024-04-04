@@ -28,7 +28,7 @@ if test -n "$preview"; then
     command+=("--preview" "'$preview'")
 fi
 
-"$TERMINAL" --app-id fzf_menu sh -c "${command[*]} <$in >$out" 2>/dev/null &
+"$TERMINAL" --app-id fzf_menu_top sh -c "${command[*]} <$in >$out" 2>/dev/null &
 
 cat <"$out" &
 cat >"$in"
