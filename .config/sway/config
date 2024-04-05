@@ -170,7 +170,7 @@ bindsym $mod+ctrl+shift+plus   gaps outer current plus 5
 bindsym $mod+ctrl+shift+minus  gaps outer current minus 5
 
 # Note: "no-startup-id" is useless on Sway and you can delete those if u are not lazy like me..
-bindsym $mod+F5 exec  ~/.local/bin/fzf_pass
+bindsym $mod+F5 exec  pass_menu
 bindsym $mod+F6 exec ~/.config/tofi/scripts/tofi_network
 bindsym $mod+F8 exec pavucontrol
 bindsym $mod+F9 exec ~/.config/sway/scripts/mic-toggle toggle
