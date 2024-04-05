@@ -2,7 +2,7 @@
  *                      General
  * ----------------------------------------------------- */
 /* Colors */
-@import "colors/gruvbox.css";
+@import "colors.css";
 
 * {
     font-family: JetBrains Mono, Symbols Nerd Font,sans-serif;
