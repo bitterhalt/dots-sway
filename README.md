@@ -15,6 +15,6 @@
 * Shell: [zsh](https://www.zsh.org/)
 * Editor: [neovim](https://neovim.io/)
 * Filemanager: [lf](https://github.com/gokcehan/lf)
-* Launcher [Tofi](https://github.com/philj56/tofi) 
+* Launcher(s) **Tofi** + **fzf**
 ## Inspiration
 - [See my stars](https://github.com/bitbitterhalt?tab=stars)
