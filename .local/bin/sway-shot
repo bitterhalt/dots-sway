@@ -26,7 +26,6 @@ region() {
 
 region-edit() {
     grim -g "$(slurp)"  - | swappy -f -
-    notify-send "Screenshot" "File saved as $SAVEDIR" 
 }
 
 timer() {

@@ -16,13 +16,17 @@ IFS=$'\n\t'
 #          ENV           #
 # ---------------------- #
 MODE=""
-MENUCMD=(tofi 
-    --exclusive-zone 0 \
-    --anchor top \
-    --font-size 14 \
-    --prompt-text 'pass:' \
-    --margin-top 2 \
-    --width 100%)
+
+# You can edit menucmd for your liking
+#MENUCMD=(tofi 
+#    --exclusive-zone 0 \
+#    --anchor top \
+#    --font-size 14 \
+#    --prompt-text 'pass:' \
+#    --margin-top 2 \
+#    --width 100%)
+
+MENUCMD="fzf_menu"
 
 TIMEOUT="45"
 STOREDIR="${PASSWORD_STORE_DIR-$HOME/.password-store}"

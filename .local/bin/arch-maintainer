@@ -18,7 +18,6 @@ printf "If 'no targets specified', no orphaned packages were found.\n"
 
 # Make list of installed packages
 location="$HOME/.pkg-lists"
-printf "\n${GRN}>> Lists your installed packages${NC}\n"
 pacman -Qett | grep -v "$(pacman -Qem)" > $location/pkgs-pacman.txt
 pacman -Qqm > $location/pkgs-aur.txt
 pacman -Q > $location/packages.txt
