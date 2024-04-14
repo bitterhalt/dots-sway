@@ -29,7 +29,7 @@ region-edit() {
 }
 
 timer() {
-    sleep 3 
+    sleep 5
     grim "$FILENAME"
     notify-send "Screenshot" "File saved as $SAVEDIR" -i "$FILENAME"
     wl-copy < "$FILENAME"

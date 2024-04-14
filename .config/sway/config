@@ -164,42 +164,39 @@ bindsym $mod+ctrl+h resize grow width 10 px
 # Adjust inner gaps
 bindsym $mod+ctrl+plus   gaps inner current plus 5
 bindsym $mod+ctrl+minus  gaps inner current minus 5
-
 # Adjust outer gaps
 bindsym $mod+ctrl+shift+plus   gaps outer current plus 5
 bindsym $mod+ctrl+shift+minus  gaps outer current minus 5
 
-# Note: "no-startup-id" is useless on Sway and you can delete those if u are not lazy like me..
-bindsym $mod+F5 exec  pass_menu
-bindsym $mod+F6 exec ~/.config/tofi/scripts/tofi_network
+bindsym $mod+F5 exec pass_menu
+bindsym $mod+F6 exec $HOME/.config/tofi/scripts/tofi_network
 bindsym $mod+F8 exec pavucontrol
-bindsym $mod+F9 exec ~/.config/sway/scripts/mic-toggle toggle
-bindsym $mod+F12 exec ~/.config/sway/scripts/settings
-bindsym $mod+Print exec ~/.local/bin/sway-shot -f
-bindsym $mod+shift+Print exec ~/.local/bin/sway-shot -re
-#bindsym $mod+c [app_id="discord"] scratchpad show
+bindsym $mod+F9 exec $HOME/.config/sway/scripts/mic-toggle toggle
+bindsym $mod+F12 exec $HOME/.config/sway/scripts/settings
+bindsym $mod+Print exec $HOME/.local/bin/sway-shot -f
+bindsym $mod+shift+Print exec $HOME/.local/bin/sway-shot -re
 bindsym $mod+c [app_id="WebCord"] scratchpad show
-bindsym $mod+ctrl+i exec --no-startup-id $HOME/.config/mako/scripts/mako_sysnfo
-bindsym $mod+ctrl+p exec ~/.local/bin/swaypick
-bindsym $mod+ctrl+t exec --no-startup-id $HOME/.config/mako/scripts/mako_date
-bindsym $mod+ctrl+u exec ~/.config/mako/scripts/mako_updates
-bindsym $mod+ctrl+w exec ~/.local/bin/weather_notify
-bindsym $mod+e exec --no-startup-id /usr/bin/thunar
-bindsym $mod+f11 exec ~/.config/sway/scripts/screenlocker
-bindsym $mod+m exec --no-startup-id thunderbird
-bindsym $mod+shift+f11 exec ~/.config/sway/scripts/swayidle-toggle toggle
-bindsym $mod+shift+f7 exec ~/.local/bin/sway-record -k
+bindsym $mod+ctrl+i exec $HOME/.config/mako/scripts/mako_sysnfo
+bindsym $mod+ctrl+p exec $HOME/.local/bin/colorpicker_fancy
+bindsym $mod+ctrl+t exec $HOME/.config/mako/scripts/mako_date
+bindsym $mod+ctrl+u exec $HOME/.config/mako/scripts/mako_updates
+bindsym $mod+ctrl+w exec $HOME/.local/bin/weather_notify
+bindsym $mod+e exec /usr/bin/thunar
+bindsym $mod+f11 exec $HOME/.config/sway/scripts/screenlocker
+bindsym $mod+m exec thunderbird
+bindsym $mod+shift+f11 exec $HOME/.config/sway/scripts/swayidle-toggle toggle
+bindsym $mod+shift+f7 exec $HOME/.local/bin/sway-record -k
 bindsym $mod+shift+n exec $term -e nvim ~/Documents/personal/notes/index.md
 bindsym $mod+shift+u exec foot -e ~/.local/bin/popupgrade
-bindsym $mod+w exec --no-startup-id /usr/bin/firefox
+bindsym $mod+w exec /usr/bin/firefox
 bindsym $mod+n exec $term -a quick_note -e ~/.local/bin/quick_note
 
 # Media keys
 bindsym XF86AudioRaiseVolume exec ~/.config/sway/scripts/volume-thing up
 bindsym XF86AudioLowerVolume exec ~/.config/sway/scripts/volume-thing down
 bindsym XF86AudioMute exec ~/.config/sway/scripts/volume-thing mute
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@
-bindsym XF86Calculator  exec --no-startup-id galculator
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@
+bindsym XF86Calculator  exec galculator
 
 # Brightness control
 bindsym XF86MonBrightnessUp exec sh -c "brightnessctl set 5%+; ~/.config/sway/scripts/brightness-thing"

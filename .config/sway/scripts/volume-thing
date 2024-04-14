@@ -22,13 +22,13 @@ is_muted=$(pactl get-sink-mute @DEFAULT_SINK@ | sed -n "s/Mute: //p")
 
 if [ "${is_muted}" = "yes" ]; then
     volume="Muted "
-    icon=""
+    text=""
 else
-    icon=""
+    text="Volume:"
 fi
 
 notify-send \
     -a vol_notify \
-    "${icon}  ${volume}" \
-    -h string:x-dunst-stack-tag:volume
+    "${text} ${volume}" \
+    -h string:x-canonical-private-synchronous:volume
 

@@ -24,7 +24,7 @@ padding=10
 ##################
 background-color=#1b1b1b
 text-color=#BDAE93
-border-color=#262626
+border-color=#323232
 
 ##################
 # Urgency levels #
@@ -32,12 +32,12 @@ border-color=#262626
 #[urgency=low]
 #background-color=#1d2021
 #text-color=#BDAE93
-#border-color=#262626
+#border-color=#323232
 
 #[urgency=normal]
 #background-color=#1D2021
 #text-color=#BDAE93
-#border-color=#262626
+#border-color=#323232
 
 [urgency=high]
 background-color=#1b1b1b
@@ -56,7 +56,7 @@ default-timeout=1500
 font=JetBrains Mono, Symbols Nerd Font 14
 group-by=app-name
 text-alignment=center
-width=130
+width=150
 
 [app-name=sysnfo_notify]
 font=JetBrains Mono, Symbols Nerd Font 10

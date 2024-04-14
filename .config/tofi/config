@@ -18,7 +18,7 @@ result-spacing = 5
 # colors
 
 placeholder-color = #D5C4A1
-background-color = #1D1D1D
+background-color = #1b1b1b
 border-color = #458588
 outline-color= #000000
 selection-color = #458588
