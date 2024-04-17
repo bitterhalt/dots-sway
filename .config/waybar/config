@@ -76,7 +76,8 @@
             "format": "{:%H:%M}",
             "format-alt": "{:%d.%m %H:%M}",
             "tooltip": false,
-            "on-click-right": "~/.config/mako/scripts/mako_calendar"
+            "on-click-right": "~/.local/bin/noti_cal",
+            "on-click-middle": "~/.local/bin/noti_weather"
         },
 
         "custom/power": {

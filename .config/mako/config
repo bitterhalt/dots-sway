@@ -79,6 +79,7 @@ height=800
 anchor=top-right
 group-by=app-name
 default-timeout=8000
+border-color=#FABD2F
 
 [app-name=date_notify]
 font=JetBrains Mono, Symbols Nerd Font 12

@@ -20,7 +20,6 @@ set $down j
 set $up k
 set $right l
 set $term footclient
-set $pass ~/.local/bin/pass_menu
 set $lock ~/.config/sway/scripts/screenlocker
 set $killer ~/.config/tofi/scripts/tofi_killer
 
@@ -176,20 +175,21 @@ bindsym $mod+F12 exec $HOME/.config/sway/scripts/settings
 bindsym $mod+Print exec $HOME/.local/bin/sway-shot -f
 bindsym $mod+shift+Print exec $HOME/.local/bin/sway-shot -re
 bindsym $mod+c [app_id="WebCord"] scratchpad show
-bindsym $mod+ctrl+i exec $HOME/.config/mako/scripts/mako_sysnfo
+bindsym $mod+ctrl+i exec $HOME/.local/bin/noti_sysnfo
 bindsym $mod+ctrl+p exec $HOME/.local/bin/colorpicker_fancy
 bindsym $mod+ctrl+t exec $HOME/.config/mako/scripts/mako_date
-bindsym $mod+ctrl+u exec $HOME/.config/mako/scripts/mako_updates
-bindsym $mod+ctrl+w exec $HOME/.local/bin/weather_notify
+bindsym $mod+ctrl+u exec $HOME/.local/bin/noti_updates
+bindsym $mod+ctrl+w exec $HOME/.local/bin/noti_weather
 bindsym $mod+e exec /usr/bin/thunar
 bindsym $mod+f11 exec $HOME/.config/sway/scripts/screenlocker
 bindsym $mod+m exec thunderbird
 bindsym $mod+shift+f11 exec $HOME/.config/sway/scripts/swayidle-toggle toggle
 bindsym $mod+shift+f7 exec $HOME/.local/bin/sway-record -k
-bindsym $mod+shift+n exec $term -e nvim ~/Documents/personal/notes/index.md
 bindsym $mod+shift+u exec foot -e ~/.local/bin/popupgrade
 bindsym $mod+w exec /usr/bin/firefox
-bindsym $mod+n exec $term -a quick_note -e ~/.local/bin/quick_note
+bindsym $mod+shift+n exec $term -a quick_note -e ~/.local/bin/quick_note
+bindsym $mod+n exec $term -e nvim ~/Documents/personal/notes/index.md
+bindsym $mod+t exec $term -a floatterm -e nvim $HOME/Documents/personal/notes/todo.md 
 
 # Media keys
 bindsym XF86AudioRaiseVolume exec ~/.config/sway/scripts/volume-thing up
@@ -217,7 +217,6 @@ assign [app_id="com.transmissionbt.transmission_66306_3673930"] 4
 assign [app_id="firefox"] 2
 assign [app_id="thunderbird"] 3
 assign [app_id="virt-manager"] 8
-assign [class="Signal"] 3
 assign [class="steam"] 5
 
 # Floaters
@@ -245,6 +244,7 @@ for_window [class="Lxappearance"] floating enable
 for_window [class="Nsxiv"] floating enable, resize set width 60 ppt height 80 ppt
 for_window [class="Xsane" instance="xsane"] floating enable
 for_window [class="qt5ct" instance="qt5ct"] floating enable, resize set width 60 ppt height 50 ppt
+for_window [class="Signal"] floating enable, resize set width 40 ppt height 50 ppt
 for_window [class="steam" instance="steam"] floating enable
 for_window [instance="origin.exe"] floating enable
 for_window [title="fzf-switcher"] floating enable
