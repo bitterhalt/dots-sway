@@ -55,15 +55,13 @@ window#waybar.hidden {
 
 #workspaces button {
     min-width: 20px;
-    color: @fg2;
-    border-radius: 2px;
+    color: @bg2;
     padding: 0 5px;
-    margin: 2px 2px 2px 2px;
 }
 
 #workspaces button.focused {
-    color: @bg;
-    background-color: @blue;
+    color: @fg;
+    background-color: @bg;
 }
 
 #workspaces button.urgent {
@@ -71,10 +69,6 @@ window#waybar.hidden {
     background-color: @bg;
 }
 
-#workspaces button:hover {
-    background-color: @bg2;
-
-}
 
 /* -----------------------------------------------------
  *                      Modules
@@ -90,9 +84,13 @@ window#waybar.hidden {
 #pulseaudio,
 #custom-mako,
 #custom-clipboard,
-#pulseaudio.muted,
 #pulseaudio.mic {
     color: @fg;
+    padding: 0 5px;
+}
+
+#pulseaudio.muted {
+    color: @bg2;
     padding: 0 5px;
 }
 
@@ -107,7 +105,7 @@ window#waybar.hidden {
 }
 
 #clock {
-    color: @blue;
+    color: @fg;
     padding: 0 5px;
     font-size: 16px;
 }
@@ -142,7 +140,7 @@ window#waybar.hidden {
  * ----------------------------------------------------- */
 #custom-swayidle {
     padding: 0 5px;
-    color: @fg2;
+    color: @bg2;
 }
 
 #custom-useless {
@@ -151,7 +149,7 @@ window#waybar.hidden {
 }
 
 #custom-power {
-    color: @bg4;
+    color: @bg2;
     padding-left: 5px;
     padding-right: 10px;
 }

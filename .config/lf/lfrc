@@ -43,14 +43,14 @@ map <f-5> reload
 map <c-r> reload
 map f search
 map <f-3> search
-map <c-f> find
-map F $lf -remote "send $id select \"$(fzf --prompt "Type: ")\""
+map F fzf_jump
 map mf mkfile
 map md mkdir
 map <c-c> clear
 map D delete
 map <delete> trash
 map bg $setbg $f
+map <esc> quit
 
 # Movement
 map gh cd ~

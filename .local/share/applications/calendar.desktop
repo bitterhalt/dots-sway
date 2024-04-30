@@ -1,8 +1,0 @@
-[Desktop Entry]
-Type=Application
-Icon=calendar
-Version=1.0
-Name=calcurse_calendar
-TryExec=calcurse
-Exec=/usr/bin/calcurse
-Terminal=true

@@ -57,7 +57,7 @@
         "pulseaudio": {
             "format": "{icon}",
             "format-bluetooth": "{volume}% {icon}",
-            "format-muted": "Muted",
+            "format-muted": "",
             "format-icons": {
                 "default": [""]
             },
@@ -146,14 +146,8 @@
             "interval": "once",
             "format": "",
             "tooltip": false,
-            "on-click": "~/.config/sway/scripts/settings",
-            "on-click-right": "~/.config/mako/scripts/mako_sysnfo"
-        },
+            "on-click": "$TERMINAL -a launcher -e ~/.config/sway/scripts/sway-launcher-desktop.sh",
+            "on-click-right": "~/.config/sway/scripts/settings"
+        }
 
-        "custom/weather": {
-            "restart-interval": "3600",
-            "format": "{}",
-            "exec": "~/.config/waybar/custom/weather",
-            "on-click": "~/.local/bin/weather_notify"
-        },
 }

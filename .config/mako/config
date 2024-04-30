@@ -23,21 +23,12 @@ padding=10
 #   Colors       #
 ##################
 background-color=#1b1b1b
-text-color=#BDAE93
+text-color=#afafaf
 border-color=#323232
 
 ##################
 # Urgency levels #
 ##################
-#[urgency=low]
-#background-color=#1d2021
-#text-color=#BDAE93
-#border-color=#323232
-
-#[urgency=normal]
-#background-color=#1D2021
-#text-color=#BDAE93
-#border-color=#323232
 
 [urgency=high]
 background-color=#1b1b1b
@@ -79,7 +70,6 @@ height=800
 anchor=top-right
 group-by=app-name
 default-timeout=8000
-border-color=#FABD2F
 
 [app-name=date_notify]
 font=JetBrains Mono, Symbols Nerd Font 12

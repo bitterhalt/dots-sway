@@ -12,6 +12,19 @@ cmd open ${{
     esac
 }}
 
+# Jump to dir
+cmd fzf_jump ${{
+    res="$(find . -maxdepth 1 | fzf --header='Jump to location' | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    if [ -d "$res" ] ; then
+        cmd="cd"
+    elif [ -f "$res" ] ; then
+        cmd="select"
+    else
+        exit 0
+    fi
+    lf -remote "send $id $cmd \"$res\""
+}}
+
 # Yank paths into your clipboard
 cmd yank-path $printf '%s' "$fx" | wl-copy
 cmd yank-basename $basename -a -- $fx | head -c-1 | wl-copy

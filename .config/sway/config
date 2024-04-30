@@ -27,7 +27,7 @@ set $killer ~/.config/tofi/scripts/tofi_killer
 set $tofi_full $HOME/.config/tofi/scripts/drun_full.sh
 set $tofi_drun  tofi-drun --promp "drun:" --drun-launch=true
 set $tofi_run  tofi-run --promp "run:"| xargs swaymsg exec -- >/dev/null 2>&1
-set $tofi_winlist $HOME/.config/tofi/scripts/tofi_window
+set $tofi_winlist $HOME/.config/tofi/scripts/tofi_window >/dev/null 2>&1
 set $tofi_power $HOME/.config/tofi/scripts/tofi_power-menu
 set $tofi_screenshot $HOME/.config/tofi/scripts/tofi_screenshot
 
@@ -226,6 +226,7 @@ for_window [app_id="file-roller"] floating enable
 for_window [app_id="floating_shell_portrait"] floating enable, border pixel 1, sticky enable, resize set width 30 ppt height 40 ppt
 for_window [app_id="floatterm"] floating enable, resize set width 40 ppt height 60 ppt
 for_window [app_id="quick_note"] floating enable, resize set width 40 ppt height 60 ppt
+for_window [app_id="^launcher$"] floating enable, resize set 100 ppt 20 ppt, move position 0 0, border pixel 1
 for_window [app_id="fzf_menu"] floating enable, resize set width 40 ppt height 40 ppt, border pixel 1
 for_window [app_id="fzf_menu_top"] floating enable, resize set 100 ppt 20 ppt, move position 0 0, border pixel 1
 #for_window [app_id="fzf_menu$"] floating enable, sticky enable, resize set 100 ppt 30 ppt, move position 0 0

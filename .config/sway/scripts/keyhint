@@ -1,8 +1,3 @@
 #!/bin/bash
 
-cat ~/.config/sway/config.d/binds | grep 'bindsym' | grep -v '^\s*#' | sed 's/bindsym / /' |  fzf_menu "Search "
-
-
-
-
-
+cat ~/.config/sway/config | grep 'bindsym' | grep -v '^\s*#' | sed 's/bindsym / /' |  fzf_menu "Search "

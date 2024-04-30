@@ -1,7 +1,4 @@
---color=fg:#BDAE93,fg+:#458588,bg:#1b1b1b,bg+:#1b1b1b
---color=hl:#458588,hl+:#83A598,info:#D79921,marker:#98971A
---color=prompt:#B16286,spinner:#B16286,pointer:#458588,header:#B16286
---color=border:#323232,label:#D79921,query:#BDAE93
+--color="16"
 --border="sharp" --preview-window="border-sharp"
 --marker=">" --pointer="*" --separator="─"
 --scrollbar="│" --info="right"
