@@ -28,7 +28,7 @@ if [[ -n "$selected" ]]; then
             umount_temp
             notify-send "Taking snapshot! This could take a while.."
             borgmatic --verbosity -1 --syslog-verbosity 1
-            notify-send "Snapshot ready!"
+            notify-send "Borg snapshot ready" "$(date '+%d.%m-%H:%M')"
             ;;
         "Mount latest snapshot")
             borgmatic mount --archive latest --mount-point $HOME/temp

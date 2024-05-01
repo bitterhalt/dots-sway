@@ -25,6 +25,7 @@ exclude_patterns:
   - '*.pyc'
   - '*/.vim*.tmp'
   - /etc/ssl
+  - /home/*/.var
   - /home/*/Applications
   - /home/*/.local/share/libvirt
   - /home/*/Music
