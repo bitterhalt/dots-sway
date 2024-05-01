@@ -1,6 +1,6 @@
 # Gruvbox
 set $bg      #1d1d1d
-set $bg2     #323232
+set $bg2     #262626
 set $fg      #d1d1d1
 set $red     #cc241d
 set $blue    #458588
