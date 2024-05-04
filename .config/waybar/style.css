@@ -24,10 +24,10 @@
 
 tooltip {
     background: @bg;
-  border: solid 1px @bg2;
+    border: solid 1px @bg2;
 }
 tooltip label {
-  color: @fg;
+    color: @fg;
 }
 
 /* -----------------------------------------------------
@@ -55,7 +55,7 @@ window#waybar.hidden {
 
 #workspaces {
   background-color: @bg;
-  padding: 0 10px;
+  padding: 2 10px;
 }
 
 #workspaces button {
