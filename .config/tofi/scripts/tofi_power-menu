@@ -3,30 +3,23 @@
 set -euo pipefail
 
 CONFIRM="tofi --text-cursor false \
-        --border-width 0 \
-        --font-size 34 \
+        --margin-top 2 \
+        --exclusive-zone 0 \
+        --anchor top \
+        --font-size 14 \
         --prompt-text "Sure?" \
         --width 100% \
-        --background-color 000D \
-        --height  100% \
-        --padding-left  45% \
-        --hide-cursor true \
-        --padding-top  40%"
+        --height 250 \
+        --hide-cursor true"
 
-case $(printf "%s\n" "Lock"  "Logout" "Suspend" "Reboot" "Shutdown" | tofi --font-size 34 \
-    --border-width 0 \
-    --outline-width  0 \
-    --background-color 000D \
-    --selection-background-corner-radius 8 \
-    --selection-background-padding "4, 20" \
-    --prompt-text  " " \
-    --result-spacing  10 \
-    --width 100% \
-    --height  100% \
-    --padding-left  45% \
-    --padding-top  35% \
-    --hide-input  false \
-    --hide-cursor true) in
+case $(printf "%s\n" "Lock"  "Logout" "Suspend" "Reboot" "Shutdown" | tofi --text-cursor false \
+    --margin-top 2 \
+    --exclusive-zone 0 \
+    --anchor top \
+    --font-size 14 \
+    --prompt-text "Power-Menu:" \
+    --height 250 \
+    --width 100% ) in
  "Shutdown")
     confirm=$(echo -e "Yes\nNo" | $CONFIRM )
     if [[ "$confirm" == "Yes" ]]; then

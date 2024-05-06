@@ -177,7 +177,7 @@ bindsym $mod+shift+Print exec $HOME/.local/bin/sway-shot -re
 bindsym $mod+c [app_id="WebCord"] scratchpad show
 bindsym $mod+ctrl+i exec $HOME/.local/bin/noti_sysnfo
 bindsym $mod+ctrl+p exec $HOME/.local/bin/colorpicker_fancy
-bindsym $mod+ctrl+t exec $HOME/.config/mako/scripts/mako_date
+bindsym $mod+ctrl+t exec $HOME/.local/bin/noti_date
 bindsym $mod+ctrl+u exec $HOME/.local/bin/noti_updates
 bindsym $mod+ctrl+w exec $HOME/.local/bin/noti_weather
 bindsym $mod+e exec /usr/bin/thunar
