@@ -6,6 +6,7 @@ history     = true
 # font
 font = JetBrains Mono
 font-size=14
+
 # style
 border-width = 1
 outline-width = 1
@@ -15,12 +16,13 @@ padding-left = 30
 padding-top = 20
 prompt-padding = 5
 result-spacing = 5
-# colors
 
+# colors
 placeholder-color = #afafaf
 background-color = #1b1b1b
 border-color = #545454
 outline-color= #000000
 selection-color = #458588
+selection-match-color = #D79921
 text-color = #c6c6c6
 prompt-color = #B16286
