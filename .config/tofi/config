@@ -23,6 +23,6 @@ background-color = #1b1b1b
 border-color = #545454
 outline-color= #000000
 selection-color = #458588
-selection-match-color = #D79921
+selection-match-color = #B16286
 text-color = #c6c6c6
 prompt-color = #B16286

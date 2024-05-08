@@ -145,7 +145,7 @@ window#waybar.hidden {
  * ----------------------------------------------------- */
 #custom-swayidle {
     padding: 0 5px;
-    color: @bg2;
+    color: @fg;
 }
 
 #custom-useless {
