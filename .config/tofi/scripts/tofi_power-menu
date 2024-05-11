@@ -18,7 +18,7 @@ case $(printf "%s\n" "Lock"  "Logout" "Suspend" "Reboot" "Shutdown" | tofi --tex
     --anchor top \
     --font-size 13 \
     --prompt-text "Quit? " \
-    --height 200 \
+    --height 230 \
     --width 100% ) in
  "Shutdown")
     confirm=$(echo -e "Yes\nNo" | $CONFIRM )
