@@ -71,6 +71,14 @@ anchor=top-right
 group-by=app-name
 default-timeout=8000
 
+[app-name=todo_notify]
+font=JetBrains Mono, Symbols Nerd Font 10
+height=800
+anchor=top-right
+group-by=app-name
+default-timeout=20000
+border-color=#B16286
+
 [app-name=date_notify]
 font=JetBrains Mono, Symbols Nerd Font 12
 width=160

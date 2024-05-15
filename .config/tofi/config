@@ -20,7 +20,7 @@ result-spacing = 5
 # colors
 placeholder-color = #afafaf
 background-color = #1b1b1b
-border-color = #545454
+border-color = #323232
 outline-color= #000000
 selection-color = #458588
 selection-match-color = #B16286

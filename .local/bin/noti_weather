@@ -4,7 +4,7 @@ command -v jq >/dev/null 2>&1 || { echo >&2 "Program 'jq' required but it is not
 command -v curl >/dev/null 2>&1 || { echo >&2 "Program 'curl' required but is not installed. Aborting."; exit 1; }
 
 # To use this script you need to create an API key: https://home.openweathermap.org
-APIKEY=$(cat "$HOME/credentials/open_weather_apikey")
+APIKEY=$(cat "$HOME/Documents/credentials/open_weather_apikey")
 # Find your City ID here: https://openweathermap.org/
 # Search for your city and copy the ID from the URL inside the browser
 CITY_ID="643492"

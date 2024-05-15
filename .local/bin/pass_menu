@@ -26,7 +26,17 @@ MODE=""
 #    --margin-top 2 \
 #    --width 100%)
 
-MENUCMD="fzf_menu"
+MENUCMD=(tofi \
+    --padding-top 15 \
+    --padding-left 15 \
+    --margin-top 2 \
+    --exclusive-zone 0 \
+    --anchor top \
+    --font-size 10 \
+    --height 300 \
+    --prompt-text "pass-menu:"
+    --width 100% 
+)
 
 TIMEOUT="45"
 STOREDIR="${PASSWORD_STORE_DIR-$HOME/.password-store}"

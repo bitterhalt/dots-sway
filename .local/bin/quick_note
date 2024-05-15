@@ -1,7 +1,7 @@
 #!/bin/sh
 
 tempFile=$(mktemp /tmp/note.XXXXXX)
-noteFilename="$HOME/Documents/personal/notes/daily_note/note-$(date +%d.%m-%Y).md"
+noteFilename="$HOME/Documents/personal/notes/daily_note/$(date +%d-%m-%Y).md"
 
 nvim -c "norm Go## $(date +%H:%M)" \
   -c "norm G2o" \
