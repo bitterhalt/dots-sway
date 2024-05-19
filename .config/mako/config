@@ -16,7 +16,7 @@ max-history=20
 max-icon-size=64
 border-size=1
 width=300
-height=175
+height=800
 padding=10
 
 ##################
@@ -44,20 +44,20 @@ default-timeout=0
 anchor=top-center
 border-size=1
 default-timeout=1500
-font=JetBrains Mono, Symbols Nerd Font 14
+font=JetBrains Mono 13
 group-by=app-name
 text-alignment=center
 width=150
 
 [app-name=sysnfo_notify]
-font=JetBrains Mono, Symbols Nerd Font 10
+font=JetBrains Mono 10
 width=200
 anchor=top-right
 group-by=app-name
 default-timeout=8000
 
 [app-name=sysnfo_notify-l]
-font=JetBrains Mono, Symbols Nerd Font 13
+font=JetBrains Mono 13
 width=260
 anchor=top-right
 group-by=app-name
@@ -65,45 +65,43 @@ default-timeout=4000
 text-alignment=center
 
 [app-name=fat_notify]
-font=JetBrains Mono, Symbols Nerd Font 10
+font=JetBrains Mono 10
 height=800
 anchor=top-right
 group-by=app-name
 default-timeout=8000
 
 [app-name=todo_notify]
-font=JetBrains Mono, Symbols Nerd Font 10
-height=800
+font=JetBrains Mono 10
 anchor=top-right
 group-by=app-name
 default-timeout=20000
 border-color=#B16286
 
 [app-name=date_notify]
-font=JetBrains Mono, Symbols Nerd Font 12
+font=JetBrains Mono 12
 width=160
 anchor=top-right
 group-by=app-name
-default-timeout=4000
+default-timeout=8000
 text-alignment=center
 
 [app-name=cal_notify]
 font=JetBrains Mono 10
 width=190
-height=250
 anchor=top-right
 group-by=app-name
 default-timeout=8000
 
 [app-name=weather_notify]
-font=JetBrains Mono, Symbols Nerd Font 12
+font=JetBrains Mono 12
 width=230
 group-by=app-name
 default-timeout=8000
 padding=20
 
 [app-name=center_notify]
-font=JetBrains Mono, Symbols Nerd Font 12
+font=JetBrains Mono 12
 width=260
 anchor=top-center
 group-by=app-name
@@ -111,7 +109,7 @@ default-timeout=8000
 text-alignment=center
 
 [app-name=center_notify_s]
-font=JetBrains Mono, Symbols Nerd Font 12
+font=JetBrains Mono 12
 width=130
 anchor=top-center
 group-by=app-name
