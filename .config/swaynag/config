@@ -4,17 +4,17 @@ edge=top
 layer=overlay
 
 [warning]
-background=#1C1E1F
-border=#333435
+background=#181818
+border=#323232
 border-bottom-size=1
 button-border-size=1
-border-bottom=#333435
-button-background=#1C1E1F
+border-bottom=#323232
+button-background=#1b1b1b
 button-gap=10
-button-text=#D79921
+button-text=#458588
 dismiss-button=Cancel
 message-padding=6
-text=#CC241D
+text=#D79921
 button-margin-right=5
 button-dismiss-gap=20
 #dismiss-button=X
