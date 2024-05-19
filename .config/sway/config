@@ -151,7 +151,6 @@ bindsym $mod+x [app_id="scpterm"] scratchpad show
 bindsym $mod+shift+r exec pgrep -f '^foot -a scplf -e lf' >/dev/null 1>&1 || foot -a scplf -e lf
 bindsym $mod+r [app_id="scplf"] scratchpad show
 
-for_window [app_id="org.keepassxc.KeePassXC"] move scratchpad
 bindsym $mod+F5 [app_id="KeePassXC"] scratchpad show
 
 # Resizing containers:
@@ -220,6 +219,7 @@ assign [app_id="LibreWolf"] 2
 assign [app_id="com.transmissionbt.transmission_66306_3673930"] 4
 assign [app_id="firefox"] 2
 assign [app_id="thunderbird"] 3
+assign [app_id="org.keepassxc.KeePassXC"] 3
 assign [class="Signal"] 3
 assign [app_id="virt-manager"] 8
 assign [class="steam"] 5
