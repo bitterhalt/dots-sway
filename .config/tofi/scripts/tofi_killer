@@ -2,25 +2,25 @@
 set -e
 
 MENU="tofi \
-   --prompt-color CC241D \
-   --border-width 1 \
-   --border-color CC241D \
-   --outline-width 1 \
-   --font-size 10 \
-   --anchor top \
-   --width 100% \
-   --height 40% \
-   --padding-top 8 \
-   --padding-left 30%"
+    --prompt-color CC241D \
+    --border-width 1 \
+    --border-color CC241D \
+    --outline-width 1 \
+    --font-size 10 \
+    --anchor top \
+    --width 100% \
+    --height 40% \
+    --padding-top 8 \
+    --padding-left 30%"
 
 selected="$(ps -a -u $USER | \
-            $MENU --prompt "Kill process:" | \
-            awk '{print $1" "$4}')"; 
+    $MENU --prompt "Kill process:" | \
+    awk '{print $1" "$4}')"; 
 
 if [[ ! -z $selected ]]; then
 
     answer="$(echo -e "Yes\nNo" | \
-            $MENU --prompt "Kill $selected?")"
+        $MENU --prompt "Kill $selected?")"
 
     if [[ $answer == "Yes" ]]; then
         selpid="$(awk '{print $1}' <<< $selected)"; 
