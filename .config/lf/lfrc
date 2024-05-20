@@ -43,7 +43,8 @@ map <f-5> reload
 map <c-r> reload
 map f search
 map <f-3> search
-map F fzf_jump
+map J fzf_jump
+map F fzf_search
 map mf mkfile
 map md mkdir
 map <c-c> clear

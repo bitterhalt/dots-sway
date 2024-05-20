@@ -14,17 +14,29 @@ cmd open ${{
 
 # Jump to dir
 cmd fzf_jump ${{
-    res="$(find . -maxdepth 1 | fzf --header='Jump to location' | sed 's/\\/\\\\/g;s/"/\\"/g')"
-    if [ -d "$res" ] ; then
-        cmd="cd"
-    elif [ -f "$res" ] ; then
-        cmd="select"
-    else
-        exit 0
+    res="$(find . -maxdepth 1 | fzf --reverse --header='Jump to location')"
+    if [ -n "$res" ]; then
+        if [ -d "$res" ]; then
+            cmd="cd"
+        else
+            cmd="select"
+        fi
+        res="$(printf '%s' "$res" | sed 's/\\/\\\\/g;s/"/\\"/g')"
+        lf -remote "send $id $cmd \"$res\""
     fi
-    lf -remote "send $id $cmd \"$res\""
 }}
 
+# fzf finder
+cmd fzf_search ${{
+    RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
+    res="$(
+        FZF_DEFAULT_COMMAND="$RG_PREFIX ''" \
+            fzf --bind "change:reload:$RG_PREFIX {q} || true" \
+            --ansi --layout=reverse --header 'Search in files' \
+            | cut -d':' -f1 | sed 's/\\/\\\\/g;s/"/\\"/g'
+    )"
+    [ -n "$res" ] && lf -remote "send $id select \"$res\""
+}}
 # Yank paths into your clipboard
 cmd yank-path $printf '%s' "$fx" | wl-copy
 cmd yank-basename $basename -a -- $fx | head -c-1 | wl-copy
@@ -145,10 +157,11 @@ cmd bulkrename ${{
 cmd unarchive ${{
   case "$f" in
       *.zip) unzip "$f" ;;
+      *.rar) unrar x "$f" ;;
       *.tar.gz) tar -xzvf "$f" ;;
       *.tar.bz2) tar -xjvf "$f" ;;
       *.tar) tar -xvf "$f" ;;
-      *.rar) unrar e "$f" ;;
+      *.7z) 7z e "$f" ;;
       *) echo "Unsupported format" ;;
   esac
 }}
