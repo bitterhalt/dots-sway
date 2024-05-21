@@ -4,8 +4,8 @@
 /* Colors */
 @define-color bg  #181818;
 @define-color bg2 #525252;
+@define-color bg3 #808080;
 @define-color fg  #BABABA;
-@define-color fg2 #808080;
 @define-color red #CC241D;
 @define-color blue #458588;
 @define-color purple #B16286;
@@ -55,13 +55,13 @@ window#waybar.hidden {
 
 #workspaces {
   background-color: @bg;
-  padding: 2 10px;
+  padding: 0 10px;
 }
 
 #workspaces button {
     min-width: 20px;
     color: @bg2;
-    padding: 0 5px;
+    padding: 2px 5px;
     font-weight: normal;
 }
 
@@ -81,29 +81,18 @@ window#waybar.hidden {
  * ----------------------------------------------------- */
 
 #cpu,
-#memory {
-    color: @fg;
-    padding: 0 5px;
-}
-
+#memory ,
 #battery,
 #pulseaudio,
+#pulseaudio.mic,
 #custom-mako,
-#custom-clipboard,
-#pulseaudio.mic {
-    color: @fg;
-    padding: 0 5px;
-}
-
-#pulseaudio.muted {
-    color: @bg2;
-    padding: 0 5px;
-}
-
+#custom-todo,
+#custom-swayidle,
+#battery.charging, 
+#battery.plugged,
 #network {
     color: @fg;
-    padding-right: 5px;
-    padding-left: 10px;
+    padding: 0 6px;
 }
 
 #network.disconnected {
@@ -116,9 +105,15 @@ window#waybar.hidden {
 }
 
 #mode {
-    color: @yellow;
-    background-color: @bg;
+    color: @bg;
+    background-color: @purple;
     padding: 0 10px;
+    margin: 2px 2px 2px 2px;
+}
+
+#battery.critical:not(.charging) {
+    background-color: @red;
+    color: @fg;
     margin: 2px 2px 2px 2px;
 }
 
@@ -129,34 +124,13 @@ window#waybar.hidden {
     }
 }
 
-#battery.charging, #battery.plugged {
-    color: @fg;
-    padding: 0 5px;
-}
-
-#battery.critical:not(.charging) {
-    background-color: @red;
-    color: @fg;
-    margin: 2px 2px 2px 2px;
-}
-
-/* -----------------------------------------------------
- *                      Custom
- * ----------------------------------------------------- */
-#custom-swayidle {
-    padding: 0 5px;
-    color: @fg;
-}
-
 #custom-useless {
     color: @fg;
     padding-left: 10px;
 }
-
 #custom-power {
-    color: @bg2;
-    padding-left: 5px;
-    padding-right: 10px;
+    color: @fg;
+    padding: 0 10px;
 }
 
 #custom-sep,

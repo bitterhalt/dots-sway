@@ -1,12 +1,13 @@
 {
     "layer": "bottom",
         "position": "top",
+        //"spacing": 4,
         //"height": 30, // (Remove for auto height)
 
         // Modules
-        "modules-left": ["custom/useless","sway/workspaces"],
-        "modules-center": ["sway/mode"],
-        "modules-right": ["cpu", "memory", "network", "custom/mako","custom/clipboard", "pulseaudio", "pulseaudio#mic", "custom/swayidle", "clock", "custom/power"],
+        "modules-left": ["custom/useless","sway/workspaces","sway/mode"],
+        "modules-center": ["clock"],
+        "modules-right": ["pulseaudio","pulseaudio#mic","custom/mako","custom/todo", "network", "custom/swayidle", "custom/power"],
 
         // Modules configuration
         "sway/workspaces": {
@@ -59,9 +60,10 @@
             "format-bluetooth": "{volume}% {icon}",
             "format-muted": "",
             "format-icons": {
-                "default": [""]
+                "default": ["", ""]
             },
-            "on-click": "pavucontrol"
+            "on-click-right": "pavucontrol",
+            "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
         },
 
         "pulseaudio#mic": {
@@ -73,11 +75,23 @@
         },
 
         "clock": {
-            "format": "{:%H:%M}",
-            "format-alt": "{:%a %d.%m %H:%M}",
-            "tooltip": false,
-            "on-click-right": "~/.local/bin/noti_cal",
-            "on-click-middle": "~/.local/bin/noti_weather"
+            "format": "{:%a %d.%m %H:%M}",
+            "format-alt": "{:%H:%M}",
+            "on-click-right": "~/.local/bin/noti_weather",
+            "tooltip-format": "<tt><small>{calendar}</small></tt>",
+            "calendar": {
+                "mode"          : "month",
+                "mode-mon-col"  : 3,
+                "weeks-pos"     : "right",
+                "on-scroll"     : 1,
+                "format": {
+                    "months":     "<span color='#B16286'><b>{}</b></span>",
+                    "days":       "<span color='#C6C6C6'><b>{}</b></span>",
+                    "weeks":      "<span color='#458588'><b>w{}</b></span>",
+                    "weekdays":   "<span color='#458588'><b>{}</b></span>",
+                    "today":      "<span color='#B16286'><b><u>{}</u></b></span>"
+                },
+            },
         },
 
         "custom/power": {
@@ -85,7 +99,9 @@
             "format": "",
             "tooltip": false,
             "on-click": "swaynag -t warning -m 'Quit?' -b 'Logout' 'swaymsg exit' -b 'Suspend' 'swaymsg exec systemctl suspend' -b 'Reboot' 'systemctl reboot' -b 'Shutdown' 'shutdown now'",
-            "on-click-right": "$TERMINAL -a floatterm -e ~/.local/bin/popupgrade"
+            "on-click-right": "~/.local/bin/noti_updates",
+            "on-click-middle": "$TERMINAL -a floatterm -e ~/.local/bin/popupgrade"
+
         },
 
         "custom/swayidle": {
@@ -109,14 +125,12 @@
             "signal": 7
         },
 
-        "custom/clipboard": {
+        "custom/todo": {
             "format": "󰅍",
             "interval": "once",
-            "return-type": "json",
-            "on-click": "~/.local/bin/fzf_clipboard; pkill -RTMIN+9 waybar",
-            "on-click-right": "~/.local/bin/fzf_clipboard wipe; pkill -RTMIN+9 waybar",
-            "exec": "printf '{\"tooltip\":\"%s\"}' $(cliphist list | wc -l)' item(s) in the clipboard\rClick <b>left</b> to open clipboard\rClick <b>right</b> to clear'",
-            "signal": 9
+            "on-click": "$TERMINAL -a floatterm -e nvim $HOME/Documents/personal/notes/todo.md",
+            "on-click-right": "~/.local/bin/noti_todo",
+            "tooltip-format":"<b>*Click*</b> to edit TODOs\n<b>*Click-right*</b> to see TODOs"
         },
 
         "custom/pipe": {
