@@ -1,5 +1,6 @@
 # PATH
 export PATH="$HOME/.local/bin:$PATH"
+#export CLIPHIST_DB_PATH="$HOME/D/X/run/cliphist"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export FZF_DEFAULT_OPTS_FILE="$XDG_CONFIG_HOME/fzf/fzf-opts"
 export GOPATH="$XDG_DATA_HOME/go"
@@ -14,7 +15,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 
 # SSH-agent
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-    ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
+    ssh-agent > "$XDG_RUNTIME_DIR/ssh-agent.env"
 fi
 if [[ ! -f "$SSH_AUTH_SOCK" ]]; then
     source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null

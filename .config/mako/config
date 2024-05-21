@@ -11,6 +11,7 @@ sort=-time
 #####################
 #       Style       #
 #####################
+anchor=top-center
 border-radius=4
 max-history=20
 max-icon-size=64
@@ -25,6 +26,7 @@ padding=10
 background-color=#1b1b1b
 text-color=#afafaf
 border-color=#323232
+progress-color=#323232 
 
 ##################
 # Urgency levels #
@@ -50,38 +52,27 @@ text-alignment=center
 width=150
 
 [app-name=sysnfo_notify]
-font=JetBrains Mono 10
-width=200
-anchor=top-right
+font=JetBrains Mono 12
+width=250
 group-by=app-name
-default-timeout=8000
-
-[app-name=sysnfo_notify-l]
-font=JetBrains Mono 13
-width=260
-anchor=top-right
-group-by=app-name
-default-timeout=4000
-text-alignment=center
+default-timeout=10000
+padding=20
 
 [app-name=fat_notify]
 font=JetBrains Mono 10
 height=800
-anchor=top-right
 group-by=app-name
 default-timeout=8000
 
 [app-name=todo_notify]
 font=JetBrains Mono 10
-anchor=top-right
 group-by=app-name
 default-timeout=20000
-border-color=#B16286
+border-color=#FABD2F
 
 [app-name=date_notify]
 font=JetBrains Mono 12
 width=160
-anchor=top-right
 group-by=app-name
 default-timeout=8000
 text-alignment=center
@@ -89,7 +80,6 @@ text-alignment=center
 [app-name=cal_notify]
 font=JetBrains Mono 10
 width=190
-anchor=top-right
 group-by=app-name
 default-timeout=8000
 

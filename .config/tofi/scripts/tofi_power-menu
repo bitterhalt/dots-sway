@@ -9,7 +9,7 @@ CONFIRM="tofi --text-cursor false \
         --font-size 13 \
         --prompt-text "Sure?" \
         --width 100% \
-        --height 250 \
+        --height 150 \
         --hide-cursor true"
 
 case $(printf "%s\n" "Lock"  "Logout" "Suspend" "Reboot" "Shutdown" | tofi --text-cursor false \
