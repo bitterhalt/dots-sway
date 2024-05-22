@@ -1,7 +1,8 @@
-# Taken from Luke Smith:
+# Ideas from:
 # https://github.com/LukeSmithxyz/voidrice/tree/7a96fb100cf385e05c211937b509d2bf166299e6/.config/lf
-# This is more shrunken version for Sway/Hyprland
-# Dependencies: I am too lazy to list them, so look for lfrc and preview script :p
+# https://github.com/newmanls/dotfiles/tree/master/.config/lf
+# This config is made for Wayland compositors. If you run X take a see links above
+# Dependencies: I am too lazy to list them, look for lfrc and preview script
 
 # Imports
 source ~/.config/lf/functions
@@ -22,35 +23,38 @@ set sixel
 
 # Bindings
 map C edit-config
-map d
-map m
 map E unarchive
 map S shell
 map B bulkrename
 map . set hidden!
 map p : paste; clear # Clear mark from files after pasting (Ranger default)
-map P yank-path
-map N yank-basename
 map x cut
-map y copy
 map <enter> open
-map o &mimeopen "$f"
-map O $mimeopen --ask "$f"
+map O  push :open-with<space>
 map e $$EDITOR "$f"
 map T $setsid -f $TERMINAL >/dev/null 2>&1
 map V push :!nvim<space>
 map <f-5> reload
 map <c-r> reload
-map f search
-map <f-3> search
-map <c-f> fzf_jump
-map F fzf_search
+map f fzf_jump
+map <c-f> fzf_search
+map d
+map m
 map mf mkfile
 map md mkdir
 map <c-c> clear
 map D delete
 map <delete> trash
 map bg $setbg $f
+map c
+map cm push :chmod<space>
+map y
+map yy copy
+map yp yank path
+map y0 yank dir
+map yw yank name
+map pp : paste; clear
+map pp paste; clear
 
 # Movement
 map gh cd ~
