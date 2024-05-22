@@ -27,7 +27,6 @@ map E unarchive
 map S shell
 map B bulkrename
 map . set hidden!
-map p : paste; clear # Clear mark from files after pasting (Ranger default)
 map x cut
 map <enter> open
 map O  push :open-with<space>
@@ -52,6 +51,7 @@ map y
 map yy copy
 map yp yank path
 map yn yank name
+map p
 map pp : paste; clear
 
 # Movement
