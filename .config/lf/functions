@@ -56,44 +56,6 @@ cmd mkfile ${{
   $EDITOR $ans
 }}
 
-# Delete items
-cmd delete %{{
-	# put items into array that we can count them
-	files=()
-	while read -r line; do files+=("$line"); done <<< "$fx"
-	
-	# count how many items there are
-	len=${#files[@]}
-	
-	# confirm trashing
-	if [[ $len == 1 ]]; then
-		echo -n "delete '$fx' ?"
-	else
-		echo -n "delete $len items?"
-	fi
-	echo -n " [y/N] "
-	
-	# read answer
-	read -n 1 ans
-	# make it lowercase
-	ans="${ans,,}" 
-	
-	echo
-	
-	# nuke
-	if [[ $ans == y ]]; then
-		rm -rf $fx
-		if [[ $len == 1 ]]; then
-			echo "deleted '$files'"
-		else
-			echo "deleted $len items"
-		fi
-	else
-		# needed to clear the bottom row
-		echo
-	fi
-}}
-
 # Trash items
 cmd trash %{{
 # Put items into array that we can count them
@@ -154,18 +116,8 @@ cmd bulkrename ${{
     lf -remote "send $id unselect"
 }}
 
-# Archive bindings
-cmd unarchive ${{
-  case "$f" in
-      *.zip) unzip "$f" ;;
-      *.rar) unrar x "$f" ;;
-      *.tar.gz) tar -xzvf "$f" ;;
-      *.tar.bz2) tar -xjvf "$f" ;;
-      *.tar) tar -xvf "$f" ;;
-      *.7z) 7z e "$f" ;;
-      *) echo "Unsupported format" ;;
-  esac
-}}
+#  Extract
+cmd unarchive !clear; aunpack -- ${fx}
 
 # Ranger-like yank
 cmd yank &{{
