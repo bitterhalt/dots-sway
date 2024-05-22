@@ -22,8 +22,13 @@ set shellopts '-eu'
 set sixel
 
 # Bindings
+map d
+map m
+map c
+map y
+map p
 map C edit-config
-map E unarchive
+map E extract
 map S shell
 map B bulkrename
 map . set hidden!
@@ -37,21 +42,18 @@ map <f-5> reload
 map <c-r> reload
 map f fzf_jump
 map <c-f> fzf_search
-map d
-map m
 map mf mkfile
 map md mkdir
 map <c-c> clear
-map D delete
+map dd trash
+map dr $trash-restore
+map de $trash-empty
 map <delete> trash
 map bg $setbg $f
-map c
 map cm push :chmod<space>
-map y
 map yy copy
 map yp yank path
 map yn yank name
-map p
 map pp : paste; clear
 
 # Movement
