@@ -8,7 +8,7 @@ repositories:
 
 one_file_system: true
 
-encryption_passcommand: sh -c "cat ~/credentials/.borg-passphrase"
+encryption_passcommand: sh -c "cat ~/Documents/credentials/.borg-passphrase"
   #encryption_passcommand: pass Borg/borgmatic
 
 keep_daily: 7
