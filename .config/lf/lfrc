@@ -51,10 +51,8 @@ map cm push :chmod<space>
 map y
 map yy copy
 map yp yank path
-map y0 yank dir
-map yw yank name
+map yn yank name
 map pp : paste; clear
-map pp paste; clear
 
 # Movement
 map gh cd ~

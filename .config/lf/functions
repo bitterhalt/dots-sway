@@ -170,7 +170,6 @@ cmd unarchive ${{
 # Ranger-like yank
 cmd yank &{{
     case ${1} in
-    dir)  dirname "${f}" ;;
     name) basename "${f}" ;;
     path) printf "%s" "${f}" ;;
     esac |  wl-copy
