@@ -1,21 +1,21 @@
 # Gruvbox
 set $bg      #1d1d1d
 set $bg2     #262626
+set $bg3     #545454
 set $fg      #d1d1d1
 set $red     #cc241d
 set $blue    #458588
-set $pink    #b16286
-set $gray    #545454
+set $purple  #b16286
 
 set $black   #000000
 set $white   #ffffff
 
 # class                 border  backgr. text    indicator child_border
-client.focused          $bg2    $blue   $bg       $gray     $gray
-client.focused_inactive $bg2    $bg     $gray     $bg2      $bg2
-client.unfocused        $bg2    $bg     $gray     $bg2      $bg2
-client.urgent           $bg2    $red    $white    $red      $red
-client.placeholder      $black  $black  $white    $black    $black
+client.focused          $bg2    $blue   $bg      $bg3      $bg3
+client.focused_inactive $bg2    $bg     $bg3     $bg2      $bg2
+client.unfocused        $bg2    $bg     $bg3     $bg2      $bg2
+client.urgent           $bg2    $red    $white   $red      $red
+client.placeholder      $black  $black  $white   $black    $black
 
 client.background       $fg
 

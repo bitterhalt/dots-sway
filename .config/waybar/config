@@ -62,8 +62,8 @@
             "format-icons": {
                 "default": ["", ""]
             },
-            "on-click-right": "pavucontrol",
-            "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+            "on-click": "pavucontrol",
+            "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
         },
 
         "pulseaudio#mic": {
@@ -85,7 +85,7 @@
                 "weeks-pos"     : "right",
                 "on-scroll"     : 1,
                 "format": {
-                    "months":     "<span color='#B16286'><b>{}</b></span>",
+                    "months":     "<span color='#C6C6C6'><b>{}</b></span>",
                     "days":       "<span color='#C6C6C6'><b>{}</b></span>",
                     "weeks":      "<span color='#458588'><b>w{}</b></span>",
                     "weekdays":   "<span color='#458588'><b>{}</b></span>",

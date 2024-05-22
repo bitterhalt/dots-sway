@@ -1,17 +1,18 @@
 # PATH
 export PATH="$HOME/.local/bin:$PATH"
-#export CLIPHIST_DB_PATH="$HOME/D/X/run/cliphist"
-export CARGO_HOME="$XDG_DATA_HOME/cargo"
-export FZF_DEFAULT_OPTS_FILE="$XDG_CONFIG_HOME/fzf/fzf-opts"
-export GOPATH="$XDG_DATA_HOME/go"
-export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # XDG Base Directory
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
+
+# Path
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export FZF_DEFAULT_OPTS_FILE="$XDG_CONFIG_HOME/fzf/fzf-opts"
+export GOPATH="$XDG_DATA_HOME/go"
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # SSH-agent
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then

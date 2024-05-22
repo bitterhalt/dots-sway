@@ -51,7 +51,6 @@ map <c-c> clear
 map D delete
 map <delete> trash
 map bg $setbg $f
-map <esc> quit
 
 # Movement
 map gh cd ~
