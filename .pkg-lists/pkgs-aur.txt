@@ -6,7 +6,6 @@ evhz-git
 gloriousctl
 hyprpicker
 i3lock-color
-matcha-gtk-theme
 mprime
 pacseek-bin
 rofi-lbonn-wayland-git
