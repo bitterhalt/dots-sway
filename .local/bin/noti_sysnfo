@@ -10,7 +10,6 @@ upt="$(uptime --pretty | sed -e 's/up //g' -e 's/ days/d/g' -e 's/ day/d/g' -e '
 notify-send -a sysnfo_notify "System status" "$(
 free -m | awk 'NR==2{printf "Ram: %.2f/%.2fGB \n", $3/1024, $2/1024, $3*100/$2 }'
 top -bn1 | grep load | awk '{printf "Load: %.2f\n", $(NF-2)}'
-df -h / | awk 'FNR==2 { gsub(/[A-Za-z]/, ""); printf "Free: %i GiB \n", $4 }'
 printf "CPU Tctl: $CPUTemp\n"
 printf "CPU Tccd1: $CPUTemp2\n"
 printf "GPU temp: $GPUTemp\n"
