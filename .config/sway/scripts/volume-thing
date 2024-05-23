@@ -21,10 +21,10 @@ volume="${vol}%"
 is_muted=$(pactl get-sink-mute @DEFAULT_SINK@ | sed -n "s/Mute: //p")
 
 if [ "${is_muted}" = "yes" ]; then
-    volume="Muted "
+    volume="Muted"
     text=""
 else
-    text="Volume:"
+    text="Vol:"
 fi
 
 notify-send \

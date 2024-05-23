@@ -49,7 +49,7 @@
             // "interface": "wlp2*", // (Optional) To force the use of this interface
             "format-wifi": "({signalStrength}%) ",
             "format-ethernet": "󰈀",
-            "tooltip-format": "󱘖 {ipaddr}  {bandwidthUpBytes}  {bandwidthDownBytes}",
+            "tooltip-format": "{ipaddr}\n<b>up:</b> {bandwidthUpBytes} <b>down:</b> {bandwidthDownBytes}",
             "format-linked": "{ifname} (No IP) ?",
             "format-disconnected": "x",
             "on-click": "nm-connection-editor"
@@ -63,7 +63,7 @@
                 "default": ["", ""]
             },
             "on-click": "pavucontrol",
-            "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+            "on-click-right": "~/.config/sway/scripts/volume-thing mute"
         },
 
         "pulseaudio#mic": {
@@ -76,8 +76,7 @@
 
         "clock": {
             "format": "{:%a %d.%m %H:%M}",
-            "format-alt": "{:%H:%M}",
-            "on-click-right": "~/.local/bin/noti_weather",
+            "on-click": "~/.local/bin/noti_weather",
             "tooltip-format": "<tt><small>{calendar}</small></tt>",
             "calendar": {
                 "mode"          : "month",
@@ -126,34 +125,11 @@
         },
 
         "custom/todo": {
+            "exec": "~/.config/waybar/scripts/todo.sh",
+            "return-type": "json",
             "format": "󰅍",
-            "interval": "once",
             "on-click": "$TERMINAL -a floatterm -e nvim $HOME/Documents/personal/notes/todo.md",
-            "on-click-right": "~/.local/bin/noti_todo",
-            "tooltip-format":"<b>*Click*</b> to edit TODOs\n<b>*Click-right*</b> to see TODOs"
-        },
-
-        "custom/pipe": {
             "interval": "once",
-            "format": "|",
-            "tooltip": false
-        },
-        "custom/bracket": {
-            "interval": "once",
-            "format": "[",
-            "tooltip": false
-        },
-
-        "custom/bracket1": {
-            "interval": "once",
-            "format": "]",
-            "tooltip": false
-        },
-
-        "custom/slash": {
-            "interval": "once",
-            "format": "]",
-            "tooltip": false
         },
 
         "custom/useless": {
