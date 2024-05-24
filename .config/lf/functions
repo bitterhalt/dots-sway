@@ -134,7 +134,7 @@ cmd bulkrename ${{
 }}
 
 #  Extract
-cmd unarchive !clear; aunpack -- ${fx}
+cmd extract !clear; aunpack -- ${fx}
 
 # Ranger-like yank
 cmd yank &{{
