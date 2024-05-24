@@ -75,7 +75,6 @@ window#waybar.hidden {
     background-color: @bg;
 }
 
-
 /* -----------------------------------------------------
  *                      Modules
  * ----------------------------------------------------- */
@@ -84,7 +83,7 @@ window#waybar.hidden {
 #memory ,
 #battery,
 #pulseaudio,
-#pulseaudio.mic,
+#custom-mic,
 #custom-mako,
 #custom-todo,
 #custom-swayidle,

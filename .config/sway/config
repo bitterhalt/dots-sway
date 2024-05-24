@@ -23,12 +23,12 @@ set $lock ~/.config/sway/scripts/screenlocker
 set $killer ~/.config/tofi/scripts/tofi_killer
 
 # Tofi
-set $tofi_full $HOME/.config/tofi/scripts/drun_full.sh
-set $tofi_drun  tofi-drun --promp "drun:" --drun-launch=true
-set $tofi_run  tofi-run --promp "run:"| xargs swaymsg exec -- >/dev/null 2>&1
-set $tofi_winlist $HOME/.config/tofi/scripts/tofi_window >/dev/null 2>&1
-set $tofi_power $HOME/.config/tofi/scripts/tofi_power-menu
-set $tofi_screenshot $HOME/.config/tofi/scripts/tofi_screenshot
+set $tofi_full ~/.config/tofi/scripts/drun_full.sh
+set $tofi_drun tofi-drun --promp "drun:" --drun-launch=true
+set $tofi_run tofi-run --promp "run:"| xargs swaymsg exec -- >/dev/null 2>&1
+set $tofi_winlist ~/.config/tofi/scripts/tofi_window >/dev/null 2>&1
+set $tofi_power ~/.config/tofi/scripts/tofi_power-menu
+set $tofi_screenshot ~/.config/tofi/scripts/tofi_screenshot
 
 
 #########
@@ -166,36 +166,36 @@ bindsym $mod+ctrl+shift+plus   gaps outer current plus 5
 bindsym $mod+ctrl+shift+minus  gaps outer current minus 5
 
 bindsym $mod+F1 exec $term -a floatterm -e htop
-bindsym $mod+F2 exec $HOME/.local/bin/noti_sysnfo
+bindsym $mod+F2 exec ~/.local/bin/noti_sysnfo
 bindsym $mod+F4 exec $killer
 bindsym $mod+F8 exec pavucontrol
-bindsym $mod+F9 exec $HOME/.config/sway/scripts/mic-toggle toggle
-bindsym $mod+F12 exec $HOME/.config/sway/scripts/settings
-bindsym $mod+Print exec $HOME/.local/bin/sway-shot -f
-bindsym $mod+shift+Print exec $HOME/.local/bin/sway-shot -re
+bindsym $mod+F9 exec ~/.config/sway/scripts/mic-toggle && pkill -RTMIN+9 waybar
+bindsym $mod+F12 exec ~/.config/sway/scripts/settings
+bindsym $mod+Print exec ~/.local/bin/sway-shot -f
+bindsym $mod+shift+Print exec ~/.local/bin/sway-shot -re
 bindsym $mod+c [app_id="WebCord"] scratchpad show
-bindsym $mod+ctrl+i exec $HOME/.local/bin/noti_sysnfo
-bindsym $mod+ctrl+p exec $HOME/.local/bin/colorpicker_fancy
-bindsym $mod+ctrl+t exec $HOME/.local/bin/noti_date
-bindsym $mod+ctrl+u exec $HOME/.local/bin/noti_usage cpu
-bindsym $mod+shift+u exec $HOME/.local/bin/noti_usage ram
-bindsym $mod+ctrl+w exec $HOME/.local/bin/noti_weather
+bindsym $mod+ctrl+i exec ~/.local/bin/noti_sysnfo
+bindsym $mod+ctrl+p exec ~/.local/bin/colorpicker_fancy
+bindsym $mod+ctrl+t exec ~/.local/bin/noti_date
+bindsym $mod+ctrl+u exec ~/.local/bin/noti_usage cpu
+bindsym $mod+shift+u exec ~/.local/bin/noti_usage ram
+bindsym $mod+ctrl+w exec ~/.local/bin/noti_weather
 bindsym $mod+e exec /usr/bin/thunar
-bindsym $mod+f11 exec $HOME/.config/sway/scripts/screenlocker
+bindsym $mod+f11 exec ~/.config/sway/scripts/screenlocker
 bindsym $mod+m exec thunderbird
-bindsym $mod+shift+f11 exec $HOME/.config/sway/scripts/swayidle-toggle toggle
-bindsym $mod+shift+f7 exec $HOME/.local/bin/sway-record -k
+bindsym $mod+shift+f11 exec ~/.config/sway/scripts/swayidle-toggle && pkill -RTMIN+8 waybar
+bindsym $mod+shift+f7 exec ~/.local/bin/sway-record -k
 bindsym $mod+w exec /usr/bin/firefox
 bindsym $mod+shift+delete exec $term -a floatterm -e htop
 bindsym $mod+shift+n exec $term -a quick_note -e ~/.local/bin/quick_note
 bindsym $mod+n exec $term -e nvim ~/Documents/personal/notes/index.md
-bindsym $mod+t exec $term -a floatterm -e nvim $HOME/Documents/personal/notes/todo.md 
+bindsym $mod+t exec $term -a floatterm -e nvim ~/Documents/personal/notes/todo.md 
 
 # Media keys
 bindsym XF86AudioRaiseVolume exec ~/.config/sway/scripts/volume-thing up
 bindsym XF86AudioLowerVolume exec ~/.config/sway/scripts/volume-thing down
 bindsym XF86AudioMute exec ~/.config/sway/scripts/volume-thing mute
-bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@
+bindsym XF86AudioMicMute exec ~/.config/sway/scripts/mic-toggle && pkill -RTMIN+9 waybar
 bindsym XF86Calculator  exec galculator
 
 # Brightness control
@@ -279,7 +279,7 @@ bar {
 
 # Inc's
 include /etc/sway/config.d/*
-include $HOME/.config/sway/config.d/*
+include ~/.config/sway/config.d/*
 
 
 # Auto start

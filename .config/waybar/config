@@ -7,7 +7,7 @@
         // Modules
         "modules-left": ["custom/useless","sway/workspaces","sway/mode"],
         "modules-center": ["clock"],
-        "modules-right": ["pulseaudio","pulseaudio#mic","custom/mako","custom/todo", "network", "custom/swayidle", "custom/power"],
+        "modules-right": ["pulseaudio","custom/mic","custom/mako","custom/todo", "network", "custom/swayidle", "custom/power"],
 
         // Modules configuration
         "sway/workspaces": {
@@ -66,14 +66,6 @@
             "on-click-right": "~/.config/sway/scripts/volume-thing mute"
         },
 
-        "pulseaudio#mic": {
-            "format": "{format_source}",
-            "format-source": "",
-            "format-source-muted": "",
-            "format-bluetooth": "{format_source}",
-            "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
-        },
-
         "clock": {
             "format": "{:%a %d.%m %H:%M}",
             "on-click": "~/.local/bin/noti_weather",
@@ -105,10 +97,11 @@
 
         "custom/swayidle": {
             "interval": "once",
+            "return-type": "json",
             "format": "{}",
-            "exec": "~/.config/sway/scripts/swayidle-toggle status",
+            "exec": "~/.config/waybar/scripts/swayidle.sh",
             "signal": 8,
-            "on-click": "~/.config/sway/scripts/swayidle-toggle toggle"
+            "on-click": "~/.config/sway/scripts/swayidle-toggle; pkill -RTMIN+8 waybar"
         },
 
         "custom/mako": {
@@ -136,8 +129,17 @@
             "interval": "once",
             "format": "",
             "tooltip": false,
-            "on-click": "$TERMINAL -a launcher -e ~/.config/sway/scripts/sway-launcher-desktop.sh",
-            "on-click-right": "~/.config/sway/scripts/settings"
+            "on-click": "~/.config/sway/scripts/settings"
+        },
+
+        "custom/mic": {
+            "exec": "~/.config/waybar/scripts/mic.sh",
+            "interval": "once",
+            "format": "{}",
+            "tooltip": false,
+            "signal": 9,
+            "on-click": "pavucontrol",
+            "on-click-right": "wpctl set-mute @DEFAULT_SOURCE@ toggle; pkill -RTMIN+9 waybar",
         }
 
 }

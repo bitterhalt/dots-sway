@@ -1,16 +1,5 @@
 #!/usr/bin/env bash
-# Simple sript to toggle swayidle
-# Made for gaming purposes because I sway idle seems not detect gamepad input and screen goes to sleep even on full screen
-status() {
-    if pgrep swayidle >/dev/null; then
-        echo ""
-    else
-        echo "󰒳"
-    fi
-}
 
-
-toggle() {
 if  pgrep swayidle >/dev/null; then
     pkill swayidle
     notify-send -a center_notify "Swayidle" "Disabled" -h string:x-canonical-private-synchronous:volume
@@ -21,19 +10,4 @@ else
     timeout 3600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
     before-sleep 'swaylock -f -C ~/.config/swaylock/config' &
 fi
- pkill -SIGRTMIN+8 waybar
-}
 
-
-case "$1" in
-    "status")
-        status
-        ;;
-    "toggle")
-        toggle
-        ;;
-    *)
-        echo "Invalid argument"
-        exit 1
-        ;;
-esac

@@ -1,34 +1,10 @@
 #!/bin/bash
+
 set -euo pipefail
 
-status() {
-    if pactl get-source-mute @DEFAULT_SOURCE@ | grep -Po '(?<=Mute: )(yes|no)'; then
-        echo ""
-    else
-        echo ""
-    fi
-}
-
-toggle () {
-pactl set-source-mute @DEFAULT_SOURCE@ toggle
-
-if pactl list sources | grep -q "Mute: yes"; then
+wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+if wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -qi 'MUTED'; then
     notify-send -a vol_notify "Mic" "off" -h string:x-canonical-private-synchronous:volume
 else
     notify-send -a vol_notify  "Mic" "on" -h string:x-canonical-private-synchronous:volume
 fi
-}
-
-
-case "$1" in
-    "toggle")
-        toggle
-        ;;
-    "status")
-        status
-        ;;
-    *)
-        echo "Invalid argument"
-        exit 1
-        ;;
-esac
