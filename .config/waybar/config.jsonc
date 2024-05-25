@@ -7,7 +7,7 @@
         // Modules
         "modules-left": ["custom/useless","sway/workspaces","sway/mode"],
         "modules-center": ["clock"],
-        "modules-right": ["pulseaudio","custom/mic","custom/mako","custom/todo", "network", "custom/swayidle", "custom/power"],
+        "modules-right": ["pulseaudio","pulseaudio#mic","custom/mako","custom/todo", "network", "custom/swayidle", "custom/power"],
 
         // Modules configuration
         "sway/workspaces": {
@@ -66,6 +66,13 @@
             "on-click": "pavucontrol",
             "on-click-right": "~/.config/sway/scripts/volume-thing mute"
         },
+        "pulseaudio#mic": {
+            "format": "{format_source}",
+            "format-source": "",
+            "format-source-muted": "",
+            "format-bluetooth": "{format_source}",
+            "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+        },
 
         "clock": {
             "format": "{:%b %e %H:%M}",
@@ -119,15 +126,5 @@
             "tooltip": false,
             "on-click": "~/.config/sway/scripts/settings"
         },
-
-        "custom/mic": {
-            "exec": "~/.config/waybar/scripts/mic.sh",
-            "interval": "once",
-            "format": "{}",
-            "tooltip": false,
-            "signal": 9,
-            "on-click": "pavucontrol",
-            "on-click-right": "wpctl set-mute @DEFAULT_SOURCE@ toggle; pkill -RTMIN+9 waybar",
-        }
 
 }

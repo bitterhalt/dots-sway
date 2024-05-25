@@ -201,7 +201,7 @@ bindsym $mod+F1 exec $term -a floatterm -e htop
 bindsym $mod+F2 exec ~/.local/bin/noti_sysnfo
 bindsym $mod+F4 exec $killer
 bindsym $mod+F8 exec pavucontrol
-bindsym $mod+F9 exec ~/.config/sway/scripts/mic-toggle && pkill -RTMIN+9 waybar
+bindsym $mod+F9 exec ~/.config/sway/scripts/mic-toggle
 bindsym $mod+F12 exec ~/.config/sway/scripts/settings
 bindsym $mod+Print exec ~/.local/bin/sway-shot -f
 bindsym $mod+shift+Print exec ~/.local/bin/sway-shot -re
@@ -227,7 +227,7 @@ bindsym $mod+t exec $term -a floatterm -e nvim ~/Documents/personal/notes/todo.m
 bindsym XF86AudioRaiseVolume exec ~/.config/sway/scripts/volume-thing up
 bindsym XF86AudioLowerVolume exec ~/.config/sway/scripts/volume-thing down
 bindsym XF86AudioMute exec ~/.config/sway/scripts/volume-thing mute
-bindsym XF86AudioMicMute exec ~/.config/sway/scripts/mic-toggle && pkill -RTMIN+9 waybar
+bindsym XF86AudioMicMute exec ~/.config/sway/scripts/mic-toggle
 bindsym XF86Calculator  exec galculator
 
 # Brightness control

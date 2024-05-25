@@ -84,6 +84,7 @@ window#waybar.hidden {
 #battery,
 #pulseaudio,
 #custom-mic,
+#pulseaudio.mic,
 #custom-mako,
 #custom-todo,
 #custom-swayidle,

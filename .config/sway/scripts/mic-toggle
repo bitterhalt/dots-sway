@@ -2,8 +2,8 @@
 
 set -euo pipefail
 
-wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
-if wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -qi 'MUTED'; then
+pactl set-source-mute @DEFAULT_SOURCE@ toggle
+if pactl list sources | grep -q "Mute: yes"; then
     notify-send -a vol_notify "Mic" "off" -h string:x-canonical-private-synchronous:volume
 else
     notify-send -a vol_notify  "Mic" "on" -h string:x-canonical-private-synchronous:volume
