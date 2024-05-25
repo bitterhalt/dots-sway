@@ -52,7 +52,8 @@
             "tooltip-format": "{ipaddr}\n<b>up:</b> {bandwidthUpBytes} <b>down:</b> {bandwidthDownBytes}",
             "format-linked": "{ifname} (No IP) ?",
             "format-disconnected": "x",
-            "on-click": "nm-connection-editor"
+            "on-click": "nm-connection-editor",
+            "on-click-right": "$TERMINAL -a floatterm -e nethogs"
         },
 
         "pulseaudio": {
