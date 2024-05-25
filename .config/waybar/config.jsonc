@@ -68,22 +68,9 @@
         },
 
         "clock": {
-            "format": "{:%a %d.%m %H:%M}",
-            "on-click": "~/.local/bin/noti_weather",
-            "tooltip-format": "<tt><small>{calendar}</small></tt>",
-            "calendar": {
-                "mode"          : "month",
-                "mode-mon-col"  : 3,
-                "weeks-pos"     : "right",
-                "on-scroll"     : 1,
-                "format": {
-                    "months":     "<span color='#C6C6C6'><b>{}</b></span>",
-                    "days":       "<span color='#C6C6C6'><b>{}</b></span>",
-                    "weeks":      "<span color='#458588'><b>w{}</b></span>",
-                    "weekdays":   "<span color='#458588'><b>{}</b></span>",
-                    "today":      "<span color='#B16286'><b><u>{}</u></b></span>"
-                },
-            },
+            "format": "{:%b %e %H:%M}",
+            "on-click": "~/.local/bin/noti_cal",
+            "on-click-right": "~/.local/bin/noti_weather"
         },
 
         "custom/power": {
