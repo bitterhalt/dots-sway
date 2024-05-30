@@ -18,11 +18,11 @@ prompt-padding = 5
 result-spacing = 5
 
 # colors
-placeholder-color = #afafaf
-background-color = #1b1b1b
-border-color = #323232
+placeholder-color = #DDE1E6
+background-color = #161616
+border-color = #393939
 outline-color= #000000
-selection-color = #458588
-selection-match-color = #B16286
-text-color = #c6c6c6
-prompt-color = #B16286
+selection-color = #78A9FF
+selection-match-color = #FF7EB6
+text-color = #cecece
+prompt-color = #be95ff

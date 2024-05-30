@@ -2,13 +2,13 @@
  *                      General
  * ----------------------------------------------------- */
 /* Colors */
-@define-color bg  #181818;
+@define-color bg  #161616;
 @define-color bg2 #525252;
-@define-color bg3 #808080;
-@define-color fg  #BABABA;
-@define-color red #CC241D;
-@define-color blue #458588;
-@define-color purple #B16286;
+@define-color bg3 #393939;
+@define-color fg  #DDE1E6;
+@define-color red #DA1E28;
+@define-color blue #33B1FF;
+@define-color purple #A56EFF;
 
 * {
     font-family: JetBrains Mono, Symbols Nerd Font,sans-serif;
@@ -24,7 +24,7 @@
 
 tooltip {
     background: @bg;
-    border: solid 1px @bg2;
+    border: solid 1px @bg3;
 }
 tooltip label {
     color: @fg;

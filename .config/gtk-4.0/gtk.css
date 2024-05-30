@@ -16,21 +16,21 @@
 /* Global color definitions */
 
 @define-color window_bg_color #1b1b1b;
-@define-color window_fg_color #c6c6c6;
+@define-color window_fg_color #cecece;
 @define-color view_bg_color #1d1d1d;
 @define-color view_fg_color #afafaf;
-@define-color accent_color #458588;
+@define-color accent_color #217EBC;
 @define-color accent_bg_color @accent_color;
 @define-color accent_fg_color #222222;
 
-@define-color destructive_color #fb4934;
-@define-color destructive_bg_color #cc241d;
+@define-color destructive_color #F36868;
+@define-color destructive_bg_color #E25D56;
 @define-color destructive_fg_color @window_fg_color;
-@define-color success_color #b8bb26;
-@define-color success_bg_color #98971a;
+@define-color success_color #73CA50;
+@define-color success_bg_color #88DB3F;
 @define-color success_fg_color @window_fg_color;
-@define-color warning_color #fabd2f;
-@define-color warning_bg_color #d79921;
+@define-color warning_color #E9BF57;
+@define-color warning_bg_color #F0BF7A;
 @define-color warning_fg_color #262626;
 @define-color error_color #fb4934;
 @define-color error_bg_color #cc241d;

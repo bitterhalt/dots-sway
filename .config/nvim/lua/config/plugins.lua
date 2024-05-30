@@ -37,7 +37,7 @@ return packer.startup(function(use)
         config = function() require('colorizer').setup() end
     }
     use('moll/vim-bbye')
-    use('bitterhalt/nvim-base16')
+    use('nyoom-engineering/oxocarbon.nvim')
     use('akinsho/bufferline.nvim')
     use('wbthomason/packer.nvim')
     use('nvim-lualine/lualine.nvim')
