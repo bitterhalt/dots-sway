@@ -1,5 +1,5 @@
 # My dots
-- Distro: [EndeavourOS](https://endeavouros.com/)
+- Distro: **Arch**
 - WM: [Sway](https://github.com/swaywm/sway)
 - Bar: [Waybar](https://github.com/Alexays/Waybar)
 - Colorscheme is based: [oxocarbon](https://github.com/nyoom-engineering/oxocarbon)
