@@ -20,9 +20,6 @@ setopt APPEND_HISTORY                   # Immediately append history instead of 
 setopt HIST_IGNORE_ALL_DUPS             # Delete an old recorded event if a new event is a duplicate
 setopt HIST_IGNORE_SPACE                # Do not record an event starting with a space.
 setopt HIST_SAVE_NO_DUPS                # Do not write a duplicate event to the history file
-bindkey "^R" history-incremental-pattern-search-backward
-bindkey "^F" history-incremental-pattern-search-forward
-bindkey '^x' autosuggest-toggle
 
 # Basic auto/tab complete
 autoload -U compinit && compinit
@@ -36,6 +33,11 @@ _comp_options+=(globdots) # Include hidden files.
 [ -f "$HOME/.config/zsh/aliases" ] && source "$HOME/.config/zsh/aliases"
 [ -f "$HOME/.config/zsh/functions" ] && source "$HOME/.config/zsh/functions"
 [ -f "$HOME/.config/zsh/git_prompt" ] && source "$HOME/.config/zsh/git_prompt"
+
+# Binds
+bindkey "^R" history-incremental-pattern-search-backward
+bindkey "^F" history-incremental-pattern-search-forward
+bindkey '^x' autosuggest-toggle
 
 # Plugin list; put syntax-highlighting last!
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

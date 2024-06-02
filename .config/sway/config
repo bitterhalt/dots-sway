@@ -23,8 +23,7 @@ set $lock ~/.config/sway/scripts/screenlocker
 set $killer ~/.config/tofi/scripts/tofi_killer
 
 # Tofi
-set $tofi_full ~/.config/tofi/scripts/drun_full.sh
-set $tofi_drun tofi-drun --promp "drun:" --drun-launch=true
+set $tofi_drun tofi-drun --promp "drun:" | xargs swaymsg exec -- >/dev/null 2>&1
 set $tofi_run tofi-run --promp "run:"| xargs swaymsg exec -- >/dev/null 2>&1
 set $tofi_winlist ~/.config/tofi/scripts/tofi_window >/dev/null 2>&1
 set $tofi_power ~/.config/tofi/scripts/tofi_power-menu

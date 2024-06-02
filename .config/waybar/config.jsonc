@@ -51,7 +51,7 @@
             "format-ethernet": "󰈀",
             "tooltip-format": "{ipaddr}\n<b>up:</b> {bandwidthUpBytes} <b>down:</b> {bandwidthDownBytes}",
             "format-linked": "{ifname} (No IP) ?",
-            "format-disconnected": "x",
+            "format-disconnected": "No connection?",
             "on-click": "nm-connection-editor",
             "on-click-right": "$TERMINAL -a floatterm -e nethogs"
         },
@@ -75,7 +75,7 @@
         },
 
         "clock": {
-            "format": "{:%b %e %H:%M}",
+            "format": "{:%b %d %H:%M}",
             "on-click": "~/.local/bin/noti_cal",
             "on-click-right": "~/.local/bin/noti_weather"
         },
