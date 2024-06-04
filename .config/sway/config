@@ -5,7 +5,7 @@
 font pango: JetBrains Mono 10
 
 # Disable_window_borders
-default_border pixel 2
+default_border pixel 1
 # Set inner/outer gaps
 gaps inner 5
 gaps outer 0
