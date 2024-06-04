@@ -4,8 +4,12 @@
 
 font pango: JetBrains Mono 10
 
+# Center window title
+title_align center
+
 # Disable_window_borders
 default_border pixel 1
+
 # Set inner/outer gaps
 gaps inner 5
 gaps outer 0
