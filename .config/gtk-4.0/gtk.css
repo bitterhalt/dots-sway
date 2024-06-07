@@ -17,36 +17,74 @@
 
 @define-color window_bg_color #1b1b1b;
 @define-color window_fg_color #cecece;
-@define-color view_bg_color #1d1d1d;
+@define-color view_bg_color #181818;
 @define-color view_fg_color #afafaf;
-@define-color accent_color #217EBC;
-@define-color accent_bg_color @accent_color;
-@define-color accent_fg_color #222222;
-
-@define-color destructive_color #F36868;
-@define-color destructive_bg_color #E25D56;
-@define-color destructive_fg_color @window_fg_color;
-@define-color success_color #73CA50;
-@define-color success_bg_color #88DB3F;
-@define-color success_fg_color @window_fg_color;
-@define-color warning_color #E9BF57;
-@define-color warning_bg_color #F0BF7A;
-@define-color warning_fg_color #262626;
-@define-color error_color #fb4934;
-@define-color error_bg_color #cc241d;
-@define-color error_fg_color #ffffff;
-
-
+@define-color accent_bg_color #1161cb;
+@define-color accent_color @accent_bg_color;
 @define-color sidebar_bg_color @view_bg_color;
 @define-color sidebar_fg_color @window_fg_color;
 @define-color headerbar_bg_color @window_bg_color;
 @define-color headerbar_fg_color @window_fg_color;
-@define-color popover_bg_color #202020;
+@define-color popover_bg_color #393939;
 @define-color popover_fg_color @view_fg_color;
 @define-color dialog_bg_color @popover_bg_color;
 @define-color dialog_fg_color @popover_fg_color;
 @define-color card_bg_color @view_bg_color;
 @define-color card_fg_color @window_fg_color;
+
+/* More customizations */
+
+button.titlebutton { /* GTK3 */
+  color: transparent;
+  min-width: 18px;
+  min-height: 18px;
+}
+button.titlebutton:backdrop {
+  opacity: 0.5;
+}
+
+windowcontrols > button { /* GTK4 */
+  color: transparent;
+  min-width: 2px;
+  min-height: 2px;
+  border-radius: 100%;
+  padding: 0;
+  margin: 0 5px;
+}
+
+windowcontrols > button > image {
+  padding: 0;
+}
+
+button.titlebutton.close,
+windowcontrols > button.close {
+  background-color: #393939;
+}
+
+button.titlebutton.close:hover,
+windowcontrols > button.close:hover {
+  opacity: 0.8;
+}
+
+button.titlebutton.maximize,
+windowcontrols > button.maximize {
+  background-color: #393939;
+}
+
+button.titlebutton.maximize:hover,
+windowcontrols > button.maximize:hover {
+  opacity: 0.8;
+}
+
+button.titlebutton.minimize,
+windowcontrols > button.minimize {
+  background-color: #393939;
+}
+
+button.titlebutton.minimize:hover,
+windowcontrols > button.minimize:hover {
+  opacity: 0.8;
+}
 
 /** Tweaks for WM:s */
 
