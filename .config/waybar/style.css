@@ -5,7 +5,7 @@
 @define-color bg  #161616;
 @define-color bg2 #525252;
 @define-color bg3 #393939;
-@define-color fg  #DDE1E6;
+@define-color fg  #e0e0e0;
 @define-color red #DA1E28;
 @define-color blue #33B1FF;
 @define-color purple #A56EFF;
@@ -83,6 +83,7 @@ window#waybar.hidden {
 #memory ,
 #battery,
 #pulseaudio,
+#pipewire,
 #custom-mic,
 #pulseaudio.mic,
 #custom-mako,
@@ -100,6 +101,10 @@ window#waybar.hidden {
 }
 
 #clock {
+    color: @fg;
+    padding: 0 5px;
+}
+#custom-weather {
     color: @fg;
     padding: 0 5px;
 }

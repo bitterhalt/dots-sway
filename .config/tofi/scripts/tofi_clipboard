@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+set -e
 case "$1" in
     wipe)
         answer=$(echo -e "Yes\nNo" | tofi --text-cursor false \

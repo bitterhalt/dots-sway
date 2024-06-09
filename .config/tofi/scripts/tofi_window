@@ -37,7 +37,7 @@ CON_ID=$(swaymsg -t get_tree | \
     --exclusive-zone 0 \
     --anchor top \
     --font-size 13 \
-    --prompt-text "[#]" \
+    --prompt-text "Focus to window: " \
     --height 300 \
     --width 100% )
 
