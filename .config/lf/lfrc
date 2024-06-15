@@ -20,6 +20,7 @@ set info size
 set ratios 1:2:3
 set shellopts '-eu'
 set sixel
+set shell bash
 
 # Bindings
 map d
