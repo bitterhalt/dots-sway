@@ -23,17 +23,17 @@ case $(printf "%s\n" "Lock"  "Logout" "Suspend" "Reboot" "Shutdown" | tofi --tex
  "Shutdown")
     confirm=$(echo -e "Yes\nNo" | $CONFIRM )
     if [[ "$confirm" == "Yes" ]]; then
-        systemctl poweroff
+        loginctl poweroff
     fi
     ;;
 "Reboot")
     confirm=$(echo -e "Yes\nNo" | $CONFIRM )
     if [[ "$confirm" == "Yes" ]]; then
-        systemctl reboot
+        loginctl reboot
     fi
     ;;
 "Suspend")
-    systemctl suspend
+    loginctl suspend
     ;;
 "Lock")
     $HOME/.config/sway/scripts/screenlocker

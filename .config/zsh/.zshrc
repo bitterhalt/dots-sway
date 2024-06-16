@@ -4,8 +4,6 @@
 # Defaults
 export EDITOR=nvim
 export VISUAL=nvim
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-export MANROFFOPT="-c"
 
 autoload -U colors && colors
 setopt prompt_subst

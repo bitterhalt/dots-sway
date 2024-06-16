@@ -1,9 +1,8 @@
 local g = vim.g
 local o = vim.o
 local opt = vim.opt
-local vcmd = vim.cmd
 
-vcmd.colorscheme "oxocarbon"
+--vcmd.colorscheme "oxocarbon"
 -- cmd('syntax on')
 -- vim.api.nvim_command('filetype plugin indent on')
 
@@ -64,3 +63,4 @@ opt.mouse = "a"
 -- Map <leader> to comma
 g.mapleader = ","
 g.maplocalleader = " "
+

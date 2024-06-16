@@ -14,14 +14,14 @@ export GOPATH="$XDG_DATA_HOME/go"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
-# SSH-agent
-if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-    ssh-agent > "$XDG_RUNTIME_DIR/ssh-agent.env"
+# SSH agent
+export SSH_AUTH_SOCK=${HOME}/.ssh/agent
+if ! pgrep -u ${USER} ssh-agent > /dev/null; then
+    rm -f ${SSH_AUTH_SOCK}
 fi
-if [[ ! -f "$SSH_AUTH_SOCK" ]]; then
-    source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
+if [ ! -S ${SSH_AUTH_SOCK} ]; then
+    eval $(ssh-agent -a ${SSH_AUTH_SOCK} 2> /dev/null)
 fi
-
 # Gnupg as SSH-agent
 #export SSH_AGENT_PID=""
 #export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"

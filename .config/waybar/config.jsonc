@@ -130,7 +130,7 @@
 
         "custom/useless": {
             "interval": "once",
-            "format": "",
+            "format": "",
             "tooltip": false,
             "on-click": "~/.config/sway/scripts/settings"
         },

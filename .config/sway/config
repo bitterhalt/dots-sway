@@ -209,7 +209,8 @@ bindsym $mod+F9 exec ~/.config/sway/scripts/mic-toggle
 bindsym $mod+F12 exec ~/.config/sway/scripts/settings
 bindsym $mod+Print exec ~/.local/bin/sway-shot -f
 bindsym $mod+shift+Print exec ~/.local/bin/sway-shot -re
-bindsym $mod+c [app_id="WebCord"] scratchpad show
+#bindsym $mod+c [app_id="WebCord"] scratchpad show
+bindsym $mod+c [app_id="com.discordapp.Discord"] scratchpad show
 bindsym $mod+ctrl+i exec ~/.local/bin/noti_sysnfo
 bindsym $mod+ctrl+p exec ~/.local/bin/colorpicker_fancy
 bindsym $mod+ctrl+t exec ~/.local/bin/noti_date
@@ -247,9 +248,9 @@ for_window [app_id="blueman-manager"] floating enable,  resize set width 40 ppt 
 
 # Assign workspaces
 assign [app_id="LibreWolf"] 2
-assign [app_id="com.transmissionbt.transmission_66306_3673930"] 4
-assign [app_id="firefox"] 2
-assign [app_id="thunderbird"] 3
+assign [app_id="com.transmissionbt.transmission_*"] 4
+assign [app_id="Firefox"] 2
+assign [app_id="Thunderbird"] 3
 assign [app_id="org.keepassxc.KeePassXC"] 3
 assign [class="Signal"] 3
 assign [app_id="virt-manager"] 8
@@ -331,13 +332,19 @@ client.urgent           $bg2    $red    $white   $red      $red
 client.placeholder      $black  $black  $white   $black    $black
 
 client.background       $fg
-# Inc's
-include /etc/sway/config.d/*
+# Inc's 
+#include /etc/sway/config.d/*
 
 
 # Auto start
 exec foot --server
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec /usr/libexec/polkit-gnome-authentication-agent-1
 exec wl-paste --watch cliphist -max-items 100 store
 exec sleep 10 && keepassxc
+exec sleep 10 && /usr/bin/syncthing serve --no-browser --logfile=default
 exec mako
+
+# non-systemd (starts portals and pipewire properly)
+exec pipewire
+exec pipewire-pulse
+exec dbus-update-activation-environment DISPLAY I3SOCK SWAYSOCK WAYLAND_DISPLAY

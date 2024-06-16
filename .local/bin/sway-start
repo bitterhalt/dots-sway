@@ -23,4 +23,4 @@ export XDG_SESSION_DESKTOP=sway
 export XDG_SESSION_TYPE=wayland
 
 # Start sway
-exec sway
+exec dbus-run-session sway

@@ -37,19 +37,21 @@ return packer.startup(function(use)
         config = function() require('colorizer').setup() end
     }
     use('moll/vim-bbye')
-    use('nyoom-engineering/oxocarbon.nvim')
     use('akinsho/bufferline.nvim')
     use('wbthomason/packer.nvim')
     use('nvim-lualine/lualine.nvim')
     use('nvim-tree/nvim-tree.lua')
     use('kyazdani42/nvim-web-devicons')
     use('nvim-treesitter/nvim-treesitter')
---    use('navarasu/onedark.nvim')
     use {
         "nvim-telescope/telescope.nvim",
         tag = "0.1.x",
         requires = { { "nvim-lua/plenary.nvim" } }
     }
+    use{'nyoom-engineering/oxocarbon.nvim',
+    config = function()require('oxocarbon') end
+}
+
 
     -- LSP-Zero setup
     use {
