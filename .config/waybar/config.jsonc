@@ -93,9 +93,7 @@
             "format": "",
             "tooltip": false,
             "on-click": "swaynag -t warning -m 'Quit?' -b 'Logout' 'swaymsg exit' -b 'Suspend' 'swaymsg exec systemctl suspend' -b 'Reboot' 'systemctl reboot' -b 'Shutdown' 'shutdown now'",
-            "on-click-right": "~/.local/bin/noti_updates",
-            "on-click-middle": "$TERMINAL -a floatterm -e ~/.local/bin/popupgrade"
-
+            "on-click-right": "$TERMINAL -a floatterm -e ~/.local/bin/popupgrade"
         },
 
         "custom/swayidle": {

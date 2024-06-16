@@ -2,7 +2,7 @@
 
 printf "Beginning upgrade.\\n"
 
-yay -Syu && flatpak update
+sudo xbps-install -Su && flatpak update
 
 printf "\\nUpgrade complete.\\nPress <Enter> to exit window.\\n\\n"
 read -r _
