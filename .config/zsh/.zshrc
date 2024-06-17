@@ -7,7 +7,7 @@ export VISUAL=nvim
 
 autoload -U colors && colors
 setopt prompt_subst
-PROMPT='%B%F{green}%1~%b%f%F{red}$(_git_info)%f %(?.%F{magenta}$%f .%F{red}$%b%f )'
+PROMPT='%B%F{blue}%1~%b%f%F{red}$(_git_info)%f %(?.%F{magenta}$%f .%F{red}$%b%f )'
 setopt auto_cd                          # Move between directories without cd
 
 # History

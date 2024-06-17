@@ -214,7 +214,6 @@ bindsym $mod+c [app_id="com.discordapp.Discord"] scratchpad show
 bindsym $mod+ctrl+i exec ~/.local/bin/noti_sysnfo
 bindsym $mod+ctrl+p exec ~/.local/bin/colorpicker_fancy
 bindsym $mod+ctrl+t exec ~/.local/bin/noti_date
-bindsym $mod+ctrl+u exec ~/.local/bin/noti_updates
 bindsym $mod+ctrl+w exec ~/.local/bin/noti_weather
 bindsym $mod+e exec /usr/bin/thunar
 bindsym $mod+f11 exec ~/.config/sway/scripts/screenlocker
@@ -330,7 +329,6 @@ client.focused_inactive $bg2    $bg     $bg3     $bg2      $bg2
 client.unfocused        $bg2    $bg     $bg3     $bg2      $bg2
 client.urgent           $bg2    $red    $white   $red      $red
 client.placeholder      $black  $black  $white   $black    $black
-
 client.background       $fg
 # Inc's 
 #include /etc/sway/config.d/*
@@ -343,9 +341,6 @@ exec wl-paste --watch cliphist -max-items 100 store
 exec sleep 10 && keepassxc
 exec sleep 10 && /usr/bin/syncthing serve --no-browser --logfile=default
 exec mako
-
 # non-systemd (starts portals and pipewire "properly")
-#exec pipewire
-#exec pipewire-pulse
 exec ~/.local/bin/pipewire-loader
 exec dbus-update-activation-environment DISPLAY I3SOCK SWAYSOCK WAYLAND_DISPLAY     
