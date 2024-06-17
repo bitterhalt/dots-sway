@@ -344,7 +344,8 @@ exec sleep 10 && keepassxc
 exec sleep 10 && /usr/bin/syncthing serve --no-browser --logfile=default
 exec mako
 
-# non-systemd (starts portals and pipewire properly)
-exec pipewire
-exec pipewire-pulse
-exec dbus-update-activation-environment DISPLAY I3SOCK SWAYSOCK WAYLAND_DISPLAY
+# non-systemd (starts portals and pipewire "properly")
+#exec pipewire
+#exec pipewire-pulse
+exec ~/.local/bin/pipewire-loader
+exec dbus-update-activation-environment DISPLAY I3SOCK SWAYSOCK WAYLAND_DISPLAY     
