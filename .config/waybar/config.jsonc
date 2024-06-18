@@ -1,14 +1,26 @@
 {
     "layer": "bottom",
-        "position": "top",
+    "position": "top",
         //"spacing": 4,
         //"height": 30, // (Remove for auto height)
 
         // Modules
         "modules-left": ["custom/useless","sway/workspaces","sway/mode"],
         "modules-center": ["clock"],
-        "modules-right": ["pulseaudio","pulseaudio#mic","custom/mako","custom/todo", "network", "custom/swayidle", "custom/power"],
+        "modules-right": ["pulseaudio","pulseaudio#mic","custom/mako","custom/todo","network", "custom/swayidle", "custom/power"],
 
+        "group/tray": {
+            "orientation": "inherit",
+            "drawer": {
+                "transition-duration": 500,
+                "children-class": "not-power",
+            },
+            "modules": [
+                "pulseaudio", // First element is the "group leader" and won't ever be hidden
+                "custom/mako",
+                "custom/todo",
+            ]
+        },
         // Modules configuration
         "sway/workspaces": {
             "disable-scroll": true
@@ -57,9 +69,9 @@
         },
 
         "wireplumber": {
-            "format": "{volume}% {icon}",
+            "format": "{icon}",
             "format-muted": "",
-            "on-click": "helvum",
+            "on-click": "pavucontrol",
             "format-icons": ["", ""]
         },
 
