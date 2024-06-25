@@ -56,7 +56,7 @@ map yy copy
 map yp yank path
 map yn yank name
 #map pp : paste; clear
-map pp paste
+map p :paste; clear
 
 # Movement
 map gh cd ~

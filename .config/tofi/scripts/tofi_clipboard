@@ -3,8 +3,6 @@ set -e
 case "$1" in
     wipe)
         answer=$(echo -e "Yes\nNo" | tofi --text-cursor false \
-            --margin-top 2 \
-            --exclusive-zone 0 \
             --anchor top \
             --font-size 10 \
             --prompt-text "Wipe Clipboard?" \
@@ -20,8 +18,6 @@ case "$1" in
         ;;
     *)
         cliphist list | tofi --text-cursor false \
-            --margin-top 2 \
-            --exclusive-zone 0 \
             --anchor top \
             --font-size 10 \
             --prompt-text "Clipboard? " \

@@ -19,6 +19,6 @@ case "${1:-}" in
         ;;
 esac
 
-notify-send "󰃞 ${PCT}%" \
+notify-send -t 1500 "󰃞 ${PCT}%" \
     -a vol_notify_c \
     -h string:x-dunst-stack-tag:volume

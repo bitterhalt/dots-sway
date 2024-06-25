@@ -55,13 +55,13 @@ window#waybar.hidden {
 
 #workspaces {
   background-color: @bg;
-  padding: 0 10px;
+  padding: 2px 10px;
 }
 
 #workspaces button {
     min-width: 20px;
     color: @bg2;
-    padding: 2px 5px;
+    padding: 0px 5px;
     font-weight: normal;
 }
 
@@ -83,12 +83,15 @@ window#waybar.hidden {
 #memory ,
 #battery,
 #pulseaudio,
-#pipewire,
+#wireplumber,
+#custom-pipewire,
 #custom-mic,
 #pulseaudio.mic,
 #custom-mako,
 #custom-todo,
 #custom-swayidle,
+#custom-weather,
+#tray,
 #battery.charging, 
 #battery.plugged,
 #network {
@@ -97,7 +100,7 @@ window#waybar.hidden {
 }
 
 #network.disconnected {
-    color: @red;
+    color: @purple;
 }
 
 #clock {

@@ -3,8 +3,6 @@
 set -euo pipefail
 
 CONFIRM="tofi --text-cursor false \
-        --margin-top 2 \
-        --exclusive-zone 0 \
         --anchor top \
         --font-size 13 \
         --prompt-text "Sure?" \
@@ -13,8 +11,6 @@ CONFIRM="tofi --text-cursor false \
         --hide-cursor true"
 
 case $(printf "%s\n" "Lock"  "Logout" "Suspend" "Reboot" "Shutdown" | tofi --text-cursor false \
-    --margin-top 2 \
-    --exclusive-zone 0 \
     --anchor top \
     --font-size 13 \
     --prompt-text "Quit? " \

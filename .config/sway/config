@@ -117,8 +117,9 @@ bindsym $mod+shift+Left move left
 bindsym $mod+shift+Down move down
 bindsym $mod+shift+Up move up
 bindsym $mod+shift+Right move right
-
-# Workspaces:
+###############
+# Workspaces: #
+###############
 
 # Switch to workspace
 bindsym $mod+1 workspace number 1
@@ -205,7 +206,7 @@ bindsym $mod+F2 exec ~/.local/bin/noti_usage cpu
 bindsym $mod+F3 exec ~/.local/bin/noti_usage ram
 bindsym $mod+F4 exec $killer
 bindsym $mod+F8 exec pavucontrol
-bindsym $mod+F9 exec ~/.config/sway/scripts/mic-toggle
+bindsym $mod+F9 exec ~/.config/sway/scripts/mic-toggle && pkill -RTMIN+2 waybar
 bindsym $mod+F12 exec ~/.config/sway/scripts/settings
 bindsym $mod+Print exec ~/.local/bin/sway-shot -f
 bindsym $mod+shift+Print exec ~/.local/bin/sway-shot -re
@@ -218,7 +219,7 @@ bindsym $mod+ctrl+w exec ~/.local/bin/noti_weather
 bindsym $mod+e exec /usr/bin/thunar
 bindsym $mod+f11 exec ~/.config/sway/scripts/screenlocker
 bindsym $mod+m exec thunderbird
-bindsym $mod+shift+f11 exec ~/.config/sway/scripts/swayidle-toggle && pkill -RTMIN+8 waybar
+bindsym $mod+shift+f11 exec ~/.config/sway/scripts/swayidle-toggle && pkill -RTMIN+3 waybar
 bindsym $mod+shift+f7 exec ~/.local/bin/sway-record -k
 bindsym $mod+w exec /usr/bin/firefox
 bindsym $mod+shift+delete exec $term -a floatterm -e htop
@@ -227,10 +228,13 @@ bindsym $mod+n exec $term -e nvim ~/Documents/personal/notes/index.md
 bindsym $mod+t exec $term -a floatterm -e nvim ~/Documents/personal/notes/todo.md 
 
 # Media keys
+#bindsym XF86AudioRaiseVolume exec ~/.config/sway/scripts/volume-thing up && pkill -RTMIN+1 waybar
+#bindsym XF86AudioLowerVolume exec ~/.config/sway/scripts/volume-thing down && pkill -RTMIN+1 waybar
+#bindsym XF86AudioMute exec ~/.config/sway/scripts/volume-thing mute && pkill -RTMIN+1 waybar
 bindsym XF86AudioRaiseVolume exec ~/.config/sway/scripts/volume-thing up
 bindsym XF86AudioLowerVolume exec ~/.config/sway/scripts/volume-thing down
 bindsym XF86AudioMute exec ~/.config/sway/scripts/volume-thing mute
-bindsym XF86AudioMicMute exec ~/.config/sway/scripts/mic-toggle
+bindsym XF86AudioMicMute exec ~/.config/sway/scripts/mic-toggle && pkill -RTMIN+2 waybar
 bindsym XF86Calculator  exec galculator
 
 # Brightness control
@@ -305,8 +309,10 @@ for_window [window_type="menu"] floating enable
 for_window [app_id="firefox"] inhibit_idle fullscreen
 for_window [app_id="mpv"] inhibit_idle fullscreen
 
+###############
+# Bar command #
+###############
 
-# Bar command
 bar {
     swaybar_command waybar
 }
@@ -324,14 +330,12 @@ set $black   #000000
 set $white   #ffffff
 
 # class                 border  backgr. text    indicator child_border
-client.focused          $bg3    $bg    $fg      $bg3      $bg3
+client.focused          $bg3    $bg     $fg      $bg3      $bg3
 client.focused_inactive $bg2    $bg     $bg3     $bg2      $bg2
 client.unfocused        $bg2    $bg     $bg3     $bg2      $bg2
 client.urgent           $bg2    $red    $white   $red      $red
 client.placeholder      $black  $black  $white   $black    $black
 client.background       $fg
-# Inc's 
-#include /etc/sway/config.d/*
 
 
 # Auto start
@@ -339,8 +343,8 @@ exec foot --server
 exec /usr/libexec/polkit-gnome-authentication-agent-1
 exec wl-paste --watch cliphist -max-items 100 store
 exec sleep 10 && keepassxc
-exec sleep 10 && /usr/bin/syncthing serve --no-browser --logfile=default
+#exec sleep 10 && /usr/bin/syncthing serve --no-browser --logfile=default
 exec mako
 # non-systemd (starts portals and pipewire "properly")
-exec ~/.local/bin/pipewire-loader
+#exec ~/.local/bin/pipewire-loader
 exec dbus-update-activation-environment DISPLAY I3SOCK SWAYSOCK WAYLAND_DISPLAY     

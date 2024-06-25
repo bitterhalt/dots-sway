@@ -52,3 +52,6 @@ alias sudoe='sudoedit'
 alias dot='/usr/bin/git --git-dir=$HOME/Documents/.sway-dots/ --work-tree=$HOME'
 alias upall='sudo xbps-install -Su && flatpak update'
 alias hg='history | grep '
+
+# XBPS
+alias checkupdates="xbps-install -nuM | awk '{print $1}'"

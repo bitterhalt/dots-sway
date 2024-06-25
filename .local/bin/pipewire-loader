@@ -4,7 +4,7 @@
 pkill -u "${USER}" -x pipewire\|wireplumber\|pipewire-pulse 1>/dev/null 2>&1
 
 pipewire &
-pipewire-pulse &
+#pipewire-pulse &
 
 
 

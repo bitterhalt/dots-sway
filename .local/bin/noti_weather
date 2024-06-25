@@ -50,7 +50,7 @@ SUN_URL="http://api.openweathermap.org/data/2.5/weather?id=${CITY_ID}&APPID=${AP
            fi
            ;;
    esac
-   notify-send -a weather_notify "Weather: ${CITY_NAME}" "$(
+   notify-send -t 8000 -a weather_notify "Weather: ${CITY_NAME}" "$(
    printf "$WEATHER_ICON $WEATHER_CONDITION $WEATHER_TEMP°C\n🌈 Feels like $FEELS_LIKE_TEMP\n🌞 Sunrise: $(date -d @"$SUNRISE" '+%H:%M')\n🌙 Sunset: $(date -d @"$SUNSET" '+%H:%M')"
    )"
 

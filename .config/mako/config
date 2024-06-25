@@ -1,11 +1,11 @@
 #####################
 # General settings #
 #####################
-font=JetBrains Mono, Symbols Nerd Font 10
+font=JetBrains Mono, Symbols Nerd Font 12
 default-timeout=5000
 icons=1
 icon-path=$HOME/.local/share/icons/Papirus-Dark
-ignore-timeout=1
+ignore-timeout=0
 layer=overlay
 sort=-time
 #####################
@@ -31,7 +31,6 @@ progress-color=#262626
 ##################
 # Urgency levels #
 ##################
-
 [urgency=high]
 background-color=#1b1b1b
 border-color=#E25D56
@@ -41,11 +40,9 @@ default-timeout=0
 ###############################
 ## Custom notification rules ##
 ###############################
-
 [app-name=vol_notify]
 anchor=top-center
 border-size=1
-default-timeout=1500
 font=JetBrains Mono 13
 group-by=app-name
 text-alignment=center
@@ -62,32 +59,22 @@ padding=20
 font=JetBrains Mono 10
 height=800
 group-by=app-name
-default-timeout=8000
-
-[app-name=todo_notify]
-font=JetBrains Mono 10
-group-by=app-name
-default-timeout=20000
-border-color=#FABD2F
 
 [app-name=date_notify]
 font=JetBrains Mono 12
 width=160
 group-by=app-name
-default-timeout=8000
 text-alignment=center
 
 [app-name=cal_notify]
 font=JetBrains Mono 10
 width=190
 group-by=app-name
-default-timeout=8000
 
 [app-name=weather_notify]
 font=JetBrains Mono 12
 width=230
 group-by=app-name
-default-timeout=8000
 padding=20
 
 [app-name=center_notify]
@@ -95,7 +82,6 @@ font=JetBrains Mono 12
 width=260
 anchor=top-center
 group-by=app-name
-default-timeout=8000
 text-alignment=center
 
 [app-name=center_notify_s]
@@ -103,7 +89,6 @@ font=JetBrains Mono 12
 width=130
 anchor=top-center
 group-by=app-name
-default-timeout=8000
 text-alignment=center
 
 [mode=dnd]

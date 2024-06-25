@@ -2,11 +2,13 @@
 
 set -e
 
-cupd=$(checkupdates | wc -l)
-updates=$(checkupdates | awk '{print $1}')
+cupd=$(xbps-install -nuM | wc -l)
+updates=$(xbps-install -nuM | awk '{print $1}')
+
+
 if [ -z "$updates" ]; then
-    notify-send -a fat_notify "No updates available"
+    notify-send -t 8000 -a fat_notify "No updates available"
 else
-    notify-send -a fat_notify " $cupd Updates Available:" "$updates"
+    notify-send -t 8000 -a fat_notify "$cupd Updates Available:" "$updates"
 fi
 
