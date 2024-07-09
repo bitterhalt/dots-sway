@@ -1,10 +1,9 @@
 #####################
 # General settings #
 #####################
-font=JetBrains Mono, Symbols Nerd Font 12
+font=JetBrains Mono, Symbols Nerd Font 10
 default-timeout=5000
 icons=1
-icon-path=$HOME/.local/share/icons/Papirus-Dark
 ignore-timeout=0
 layer=overlay
 sort=-time

@@ -35,6 +35,6 @@ case $(printf "%s\n" "Lock"  "Logout" "Suspend" "Reboot" "Shutdown" | tofi --tex
     $HOME/.config/sway/scripts/screenlocker
     ;;
 "Logout")
-    swaymsg exit
+    loginctl terminate-session "${XDG_SESSION_ID-}"
     ;;
 esac

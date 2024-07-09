@@ -1,7 +1,4 @@
 #!/bin/sh
-
-# Line "-a fat_notify" is not needed if you are not using Mako
-
 set -e
 
 cpu () {

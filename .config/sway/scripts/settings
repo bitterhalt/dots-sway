@@ -10,14 +10,7 @@ ZSH
 NEOVIM
 GTK-SETTINGS
 MAKO"
-CHOICE=$(printf "$ARCHIVE" | tofi --text-cursor false \
-    --margin-top 2 \
-    --exclusive-zone 0 \
-    --anchor top \
-    --font-size 10 \
-    --prompt-text "Edit settings: " \
-    --height 300 \
-    --width 100% )
+CHOICE=$(printf "$ARCHIVE" | fzf_menu ">")
 
 # Launch nvim on with foot as floating window
 TERMCMD=("foot -a floatterm")

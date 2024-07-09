@@ -9,18 +9,6 @@
         "modules-center": ["clock"],
         "modules-right": ["wireplumber","custom/mic","custom/mako","custom/todo","network", "custom/swayidle", "custom/power"],
 
-        "group/tray": {
-            "orientation": "inherit",
-            "drawer": {
-                "transition-duration": 500,
-                "children-class": "not-power",
-            },
-            "modules": [
-                "pulseaudio", // First element is the "group leader" and won't ever be hidden
-                "custom/mako",
-                "custom/todo",
-            ]
-        },
         // Modules configuration
         "sway/workspaces": {
             "disable-scroll": true
@@ -40,9 +28,8 @@
 
         "sway/window": {
             "max-length": 80,
-            "tooltip": false
-
         },
+
         "cpu": {
             "format": "CPU: {usage}%",
             "tooltip": false,
@@ -64,7 +51,7 @@
             "tooltip-format": "{ipaddr}\n<b>up:</b> {bandwidthUpBytes} <b>down:</b> {bandwidthDownBytes}",
             "format-linked": "{ifname} (No IP) ?",
             "format-disconnected": "No connection",
-            "on-click": "nm-connection-editor",
+            "on-click": "networkmanager_dmenu",
             "on-click-right": "$TERMINAL -a floatterm -e nethogs"
         },
 
@@ -73,7 +60,7 @@
             "format-muted": "",
             "format-icons": [""," " ],
             "on-click-right": "pavucontrol",
-            "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+            "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         },
 
         "pulseaudio": {
@@ -98,15 +85,14 @@
         "clock": {
             "format": "{:%b %d %H:%M}",
             "on-click": "~/.local/bin/noti_cal",
-            "on-click-right": "~/.local/bin/noti_weather"
+            "on-click-right": "~/.local/bin/noti_weather",
         },
 
         "custom/power": {
             "interval": "once",
             "format": "",
             "tooltip": false,
-            "on-click": "swaynag -t warning -m 'Quit?' -b 'Logout' 'swaymsg exit' -b 'Suspend' 'swaymsg exec loginctl suspend' -b 'Reboot' 'loginctl reboot' -b 'Shutdown' 'loginctl poweroff'",
-            "on-click-right": "$TERMINAL -a floatterm -e ~/.local/bin/popupgrade"
+            "on-click": "swaynag -t warning -m 'Quit?' -b 'Logout' 'swaymsg exit' -b 'Suspend' 'swaymsg exec loginctl suspend' -b 'Reboot' 'loginctl reboot' -b 'Shutdown' 'loginctl poweroff'"
         },
 
         "custom/swayidle": {
@@ -136,14 +122,15 @@
             "return-type": "json",
             "format": "󰅍",
             "on-click": "$TERMINAL -a floatterm -e nvim $HOME/Documents/personal/notes/todo.md",
-            "interval": "once",
+            "interval": "once"
         },
 
         "custom/useless": {
             "interval": "once",
             "format": "",
-            "tooltip": false,
-            "on-click": "~/.config/sway/scripts/settings"
+            "tooltip-format": "Click to open setting menu\nClick right to check updates",
+            "on-click": "~/.config/sway/scripts/settings",
+            "on-click-right": "$TERMINAL -a floatterm -e ~/.local/bin/popupgrade"
         },
 
         "custom/pipewire": {
@@ -153,7 +140,7 @@
             "exec": "~/.config/waybar/scripts/custom_pipewire.sh",
             "on-click-right": "pavucontrol",
             "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-            "signal": 1,
+            "signal": 1
 
         },
 
@@ -164,7 +151,7 @@
             "tooltip": false,
             "signal": 2,
             "on-click": "pavucontrol",
-            "on-click-right": "wpctl set-mute @DEFAULT_SOURCE@ toggle",
+            "on-click-right": "wpctl set-mute @DEFAULT_SOURCE@ toggle"
         },
 
         "custom/weather": {
@@ -175,7 +162,7 @@
             "return-type": "json",
             "exec": "~/.config/waybar/scripts/wttr_thingy.sh",
             "exec-if": "ping wttr.in -c1",
-            "tooltip": true,
+            "tooltip": true
         },
 
 }
