@@ -1,4 +1,7 @@
 # My dots
+
+![image](https://github.com/bitterhalt/sway-dotfiles/assets/95308907/f107eec3-6b9f-40f9-bdbd-7d68065a51ae)
+
 - Distro: [Void](https://voidlinux.org/)
 - WM: [Sway](https://github.com/swaywm/sway)
 - Bar: [Waybar](https://github.com/Alexays/Waybar)
