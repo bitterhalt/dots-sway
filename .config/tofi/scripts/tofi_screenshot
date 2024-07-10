@@ -16,8 +16,10 @@ main() {
     choice=$( (get_options) |     tofi --text-cursor false \
     --anchor top \
     --font-size 13 \
-    --prompt-text "Screenshot-menu:" \
-    --height 260 \
+    --height 240 \
+    --padding-left 10 \
+    --padding-top 10 \
+    --prompt-text "Take screenshot: " \
     --width 100%)
 
   if [[ -z "${choice// /}" ]]; then

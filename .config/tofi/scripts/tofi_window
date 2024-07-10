@@ -33,8 +33,10 @@ CON_ID=$(swaymsg -t get_tree | \
         | $FORMAT
         | tostring" | \
     tofi --text-cursor false \
+    --padding-top 10 \
+    --padding-left 10 \
     --anchor top \
-    --font-size 13 \
+    --font-size 12\
     --prompt-text "Focus to window: " \
     --height 300 \
     --width 100% )
