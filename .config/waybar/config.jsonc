@@ -92,7 +92,7 @@
             "interval": "once",
             "format": "",
             "tooltip": false,
-            "on-click": "swaynag -t warning -m 'Quit?' -b 'Logout' 'swaymsg exit' -b 'Suspend' 'swaymsg exec loginctl suspend' -b 'Reboot' 'loginctl reboot' -b 'Shutdown' 'loginctl poweroff'"
+            "on-click": "~/.local/bin/bemenu_power"
         },
 
         "custom/swayidle": {

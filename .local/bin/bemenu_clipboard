@@ -12,5 +12,5 @@ case "$1" in
         exit 0
         ;;
     *)
-        cliphist list | bemenu_runner -n -B2 -l 10 -p "clipboard" | cliphist decode | wl-copy
+        cliphist list | bemenu_runner -n -B2 -l10 -p "clipboard" | cliphist decode | wl-copy
     esac

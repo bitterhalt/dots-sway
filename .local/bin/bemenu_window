@@ -32,7 +32,7 @@ CON_ID=$(swaymsg -t get_tree | \
            id: .apps.id, app_id: .apps.app_id, name: .apps.name }
         | $FORMAT
         | tostring" | \
-     bemenu_runner -n -H24 -B2 -l10 -p "Focus selected:")
+     bemenu_runner -n -B2 -l10 -p "Focus selected:")
 
 
 
