@@ -2,7 +2,7 @@
 set -e
 case "$1" in
     wipe)
-        answer=$(echo -e "Yes\nNo" | bemenu_runner -B2 -p "Wipe clipboard?" )
+        answer=$(echo -e "Yes\nNo" | bemenu_runner -l2 -B2 -p "Wipe clipboard?" )
 
         if [[ $answer == "Yes" ]]; then
             rm $XDG_CACHE_HOME/cliphist/db
@@ -12,5 +12,5 @@ case "$1" in
         exit 0
         ;;
     *)
-        cliphist list | bemenu_runner -n -B2 -l10 -p "clipboard" | cliphist decode | wl-copy
+        cliphist list | bemenu_runner -H25 -n -B2 -l10 -p "clipboard" | cliphist decode | wl-copy
     esac

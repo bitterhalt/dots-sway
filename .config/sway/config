@@ -25,11 +25,11 @@ set $term footclient
 set $lock ~/.config/sway/scripts/screenlocker
 set $killer ~/.local/bin/bemenu_killer
 
-# Tofi
 #set $drun tofi-drun --promp "drun:" | xargs swaymsg exec -- >/dev/null 2>&1 
-set $drun j4-dmenu-desktop --dmenu="bemenu_runner -B2 -n -l8 -p 'drun:'"
-#set $tofi_drun tofi-drun -c ~/.config/tofi/config2 --promp "drun:" | xargs swaymsg exec -- >/dev/null 2>&1
-set $run bemenu_runner run --no-exec -B2 -n -l8 -p run:| xargs swaymsg exec >/dev/null 2>&1
+set $drun j4-dmenu-desktop --dmenu="bemenu_runner -B2 -H28 -n -l10 -p 'drun:'"
+#set $drun j4-dmenu-desktop --dmenu="bemenu_runner -B2 -n -l8 -p 'drun:'"
+set $run bemenu_runner run --no-exec -H25 -B2 -n -p "run:" -l10  | xargs swaymsg exec >/dev/null 2>&1
+#set $run bemenu_runner run --no-exec -B2 -n -l8 -p run:| xargs swaymsg exec >/dev/null 2>&1
 set $winlist ~/.local/bin/bemenu_window
 set $powermenu ~/.local/bin/bemenu_power
 set $screenshot ~/.local/bin/bemenu_screenshot
@@ -71,7 +71,6 @@ exec swayidle -w \
 # Binds #
 #########
 
-# Tofi
 bindsym $mod+d exec $drun
 bindsym $mod+p exec $run
 bindsym $mod+shift+p exec $powermenu
