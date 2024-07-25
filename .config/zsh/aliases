@@ -53,6 +53,7 @@ alias dot='/usr/bin/git --git-dir=$HOME/Documents/.sway-dots/ --work-tree=$HOME'
 alias hg='history | grep '
 
 # XBPS
+alias xuc='xbps-install -nuM | awk "{print $1}"'
 alias xua='sudo xbps-install -Su && flatpak update'
 alias xcu="xbps-install -nuM | awk '{print $1}'"
 alias xir="sudo xbps-remove"
