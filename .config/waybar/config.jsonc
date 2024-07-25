@@ -101,7 +101,7 @@
             "format": "{}",
             "exec": "~/.config/waybar/scripts/swayidle.sh",
             "signal": 3,
-            "on-click": "~/.config/sway/scripts/swayidle-toggle"
+            "on-click": "~/.config/sway/scripts/swayidle-toggle; pkill -RTMIN+3 waybar" 
         },
 
         "custom/mako": {
