@@ -4,7 +4,7 @@ set -euo pipefail
 
 CONFIRM="bemenu_runner -n -H28 -B1 -l2 -p "Sure?""
 
-case $(printf "%s\n" "Lock"  "Logout" "Suspend" "Reboot" "Shutdown" | bemenu_runner -H25 -n -B2 -l5 -p "Quit?" ) in
+case $(printf "%s\n" "Lock"  "Logout" "Suspend" "Reboot" "Shutdown" | bemenu_runner -n -B1 -l5 -p "Quit?" ) in
  "Shutdown")
     confirm=$(echo -e "Yes\nNo" | $CONFIRM )
     if [[ "$confirm" == "Yes" ]]; then
