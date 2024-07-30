@@ -19,7 +19,7 @@ umount_temp() {
 }
 
 options=("Take snapshot" "Mount latest snapshot" "Mount all archives" "Umount snapshot")
-selected=$(printf '%s\n' "${options[@]}" | tofi)
+selected=$(printf '%s\n' "${options[@]}" | bemenu_runner -p "borgmatic" -B1 -n -l4)
 
 
 if [[ -n "$selected" ]]; then
