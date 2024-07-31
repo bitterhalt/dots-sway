@@ -236,7 +236,10 @@ bindsym XF86AudioLowerVolume exec ~/.config/sway/scripts/volume-thing down
 bindsym XF86AudioMute exec ~/.config/sway/scripts/volume-thing mute
 bindsym XF86AudioMicMute exec ~/.config/sway/scripts/mic-toggle && pkill -RTMIN+2 waybar
 bindsym XF86Calculator  exec galculator
-
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioStop exec playerctl stop
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 # Brightness control
 bindsym XF86MonBrightnessUp exec sh -c "brightnessctl set 5%+; ~/.config/sway/scripts/brightness-thing"
 bindsym XF86MonBrightnessDown exec sh -c "brightnessctl set 5%-; ~/.config/sway/scripts/brightness-thing"
