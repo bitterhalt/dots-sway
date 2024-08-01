@@ -26,7 +26,7 @@ set $lock ~/.config/sway/scripts/screenlocker
 set $killer ~/.local/bin/bemenu_killer
 
 #set $drun tofi-drun --promp "drun:" | xargs swaymsg exec -- >/dev/null 2>&1 
-set $drun j4-dmenu-desktop --dmenu="bemenu_runner -B1 -H28 -n -l10 -p 'drun:'"
+set $drun j4-dmenu-desktop --dmenu="bemenu_runner -B1 -H28 -n -l10 -p drun:"
 #set $drun j4-dmenu-desktop --dmenu="bemenu_runner -B2 -n -l8 -p 'drun:'"
 set $run bemenu_runner run --no-exec -H28 -B1 -n -p "run:" -l10  | xargs swaymsg exec >/dev/null 2>&1
 #set $run bemenu_runner run --no-exec -B2 -n -l8 -p run:| xargs swaymsg exec >/dev/null 2>&1
@@ -228,9 +228,6 @@ bindsym $mod+n exec $term -e nvim ~/Documents/personal/notes/index.md
 bindsym $mod+t exec $term -a floatterm -e nvim ~/Documents/personal/notes/todo.md 
 
 # Media keys
-#bindsym XF86AudioRaiseVolume exec ~/.config/sway/scripts/volume-thing up && pkill -RTMIN+1 waybar
-#bindsym XF86AudioLowerVolume exec ~/.config/sway/scripts/volume-thing down && pkill -RTMIN+1 waybar
-#bindsym XF86AudioMute exec ~/.config/sway/scripts/volume-thing mute && pkill -RTMIN+1 waybar
 bindsym XF86AudioRaiseVolume exec ~/.config/sway/scripts/volume-thing up
 bindsym XF86AudioLowerVolume exec ~/.config/sway/scripts/volume-thing down
 bindsym XF86AudioMute exec ~/.config/sway/scripts/volume-thing mute

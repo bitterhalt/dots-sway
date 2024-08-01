@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-MENU="bemenu_runner -n -B1 -l18 -H28 -p 'kill selected'"
+MENU="bemenu_runner --bdr #DA1E28 --tf #f1c21b --hf #4589ff -n -B1 -l18 -H28"
 
 selected="$(ps -a -u $USER | \
     $MENU --prompt "Kill process:" | \

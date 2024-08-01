@@ -129,8 +129,9 @@
             "interval": "once",
             "format": "",
             "tooltip-format": "Click to open setting menu\nClick right to check updates",
-            "on-click": "~/.config/sway/scripts/settings",
-            "on-click-right": "$TERMINAL -a floatterm -e ~/.local/bin/popupgrade"
+            "on-click": "j4-dmenu-desktop --dmenu='bemenu_runner -B1 -H28 -n -l10 -p drun:'",
+            "on-click-right": "~/.config/sway/scripts/settings",
+            "on-click-middle": "$TERMINAL -a floatterm -e ~/.local/bin/popupgrade"
         },
 
         "custom/pipewire": {
