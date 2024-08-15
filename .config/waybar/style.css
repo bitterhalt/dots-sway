@@ -5,10 +5,10 @@
 @define-color bg  #161616;
 @define-color bg2 #525252;
 @define-color bg3 #393939;
-@define-color fg  #e0e0e0;
+@define-color fg  #D8D8D8;
 @define-color red #DA1E28;
-@define-color blue #33B1FF;
-@define-color purple #A56EFF;
+@define-color blue #6A9FB5;
+@define-color purple #AA759F;
 
 * {
     font-family: JetBrains Mono, Symbols Nerd Font,sans-serif;
@@ -91,8 +91,9 @@ window#waybar.hidden {
 #custom-todo,
 #custom-swayidle,
 #custom-weather,
+#custom-autotile,
 #tray,
-#battery.charging, 
+#battery.charging,
 #battery.plugged,
 #network {
     color: @fg;

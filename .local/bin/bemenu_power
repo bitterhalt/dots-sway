@@ -2,7 +2,7 @@
 # https://github.com/bitterhalt
 set -euo pipefail
 
-CONFIRM="bemenu_runner -n -H28 -B1 -l2 -p "Sure?""
+CONFIRM="bemenu_runner -n -B1 -l2 -p "Sure?""
 
 case $(printf "%s\n" "Lock"  "Logout" "Suspend" "Reboot" "Shutdown" | bemenu_runner -n -B1 -l5 -p "Quit?" ) in
  "Shutdown")

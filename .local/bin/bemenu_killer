@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 set -e
 
-MENU="bemenu_runner --bdr #DA1E28 -n -B1 -l18 -H28"
+MENU="bemenu_runner --bdr #DA1E28 -n -B1 -l18"
 
 selected="$(ps -a -u $USER | \
     $MENU --prompt "Kill process:" | \
-    awk '{print $1" "$4}')"; 
+    awk '{print $1" "$4}')";
 
 if [[ ! -z $selected ]]; then
 
@@ -13,7 +13,7 @@ if [[ ! -z $selected ]]; then
         $MENU --prompt "Kill $selected?")"
 
     if [[ $answer == "Yes" ]]; then
-        selpid="$(awk '{print $1}' <<< $selected)"; 
+        selpid="$(awk '{print $1}' <<< $selected)";
         kill -9 $selpid
     fi
 fi

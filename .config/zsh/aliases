@@ -43,8 +43,8 @@ alias logv='journalctl --verify'
 alias logw='sudo journalctl --vacuum-time=1s'
 
 # yt-dlp
-alias yta-mp3="yt-dlp --extract-audio --audio-format mp3 "
-alias ytv-best="yt-dlp -f bestvideo+bestaudio "
+alias yta-mp3='yt-dlp --extract-audio --audio-format mp3 '
+alias ytv-best='yt-dlp -f bestvideo+bestaudio '
 
 # Random
 alias nvm='sudo nvme smart-log /dev/nvme0'
@@ -56,3 +56,4 @@ alias hg='history | grep '
 alias xcu="xbps-install -nuM | awk '{print $1}'"
 alias xiu="sudo xbps-install -Su && flatpak update"
 alias xir="sudo xbps-remove"
+alias xbs="xbps-query -Rs"

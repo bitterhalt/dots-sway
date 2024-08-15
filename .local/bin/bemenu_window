@@ -21,18 +21,18 @@ FORMAT=$(echo "$FORMAT" | \
 
 # Get the container ID from the node tree
 CON_ID=$(swaymsg -t get_tree | \
-    jq -r ".nodes[] 
+    jq -r ".nodes[]
         | {output: .name, content: .nodes[]}
-        | {output: .output, workspace: .content.name, 
-          apps: .content 
-            | .. 
-            | {id: .id?|tostring, name: .name?, app_id: .app_id?, shell: .shell?} 
+        | {output: .output, workspace: .content.name,
+          apps: .content
+            | ..
+            | {id: .id?|tostring, name: .name?, app_id: .app_id?, shell: .shell?}
             | select(.app_id != null or .shell != null)}
-        | {output: .output, workspace: .workspace, 
+        | {output: .output, workspace: .workspace,
            id: .apps.id, app_id: .apps.app_id, name: .apps.name }
         | $FORMAT
         | tostring" | \
-     bemenu_runner -n -H28 -B1 -l10 -p "Focus selected:")
+     bemenu_runner -n -B1 -l10 -p "Focus selected:")
 
 
 

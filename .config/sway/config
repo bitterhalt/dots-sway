@@ -25,10 +25,10 @@ set $term footclient
 set $lock ~/.config/sway/scripts/screenlocker
 set $killer ~/.local/bin/bemenu_killer
 
-#set $drun tofi-drun --promp "drun:" | xargs swaymsg exec -- >/dev/null 2>&1 
-set $drun j4-dmenu-desktop --dmenu="bemenu_runner -B1 -H28 -n -l10 -p drun:"
+#set $drun tofi-drun --promp "drun:" | xargs swaymsg exec -- >/dev/null 2>&1
+set $drun j4-dmenu-desktop --dmenu="bemenu_runner -B1 -n -l10 -p drun:"
 #set $drun j4-dmenu-desktop --dmenu="bemenu_runner -B2 -n -l8 -p 'drun:'"
-set $run bemenu_runner run --no-exec -H28 -B1 -n -p "run:" -l10  | xargs swaymsg exec >/dev/null 2>&1
+set $run bemenu_runner run --no-exec -B1 -n -p "run:" -l10  | xargs swaymsg exec >/dev/null 2>&1
 #set $run bemenu_runner run --no-exec -B2 -n -l8 -p run:| xargs swaymsg exec >/dev/null 2>&1
 set $winlist ~/.local/bin/bemenu_window
 set $powermenu ~/.local/bin/bemenu_power
@@ -117,9 +117,6 @@ bindsym $mod+shift+Left move left
 bindsym $mod+shift+Down move down
 bindsym $mod+shift+Up move up
 bindsym $mod+shift+Right move right
-###############
-# Workspaces: #
-###############
 
 # Switch to workspace
 bindsym $mod+1 workspace number 1
@@ -169,18 +166,13 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 bindsym $mod+shift+a focus child
 
-###############
-# Scratchpads #
-###############
+# Scratchpads
 bindsym $mod+shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
-
 bindsym $mod+shift+x exec pgrep -f '^foot -a scpterm' >/dev/null 2>&1 || foot -a scpterm
 bindsym $mod+x [app_id="scpterm"] scratchpad show
-
 bindsym $mod+shift+r exec pgrep -f '^foot -a scplf -e lf' >/dev/null 1>&1 || foot -a scplf -e lf
 bindsym $mod+r [app_id="scplf"] scratchpad show
-
 bindsym $mod+F5 [app_id="KeePassXC"] scratchpad show
 
 # Resizing containers:
@@ -197,6 +189,7 @@ bindsym $mod+ctrl+h resize grow width 10 px
 # Adjust inner gaps
 bindsym $mod+ctrl+plus   gaps inner current plus 5
 bindsym $mod+ctrl+minus  gaps inner current minus 5
+
 # Adjust outer gaps
 bindsym $mod+ctrl+shift+plus   gaps outer current plus 5
 bindsym $mod+ctrl+shift+minus  gaps outer current minus 5
@@ -210,12 +203,12 @@ bindsym $mod+F9 exec ~/.config/sway/scripts/mic-toggle && pkill -RTMIN+2 waybar
 bindsym $mod+F12 exec ~/.config/sway/scripts/settings
 bindsym $mod+Print exec ~/.local/bin/sway-shot -f
 bindsym $mod+shift+Print exec ~/.local/bin/sway-shot -re
-#bindsym $mod+c [app_id="WebCord"] scratchpad show
 bindsym $mod+c [app_id="com.discordapp.Discord"] scratchpad show
 bindsym $mod+ctrl+i exec ~/.local/bin/noti_sysnfo
 bindsym $mod+ctrl+p exec ~/.local/bin/colorpicker_fancy
 bindsym $mod+ctrl+t exec ~/.local/bin/noti_date
 bindsym $mod+ctrl+w exec ~/.local/bin/noti_weather
+bindsym $mod+ctrl+a exec ~/.config/sway/scripts/autotiling-toggle && pkill -RTMIN+4 waybar
 bindsym $mod+e exec /usr/bin/thunar
 bindsym $mod+f11 exec ~/.config/sway/scripts/screenlocker
 bindsym $mod+m exec thunderbird
@@ -225,7 +218,7 @@ bindsym $mod+w exec /usr/bin/firefox
 bindsym $mod+shift+delete exec $term -a floatterm -e htop
 bindsym $mod+shift+n exec $term -a quick_note -e ~/.local/bin/quick_note
 bindsym $mod+n exec $term -e nvim ~/Documents/personal/notes/index.md
-bindsym $mod+t exec $term -a floatterm -e nvim ~/Documents/personal/notes/todo.md 
+bindsym $mod+t exec $term -a floatterm -e nvim ~/Documents/personal/notes/todo.md
 
 # Media keys
 bindsym XF86AudioRaiseVolume exec ~/.config/sway/scripts/volume-thing up
@@ -263,6 +256,7 @@ assign [class="steam"] 5
 for_window [app_id="(?i)(?:blueman-manager|azote|gnome-disks|nwg-shell-config)"] floating enable
 for_window [app_id="(?i)(?:pavucontrol|nm-connection-editor|gsimplecal|galculator)"] floating enable
 for_window [app_id="file-roller"] floating enable
+for_window [app_id="brave-calendar"] floating enable, resize set width 40 ppt height 50 ppt
 for_window [app_id="floating_shell_portrait"] floating enable, border pixel 1, sticky enable, resize set width 30 ppt height 40 ppt
 for_window [app_id="floatterm"] floating enable, resize set width 40 ppt height 60 ppt
 for_window [app_id="quick_note"] floating enable, resize set width 40 ppt height 60 ppt
@@ -321,16 +315,16 @@ bar {
 set $bg      #161616
 set $bg2     #262626
 set $bg3     #525252
-set $fg      #cecece
-set $red     #da1e28
-set $blue    #33B1FF
-set $purple  #be95ff
+set $fg      #D8D8D8
+set $red     #AC4242
+set $blue    #6A9FB5
+set $purple  #AA759F
 
 set $black   #000000
 set $white   #ffffff
 
 # class                 border  backgr. text    indicator child_border
-client.focused          $bg3    $bg     $fg      $bg3      $bg3
+client.focused          $bg3    $bg     $fg      $purple   $purple
 client.focused_inactive $bg2    $bg     $bg3     $bg2      $bg2
 client.unfocused        $bg2    $bg     $bg3     $bg2      $bg2
 client.urgent           $bg2    $red    $white   $red      $red
@@ -343,8 +337,5 @@ exec foot --server
 exec /usr/libexec/polkit-gnome-authentication-agent-1
 exec wl-paste --watch cliphist -max-items 100 store
 exec sleep 10 && keepassxc
-#exec sleep 10 && /usr/bin/syncthing serve --no-browser --logfile=default
 exec mako
-# non-systemd (starts portals and pipewire "properly")
-#exec ~/.local/bin/pipewire-loader
-exec dbus-update-activation-environment DISPLAY I3SOCK SWAYSOCK WAYLAND_DISPLAY     
+exec dbus-update-activation-environment DISPLAY I3SOCK SWAYSOCK WAYLAND_DISPLAY

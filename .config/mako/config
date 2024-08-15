@@ -23,15 +23,15 @@ padding=10
 #   Colors       #
 ##################
 background-color=#161616
-text-color=#DDE1E6
+text-color=#D8D8D8
 border-color=#262626
-progress-color=#262626 
+progress-color=#262626
 
 ##################
 # Urgency levels #
 ##################
 [urgency=high]
-background-color=#1b1b1b
+background-color=#161616
 border-color=#E25D56
 text-color=#E9BF57
 default-timeout=0

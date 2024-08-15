@@ -16,7 +16,7 @@ cmd open-with &setsid -f ${1} ${fx}
 # Chmod
 cmd chmod %chmod $* ${fx} && lf -remote "send reload"
 
-# fzf jump 
+# fzf jump
 cmd fzf_jump ${{
     res="$(find . -maxdepth 1 | fzf --reverse --header='Jump to location')"
     if [ -n "$res" ]; then
@@ -61,10 +61,10 @@ cmd trash %{{
 # Put items into array that we can count them
 	files=()
 	while read -r line; do files+=("$line"); done <<< "$fx"
-	
+
 # Count how many items there are
 	len=${#files[@]}
-	
+
 # Confirm trashing
 	if [[ $len == 1 ]]; then
 		echo -n "trash '$fx' ?"
@@ -72,14 +72,14 @@ cmd trash %{{
 		echo -n "trash $len items?"
 	fi
 	echo -n " [y/N] "
-	
+
 # Read answer
 	read -n 1 ans
 # Nake it lowercase
-	ans="${ans,,}" 
-	
+	ans="${ans,,}"
+
 	echo
-	
+
 # Nuke
 	if [[ $ans == y ]]; then
 		trash-put $fx
