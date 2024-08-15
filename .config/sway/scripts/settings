@@ -3,7 +3,7 @@
 # Menu options
 ARCHIVE="SWAY
 FOOT
-TOFI
+BEMENU
 WAYBAR
 SWAYLOCK
 ZSH
@@ -18,7 +18,7 @@ TERMCMD=("foot -a floatterm")
 case $CHOICE in
      SWAY) $TERMCMD -e nvim $HOME/.config/sway/config ;;
      FOOT) $TERMCMD -e nvim $HOME/.config/foot/foot.ini ;;
-     TOFI) $TERMCMD -e nvim $HOME/.config/tofi ;;
+     BEMENU) $TERMCMD -e nvim $HOME/.local/bin/bemenu_runner ;;
      WAYBAR) $TERMCMD -e nvim $HOME/.config/waybar ;;
      SWAYLOCK) $TERMCMD -e nvim $HOME/.config/swaylock/config ;;
      NEOVIM) $TERMCMD -e nvim $HOME/.config/nvim ;;
