@@ -1,4 +1,5 @@
 return {
+    -- Treesitter
     {
         "nvim-treesitter/nvim-treesitter",
         dependencies = { "nvim-treesitter/nvim-treesitter-context" },
@@ -17,11 +18,13 @@ return {
         event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     },
 
+    -- Nvim-highlight-colors
     {
         "brenoprata10/nvim-highlight-colors",
         opts = {}
     },
 
+    -- Nnvim-autopairs
     {
         "windwp/nvim-autopairs",
         event = "InsertEnter",
@@ -31,7 +34,4 @@ return {
             })
         end,
     },
-
-    {
-    }
 }
