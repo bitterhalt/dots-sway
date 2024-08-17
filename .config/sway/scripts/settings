@@ -19,11 +19,11 @@ case $CHOICE in
      SWAY) $TERMCMD -e nvim $HOME/.config/sway/config ;;
      FOOT) $TERMCMD -e nvim $HOME/.config/foot/foot.ini ;;
      BEMENU) $TERMCMD -e nvim $HOME/.local/bin/bemenu_runner ;;
-     WAYBAR) $TERMCMD -e nvim $HOME/.config/waybar ;;
+     WAYBAR) $TERMCMD -e nvim $HOME/.config/waybar/config.jsonc ;;
      SWAYLOCK) $TERMCMD -e nvim $HOME/.config/swaylock/config ;;
-     NEOVIM) $TERMCMD -e nvim $HOME/.config/nvim ;;
+     NEOVIM) $TERMCMD -e nvim $HOME/.config/nvim/init.lua ;;
      GTK-SETTINGS) nwg-look ;;
-     MAKO) $TERMCMD -e nvim $HOME/.config/mako ;;
+     MAKO) $TERMCMD -e nvim $HOME/.config/mako/config ;;
      ZSH) $TERMCMD -e nvim $HOME/.config/zsh/.zshrc ;;
 esac
 
