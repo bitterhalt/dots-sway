@@ -48,12 +48,12 @@ return {
             require("telescope").setup()
         end,
         keys = {
-            { "<leader>ff", "<CMD>Telescope find_files <CR>", desc = "Find Files" },
+            { "<leader>ff", "<CMD>Telescope find_files <CR>",             desc = "Find Files" },
             { "<leader>fa", "<CMD>Telescope find_files hidden=true <CR>", desc = "Find Also Hidden Files" },
-            { "<leader>fb", "<CMD>Telescope buffers <CR>", desc = "List buffers" },
-            { "<leader>fr", "<CMD>Telescope oldfiles <CR>", desc = "Find recent files" },
-            { "<leader>fw", "<CMD>Telescope live_grep <CR>", desc = "Live Grep" },
-            { "<leader>ht", "<CMD>Telescope colorscheme <CR>", desc = "Browse themes" },
+            { "<leader>fb", "<CMD>Telescope buffers <CR>",                desc = "List buffers" },
+            { "<leader>fr", "<CMD>Telescope oldfiles <CR>",               desc = "Find recent files" },
+            { "<leader>fw", "<CMD>Telescope live_grep <CR>",              desc = "Live Grep" },
+            { "<leader>ht", "<CMD>Telescope colorscheme <CR>",            desc = "Browse themes" },
         },
     },
 
@@ -158,7 +158,7 @@ return {
         end,
         ft = "markdown",
         keys = {
-            {'<C-p>', "<CMD>MarkdownPreviewToggle<CR>", desc = "Toggle Markdown Preview"},
+            { '<C-p>', "<CMD>MarkdownPreviewToggle<CR>", desc = "Toggle Markdown Preview" },
         },
     },
     -- Vimwiki
@@ -179,7 +179,7 @@ return {
     {
         'nvim-tree/nvim-tree.lua',
         version = "*",
-        lazy = false,
+        lazy = true,
         dependencies = { 'nvim-tree/nvim-web-devicons' },
         config = function()
             require("nvim-tree").setup({
@@ -198,8 +198,7 @@ return {
             })
         end,
         keys = {
-            {  "<f8>", "<CMD>NvimTreeToggle<CR>", desc = "Toggle nvim tree" },
+            { "<f8>", "<CMD>NvimTreeToggle<CR>", desc = "Toggle nvim tree" },
         },
     },
 }
-
