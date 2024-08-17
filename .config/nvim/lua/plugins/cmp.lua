@@ -2,8 +2,9 @@ return {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     dependencies = {
-        "hrsh7th/cmp-buffer", -- source for text in buffer
-        "hrsh7th/cmp-path", -- source for file system paths
+        "hrsh7th/cmp-buffer",   -- text from currrent buffer
+        "hrsh7th/cmp-path",     -- file system paths
+        "hrsh7th/cmp-nvim-lsp", --  nvim language servers
         {
             "L3MON4D3/LuaSnip",
             version = "v2.*",
@@ -11,24 +12,10 @@ return {
             build = "make install_jsregexp",
         },
         "rafamadriz/friendly-snippets",
-        "onsails/lspkind.nvim", -- vs-code like pictograms
         "saadparwaiz1/cmp_luasnip",
     },
     config = function()
         local cmp = require("cmp")
-        local lspkind = require('lspkind')
-        cmp.setup {
-            formatting = {
-                format = lspkind.cmp_format({
-                    mode = 'symbol', -- show only symbol annotations
-                    maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-                    show_labelDetails = true, -- show labelDetails in menu. Disabled by default
-                    before = function (entry, vim_item)
-                        return vim_item
-                    end
-                })
-            }
-        }
         local luasnip = require("luasnip")
         require("luasnip.loaders.from_vscode").lazy_load()
         cmp.setup({
@@ -48,6 +35,7 @@ return {
                 }),
             }),
             sources = cmp.config.sources({
+                { name = "nvim_lsp" },
                 { name = "luasnip" },
                 { name = "buffer" },
                 { name = "path" },
