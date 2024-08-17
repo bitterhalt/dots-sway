@@ -1,4 +1,30 @@
 return {
+    -- Base-16-nvim
+    {
+        "RRethy/base16-nvim",
+        init = function()
+            require('base16-colorscheme').setup({
+                base00 = '#161616',
+                base01 = '#262626',
+                base02 = '#393939',
+                base03 = '#525252',
+                base04 = '#b4b7b4',
+                base05 = '#c5c8c6',
+                base06 = '#e0e0e0',
+                base07 = '#ffffff',
+                base08 = '#AC4242',
+                base09 = '#de935f',
+                base0A = '#F4BF75',
+                base0B = '#90A959',
+                base0C = '#75B5AA',
+                base0D = '#6A9FB5',
+                base0E = '#AA759F',
+                base0F = '#a3685a'
+            })
+        end,
+    },
+
+    -- Mini.indentscope
     {
         "echasnovski/mini.indentscope",
         version = false,
@@ -14,6 +40,7 @@ return {
         event = "VeryLazy",
     },
 
+    -- Telescope
     {
         "nvim-telescope/telescope.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
@@ -30,6 +57,7 @@ return {
         },
     },
 
+    -- Vim-bbye
     {
         "moll/vim-bbye",
         keys = {
@@ -37,6 +65,7 @@ return {
         },
     },
 
+    -- Mini notify
     {
         "echasnovski/mini.notify",
         version = false,
@@ -57,6 +86,7 @@ return {
         event = "VeryLazy",
     },
 
+    --Which-key
     {
         "folke/which-key.nvim",
         init = function()
@@ -73,6 +103,7 @@ return {
         event = "VeryLazy",
     },
 
+    -- Lualine
     {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -80,6 +111,8 @@ return {
             require("lualine").setup({ options = { theme = "auto" } })
         end
     },
+
+    --Bufferline
 
     {
         'akinsho/bufferline.nvim',
@@ -90,9 +123,6 @@ return {
             require("bufferline").setup({
                 options = {
                     numbers = "none",
-                    --close_command = "Bdelete! %d",
-                    --right_mouse_command = "Bdelete! %d",
-                    --left_mouse_command = "buffer %d",
                     middle_mouse_command = nil,
                     indicator_icon = nil,
                     indicator = { style = "none" },
@@ -106,7 +136,7 @@ return {
                     tab_size = 21,
                     diagnostics = false, -- | "nvim_lsp" | "coc",
                     diagnostics_update_in_insert = false,
-                    offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
+                    offsets = { { filetype = "NvimTree", text = "[ NvimTree ]", padding = 1 } },
                     show_buffer_icons = true,
                     show_buffer_close_icons = true,
                     show_close_icon = true,
@@ -120,6 +150,18 @@ return {
         end,
     },
 
+    -- Markdown-preview
+    {
+        "iamcco/markdown-preview.nvim",
+        config = function()
+            vim.fn["mkdp#util#install"]()
+        end,
+        ft = "markdown",
+        keys = {
+            {'<C-p>', "<CMD>MarkdownPreviewToggle<CR>", desc = "Toggle Markdown Preview"},
+        },
+    },
+    -- Vimwiki
     {
         "vimwiki/vimwiki",
         init = function()
@@ -133,6 +175,7 @@ return {
         end
     },
 
+    --NvimTree
     {
         'nvim-tree/nvim-tree.lua',
         version = "*",
@@ -155,7 +198,7 @@ return {
             })
         end,
         keys = {
-            {  "<C-n>", "<CMD>NvimTreeToggle<CR>", desc = "Toggle nvim tree" },
+            {  "<f8>", "<CMD>NvimTreeToggle<CR>", desc = "Toggle nvim tree" },
         },
     },
 }

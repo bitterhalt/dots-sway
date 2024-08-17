@@ -14,7 +14,6 @@ return {
         "onsails/lspkind.nvim", -- vs-code like pictograms
         "saadparwaiz1/cmp_luasnip",
     },
-
     config = function()
         local cmp = require("cmp")
         local lspkind = require('lspkind')
@@ -31,9 +30,7 @@ return {
             }
         }
         local luasnip = require("luasnip")
-
         require("luasnip.loaders.from_vscode").lazy_load()
-
         cmp.setup({
             snippet = {
                 expand = function(args)

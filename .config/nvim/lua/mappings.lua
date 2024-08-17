@@ -29,6 +29,7 @@ vim.keymap.set('n', '<leader>q', ':qa!<CR>')
 
 -- Clear search highlighting with <leader> and c
 vim.keymap.set('n', '<C-c>', ':nohl<CR>')
+
 -- Save file
 vim.keymap.set('n', "<C-s>", "<CMD>:w<CR>")
 
