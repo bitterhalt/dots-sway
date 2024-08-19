@@ -319,6 +319,7 @@ set $fg      #D8D8D8
 set $red     #AC4242
 set $blue    #6A9FB5
 set $purple  #AA759F
+set $green   #90A959
 
 set $black   #000000
 set $white   #ffffff
