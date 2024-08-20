@@ -10,15 +10,21 @@ cmd open ${{
     esac
 }}
 
+
 # Choose opener
 cmd open-with &setsid -f ${1} ${fx}
+
+# Browse bookmarks with fzf
+cmd mark-jump ${{
+lf -remote "send $id cd $(sed 's/\s*..//' $HOME/.local/share/lf/marks | fzf --reverse --border-label=' Jump to bookmark')"
+}}
 
 # Chmod
 cmd chmod %chmod $* ${fx} && lf -remote "send reload"
 
 # fzf jump
 cmd fzf_jump ${{
-    res="$(find . -maxdepth 1 | fzf --reverse --header='Jump to location')"
+    res="$(find . -maxdepth 1 | fzf --reverse --border-label=' Jump to location ')"
     if [ -n "$res" ]; then
         if [ -d "$res" ]; then
             cmd="cd"

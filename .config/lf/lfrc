@@ -23,11 +23,15 @@ set sixel
 set shell bash
 
 # Bindings
+map <c-j> mark-jump
 map d
 map m
 map c
 map y
 map p
+map <c-e> down
+map <c-y> up
+map mn mark-save
 map C edit-config
 map E extract
 map S shell
@@ -45,7 +49,6 @@ map f fzf_jump
 map <c-f> fzf_search
 map mf mkfile
 map md mkdir
-map <c-c> clear
 map dd trash
 map dr $trash-restore
 map de $trash-empty
@@ -55,10 +58,11 @@ map cm push :chmod<space>
 map yy copy
 map yp yank path
 map yn yank name
-#map pp : paste; clear
 map p :paste; clear
+map <c-c> clear
+map <esc>   :unselect; clear
 
-# Movement
+# Jump
 map gh cd ~
 map ge cd /etc
 map gu cd /usr
