@@ -1,5 +1,5 @@
 [Desktop Entry]
 Type=Application
-Name=Text editor
+Name=Text Editor
 Icon=nvim
 Exec=foot -e nvim %u
