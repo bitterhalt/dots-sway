@@ -13,7 +13,6 @@ default_border pixel 1
 # Set inner/outer gaps
 gaps inner 5
 gaps outer 0
-
 # Defaults
 set $mod Mod4
 set $alt  Mod1
