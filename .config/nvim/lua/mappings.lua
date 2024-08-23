@@ -1,4 +1,4 @@
-vim.g.mapleader = ','
+vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Remove highlights
@@ -26,9 +26,6 @@ vim.keymap.set('v', 'J', ':m \'>+1<CR>gv=gv')
 
 -- Close all windows and exit from Neovim with <leader>
 vim.keymap.set('n', '<leader>q', ':qa!<CR>')
-
--- Clear search highlighting with <leader> and c
-vim.keymap.set('n', '<C-c>', ':nohl<CR>')
 
 -- Save file
 vim.keymap.set('n', "<C-s>", "<CMD>:w<CR>")
