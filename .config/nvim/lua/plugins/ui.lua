@@ -24,22 +24,6 @@ return {
         end,
     },
 
-    -- Mini.indentscope
-    {
-        "echasnovski/mini.indentscope",
-        version = false,
-        config = function()
-            require("mini.indentscope").setup({
-                draw = {
-                    delay = 0,
-                    animation = require("mini.indentscope").gen_animation.none()
-                },
-                symbol = "│"
-            })
-        end,
-        event = "VeryLazy",
-    },
-
     -- Telescope
     {
         "nvim-telescope/telescope.nvim",
@@ -48,42 +32,13 @@ return {
             require("telescope").setup()
         end,
         keys = {
-            { "<leader>ff", "<CMD>Telescope find_files <CR>",             desc = "Find Files" },
-            { "<leader>fa", "<CMD>Telescope find_files hidden=true <CR>", desc = "Find Also Hidden Files" },
-            { "<leader>fb", "<CMD>Telescope buffers <CR>",                desc = "List buffers" },
-            { "<leader>fr", "<CMD>Telescope oldfiles <CR>",               desc = "Find recent files" },
-            { "<leader>fw", "<CMD>Telescope live_grep <CR>",              desc = "Live Grep" },
-            { "<leader>ht", "<CMD>Telescope colorscheme <CR>",            desc = "Browse themes" },
+            { "<leader>ff",    "<CMD>Telescope find_files <CR>",             desc = "Find Files" },
+            { "<leader>fa",    "<CMD>Telescope find_files hidden=true <CR>", desc = "Find Also Hidden Files" },
+            { "<leader><tab>", "<CMD>Telescope buffers <CR>",                desc = "List buffers" },
+            { "<leader>fr",    "<CMD>Telescope oldfiles <CR>",               desc = "Find recent files" },
+            { "<leader>fw",    "<CMD>Telescope live_grep <CR>",              desc = "Live Grep" },
+            { "<leader>ht",    "<CMD>Telescope colorscheme <CR>",            desc = "Browse themes" },
         },
-    },
-
-    -- Vim-bbye
-    {
-        "moll/vim-bbye",
-        keys = {
-            { "<S-q>", "<CMD>Bdelete!<CR>", desc = "Close buffer" },
-        },
-    },
-
-    -- Mini notify
-    {
-        "echasnovski/mini.notify",
-        version = false,
-        init = function()
-            vim.notify = require("mini.notify").make_notify()
-        end,
-        opts = {
-            content = {
-                format = function(notif) return notif.msg end,
-            },
-            window = {
-                winblend = 0,
-            },
-            lsp_progress = {
-                enable = true,
-            },
-        },
-        event = "VeryLazy",
     },
 
     --Which-key
@@ -112,16 +67,22 @@ return {
         end
     },
 
-    --Bufferline
-
+    -- Buffer delete
     {
-        'akinsho/bufferline.nvim',
+        "famiu/bufdelete.nvim" -- Works better than native bdelete
+    },
+
+    --Bufferline
+    {
+        "akinsho/bufferline.nvim",
         version = "*",
         lazy = false,
-        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        dependencies = {
+            "nvim-tree/nvim-web-devicons" },
         config = function()
             require("bufferline").setup({
                 options = {
+                    close_command = "Bdelete",
                     numbers = "none",
                     middle_mouse_command = nil,
                     indicator_icon = nil,
@@ -150,12 +111,11 @@ return {
         end,
     },
 
-    --NvimTree
+    -- NvimTree
     {
-        'nvim-tree/nvim-tree.lua',
+        "nvim-tree/nvim-tree.lua",
         version = "*",
-        lazy = true,
-        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
             require("nvim-tree").setup({
                 update_focused_file = {
@@ -177,47 +137,55 @@ return {
         },
     },
 
-    -- Obsidian-nvim
+    -- nvim-notify
+    --    {
+    --        "rcarriga/nvim-notify",
+    --        lazy = true,
+    --        config = function()
+    --            require("notify").setup({
+    --                enabled = false,
+    --                render = "compact"
+    --            })
+    --        end
+    --    },
+    --
     {
-        "epwalsh/obsidian.nvim",
-        version = "*",
-        lazy = true,
-        ft = "markdown",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-        },
+        -- ZenMode
+        "folke/zen-mode.nvim",
+        cmd = "ZenMode",
         opts = {
-            workspaces = {
-                {
-                    name = "personal",
-                    path = "~/Documents/personal/notes/",
+            window = {
+                backdrop = 0.95,
+                width = 140,
+                height = 1,
+                options = {
                 },
             },
-            ui = {
-                enable = true
-            },
-            daily_notes = {
-                folder = "daily_note",
-                date_format = "%d-%m-%Y",
-                alias_format = "%B %-d, %Y",
-                default_tags = { "daily-notes" },
-                template = nil
-            },
-            templates = {
-                folder = "templates",
-                date_format = "%a-%d-%m-%Y",
-                time_format = "%H:%M",
-            },
-            follow_url_func = function(url)
-                vim.fn.jobstart({ "xdg-open", url })
+        },
+        keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" } },
+    },
+
+    -- Noice
+    {
+        "folke/noice.nvim",
+        event = "VeryLazy",
+        dependencies = {
+            "MunifTanjim/nui.nvim",
+            config = function()
+                require("noice").setup({
+                    -- add any options here
+                    routes = {
+                        {
+                            filter = {
+                                event = { "msg_show" },
+                                kind = "",
+                                find = "written",
+                            },
+                            opts = { skip = true },
+                        },
+                    },
+                })
             end,
         },
-        keys = {
-            { "<leader>os",  "<cmd>ObsidianSearch<CR>",      desc = "Open obsidian search menu" },
-            { "<leader>of",  "<cmd>ObsidianQuickSwitch<CR>", desc = "Open obsidian quick switch menu" },
-            { "<leader>ot",  "<cmd>ObsidianTags<CR>",        desc = "Open obsidian tag finder" },
-            { "<leader>obl", "<Cmd>ObsidianBacklinks<CR>",   desc = "Open backlinks menu for current note" },
-
-        }
     },
 }

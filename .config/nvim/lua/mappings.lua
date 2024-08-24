@@ -36,3 +36,9 @@ vim.keymap.set('n', '<leader>th', '<C-w>t<C-w>H') -- change horizontal to vertic
 
 -- replace word
 vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- Update Lazy plugins
+vim.keymap.set("n", "<leader>ls", "<CMD>Lazy sync<CR>")
+
+-- Close buffers
+vim.keymap.set("n", "<S-q>", "<cmd>Bdelete<CR>")

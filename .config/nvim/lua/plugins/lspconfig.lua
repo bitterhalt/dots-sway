@@ -48,6 +48,7 @@ return {
         lazy = true,
         opts = {}
     },
+
     {
         "williamboman/mason-lspconfig.nvim",
         lazy = true,
