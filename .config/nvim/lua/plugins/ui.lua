@@ -2,8 +2,22 @@ return {
     -- Base-16-nvim
     {
         "RRethy/base16-nvim",
+        config = function()
+            require('base16-colorscheme').with_config({
+                telescope = false,
+                telescope_borders = false,
+                indentblankline = false,
+                notify = true,
+                ts_rainbow = false,
+                cmp = false,
+                illuminate = false,
+                lsp_semantic = false,
+                mini_completion = false,
+                dapui = false,
+            })
+        end,
         init = function()
-            require('base16-colorscheme').setup({
+            require("base16-colorscheme").setup({
                 base00 = '#161616',
                 base01 = '#262626',
                 base02 = '#393939',
@@ -28,8 +42,20 @@ return {
     {
         "nvim-telescope/telescope.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
-        config = function()
-            require("telescope").setup()
+        opts = function()
+            return {
+                defaults = {
+                    layout_strategy = "horizontal",
+                    layout_config = {
+                        horizontal = {
+                            prompt_position = "bottom",
+                            preview_width = 0.5,
+                        },
+                        width = 0.7,
+                        height = 0.7,
+                    },
+                },
+            }
         end,
         keys = {
             { "<leader>ff",    "<CMD>Telescope find_files <CR>",             desc = "Find Files" },
@@ -138,17 +164,17 @@ return {
     },
 
     -- nvim-notify
-    --    {
-    --        "rcarriga/nvim-notify",
-    --        lazy = true,
-    --        config = function()
-    --            require("notify").setup({
-    --                enabled = false,
-    --                render = "compact"
-    --            })
-    --        end
-    --    },
-    --
+    --  {
+    --      "rcarriga/nvim-notify",
+    --      lazy = true,
+    --      config = function()
+    --          require("notify").setup({
+    --              enabled = false,
+    --              render = "compact"
+    --          })
+    --      end
+    --  },
+
     {
         -- ZenMode
         "folke/zen-mode.nvim",
