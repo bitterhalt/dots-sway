@@ -93,10 +93,6 @@ return {
         end
     },
 
-    -- Buffer delete
-    {
-        "famiu/bufdelete.nvim" -- Works better than native bdelete
-    },
 
     --Bufferline
     {
@@ -104,7 +100,8 @@ return {
         version = "*",
         lazy = false,
         dependencies = {
-            "nvim-tree/nvim-web-devicons" },
+            "nvim-tree/nvim-web-devicons",
+            "famiu/bufdelete.nvim" },
         config = function()
             require("bufferline").setup({
                 options = {
