@@ -3,6 +3,8 @@
 # Does not work since my display prefer 60Hz after sleep so I use kanshi instead
 # wlr-randr --output 'DP-1' --mode 2560x1440@74.968002Hz
 
+pkill -f rivertile
+
 foot -s &
 pipewire &
 
