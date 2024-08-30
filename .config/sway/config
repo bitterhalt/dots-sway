@@ -106,7 +106,7 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# Move the focused window with the same, but add shift
+# Move the focused window
 bindsym $mod+shift+$left move left
 bindsym $mod+shift+$down move down
 bindsym $mod+shift+$up move up
@@ -217,7 +217,7 @@ bindsym $mod+w exec /usr/bin/firefox
 bindsym $mod+shift+delete exec $term -a floatterm -e htop
 bindsym $mod+shift+n exec $term -a quick_note -e ~/.local/bin/quick_note
 bindsym $mod+n exec $term -e nvim ~/Documents/personal/notes/index.md
-bindsym $mod+t exec $term -a floatterm -e nvim ~/Documents/personal/notes/todo.md
+bindsym $mod+t exec $term -a float -e nvim ~/Documents/personal/notes/todo.md
 
 # Media keys
 bindsym XF86AudioRaiseVolume exec ~/.config/sway/scripts/volume-thing up
@@ -255,7 +255,7 @@ assign [class="steam"] 5
 for_window [app_id="(?i)(?:blueman-manager|azote|gnome-disks|nwg-shell-config)"] floating enable
 for_window [app_id="(?i)(?:pavucontrol|nm-connection-editor|gsimplecal|galculator)"] floating enable
 for_window [app_id="file-roller"] floating enable
-for_window [app_id="brave-calendar"] floating enable, resize set width 40 ppt height 50 ppt
+for_window [app_id="(brave-mail|brave-calendar)"] floating enable, resize set width 40 ppt height 50 ppt
 for_window [app_id="floating_shell_portrait"] floating enable, border pixel 1, sticky enable, resize set width 30 ppt height 40 ppt
 for_window [app_id="floatterm"] floating enable, resize set width 40 ppt height 60 ppt
 for_window [app_id="quick_note"] floating enable, resize set width 40 ppt height 60 ppt
@@ -268,7 +268,6 @@ for_window [app_id="imv"] floating enable
 for_window [app_id="missioncenter"] floating enable
 for_window [app_id="mpv"] floating enable
 for_window [app_id="nwg-look"] floating enable, resize set width 40 ppt height 50 ppt
-for_window [app_id="pavucontrol" ] floating enable, resize set width 40 ppt height 50 ppt
 for_window [app_id="virt-manager"] floating enable
 for_window [app_id="waypaper"] floating enable, resize set width 50 ppt height 70 ppt
 for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
