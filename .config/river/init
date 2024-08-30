@@ -199,7 +199,10 @@ riverctl rule-add -app-id "floatterm" float
 riverctl rule-add -app-id "steam" float
 
 # decorations
+
+# This tries to force server side decorations. You can override this per.app by using "csd" rule below
 riverctl rule-add ssd
+
 riverctl rule-add -app-id "steam" csd
 
 # Set the default layout generator to be rivertile and start it.
