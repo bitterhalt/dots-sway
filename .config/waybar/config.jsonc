@@ -6,8 +6,7 @@
     // Modules
     "modules-left": [
         "custom/useless",
-        "sway/workspaces",
-        "sway/mode"
+        "river/tags"
     ],
     "modules-center": [
         "clock"
@@ -169,15 +168,5 @@
         "signal": 2,
         "on-click": "pavucontrol",
         "on-click-right": "wpctl set-mute @DEFAULT_SOURCE@ toggle"
-    },
-    "custom/weather": {
-        "format": "{}",
-        "format-alt": "{alt}: {}",
-        "format-alt-click": "click",
-        "interval": 3600,
-        "return-type": "json",
-        "exec": "~/.config/waybar/scripts/wttr_thingy.sh",
-        "exec-if": "ping wttr.in -c1",
-        "tooltip": true
     }
 }
