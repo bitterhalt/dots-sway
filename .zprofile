@@ -17,5 +17,5 @@ export SSH_AUTH_SOCK="$XDG_CACHE_HOME/ssh-agent.sock"
 
 # Start sway environment
  if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-   exec $HOME/.local/bin/sway-start
+   exec $HOME/.local/bin/river-start
  fi
