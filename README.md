@@ -4,7 +4,7 @@ This config to my keyboard driven system. My point was to get light weigth syste
 
 ### Software I use
 - Distro: [Void](https://voidlinux.org/)
-- WM: [Sway](https://github.com/swaywm/sway)
+- WM: [River](https://codeberg.org/river/river)
 - Bar: [Waybar](https://github.com/Alexays/Waybar)
 - Fonts: JetBrains Mono
 - Theme: Mostly mix of colours that are looking good to my eyes.
