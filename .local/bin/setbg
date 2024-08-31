@@ -21,4 +21,4 @@ fi
 #xwallpaper --stretch "${bg}"
 ## Sway
 #swaymsg output "*" background "${bg}" fill
-swaybg -m fill -i "${bg}"
+swaybg -m fill -i "${bg}" &
