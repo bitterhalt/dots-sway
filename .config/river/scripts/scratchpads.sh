@@ -13,7 +13,7 @@ term="foot"
 term="$term --app-id special-term"
 lf="$term --app-id special-lf -e lf"
 nvim="$term --app-id special-nvim -e nvim"
-keepassxc="riverctl spawn keepassxc"
+
 
 terminal_tag=$((1 << 11))
 lf_tag=$((1 << 12))
@@ -38,7 +38,7 @@ case "$1" in
     "keepassxc")
         search="keepassxc"
         tag="$secrets_tag"
-        cmd="$keepassxc"
+        cmd="keepassxc"
         ;;
 esac
 

@@ -1,32 +1,5 @@
 #!/bin/sh
 
-##########
-# Starters
-##########
-riverctl spawn "dbus-update-activation-environment DISPLAY SWAYSOCK WAYLAND_DISPLAY"
-
-autostart="pipewire kanshi mako"
-
-for program in $autostart; do
-	pidof -sx "$program" || "$program" &
-done >/dev/null 2>&1
-
-pkill -f swaybg
-swaybg -m fill -i ~/.local/share/wall/bg &
-
-pkill -f waybar
-waybar &
-
-pkill -f swayidle
-swayidle -w \
-    timeout 1800 "swaylock -f" \
-    timeout 3600 "wlopm --off '*'" resume "wlopm --on '*'" \
-    before-sleep "swaylock -f" &
-
-pkill wl-paste
-wl-paste --watch cliphist -max-items 100 store &
-
-foot -s &
 #########
 # Options
 #########
@@ -241,6 +214,33 @@ all_but_scratch_tag=$(( ((1 << 32) - 1) ^ $dyn_tag ))
 riverctl spawn-tagmask ${all_but_scratch_tag}
 riverctl map normal Super z toggle-focused-tags "${dyn_tag}"
 riverctl map normal Super+Shift z set-view-tags "${dyn_tag}"
+
+##########
+# Starters
+##########
+riverctl spawn "dbus-update-activation-environment DISPLAY SWAYSOCK WAYLAND_DISPLAY"
+
+autostart="pipewire kanshi mako"
+for program in $autostart; do
+	pidof -sx "$program" || "$program" &
+done >/dev/null 2>&1
+
+pkill -f swaybg
+swaybg -m fill -i ~/.local/share/wall/bg &
+
+pkill -f waybar
+waybar &
+
+pkill -f swayidle
+swayidle -w \
+    timeout 1800 "swaylock -f" \
+    timeout 3600 "wlopm --off '*'" resume "wlopm --on '*'" \
+    before-sleep "swaylock -f" &
+
+pkill wl-paste
+wl-paste --watch cliphist -max-items 100 store &
+/usr/libexec/polkit-gnome-authentication-agent-1 &
+foot -s &
 
 ########
 # Layout
