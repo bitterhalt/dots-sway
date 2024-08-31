@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Riverctl script to open scratchpads, and open programs if Scratchpads are
-# empty. Usage "./scratchpads.sh <term|btop|lf|nvim>"
+# empty. Usage "./scratchpads.sh <term|lf|nvim>"
 #
 
 # Check if an argument is provided
@@ -9,15 +9,14 @@ if [ -z "$1" ]; then
   echo "Error: No argument provided."
   exit 1
 fi
+term="foot"
+term="$term --app-id special-term"
+lf="$term --app-id special-lf -e lf"
+nvim="$term --app-id special-nvim -e nvim"
 
-terminal="footclient"
 terminal_tag=$((1 << 11))
 lf_tag=$((1 << 12))
-
-
-term="$terminal --app-id special-term"
-lf="$terminal --app-id special-lf -e lf"
-
+editor_tag=$((1 << 13))
 case "$1" in
 "term")
   search="special-term"
@@ -28,6 +27,11 @@ case "$1" in
   search="special-lf"
   tag="$lf_tag"
   cmd="$lf"
+  ;;
+  "nvim")
+  search="special-nvim"
+  tag="$editor_tag"
+  cmd="$nvim"
   ;;
 esac
 

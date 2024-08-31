@@ -1,13 +1,38 @@
 #!/bin/sh
 
+riverctl default-layout rivertile
+rivertile -view-padding 6 -outer-padding 0 &
+
 ##########
 # Starters
 ##########
-riverctl spawn "~/.config/river/scripts/autostart.sh"
-riverctl spawn "dbus-update-activation-environment DISPLAY I3SOCK SWAYSOCK WAYLAND_DISPLAY"
+riverctl spawn "dbus-update-activation-environment DISPLAY SWAYSOCK WAYLAND_DISPLAY"
 
+autostart="pipewire kanshi mako"
 
+for program in $autostart; do
+	pidof -sx "$program" || "$program" &
+done >/dev/null 2>&1
 
+pkill -f swaybg
+swaybg -m fill -i ~/.local/share/wall/bg &
+
+pkill -f waybar
+waybar &
+
+pkill -f swayidle
+swayidle -w \
+    timeout 1800 "swaylock -f" \
+    timeout 3600 "wlopm --off '*'" resume "wlopm --on '*'" \
+    before-sleep "swaylock -f" &
+
+pkill wl-paste
+wl-paste --watch cliphist -max-items 100 store &
+
+foot -s &
+#########
+# Options
+#########
 term="footclient"
 drun="j4-dmenu-desktop --dmenu='bemenu_runner -B1 -n -l10 -p drun:'"
 run="bemenu_runner run --no-exec -B1 -n -p "run:" -l10  | xargs riverctl spawn >/dev/null 2>&1"
@@ -41,7 +66,7 @@ riverctl map normal Super+Shift Delete spawn "$term -a floatterm -e htop"
 riverctl map normal Super+Shift C spawn "bemenu_clipboard"
 riverctl map normal Super+Control C spawn "bemenu_clipboard wipe"
 riverctl map normal Super F12 spawn "dot-settings"
-############
+#############
 # River binds
 #############
 # Super+Q to close the focused view
@@ -68,7 +93,6 @@ riverctl map normal Super+Shift Period send-to-output next
 riverctl map normal Super+Shift Comma send-to-output previous
 
 # Super+z or (BackSpace) to bump the focused view to the top of the layout stack
-riverctl map normal Super z zoom
 riverctl map normal Super BackSpace zoom
 
 # Super+H and Super+L to decrease/increase the main ratio of rivertile(1)
@@ -141,7 +165,6 @@ riverctl map normal Super+Alt F12 send-layout-cmd rivertile "main-location right
 riverctl map normal Super+Alt F11  send-layout-cmd rivertile "main-location bottom"
 riverctl map normal Super+Alt F9  send-layout-cmd rivertile "main-location left"
 
-
 # Various media key mapping examples for both normal and locked mode which do
 # not have a modifier
 for mode in normal locked; do
@@ -175,13 +198,14 @@ riverctl input pointer-9610-54-Glorious_Model_O pointer-accel 0
 ######
 #Rules
 ######
-
 # Tags
 riverctl rule-add -app-id "Thunderbird" tags $((1 << (3 - 1)))
 riverctl rule-add -app-id "Firefox" tags $((1 << (2 - 1)))
 riverctl rule-add -app-id "steam" tags $((1 << (5 - 1)))
 riverctl rule-add -app-id "org.keepassxc.KeePassXC" tags $((1 << (3 - 1)))
-
+riverctl rule-add -app-id "special-term" tags $terminal_tag
+riverctl rule-add -app-id "special-lf" tags $lf_tag
+riverctl rule-add -app-id "special-nvim" tags $editor_tag
 # Floaters
 riverctl rule-add -app-id "Firefox" -title "Picture-in-Picture" float
 riverctl rule-add -app-id "KeePassXC" -title "Passkey credentials" float
@@ -197,14 +221,33 @@ riverctl rule-add -app-id "xdg-desktop-portal-gtk" float
 riverctl rule-add -title "gtk*" float
 riverctl rule-add -app-id "floatterm" float
 riverctl rule-add -app-id "steam" float
-
 # decorations
-
-# This tries to force server side decorations. You can override this per.app by using "csd" rule below
 riverctl rule-add ssd
-
 riverctl rule-add -app-id "steam" csd
 
-# Set the default layout generator to be rivertile and start it.
-riverctl default-layout rivertile
-rivertile -view-padding 5 -outer-padding 0 &
+
+
+####################
+# Special-workspaces
+####################
+scratchpad="$HOME/.config/river/scripts/scratchpads.sh"
+
+dyn_tag=$((1 << 20 ))
+scratch_tags=$((terminal_tag | lf_tag | editor_tag | dyn_tag ))
+all_but_scratch_tag=$(($all_tags ^ $scratch_tags))
+riverctl spawn-tagmask ${all_but_scratch_tag}
+
+
+riverctl map normal Super+Shift L spawn "$scratchpad lf"
+riverctl map normal Super+Shift E spawn "$scratchpad nvim"
+riverctl map normal Super+Shift T spawn "$scratchpad term"
+
+######################
+# Dynamic scratchpads
+######################
+# Toggle the scratchpad
+riverctl map normal Super z toggle-focused-tags "${dyn_tag}"
+# Send windows to the scratchpad
+riverctl map normal Super+Shift z set-view-tags "${dyn_tag}"
+
+
