@@ -1,8 +1,5 @@
 #!/bin/sh
 
-riverctl default-layout rivertile
-rivertile -view-padding 6 -outer-padding 0 &
-
 ##########
 # Starters
 ##########
@@ -75,47 +72,45 @@ riverctl map normal Super Q close
 # Reload config
 riverctl map normal Super+Control R spawn "$HOME/.config/river/init && notify-send -a center_notify 'River' 'Config reloaded'"
 
-# Super+J and Super+K to focus the next/previous view in the layout stack
+# Focus the next/previous view in the layout stack
 riverctl map normal Super J focus-view next
 riverctl map normal Super K focus-view previous
+riverctl map normal Super Down focus-view next
+riverctl map normal Super Up focus-view previous
 
-# Super+Shift+J and Super+Shift+K to swap the focused view with the next/previous
+# Swap the focused view with the next/previous
 # view in the layout stack
 riverctl map normal Super+Shift J swap next
 riverctl map normal Super+Shift K swap previous
+riverctl map normal Super+Shift Up swap next
+riverctl map normal Super+Shift Down swap previous
 
-# Super+Period and Super+Comma to focus the next/previous output
+# Focus the next/previous output
 riverctl map normal Super Period focus-output next
 riverctl map normal Super Comma focus-output previous
 
-# Super+Shift+{Period,Comma} to send the focused view to the next/previous output
+# Send the focused view to the next/previous output
 riverctl map normal Super+Shift Period send-to-output next
 riverctl map normal Super+Shift Comma send-to-output previous
 
-# Super+z or (BackSpace) to bump the focused view to the top of the layout stack
+# Bump the focused view to the top of the layout stack
 riverctl map normal Super BackSpace zoom
 
-# Super+H and Super+L to decrease/increase the main ratio of rivertile(1)
+# Decrease/increase the main ratio of rivertile(1)
 riverctl map normal Super+Control H send-layout-cmd rivertile "main-ratio -0.05"
 riverctl map normal Super+Control L send-layout-cmd rivertile "main-ratio +0.05"
 
-# Super+Shift+Prior and Super+Shift+Next to increment/decrement the main count of rivertile(1)
+# Increment/decrement the main count of rivertile(1)
 riverctl map normal Super+Shift Prior send-layout-cmd rivertile "main-count +1"
 riverctl map normal Super+Shift Next send-layout-cmd rivertile "main-count -1"
 
-# Super+Control+{H,J,K,L} to move views
+# Move views
 riverctl map normal Super+Control Left move left 100
 riverctl map normal Super+Control Down move down 100
 riverctl map normal Super+Control Up move up 100
 riverctl map normal Super+Control Right move right 100
 
-# Super+Alt+Control+{H,J,K,L} to snap views to screen edges
-#riverctl map normal Super+Alt+Control H snap left
-#riverctl map normal Super+Alt+Control J snap down
-#riverctl map normal Super+Alt+Control K snap up
-#riverctl map normal Super+Alt+Control L snap right
-
-# Super+Shift+arrows to resize views
+# Resize views
 riverctl map normal Super+Alt Left resize horizontal -100
 riverctl map normal Super+Alt Down resize vertical 100
 riverctl map normal Super+Alt Up resize vertical -100
@@ -198,14 +193,16 @@ riverctl input pointer-9610-54-Glorious_Model_O pointer-accel 0
 ######
 #Rules
 ######
+
 # Tags
 riverctl rule-add -app-id "Thunderbird" tags $((1 << (3 - 1)))
+riverctl rule-add -app-id "Signal" tags $((1 << (3 - 1)))
 riverctl rule-add -app-id "Firefox" tags $((1 << (2 - 1)))
 riverctl rule-add -app-id "steam" tags $((1 << (5 - 1)))
-riverctl rule-add -app-id "org.keepassxc.KeePassXC" tags $((1 << (3 - 1)))
-riverctl rule-add -app-id "special-term" tags $terminal_tag
-riverctl rule-add -app-id "special-lf" tags $lf_tag
-riverctl rule-add -app-id "special-nvim" tags $editor_tag
+riverctl rule-add -app-id "com.discordapp.Discord" tags $((1 << (6 - 1)))
+riverctl rule-add -app-id "virt-manager" tags $((1 << (8 - 1)))
+riverctl rule-add -app-id "com.transmissionbt.transmission_*" tags $((1 << (4 - 1)))
+
 # Floaters
 riverctl rule-add -app-id "Firefox" -title "Picture-in-Picture" float
 riverctl rule-add -app-id "KeePassXC" -title "Passkey credentials" float
@@ -220,34 +217,33 @@ riverctl rule-add -app-id "org.pulseaudio.pavucontrol" float
 riverctl rule-add -app-id "xdg-desktop-portal-gtk" float
 riverctl rule-add -title "gtk*" float
 riverctl rule-add -app-id "floatterm" float
+riverctl rule-add -app-id "quick_note" float
 riverctl rule-add -app-id "steam" float
-# decorations
+
+# Decorations
 riverctl rule-add ssd
 riverctl rule-add -app-id "steam" csd
-
-
 
 ####################
 # Special-workspaces
 ####################
 scratchpad="$HOME/.config/river/scripts/scratchpads.sh"
-
-dyn_tag=$((1 << 20 ))
-scratch_tags=$((terminal_tag | lf_tag | editor_tag | dyn_tag ))
-all_but_scratch_tag=$(($all_tags ^ $scratch_tags))
-riverctl spawn-tagmask ${all_but_scratch_tag}
-
-
 riverctl map normal Super+Shift L spawn "$scratchpad lf"
 riverctl map normal Super+Shift E spawn "$scratchpad nvim"
 riverctl map normal Super+Shift T spawn "$scratchpad term"
+riverctl map normal Super F5 spawn "$scratchpad keepassxc"
 
-######################
+#####################
 # Dynamic scratchpads
-######################
-# Toggle the scratchpad
+#####################
+dyn_tag=$((1 << 20 ))
+all_but_scratch_tag=$(( ((1 << 32) - 1) ^ $dyn_tag ))
+riverctl spawn-tagmask ${all_but_scratch_tag}
 riverctl map normal Super z toggle-focused-tags "${dyn_tag}"
-# Send windows to the scratchpad
 riverctl map normal Super+Shift z set-view-tags "${dyn_tag}"
 
-
+########
+# Layout
+########
+riverctl default-layout rivertile
+rivertile -view-padding 6 -outer-padding 0 &
