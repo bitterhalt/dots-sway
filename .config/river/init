@@ -148,8 +148,8 @@ riverctl map normal Super+Alt F9  send-layout-cmd rivertile "main-location left"
 # Various media key mapping examples for both normal and locked mode which do
 # not have a modifier
 for mode in normal locked; do
-riverctl map $mode None XF86AudioRaiseVolume  spawn "~/.config/river/scripts/volume-thing.sh up"
-riverctl map $mode None XF86AudioLowerVolume  spawn "~/.config/river/scripts/volume-thing.sh down"
+riverctl map -repeat $mode None XF86AudioRaiseVolume  spawn "~/.config/river/scripts/volume-thing.sh up"
+riverctl map -repeat $mode None XF86AudioLowerVolume  spawn "~/.config/river/scripts/volume-thing.sh down"
 riverctl map $mode None XF86AudioMute         spawn "~/.config/river/scripts/volume-thing.sh mute"
 riverctl map $mode None XF86AudioMedia spawn "playerctl play-pause"
 riverctl map $mode None XF86AudioPlay  spawn "playerctl play-pause"
