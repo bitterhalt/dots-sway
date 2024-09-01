@@ -84,10 +84,10 @@ riverctl map normal Super+Control Up move up 100
 riverctl map normal Super+Control Right move right 100
 
 # Resize views
-riverctl map normal Super+Alt Left resize horizontal -100
-riverctl map normal Super+Alt Down resize vertical 100
-riverctl map normal Super+Alt Up resize vertical -100
-riverctl map normal Super+Alt Right resize horizontal 100
+riverctl map normal Super+Alt Left resize horizontal -50
+riverctl map normal Super+Alt Down resize vertical 50
+riverctl map normal Super+Alt Up resize vertical -50
+riverctl map normal Super+Alt Right resize horizontal 50
 
 # Super + Left Mouse Button to move views
 riverctl map-pointer normal Super BTN_LEFT move-view
@@ -172,7 +172,7 @@ riverctl rule-add -app-id "Thunderbird" tags $((1 << (3 - 1)))
 riverctl rule-add -app-id "Signal" tags $((1 << (3 - 1)))
 riverctl rule-add -app-id "Firefox" tags $((1 << (2 - 1)))
 riverctl rule-add -app-id "steam" tags $((1 << (5 - 1)))
-riverctl rule-add -app-id "com.discordapp.Discord" tags $((1 << (6 - 1)))
+#riverctl rule-add -app-id "com.discordapp.Discord" tags $((1 << (6 - 1)))
 riverctl rule-add -app-id "virt-manager" tags $((1 << (8 - 1)))
 riverctl rule-add -app-id "com.transmissionbt.transmission_*" tags $((1 << (4 - 1)))
 
@@ -201,7 +201,7 @@ riverctl rule-add -app-id "steam" csd
 # Special-workspaces
 ####################
 scratchpad="$HOME/.config/river/scripts/scratchpads.sh"
-riverctl map normal Super+Shift L spawn "$scratchpad lf"
+riverctl map normal Super+Shift R spawn "$scratchpad lf"
 riverctl map normal Super+Shift E spawn "$scratchpad nvim"
 riverctl map normal Super+Shift T spawn "$scratchpad term"
 riverctl map normal Super F5 spawn "$scratchpad keepassxc"
@@ -214,7 +214,6 @@ all_but_scratch_tag=$(( ((1 << 32) - 1) ^ $dyn_tag ))
 riverctl spawn-tagmask ${all_but_scratch_tag}
 riverctl map normal Super z toggle-focused-tags "${dyn_tag}"
 riverctl map normal Super+Shift z set-view-tags "${dyn_tag}"
-
 ##########
 # Starters
 ##########

@@ -16,9 +16,9 @@ nvim="$term --app-id special-nvim -e nvim"
 
 
 terminal_tag=$((1 << 11))
-lf_tag=$((1 << 12))
-editor_tag=$((1 << 13))
-secrets_tag=$((1 << 14))
+editor_tag=$((1 << 12))
+secrets_tag=$((1 << 13))
+chat_tag=$((1 << 14))
 case "$1" in
     "term")
         search="special-term"
@@ -27,7 +27,7 @@ case "$1" in
         ;;
     "lf")
         search="special-lf"
-        tag="$lf_tag"
+        tag="$editor_tag"
         cmd="$lf"
         ;;
     "nvim")
@@ -40,6 +40,10 @@ case "$1" in
         tag="$secrets_tag"
         cmd="keepassxc"
         ;;
+    "discord")
+        search="discord"
+        tag="$chat_tag"
+        cmd="flatpak run com.discordapp.Discord"
 esac
 
 if lswt | grep -q "$search"; then
