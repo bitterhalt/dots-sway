@@ -148,14 +148,14 @@ riverctl map normal Super+Alt F9  send-layout-cmd rivertile "main-location left"
 # Various media key mapping examples for both normal and locked mode which do
 # not have a modifier
 for mode in normal locked; do
-riverctl map -repeat $mode None XF86AudioRaiseVolume  spawn "~/.config/river/scripts/volume-thing.sh up"
-riverctl map -repeat $mode None XF86AudioLowerVolume  spawn "~/.config/river/scripts/volume-thing.sh down"
-riverctl map $mode None XF86AudioMute         spawn "~/.config/river/scripts/volume-thing.sh mute"
-riverctl map $mode None XF86AudioMedia spawn "playerctl play-pause"
-riverctl map $mode None XF86AudioPlay  spawn "playerctl play-pause"
-riverctl map $mode None XF86AudioPrev  spawn "playerctl previous"
-riverctl map $mode None XF86AudioNext  spawn "playerctl next"
-riverctl map $mode None XF86Calculator spawn "galculator"
+    riverctl map -repeat $mode None XF86AudioRaiseVolume  spawn "~/.config/river/scripts/volume-thing.sh up"
+    riverctl map -repeat $mode None XF86AudioLowerVolume  spawn "~/.config/river/scripts/volume-thing.sh down"
+    riverctl map $mode None XF86AudioMute         spawn "~/.config/river/scripts/volume-thing.sh mute"
+    riverctl map $mode None XF86AudioMedia spawn "playerctl play-pause"
+    riverctl map $mode None XF86AudioPlay  spawn "playerctl play-pause"
+    riverctl map $mode None XF86AudioPrev  spawn "playerctl previous"
+    riverctl map $mode None XF86AudioNext  spawn "playerctl next"
+    riverctl map $mode None XF86Calculator spawn "galculator"
 done
 
 ########
@@ -229,26 +229,25 @@ riverctl map normal Super+Shift z set-view-tags "${dyn_tag}"
 ##########
 riverctl spawn "dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY"
 
-autostart="kanshi mako /usr/libexec/polkit-gnome-authentication-agent-1"
-for program in $autostart; do
-	pidof -sx "$program" || "$program" &
-done >/dev/null 2>&1
 
-pkill -f swaybg
-swaybg -m fill -i ~/.local/share/wall/bg &
+executes="kanshi swayidle foot pipewire mako wl-paste swaybg /usr/libexec/polkit-gnome-authentication-agent-1"
+
+for execute in $executes; do
+    pidof -q "$execute" && continue
+    case $execute in
+        "foot") "$execute" -s & ;;
+        "wl-paste") "$execute" --watch cliphist -max-items 100 store &
+            ;;
+        "swayidle") "$execute" -w \
+            timeout 1800 "swaylock" \
+            timeout 3600 "wlopm --off '*'" resume "wlopm --on '*'" \
+            before-sleep "swaylock" & ;;
+                *) "$execute" & ;;
+            esac
+        done >/dev/null 2>&1
 
 pkill -f waybar
 waybar &
-
-pkill -f swayidle
-swayidle -w \
-    timeout 1800 "swaylock -f" \
-    timeout 3600 "wlopm --off '*'" resume "wlopm --on '*'" \
-    before-sleep "swaylock -f" &
-
-pkill -f wl-paste
-wl-paste --watch cliphist -max-items 100 store &
-foot -s &
 
 ########
 # Layout
