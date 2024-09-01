@@ -1,7 +1,7 @@
 #!/bin/bash
 # Times the screen off and puts it to background
 swayidle \
-    timeout  10 "wlopm --toggle '*'" \
+    timeout  120 "wlopm --toggle '*'" \
     resume "wlopm --toggle '*'"  &
 # Locks the screen immediately
 swaylock
