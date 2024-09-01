@@ -7,8 +7,11 @@
         }
     },
     "modules": [
-        "title",
-        "separator",
+        {
+            "type": "custom", // HardwareStart
+            // {#1} is equivalent to `\u001b[1m`. {#} is equivalent to `\u001b[m`
+            "format": " {#1}──────────── System ───────────  {#} "
+        },
         "os",
         "host",
         "kernel",
@@ -36,6 +39,25 @@
         {
             "type": "memory",
             "format": "{/1}{-}{/}{/2}{-}{/}{} / {}"
+        },
+        {
+            "type": "custom", // HardwareStart
+            // {#1} is equivalent to `\u001b[1m`. {#} is equivalent to `\u001b[m`
+            "format": " {#1}──────── Void Challenge ────── {#} ",
+        },
+        {
+            "type": "command",
+            "shell": "/bin/bash",
+            "key": "Days done",
+            "text": "~/.config/fastfetch/progress.sh",
+            "keyColor": "white"
+        },
+        {
+            "type": "command",
+            "shell": "/bin/bash",
+            "key": "Days left",
+            "text": "~/.config/fastfetch/difference.sh",
+            "keyColor": "white"
         },
         "break",
         "colors"

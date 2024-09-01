@@ -1,4 +1,4 @@
-  --color=fg:#F8F8F8,fg+:#6A9FB5,bg:#161616,bg+:#262626
+  --  --color=fg:#F8F8F8,fg+:#6A9FB5,bg:#161616,bg+:#262626
   --color=hl:#6A9FB5,hl+:#AA759F,info:#F4BF75,marker:#C28CB8
   --color=prompt:#C28CB8,spinner:#C28CB8,pointer:#C28CB8,header:#6A9FB5
   --color=border:#262626,label:#cecece,query:#D8D8D8
