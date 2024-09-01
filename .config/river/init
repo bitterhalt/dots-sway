@@ -6,6 +6,16 @@
 term="footclient"
 drun="j4-dmenu-desktop --dmenu='bemenu_runner -B1 -n -l10 -p drun:'"
 run="bemenu_runner run --no-exec -B1 -n -p "run:" -l10  | xargs riverctl spawn >/dev/null 2>&1"
+
+#########
+# Inputs
+#########
+mouse="pointer-9610-54-Glorious_Model_O"
+
+riverctl keyboard-layout "fi"
+riverctl focus-follows-cursor normal
+riverctl input "$mouse" accel-profile flat
+riverctl input "$mouse" pointer-accel 0
 ########
 # Launch
 ########
@@ -156,15 +166,6 @@ riverctl border-color-focused 0xBE95FF
 riverctl border-color-unfocused 0x262626
 riverctl border-width 1
 
-########
-# Inputs
-########
-#riverctl set-repeat 50 300
-riverctl keyboard-layout "fi"
-riverctl focus-follows-cursor normal
-riverctl input pointer-9610-54-Glorious_Model_O accel-profile flat
-riverctl input pointer-9610-54-Glorious_Model_O pointer-accel 0
-
 ######
 #Rules
 ######
@@ -179,22 +180,28 @@ riverctl rule-add -app-id "virt-manager" tags $((1 << (8 - 1)))
 riverctl rule-add -app-id "com.transmissionbt.transmission_*" tags $((1 << (4 - 1)))
 
 # Floaters
+riverctl rule-add -app-id "Choose User Profile" Float
 riverctl rule-add -app-id "Firefox" -title "Picture-in-Picture" float
-riverctl rule-add -app-id "KeePassXC" -title "Passkey credentials" float
-riverctl rule-add -app-id "KeePassXC" -title "Browser Access Request" float
 riverctl rule-add -app-id "GParted" float
+riverctl rule-add -app-id "KeePassXC" -title "Browser Access Request" float
+riverctl rule-add -app-id "KeePassXC" -title "Passkey credentials" float
 riverctl rule-add -app-id "blueman-manager" float
+riverctl rule-add -app-id "floatterm" float
 riverctl rule-add -app-id "galculator"  float
 riverctl rule-add -app-id "imv" float
 riverctl rule-add -app-id "mpv" float
+riverctl rule-add -app-id "nm-connection-editor" float
 riverctl rule-add -app-id "nwg-look" float
 riverctl rule-add -app-id "org.pulseaudio.pavucontrol" float
-riverctl rule-add -app-id "xdg-desktop-portal-gtk" float
-riverctl rule-add -app-id "Choose User Profile" Float
-riverctl rule-add -title "gtk*" float
-riverctl rule-add -app-id "floatterm" float
 riverctl rule-add -app-id "quick_note" float
 riverctl rule-add -app-id "steam" float
+riverctl rule-add -app-id "xdg-desktop-portal-gtk" float
+riverctl rule-add -title "Picture-in-Picture" float
+riverctl rule-add -title "gtk*" float
+riverctl rule-add -title "popup title with spaces" float
+riverctl rule-add -title "zoom" float
+
+riverctl rule-add -app-id float float
 
 # Decorations
 riverctl rule-add ssd
@@ -213,8 +220,7 @@ riverctl map normal Super F5 spawn "$scratchpad keepassxc"
 # Dynamic scratchpads
 #####################
 dyn_tag=$((1 << 20 ))
-all_but_scratch_tag=$(( ((1 << 32) - 1) ^ $dyn_tag ))
-riverctl spawn-tagmask ${all_but_scratch_tag}
+riverctl spawn-tagmask $((((1 << 32) - 1) ^ dyn_tag))
 riverctl map normal Super z toggle-focused-tags "${dyn_tag}"
 riverctl map normal Super+Shift z set-view-tags "${dyn_tag}"
 
@@ -223,7 +229,7 @@ riverctl map normal Super+Shift z set-view-tags "${dyn_tag}"
 ##########
 riverctl spawn "dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY"
 
-autostart="pipewire kanshi mako"
+autostart="kanshi mako /usr/libexec/polkit-gnome-authentication-agent-1"
 for program in $autostart; do
 	pidof -sx "$program" || "$program" &
 done >/dev/null 2>&1
@@ -242,7 +248,6 @@ swayidle -w \
 
 pkill -f wl-paste
 wl-paste --watch cliphist -max-items 100 store &
-/usr/libexec/polkit-gnome-authentication-agent-1 &
 foot -s &
 
 ########
