@@ -243,8 +243,10 @@ for execute in $executes; do
         "swayidle") "$execute" -w \
             timeout 1800 "swaylock" \
             timeout 3600 "wlopm --off '*'" resume "wlopm --on '*'" \
-            before-sleep "swaylock" & ;;
-                *) "$execute" & ;;
+            before-sleep "swaylock" &
+                    ;;
+                *) "$execute" &
+                    ;;
             esac
         done >/dev/null 2>&1
 
