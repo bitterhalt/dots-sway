@@ -11,6 +11,7 @@ run="bemenu_runner run --no-exec -B1 -n -p "run:" -l10  | xargs riverctl spawn >
 ########
 riverctl map normal Super D spawn "$drun"
 riverctl map normal Super P spawn "$run"
+riverctl map normal Super R spawn "$term -e lf"
 riverctl map normal Super+Shift p spawn "bemenu_power"
 riverctl map normal Super Return spawn "$term"
 riverctl map normal Super F1 spawn "noti_sysnfo"
@@ -55,8 +56,8 @@ riverctl map normal Super Up focus-view previous
 # view in the layout stack
 riverctl map normal Super+Shift J swap next
 riverctl map normal Super+Shift K swap previous
-riverctl map normal Super+Shift Up swap next
-riverctl map normal Super+Shift Down swap previous
+riverctl map normal Super+Shift Down swap next
+riverctl map normal Super+Shift Up swap previous
 
 # Focus the next/previous output
 riverctl map normal Super Period focus-output next
@@ -70,9 +71,10 @@ riverctl map normal Super+Shift Comma send-to-output previous
 riverctl map normal Super BackSpace zoom
 
 # Decrease/increase the main ratio of rivertile(1)
-riverctl map normal Super+Control H send-layout-cmd rivertile "main-ratio -0.05"
-riverctl map normal Super+Control L send-layout-cmd rivertile "main-ratio +0.05"
-
+riverctl map normal Super H send-layout-cmd rivertile "main-ratio +0.05"
+riverctl map normal Super L send-layout-cmd rivertile "main-ratio -0.05"
+riverctl map normal Super Left send-layout-cmd rivertile "main-ratio -0.05"
+riverctl map normal Super Right send-layout-cmd rivertile "main-ratio +0.05"
 # Increment/decrement the main count of rivertile(1)
 riverctl map normal Super+Shift Prior send-layout-cmd rivertile "main-count +1"
 riverctl map normal Super+Shift Next send-layout-cmd rivertile "main-count -1"
@@ -150,7 +152,7 @@ done
 # Colors
 # ######
 riverctl background-color 0x000000
-riverctl border-color-focused 0xAA759F
+riverctl border-color-focused 0xBE95FF
 riverctl border-color-unfocused 0x262626
 riverctl border-width 1
 
@@ -188,6 +190,7 @@ riverctl rule-add -app-id "mpv" float
 riverctl rule-add -app-id "nwg-look" float
 riverctl rule-add -app-id "org.pulseaudio.pavucontrol" float
 riverctl rule-add -app-id "xdg-desktop-portal-gtk" float
+riverctl rule-add -app-id "Choose User Profile" Float
 riverctl rule-add -title "gtk*" float
 riverctl rule-add -app-id "floatterm" float
 riverctl rule-add -app-id "quick_note" float
@@ -214,10 +217,11 @@ all_but_scratch_tag=$(( ((1 << 32) - 1) ^ $dyn_tag ))
 riverctl spawn-tagmask ${all_but_scratch_tag}
 riverctl map normal Super z toggle-focused-tags "${dyn_tag}"
 riverctl map normal Super+Shift z set-view-tags "${dyn_tag}"
+
 ##########
 # Starters
 ##########
-riverctl spawn "dbus-update-activation-environment DISPLAY SWAYSOCK WAYLAND_DISPLAY"
+riverctl spawn "dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY"
 
 autostart="pipewire kanshi mako"
 for program in $autostart; do
@@ -236,7 +240,7 @@ swayidle -w \
     timeout 3600 "wlopm --off '*'" resume "wlopm --on '*'" \
     before-sleep "swaylock -f" &
 
-pkill wl-paste
+pkill -f wl-paste
 wl-paste --watch cliphist -max-items 100 store &
 /usr/libexec/polkit-gnome-authentication-agent-1 &
 foot -s &
@@ -244,5 +248,6 @@ foot -s &
 ########
 # Layout
 ########
+riverctl default-attach-mode bottom
 riverctl default-layout rivertile
-rivertile -view-padding 6 -outer-padding 0 &
+rivertile -view-padding 5 -outer-padding 0 &
