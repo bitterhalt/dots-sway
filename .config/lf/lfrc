@@ -53,7 +53,7 @@ map dd trash
 map dr $trash-restore
 map de $trash-empty
 map <delete> trash
-map bg $setbg $f
+map bg &setbg ${f}
 map cm push :chmod<space>
 map yy copy
 map yp yank path

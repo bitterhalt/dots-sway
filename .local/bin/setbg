@@ -17,8 +17,5 @@ if [ "${1:-}" ]; then
     esac
 fi
 
-## X11
-#xwallpaper --stretch "${bg}"
-## Sway
-#swaymsg output "*" background "${bg}" fill
-swaybg -m fill -i "${bg}" &
+pidof swaybg && pkill swaybg
+swaybg -m fill -i "${bg}"
