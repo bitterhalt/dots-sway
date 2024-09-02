@@ -16,9 +16,8 @@ nvim="$term --app-id special-nvim -e nvim"
 
 
 terminal_tag=$((1 << 11))
-editor_tag=$((1 << 12))
-secrets_tag=$((1 << 13))
-chat_tag=$((1 << 14))
+secrets_tag=$((1 << 12))
+chat_tag=$((1 << 13))
 case "$1" in
     "term")
         search="special-term"
@@ -27,12 +26,12 @@ case "$1" in
         ;;
     "lf")
         search="special-lf"
-        tag="$editor_tag"
+        tag="$terminal_tag"
         cmd="$lf"
         ;;
     "nvim")
         search="special-nvim"
-        tag="$editor_tag"
+        tag="$terminal_tag"
         cmd="$nvim"
         ;;
     "keepassxc")

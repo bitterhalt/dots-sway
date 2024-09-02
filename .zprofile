@@ -15,7 +15,7 @@ export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export SSH_AUTH_SOCK="$XDG_CACHE_HOME/ssh-agent.sock"
 
-# Start sway environment
+# Start River environment
  if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
    exec $HOME/.local/bin/river-start
  fi

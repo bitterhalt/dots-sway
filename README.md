@@ -18,4 +18,4 @@ This config to my keyboard driven system. My point was to get light weigth syste
 - Filemanager: [lf](https://github.com/gokcehan/lf)
 - Launcher [bemenu](https://github.com/Cloudef/bemenu)
 ### Inspiration
-- [See my stars](https://github.com/bitbitterhalt?tab=stars)
+- [See my stars](https://github.com/bitterhalt?tab=stars)

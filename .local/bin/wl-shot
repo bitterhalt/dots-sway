@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Small helper script to take Screenshots in Sway
-# Depends on: swaywm, grim, swappy, and slurp
+# Depends on: grim, swappy, and slurp
 # Github @ bitterhalt
 
 set -e
@@ -36,7 +36,7 @@ timer() {
 }
 
 print_help() {
-    echo "Usage: sway-shot [options]"
+    echo "Usage: wl-shot [options]"
     echo "Options:"
     echo "  -f,  --fullscreen           Capture the fullscreen."
     echo "  -r,  --region               Select a region to capture."

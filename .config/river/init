@@ -4,6 +4,7 @@
 # Options
 #########
 term="footclient"
+lf="foot -e lf"
 drun="j4-dmenu-desktop --dmenu='bemenu_runner -B1 -n -l10 -p drun:'"
 run="bemenu_runner run --no-exec -B1 -n -p "run:" -l10  | xargs riverctl spawn >/dev/null 2>&1"
 
@@ -21,7 +22,7 @@ riverctl input "$mouse" pointer-accel 0
 ########
 riverctl map normal Super D spawn "$drun"
 riverctl map normal Super P spawn "$run"
-riverctl map normal Super R spawn "$term -e lf"
+riverctl map normal Super R spawn "$lf"
 riverctl map normal Super+Shift p spawn "bemenu_power"
 riverctl map normal Super Return spawn "$term"
 riverctl map normal Super F1 spawn "noti_sysnfo"
@@ -35,8 +36,8 @@ riverctl map normal Super+Shift F11 spawn "~/.config/river/scripts/swayidle-togg
 riverctl map normal Super W spawn "firefox"
 riverctl map normal Super e spawn "thunar"
 riverctl map normal Super m spawn "thunderbird"
-riverctl map normal Super Print spawn "sway-shot -f"
-riverctl map normal Super+Shift Print spawn "sway-shot -re"
+riverctl map normal Super Print spawn "wl-shot -f"
+riverctl map normal Super+Shift Print spawn "wl-shot -re"
 riverctl map normal Super+Control P spawn "colorpicker_fancy"
 riverctl map normal Super+Control W spawn "noti_weather"
 riverctl map normal Super+Control T spawn "noti_date"
@@ -46,7 +47,7 @@ riverctl map normal Super T spawn "foot -a floatterm -e nvim ~/Documents/persona
 riverctl map normal Super+Shift Delete spawn "$term -a floatterm -e htop"
 riverctl map normal Super+Shift C spawn "bemenu_clipboard"
 riverctl map normal Super+Control C spawn "bemenu_clipboard wipe"
-riverctl map normal Super F12 spawn "dot-settings"
+riverctl map normal Super F12 spawn "~/.config/river/scripts/dot-settings"
 #############
 # River binds
 #############
@@ -148,7 +149,7 @@ riverctl map normal Super+Alt F9  send-layout-cmd rivertile "main-location left"
 # Various media keys
 riverctl map -repeat normal None XF86AudioRaiseVolume  spawn "~/.config/river/scripts/volume-thing.sh up"
 riverctl map -repeat normal None XF86AudioLowerVolume  spawn "~/.config/river/scripts/volume-thing.sh down"
-riverctl map normal None XF86AudioMute         spawn "~/.config/river/scripts/volume-thing.sh mute"
+riverctl map normal None XF86AudioMute  spawn "~/.config/river/scripts/volume-thing.sh mute"
 riverctl map normal None XF86AudioMedia spawn "playerctl play-pause"
 riverctl map normal None XF86AudioPlay  spawn "playerctl play-pause"
 riverctl map normal None XF86AudioPrev  spawn "playerctl previous"
@@ -207,19 +208,23 @@ riverctl rule-add -app-id "steam" csd
 ####################
 # Special-workspaces
 ####################
+terminal_tag=$((1 << 11))
+secrets_tag=$((1 << 12))
+chat_tag=$((1 << 13))
 scratchpad="$HOME/.config/river/scripts/scratchpads.sh"
 riverctl map normal Super+Shift R spawn "$scratchpad lf"
 riverctl map normal Super+Shift E spawn "$scratchpad nvim"
 riverctl map normal Super+Shift T spawn "$scratchpad term"
 riverctl map normal Super F5 spawn "$scratchpad keepassxc"
+riverctl map normal Super F6 spawn "$scratchpad discord"
 
 #####################
 # Dynamic scratchpads
 #####################
 dyn_tag=$((1 << 20 ))
-riverctl spawn-tagmask $((((1 << 32) - 1) ^ dyn_tag))
-riverctl map normal Super z toggle-focused-tags "${dyn_tag}"
-riverctl map normal Super+Shift z set-view-tags "${dyn_tag}"
+riverctl spawn-tagmask $((((1 << 32) - 1) ^ dyn_tag | chat_tag))
+riverctl map normal Super Minus toggle-focused-tags "${dyn_tag}"
+riverctl map normal Super+Shift Minus set-view-tags "${dyn_tag}"
 
 ##########
 # Starters

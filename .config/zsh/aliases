@@ -57,3 +57,5 @@ alias xcu="xbps-install -nuM | awk '{print $1}'"
 alias xiu="sudo xbps-install -Su && flatpak update"
 alias xir="sudo xbps-remove"
 alias xbs="xbps-query -Rs"
+
+alias xblist="xpkg -m > ~/.local/share/void-packages"

@@ -1,5 +1,5 @@
 return {
-    -- Base-16-nvim
+    --Base - 16 - nvim
     {
         "RRethy/base16-nvim",
         config = function()
@@ -37,7 +37,12 @@ return {
             })
         end,
     },
-
+    --   {
+    --       "nyoom-engineering/oxocarbon.nvim",
+    --       config = function()
+    --           require("oxocarbon")
+    --       end,
+    --   },
     -- Telescope
     {
         "nvim-telescope/telescope.nvim",
@@ -200,7 +205,7 @@ return {
                     routes = {
                         {
                             filter = {
-                                event = { "msg_show" },
+                                event = { "" },
                                 kind = "",
                                 find = "written",
                             },

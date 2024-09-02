@@ -51,7 +51,7 @@ window#waybar.hidden {
 }
 
 /* -----------------------------------------------------
- *                  Workspaces
+ *                  Tags
  * ----------------------------------------------------- */
 
 #tags {
@@ -84,16 +84,11 @@ window#waybar.hidden {
 #cpu,
 #memory,
 #battery,
-#pulseaudio,
 #wireplumber,
-#custom-pipewire,
 #custom-mic,
-#pulseaudio.mic,
 #custom-mako,
 #custom-todo,
 #custom-swayidle,
-#custom-weather,
-#custom-autotile,
 #tray,
 #battery.charging,
 #battery.plugged,

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Small helper script to record your desktop on sway
-# Depends on: swaywm, wf-recoder, and slurp
+# Depends on: wf-recoder, and slurp
 # Github @ bitterhalt
 
 set -e
@@ -33,7 +33,7 @@ kill() {
 }
 
 print_help() {
-    echo "Usage: sway-record [options]"
+    echo "Usage: wl-record [options]"
     echo "Options:"
     echo "  -f, --fullscreen   Capture the fullscreen."
     echo "  -r, --region       Select a region to capture."

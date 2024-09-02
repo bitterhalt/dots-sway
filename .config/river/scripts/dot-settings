@@ -14,7 +14,7 @@ MAKO"
 CHOICE=$(printf "$ARCHIVE" | bemenu_runner -n -B1 -l9 -H0  -p "Edit settings:")
 
 # Launch nvim on with foot as floating window
-TERMCMD=("foot")
+TERMCMD=("foot -a float")
 
 case $CHOICE in
      BEMENU) $TERMCMD -e nvim $HOME/.local/bin/bemenu_runner ;;
