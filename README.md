@@ -10,10 +10,10 @@ There are no install scripts and things are bit messy, so I wouldn't recommend c
 - Bar: [Waybar](https://github.com/Alexays/Waybar)
 - Fonts: JetBrains Mono
 - Theme: Mostly mix of colours that are looking good to my eyes.
-- Symbols and icons: [Nerd Font Symbols](https://archlinux.org/packages/extra/any/ttf-nerd-fonts-symbols/)
+- Symbols and icons: [Nerd Font Symbols](https://www.nerdfonts.com/)
 - Image Viewer: [imv](https://sr.ht/~exec64/imv/)
 - Media Player: [mpv](https://mpv.io/)
-- Notification daemon: Mako
+- Notification daemon: [mako](https://github.com/emersion/mako)
 - Terminal [foot](https://codeberg.org/dnkl/foot)
 - Shell: [zsh](https://www.zsh.org/)
 - Editor: [neovim](https://neovim.io/)
