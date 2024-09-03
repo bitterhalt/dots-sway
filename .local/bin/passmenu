@@ -18,7 +18,7 @@ IFS=$'\n\t'
 MODE=""
 
 # You can edit menucmd for your liking
-#MENUCMD=(tofi 
+#MENUCMD=(tofi
 #    --exclusive-zone 0 \
 #    --anchor top \
 #    --font-size 14 \
@@ -26,7 +26,7 @@ MODE=""
 #    --margin-top 2 \
 #    --width 100%)
 
-MENUCMD=(bemenu_runner -p "passmenu:" -B1 -n -l 6 )
+MENUCMD=(bemenu_runner -p "passmenu:" -B1 -n -l 6)
 
 TIMEOUT="45"
 STOREDIR="${PASSWORD_STORE_DIR-$HOME/.password-store}"
@@ -35,13 +35,12 @@ DOTOOL=(wtype -)
 CLIPSET=(wl-copy)
 CLIPGET=(wl-paste)
 
-
 # ---------------------- #
 #          INFO          #
 # ---------------------- #
-show-help () {
-	echo \
-"Usage: pass-menu [OPTIONS] -- COMMAND [ARGS]
+show-help() {
+    echo \
+        "Usage: pass-menu [OPTIONS] -- COMMAND [ARGS]
 
 Options:
   -p, --path              path to password store
@@ -54,138 +53,152 @@ Examples:
 	tofi_pass --clip --timeout 15
 	tofi_pass --type"
 
-	exit 0
+    exit 0
 }
 
-error () {
-	local  MSG="${1}"; shift 1
-	local ARGS="${@}"
+error() {
+    local MSG="${1}"
+    shift 1
+    local ARGS="${@}"
 
-	printf "pass-menu: ${MSG}\n" ${ARGS} >&2
-	exit 1
+    printf "pass-menu: ${MSG}\n" ${ARGS} >&2
+    exit 1
 }
-
 
 # ---------------------- #
 #          OPTS          #
 # ---------------------- #
-set-opt-path () {
-	local OPTION="${1}"
+set-opt-path() {
+    local OPTION="${1}"
 
-	if [ ! -d "${OPTION}" ]; then
-		error '--path "%s" is not a valid directory.' "${OPTION}"
-	fi
+    if [ ! -d "${OPTION}" ]; then
+        error '--path "%s" is not a valid directory.' "${OPTION}"
+    fi
 
-	STOREDIR="${OPTION}"
+    STOREDIR="${OPTION}"
 }
 
-set-opt-mode () {
-	local OPTION="${1}"
+set-opt-mode() {
+    local OPTION="${1}"
 
-	if [ -n "${MODE}" ] && [ "${MODE}" != "${OPTION}" ]; then
-		error 'conflicting option "--%s" with "--%s"' "${OPTION}" "${MODE}"
-	fi
+    if [ -n "${MODE}" ] && [ "${MODE}" != "${OPTION}" ]; then
+        error 'conflicting option "--%s" with "--%s"' "${OPTION}" "${MODE}"
+    fi
 
-	MODE="${OPTION}"
+    MODE="${OPTION}"
 }
 
-set-opt-timeout () {
-	local OPTION="${1}"
+set-opt-timeout() {
+    local OPTION="${1}"
 
-	if [[ ! "${OPTION}" =~ ^[0-9]+$ ]]; then
-		error '"--timeout" must be an integer'
-	elif [ "${OPTION}" -lt 10 ]; then
-		error '"--timeout" must be greater than 10'
-	fi
-	
-	TIMEOUT="${OPTION}"
+    if [[ ! "${OPTION}" =~ ^[0-9]+$ ]]; then
+        error '"--timeout" must be an integer'
+    elif [ "${OPTION}" -lt 10 ]; then
+        error '"--timeout" must be greater than 10'
+    fi
+
+    TIMEOUT="${OPTION}"
 }
 
-opt-error () {
-	local OPTION="${1}"
+opt-error() {
+    local OPTION="${1}"
 
-	error 'invalid option "%s"' "${OPTION}"
+    error 'invalid option "%s"' "${OPTION}"
 }
 
 while [ -v 1 ]; do
-	case "${1}" in
-		-p | --path)     set-opt-path "${2}"; shift 2 ;;
-		-c | --clip)     set-opt-mode 'clip'; shift 1 ;;
-		-t | --type)     set-opt-mode 'type'; shift 1 ;;
-		     --timeout)  set-opt-timeout "${2}" ; shift 2 ;;
-		-h | --help)     show-help ;;
-		--)              shift 1; MENUCMD=(${@}); break ;;
-		*)               opt-error "${1}" ;;
-	esac
+    case "${1}" in
+    -p | --path)
+        set-opt-path "${2}"
+        shift 2
+        ;;
+    -c | --clip)
+        set-opt-mode 'clip'
+        shift 1
+        ;;
+    -t | --type)
+        set-opt-mode 'type'
+        shift 1
+        ;;
+    --timeout)
+        set-opt-timeout "${2}"
+        shift 2
+        ;;
+    -h | --help) show-help ;;
+    --)
+        shift 1
+        MENUCMD=(${@})
+        break
+        ;;
+    *) opt-error "${1}" ;;
+    esac
 done
 
 if [ -z "${MENUCMD[*]}" ]; then
-	error "missing required argument COMMAND"
+    error "missing required argument COMMAND"
 fi
-
 
 # ---------------------- #
 #         UTILS          #
 # ---------------------- #
-clip-copy () {
-	local VALUE="${1}"
-	local ORIG="$(${CLIPGET[@]})"
-	local MSG="Copied to clipboard. Will clear in ${TIMEOUT} seconds."
-	
-	printf "${VALUE}" | ${CLIPSET[@]}
-	printf "%s\n" "${MSG}"
+clip-copy() {
+    local VALUE="${1}"
+    local ORIG="$(${CLIPGET[@]})"
+    local MSG="Copied to clipboard. Will clear in ${TIMEOUT} seconds."
 
-	if type notify-send &>/dev/null; then
-		notify-send "${MSG}"
-	fi
+    printf "${VALUE}" | ${CLIPSET[@]}
+    printf "%s\n" "${MSG}"
 
-	{
-		sleep "${TIMEOUT}" || exit 1
-		# restore clipboard back to orginal if it hasn't changed.
-		if [ "$(${CLIPGET[@]})" = "${VALUE}" ]; then
-			printf "%s" "${ORIG}" | ${CLIPSET[@]}
-		fi
-	} &
+    if type notify-send &>/dev/null; then
+        notify-send "${MSG}"
+    fi
+
+    {
+        sleep "${TIMEOUT}" || exit 1
+        # restore clipboard back to orginal if it hasn't changed.
+        if [ "$(${CLIPGET[@]})" = "${VALUE}" ]; then
+            printf "%s" "${ORIG}" | ${CLIPSET[@]}
+        fi
+    } &
 }
 
-dotool-type () {
-	local VALUE="${1}"
+dotool-type() {
+    local VALUE="${1}"
 
-	printf "${VALUE}" | ${DOTOOL[@]}
+    printf "${VALUE}" | ${DOTOOL[@]}
 }
-
 
 # ---------------------- #
 #          MAIN          #
 # ---------------------- #
-get-pass-files () {
-	shopt -s nullglob globstar
+get-pass-files() {
+    shopt -s nullglob globstar
 
-	local LIST
-	LIST=("$STOREDIR"/**/*.gpg)
-	LIST=("${LIST[@]#"$STOREDIR"/}")
-	LIST=("${LIST[@]%.gpg}")
+    local LIST
+    LIST=("$STOREDIR"/**/*.gpg)
+    LIST=("${LIST[@]#"$STOREDIR"/}")
+    LIST=("${LIST[@]%.gpg}")
 
-	printf "%s\n" "${LIST[@]}"
+    printf "%s\n" "${LIST[@]}"
 }
 
-get-pass-keys () {
-	local PASS_NAME="${1}"
-	local PASS_FILE="$(pass "${PASS_NAME}")"
-	
-	if [ ${#PASS_FILE} -le 1 ]; then
-		error '"%s" is too short.' "${PASS_NAME}"
-	fi
+get-pass-keys() {
+    local PASS_NAME="${1}"
+    local PASS_FILE="$(pass "${PASS_NAME}")"
 
-	# parse action first
-	awk '
+    if [ ${#PASS_FILE} -le 1 ]; then
+        error '"%s" is too short.' "${PASS_NAME}"
+    fi
+
+    # parse action first
+    awk '
 	/^ *action(.+)/ {
 		match($1, /action\((.+)\)/, action)
 		printf "((%s))\n", action[1]
-	}' <<< "${PASS_FILE}"
+	}' <<<"${PASS_FILE}"
 
-	# parse rest of keys
-	awk '
+    # parse rest of keys
+    awk '
 	BEGIN { FS=" *: +" }
 
 	NR == 1 && ! $2 { print "Password" }
@@ -195,19 +208,19 @@ get-pass-keys () {
 		print $1
 	}
 
-	/^ *otpauth:/ { print "OTP" }' <<< "${PASS_FILE}"
+	/^ *otpauth:/ { print "OTP" }' <<<"${PASS_FILE}"
 }
 
-get-pass-value () {
-	local PASS_NAME="${1}"
-	local PASS_KEY="${2}"
+get-pass-value() {
+    local PASS_NAME="${1}"
+    local PASS_KEY="${2}"
 
-	case "${PASS_KEY}" in
-	OTP)
-		pass otp "${PASS_NAME}"
-	;;
-	Password)
-		pass "${PASS_NAME}" | awk '
+    case "${PASS_KEY}" in
+    OTP)
+        pass otp "${PASS_NAME}"
+        ;;
+    Password)
+        pass "${PASS_NAME}" | awk '
 		BEGIN { FS=" *: +" }
 
 		NR == 1 && ! $2 {
@@ -222,9 +235,9 @@ get-pass-value () {
 				exit
 			}
 		}'
-	;;
-	*)
-		pass "${PASS_NAME}" | awk -v key="${PASS_KEY}" '
+        ;;
+    *)
+        pass "${PASS_NAME}" | awk -v key="${PASS_KEY}" '
 		BEGIN { FS=" *: +" }
 
 		$2 {
@@ -234,107 +247,107 @@ get-pass-value () {
 				exit
 			}
 		}'
-	;;
-	esac
+        ;;
+    esac
 }
 
-get-action () {
-	local PASS_NAME="${1}"
-	local  ACT_NAME="${2}"
+get-action() {
+    local PASS_NAME="${1}"
+    local ACT_NAME="${2}"
 
-	pass "${PASS_NAME}" | awk -v action="action(${ACT_NAME})" '{
+    pass "${PASS_NAME}" | awk -v action="action(${ACT_NAME})" '{
 		if (/^ */ $1 ~ action)
 			for (i=2; i<=NF; i++) print $i
 	}'
 }
 
-execute-action () {
-	local PASS_NAME="${1}"
-	shift
+execute-action() {
+    local PASS_NAME="${1}"
+    shift
 
-	while [ -n "${1}" ]; do
-		case "${1}" in
-		:clip)
-			clip-copy "$(get-pass-value "${PASS_NAME}" "${2}")"
-			shift 2
-			;;
-		:type)
-			dotool-type "$(get-pass-value "${PASS_NAME}" "${2}")"
-			shift 2
-			;;
-		:tab)
-			dotool-type "	"
-			shift 1
-			;;
-		:sleep)
-			sleep "${2}"
-			shift 2
-			;;
-		:exec | :notify)
-			local ACT="${1}"
-			local STR="${2:1}"
-			shift 2
-			# parse string
-			while [ ! "${STR:(-1)}" = '"' ]; do
-				if [ -z "${1}" ]; then
-					error 'unmatched {"} in %s.' "${PASS_NAME}"
-				fi
+    while [ -n "${1}" ]; do
+        case "${1}" in
+        :clip)
+            clip-copy "$(get-pass-value "${PASS_NAME}" "${2}")"
+            shift 2
+            ;;
+        :type)
+            dotool-type "$(get-pass-value "${PASS_NAME}" "${2}")"
+            shift 2
+            ;;
+        :tab)
+            dotool-type "	"
+            shift 1
+            ;;
+        :sleep)
+            sleep "${2}"
+            shift 2
+            ;;
+        :exec | :notify)
+            local ACT="${1}"
+            local STR="${2:1}"
+            shift 2
+            # parse string
+            while [ ! "${STR:(-1)}" = '"' ]; do
+                if [ -z "${1}" ]; then
+                    error 'unmatched {"} in %s.' "${PASS_NAME}"
+                fi
 
-				STR="${STR} ${1}"
-				shift 1
-			done
+                STR="${STR} ${1}"
+                shift 1
+            done
 
-			STR="${STR::(-1)}"
+            STR="${STR::(-1)}"
 
-			if [ "${ACT}" = ":exec" ]; then
-				sh -c "${STR}"
-			else
-				notify-send "${STR}"
-			fi
-			;;
-		:*) error "invalid action %s in %s" "${1}" "${PASS_NAME}" ;;
-		*)  error "invalid param %s in %s" "${1}" "${PASS_NAME}" ;;
-		esac
-	done
+            if [ "${ACT}" = ":exec" ]; then
+                sh -c "${STR}"
+            else
+                notify-send "${STR}"
+            fi
+            ;;
+        :*) error "invalid action %s in %s" "${1}" "${PASS_NAME}" ;;
+        *) error "invalid param %s in %s" "${1}" "${PASS_NAME}" ;;
+        esac
+    done
 }
 
-get-mode () {
-	if [ -n "${MODE}" ]; then
-		printf "${MODE}"
-	else
-		local CANDIDATES="clip\ntype"
-		printf "${CANDIDATES}" | ${MENUCMD[@]}
-	fi
+get-mode() {
+    if [ -n "${MODE}" ]; then
+        printf "${MODE}"
+    else
+        local CANDIDATES="clip\ntype"
+        printf "${CANDIDATES}" | ${MENUCMD[@]}
+    fi
 }
 
-call-menu () {
-	local PIPE="$(< /dev/stdin)"
+call-menu() {
+    local PIPE="$(</dev/stdin)"
 
-	[ -z "${PIPE}" ] && exit 1
+    [ -z "${PIPE}" ] && exit 1
 
-	printf "${PIPE}" | ${MENUCMD[@]}
+    printf "${PIPE}" | ${MENUCMD[@]}
 }
 
-main () {
-	local PASS_NAME PASS_KEY OUT
+main() {
+    local PASS_NAME PASS_KEY OUT
 
-	PASS_NAME=$(get-pass-files | call-menu)
-	[ -z "${PASS_NAME}" ] && exit 1
+    PASS_NAME=$(get-pass-files | call-menu)
+    [ -z "${PASS_NAME}" ] && exit 1
 
-	PASS_KEY=$(get-pass-keys "${PASS_NAME}" | call-menu)
-	[ -z "${PASS_KEY}" ] && exit 1
+    PASS_KEY=$(get-pass-keys "${PASS_NAME}" | call-menu)
+    [ -z "${PASS_KEY}" ] && exit 1
 
-	if [ "${PASS_KEY:(-2)}" = "))" ]; then
-		execute-action "${PASS_NAME}" $(get-action "${PASS_NAME}")
-		return 0
-	fi
+    if [ "${PASS_KEY:(-2)}" = "))" ]; then
+        execute-action "${PASS_NAME}" $(get-action "${PASS_NAME}")
+        return 0
+    fi
 
-	OUT=$(get-pass-value "${PASS_NAME}" "${PASS_KEY}")
+    OUT=$(get-pass-value "${PASS_NAME}" "${PASS_KEY}")
 
-	case "$(get-mode)" in
-		clip) clip-copy "${OUT}" ;;
-		type) dotool-type "${OUT}" ;;
-	esac
+    case "$(get-mode)" in
+    clip) clip-copy "${OUT}" ;;
+    type) dotool-type "${OUT}" ;;
+    esac
 }
 
 main
