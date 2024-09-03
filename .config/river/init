@@ -1,9 +1,14 @@
 #!/bin/sh
 
+#### Many of the ideas are stolen from: https://github.com/SwayKh/dotfiles/blob/main/river/init
+## So if you like the way this works, consider dropping a *star* on the original author ^
+
 #########
 # Options
 #########
-term="footclient"
+
+term="footclient" # If you want single instance change: "footclient" > "foot"
+fterm="$term -a float-term"
 lf="foot -e lf"
 drun="j4-dmenu-desktop --dmenu='bemenu_runner -B1 -n -l10 -p drun:'"
 run="bemenu_runner run --no-exec -B1 -n -p "run:" -l10  | xargs riverctl spawn >/dev/null 2>&1"
@@ -11,15 +16,19 @@ run="bemenu_runner run --no-exec -B1 -n -p "run:" -l10  | xargs riverctl spawn >
 #########
 # Inputs
 #########
+
+# Find your inputs by typing "priverctl list-inputs"
 mouse="pointer-9610-54-Glorious_Model_O"
 
 riverctl keyboard-layout "fi"
 riverctl focus-follows-cursor normal
 riverctl input "$mouse" accel-profile flat
 riverctl input "$mouse" pointer-accel 0
+
 ########
 # Launch
 ########
+
 riverctl map normal Super D spawn "$drun"
 riverctl map normal Super P spawn "$run"
 riverctl map normal Super R spawn "$lf"
@@ -42,16 +51,18 @@ riverctl map normal Super+Control P spawn "colorpicker_fancy"
 riverctl map normal Super+Control W spawn "noti_weather"
 riverctl map normal Super+Control T spawn "noti_date"
 riverctl map normal Super N spawn "foot -e nvim ~/Documents/personal/notes/index.md"
-riverctl map normal Super+Shift N spawn "foot -a quick_note -e ~/.local/bin/quick_note"
-riverctl map normal Super T spawn "foot -a floatterm -e nvim ~/Documents/personal/notes/todo.md"
-riverctl map normal Super+Shift Delete spawn "$term -a floatterm -e htop"
+riverctl map normal Super+Shift N spawn "$term -e ~/.local/bin/quick_note"
+riverctl map normal Super T spawn "$fterm -W 100x30 -e nvim ~/Documents/personal/notes/todo.md"
+riverctl map normal Super+Shift Delete spawn "$fterm -W 120x35 -e htop"
 riverctl map normal Super+Shift C spawn "bemenu_clipboard"
 riverctl map normal Super+Control C spawn "bemenu_clipboard wipe"
 riverctl map normal Super F12 spawn "~/.config/river/scripts/dot-settings"
+
 #############
 # River binds
 #############
-# Super+Q to close the focused view
+
+# Close the focused view
 riverctl map normal Super Q close
 
 # Reload config
@@ -63,8 +74,7 @@ riverctl map normal Super K focus-view previous
 riverctl map normal Super Down focus-view next
 riverctl map normal Super Up focus-view previous
 
-# Swap the focused view with the next/previous
-# view in the layout stack
+# Swap the focused view with the next/previous view in the layout stack
 riverctl map normal Super+Shift J swap next
 riverctl map normal Super+Shift K swap previous
 riverctl map normal Super+Shift Down swap next
@@ -82,25 +92,25 @@ riverctl map normal Super+Shift Comma send-to-output previous
 riverctl map normal Super BackSpace zoom
 
 # Decrease/increase the main ratio of rivertile(1)
-riverctl map normal Super H send-layout-cmd rivertile "main-ratio +0.05"
-riverctl map normal Super L send-layout-cmd rivertile "main-ratio -0.05"
-riverctl map normal Super Left send-layout-cmd rivertile "main-ratio -0.05"
+riverctl map normal Super L send-layout-cmd rivertile "main-ratio +0.05"
+riverctl map normal Super H send-layout-cmd rivertile "main-ratio -0.05"
 riverctl map normal Super Right send-layout-cmd rivertile "main-ratio +0.05"
+riverctl map normal Super Left send-layout-cmd rivertile "main-ratio -0.05"
 # Increment/decrement the main count of rivertile(1)
 riverctl map normal Super+Shift Prior send-layout-cmd rivertile "main-count +1"
 riverctl map normal Super+Shift Next send-layout-cmd rivertile "main-count -1"
 
 # Move views
-riverctl map normal Super+Control Left move left 100
-riverctl map normal Super+Control Down move down 100
-riverctl map normal Super+Control Up move up 100
-riverctl map normal Super+Control Right move right 100
+riverctl map -repeat normal Super+Control Left move left 100
+riverctl map -repeat normal Super+Control Down move down 100
+riverctl map -repeat normal Super+Control Up move up 100
+riverctl map -repeat normal Super+Control Right move right 100
 
 # Resize views
-riverctl map normal Super+Alt Left resize horizontal -50
-riverctl map normal Super+Alt Down resize vertical 50
-riverctl map normal Super+Alt Up resize vertical -50
-riverctl map normal Super+Alt Right resize horizontal 50
+riverctl map -repeat normal Super+Alt Left resize horizontal -25
+riverctl map -repeat normal Super+Alt Down resize vertical 25
+riverctl map -repeat normal Super+Alt Up resize vertical -25
+riverctl map -repeat normal Super+Alt Right resize horizontal 25
 
 # Super + Left Mouse Button to move views
 riverctl map-pointer normal Super BTN_LEFT move-view
@@ -111,8 +121,7 @@ riverctl map-pointer normal Super BTN_RIGHT resize-view
 # Super + Middle Mouse Button to toggle float
 riverctl map-pointer normal Super BTN_MIDDLE toggle-float
 
-for i in $(seq 1 9)
-do
+for i in $(seq 1 9); do
     tags=$((1 << ($i - 1)))
 
     # Super+[1-9] to focus tag [0-8]
@@ -141,26 +150,28 @@ riverctl map normal Super Space toggle-float
 riverctl map normal Super F toggle-fullscreen
 
 # Use cursed arrow keys: Super+Alt{F10,F12,F11,F9} to change layout orientation
-riverctl map normal Super+Alt F10    send-layout-cmd rivertile "main-location top"
+riverctl map normal Super+Alt F10 send-layout-cmd rivertile "main-location top"
 riverctl map normal Super+Alt F12 send-layout-cmd rivertile "main-location right"
-riverctl map normal Super+Alt F11  send-layout-cmd rivertile "main-location bottom"
-riverctl map normal Super+Alt F9  send-layout-cmd rivertile "main-location left"
+riverctl map normal Super+Alt F11 send-layout-cmd rivertile "main-location bottom"
+riverctl map normal Super+Alt F9 send-layout-cmd rivertile "main-location left"
 
 # Various media keys
-riverctl map -repeat normal None XF86AudioRaiseVolume  spawn "~/.config/river/scripts/volume-thing.sh up"
-riverctl map -repeat normal None XF86AudioLowerVolume  spawn "~/.config/river/scripts/volume-thing.sh down"
-riverctl map normal None XF86AudioMute  spawn "~/.config/river/scripts/volume-thing.sh mute"
+riverctl map -repeat normal None XF86AudioRaiseVolume spawn "~/.config/river/scripts/volume-thing.sh up"
+riverctl map -repeat normal None XF86AudioLowerVolume spawn "~/.config/river/scripts/volume-thing.sh down"
+riverctl map normal None XF86AudioMute spawn "~/.config/river/scripts/volume-thing.sh mute"
 riverctl map normal None XF86AudioMedia spawn "playerctl play-pause"
-riverctl map normal None XF86AudioPlay  spawn "playerctl play-pause"
-riverctl map normal None XF86AudioPrev  spawn "playerctl previous"
-riverctl map normal None XF86AudioNext  spawn "playerctl next"
+riverctl map normal None XF86AudioPlay spawn "playerctl play-pause"
+riverctl map normal None XF86AudioPrev spawn "playerctl previous"
+riverctl map normal None XF86AudioNext spawn "playerctl next"
 riverctl map normal None XF86Calculator spawn "galculator"
 
 ########
 # Colors
-# ######
+########
+
 riverctl background-color 0x000000
 riverctl border-color-focused 0xBE95FF
+border-color-urgent 0xa2191f
 riverctl border-color-unfocused 0x262626
 riverctl border-width 1
 
@@ -173,19 +184,25 @@ riverctl rule-add -app-id "Thunderbird" tags $((1 << (3 - 1)))
 riverctl rule-add -app-id "Signal" tags $((1 << (3 - 1)))
 riverctl rule-add -app-id "Firefox" tags $((1 << (2 - 1)))
 riverctl rule-add -app-id "steam" tags $((1 << (5 - 1)))
-#riverctl rule-add -app-id "com.discordapp.Discord" tags $((1 << (6 - 1)))
+#riverctl rule-add -app-id "com.discordapp.Discord" tags tags $((1 << (6 - 1)))
 riverctl rule-add -app-id "virt-manager" tags $((1 << (8 - 1)))
 riverctl rule-add -app-id "com.transmissionbt.transmission_*" tags $((1 << (4 - 1)))
 
 # Floaters
 riverctl rule-add -app-id "Choose User Profile" float
 riverctl rule-add -app-id "Firefox" -title "Picture-in-Picture" float
+riverctl rule-add -app-id "Firefox" -title "About Mozilla Firefox" float
+riverctl rule-add -app-id "Firefox" -title "Library" float
+riverctl rule-add -app-id "thunar" -title "File Operation Progress" float
+riverctl rule-add -app-id "thunar" -title "Confirm to replace files" float
+riverctl rule-add -app-id "brave-mail.*" float
+riverctl rule-add -app-id "brave-calendar.*" float
 riverctl rule-add -app-id "GParted" float
 riverctl rule-add -app-id "KeePassXC" -title "Browser Access Request" float
 riverctl rule-add -app-id "KeePassXC" -title "Passkey credentials" float
 riverctl rule-add -app-id "blueman-manager" float
 riverctl rule-add -app-id "floatterm" float
-riverctl rule-add -app-id "galculator"  float
+riverctl rule-add -app-id "galculator" float
 riverctl rule-add -app-id "imv" float
 riverctl rule-add -app-id "mpv" float
 riverctl rule-add -app-id "nm-connection-editor" float
@@ -198,59 +215,65 @@ riverctl rule-add -title "Picture-in-Picture" float
 riverctl rule-add -title "gtk*" float
 riverctl rule-add -title "popup title with spaces" float
 riverctl rule-add -title "zoom" float
-
-riverctl rule-add -app-id float float
+riverctl rule-add -app-id "float-*" float
 
 # Decorations
 riverctl rule-add ssd
 riverctl rule-add -app-id "steam" csd
 
-####################
-# Special-workspaces
-####################
+########################
+# "Special-workspaces"
+########################
+
+scratchpad="$HOME/.config/river/scripts/scratchpads.sh"
 terminal_tag=$((1 << 11))
 secrets_tag=$((1 << 12))
 chat_tag=$((1 << 13))
-scratchpad="$HOME/.config/river/scripts/scratchpads.sh"
+dyn_tag=$((1 << 20))
+
+scratch_tags=$((terminal_tag | secrets_tag | dyn_tag | chat_tag))
+all_but_scratch_tag=$((((1 << 32) - 1) ^ $scratch_tags))
+riverctl spawn-tagmask ${all_but_scratch_tag}
 riverctl map normal Super+Shift R spawn "$scratchpad lf"
 riverctl map normal Super+Shift E spawn "$scratchpad nvim"
 riverctl map normal Super+Shift T spawn "$scratchpad term"
 riverctl map normal Super F5 spawn "$scratchpad keepassxc"
 riverctl map normal Super F6 spawn "$scratchpad discord"
 
-#####################
-# Dynamic scratchpads
-#####################
-dyn_tag=$((1 << 20 ))
-riverctl spawn-tagmask $((((1 << 32) - 1) ^ dyn_tag | chat_tag))
+# Dynamic Sway-like scratchpad
+riverctl map normal Super C toggle-focused-tags "${chat_tag}"
 riverctl map normal Super Minus toggle-focused-tags "${dyn_tag}"
 riverctl map normal Super+Shift Minus set-view-tags "${dyn_tag}"
 
 ##########
 # Starters
 ##########
-riverctl spawn "dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY"
 
+riverctl spawn "dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY"
 
 executes="kanshi swayidle foot pipewire mako wl-paste swaybg /usr/libexec/polkit-gnome-authentication-agent-1"
 
 for execute in $executes; do
     pidof -q "$execute" && continue
     case $execute in
-        "foot") "$execute" -s & ;;
-        "wl-paste") "$execute" --watch cliphist -max-items 100 store &
-            ;;
-        "swaybg") "$execute" -m fill -i ~/.local/share/wall/bg &
-            ;;
-        "swayidle") "$execute" -w \
+    "foot") "$execute" -s & ;;
+    "wl-paste")
+        "$execute" --watch cliphist -max-items 100 store &
+        ;;
+    "swaybg")
+        "$execute" -m fill -i ~/.local/share/wall/bg &
+        ;;
+    "swayidle")
+        "$execute" -w \
             timeout 1800 "swaylock" \
             timeout 3600 "wlopm --off '*'" resume "wlopm --on '*'" \
             before-sleep "swaylock" &
-                    ;;
-                *) "$execute" &
-                    ;;
-            esac
-        done >/dev/null 2>&1
+        ;;
+    *)
+        "$execute" &
+        ;;
+    esac
+done >/dev/null 2>&1
 
 pkill -f waybar
 waybar &
@@ -258,6 +281,7 @@ waybar &
 ########
 # Layout
 ########
+
 riverctl default-attach-mode bottom
 riverctl default-layout rivertile
 rivertile -view-padding 5 -outer-padding 0 &
