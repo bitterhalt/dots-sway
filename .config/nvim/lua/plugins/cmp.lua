@@ -26,10 +26,10 @@ return {
             },
 
             -- Bordered window
-            window = {
-                completion = cmp.config.window.bordered(),
-                documentation = cmp.config.window.bordered(),
-            },
+            --   window = {
+            --       completion = cmp.config.window.bordered(),
+            --       documentation = cmp.config.window.bordered(),
+            --   },
 
             mapping = cmp.mapping.preset.insert({
                 ["<C-d>"] = cmp.mapping.scroll_docs(-4),

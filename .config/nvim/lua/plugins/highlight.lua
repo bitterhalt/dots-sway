@@ -6,6 +6,7 @@ return {
         main = "nvim-treesitter.configs",
         build = ":TSUpdate",
         opts = {
+            ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "html" },
             auto_install = true,
             ignore_install = { "latex" },
             highlight = {

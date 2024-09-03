@@ -10,7 +10,17 @@ return {
             { '<C-p>', "<CMD>MarkdownPreviewToggle<CR>", desc = "Toggle Markdown Preview" },
         },
     },
-
+    {
+        "OXY2DEV/markview.nvim",
+        ft = "markdown",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+            "nvim-tree/nvim-web-devicons"
+        },
+        keys = {
+            { "<leader>mt", "<cmd>Markview<CR>", desc = "Toggle markview" },
+        }
+    },
     -- Obsidian-nvim
     {
         "epwalsh/obsidian.nvim",
@@ -28,7 +38,7 @@ return {
                 },
             },
             ui = {
-                enable = true
+                enable = false
             },
             daily_notes = {
                 folder = "daily_note",
@@ -48,7 +58,9 @@ return {
         },
         keys = {
             { "<leader>os",  "<cmd>ObsidianSearch<CR>",      desc = "Open obsidian search menu" },
-            { "<leader>of",  "<cmd>ObsidianQuickSwitch<CR>", desc = "Open obsidian quick switch menu" },
+            { "<leader>os",  "<cmd>ObsidianSearch<CR>",      desc = "Open obsidian search menu" },
+            { "<leader>of",  "<cmd>ObsidianLinks<CR>",       desc = "Open obsidian links menu" },
+            { "<leader>oq",  "<cmd>ObsidianQuickSwitch<CR>", desc = "Open Obsidian Quick Switch menu" },
             { "<leader>ot",  "<cmd>ObsidianTags<CR>",        desc = "Open obsidian tag finder" },
             { "<leader>obl", "<Cmd>ObsidianBacklinks<CR>",   desc = "Open backlinks menu for current note" },
             { "<leader>obr", "<Cmd>ObsidianRename<CR>",      desc = "Rename Note" },
