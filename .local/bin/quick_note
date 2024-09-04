@@ -9,8 +9,9 @@ nvim -c "norm Go## $(date +%H:%M)" \
   -c "startinsert" $tempFile
 
 if [ -s $tempFile ]; then
-  cat $tempFile >>$noteFilename
+  cat $tempFile >> $noteFilename
   notify-send "Quick note" "Saved to $noteFilename"
 fi
 
 rm $tempFile
+
