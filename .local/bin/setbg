@@ -7,16 +7,16 @@ set -euo pipefail
 bg="${HOME}/.local/share/wall/bg"
 
 if [ "${1:-}" ]; then
-    file=$(readlink -f "${1}")
+  file=$(readlink -f "${1}")
 
-    case $(file --mime-type --brief "${file}") in
-    image/*)
-        cp -f "${file}" "${bg}"
-        ;;
-    *)
-        exit 1
-        ;;
-    esac
+  case $(file --mime-type --brief "${file}") in
+  image/*)
+    cp -f "${file}" "${bg}"
+    ;;
+  *)
+    exit 1
+    ;;
+  esac
 fi
 
 pidof swaybg && pkill swaybg

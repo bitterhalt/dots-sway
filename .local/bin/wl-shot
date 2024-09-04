@@ -12,50 +12,50 @@ TIMESTAMP=$(date +'%Y-%m-%d-%H-%M-%S')
 FILENAME="$SAVEDIR/${TIMESTAMP}_screenshot.png"
 
 fullscreen() {
-    grim "$FILENAME"
-    notify-send "Screenshot" "File saved as $SAVEDIR" -i "$FILENAME"
-    wl-copy <"$FILENAME"
+  grim "$FILENAME"
+  notify-send "Screenshot" "File saved as $SAVEDIR" -i "$FILENAME"
+  wl-copy <"$FILENAME"
 }
 
 region() {
-    grim -g "$(slurp)" "$FILENAME"
-    notify-send "Screenshot" "File saved as $SAVEDIR" -i "$FILENAME"
-    wl-copy <"$FILENAME"
+  grim -g "$(slurp)" "$FILENAME"
+  notify-send "Screenshot" "File saved as $SAVEDIR" -i "$FILENAME"
+  wl-copy <"$FILENAME"
 }
 
 region-edit() {
-    grim -g "$(slurp)" - | swappy -f -
+  grim -g "$(slurp)" - | swappy -f -
 }
 
 timer() {
-    sleep 5
-    grim "$FILENAME"
-    notify-send "Screenshot" "File saved as $SAVEDIR" -i "$FILENAME"
-    wl-copy <"$FILENAME"
+  sleep 5
+  grim "$FILENAME"
+  notify-send "Screenshot" "File saved as $SAVEDIR" -i "$FILENAME"
+  wl-copy <"$FILENAME"
 }
 
 print_help() {
-    echo "Usage: wl-shot [options]"
-    echo "Options:"
-    echo "  -f,  --fullscreen           Capture the fullscreen."
-    echo "  -r,  --region               Select a region to capture."
-    echo "  -re, --fullscreen-edit      Capture region and edit output with swappy"
-    echo "  -t,  --timer                Capture fullscreen after a 3-second delay."
-    echo "  -h,  --help                 Show this help message."
+  echo "Usage: wl-shot [options]"
+  echo "Options:"
+  echo "  -f,  --fullscreen           Capture the fullscreen."
+  echo "  -r,  --region               Select a region to capture."
+  echo "  -re, --fullscreen-edit      Capture region and edit output with swappy"
+  echo "  -t,  --timer                Capture fullscreen after a 3-second delay."
+  echo "  -h,  --help                 Show this help message."
 }
 
 while [[ $# -gt 0 ]]; do
-    case "$1" in
-    -f | --fullscreen) fullscreen ;;
-    -r | --region) region ;;
-    -re | --region-edit) region-edit ;;
-    -t | --timer) timer ;;
-    -h | --help) print_help ;;
-    *)
-        echo "Unknown option: $1"
-        print_help
-        exit 1
-        ;;
-    esac
-    shift
+  case "$1" in
+  -f | --fullscreen) fullscreen ;;
+  -r | --region) region ;;
+  -re | --region-edit) region-edit ;;
+  -t | --timer) timer ;;
+  -h | --help) print_help ;;
+  *)
+    echo "Unknown option: $1"
+    print_help
+    exit 1
+    ;;
+  esac
+  shift
 done

@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-# Spit log
+# Logging
 LOGFILE=~/.local/state/.riverlog
-exec 1> $LOGFILE 2>&1
-echo "River Starting: $( date )"
+exec 1>$LOGFILE 2>&1
+echo "River Starting: $(date)"
 set -x
 
 # Defaults
