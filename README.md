@@ -9,7 +9,7 @@ There are no install scripts and things are bit messy, so I wouldn't recommend c
 - WM: [River](https://codeberg.org/river/river)
 - Bar: [Waybar](https://github.com/Alexays/Waybar)
 - Fonts: JetBrains Mono
-- Theme: Mostly mix of colours that are looking good to my eyes.
+- GTK-theme: [adw-gtk3](https://github.com/lassekongo83/adw-gtk3)
 - Symbols and icons: [Nerd Font Symbols](https://www.nerdfonts.com/)
 - Image Viewer: [imv](https://sr.ht/~exec64/imv/)
 - Media Player: [mpv](https://mpv.io/)
