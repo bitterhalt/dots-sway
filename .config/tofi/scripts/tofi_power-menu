@@ -1,0 +1,44 @@
+#!/bin/bash
+# https://github.com/bitterhalt
+set -euo pipefail
+
+CONFIRM="tofi --text-cursor false \
+        --anchor top \
+        --font-size 13 \
+        --prompt-text "Sure?" \
+        --width 100% \
+        --height 130 \
+        --padding-top 10 \
+        --padding-left 10 \
+        --hide-cursor true"
+
+case $(printf "%s\n" "Lock"  "Logout" "Suspend" "Reboot" "Shutdown" | tofi --text-cursor false \
+    --anchor top \
+    --font-size 13 \
+    --prompt-text "Quit? " \
+    --height 220 \
+    --padding-top 10 \
+    --padding-left 10 \
+    --width 100% ) in
+ "Shutdown")
+    confirm=$(echo -e "Yes\nNo" | $CONFIRM )
+    if [[ "$confirm" == "Yes" ]]; then
+        loginctl poweroff
+    fi
+    ;;
+"Reboot")
+    confirm=$(echo -e "Yes\nNo" | $CONFIRM )
+    if [[ "$confirm" == "Yes" ]]; then
+        loginctl reboot
+    fi
+    ;;
+"Suspend")
+    loginctl suspend
+    ;;
+"Lock")
+    $HOME/.config/sway/scripts/screenlocker
+    ;;
+"Logout")
+    loginctl terminate-session "${XDG_SESSION_ID-}"
+    ;;
+esac

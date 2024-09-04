@@ -4,16 +4,16 @@ set -euo pipefail
 
 case "${1:-}" in
 up)
-  wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
-  wpctl set-volume -l 1.1 @DEFAULT_AUDIO_SINK@ 5%+
-  ;;
+    wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
+    wpctl set-volume -l 1.1 @DEFAULT_AUDIO_SINK@ 5%+
+    ;;
 down)
-  wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
-  wpctl set-volume -l 1.1 @DEFAULT_AUDIO_SINK@ 5%-
-  ;;
+    wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
+    wpctl set-volume -l 1.1 @DEFAULT_AUDIO_SINK@ 5%-
+    ;;
 mute)
-  wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-  ;;
+    wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+    ;;
 esac
 
 vol="$(wpctl get-volume @DEFAULT_AUDIO_SINK@)"
@@ -24,10 +24,10 @@ vol="$(wpctl get-volume @DEFAULT_AUDIO_SINK@)"
 vol="${vol#Volume: }"
 
 split() {
-  # For ommiting the . without calling and external program.
-  IFS=$2
-  set -- $1
-  printf '%s' "$@"
+    # For ommiting the . without calling and external program.
+    IFS=$2
+    set -- $1
+    printf '%s' "$@"
 }
 
 vol="$(printf "%.0f" "$(split "$vol" ".")")"
@@ -38,7 +38,7 @@ $((vol >= 1))) text="Vol:" ;;
 esac
 
 notify-send \
-  -t 1000 \
-  -a vol_notify \
-  "$text $vol%" \
-  -h string:x-canonical-private-synchronous:volume
+    -t 1000 \
+    -a vol_notify \
+    "$text $vol%" \
+    -h string:x-canonical-private-synchronous:volume

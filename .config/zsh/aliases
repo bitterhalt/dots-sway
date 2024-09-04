@@ -8,7 +8,7 @@ alias vpm='vpm --color=yes'
 #alias cleanup='sudo pacman -Rns $(pacman -Qtdq)' # remove orphaned packages
 #alias pacs='sudo pacman -S'                      # Install standard pkg
 #alias pacsyu='sudo pacman -Syu'                  # Update the system and upgrade all system packages
-#alias pacsyy='sudo pacman -Syy'                  # update the software database
+#alias pacsyy='sudo pacman -Syy'			         # update the software database
 #alias pacsyyu='sudo pacman -Syyu'                # synchronize with the repositories and update the system
 #alias pacdifc='sudo DIFFPROG=meld pacdiff'       # merge or remove pacnew files
 #alias yep='yay -Pw && yay'                       # Show Arch news before update

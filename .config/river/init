@@ -23,9 +23,9 @@ run="bemenu_runner run --no-exec -B1 -n -p "run:" -l10  | xargs riverctl spawn >
 sig_1="pkill -RTMIN+1 waybar"
 sig_2="pkill -RTMIN+2 waybar"
 
-########
+#########
 # INPUTS
-########
+#########
 
 # Find your inputs by typing "riverctl list-inputs"
 mouse="pointer-9610-54-Glorious_Model_O"
@@ -66,7 +66,7 @@ riverctl map normal Super T spawn "$fterm -W 100x30 -e nvim ~/Documents/personal
 riverctl map normal Super+Shift Delete spawn "$fterm -W 120x35 -e htop"
 riverctl map normal Super+Shift C spawn "bemenu_clipboard"
 riverctl map normal Super+Control C spawn "bemenu_clipboard wipe"
-riverctl map normal Super F12 spawn "~/.config/river/scripts/dot-settings.sh"
+riverctl map normal Super F12 spawn "~/.config/river/scripts/dot-settings"
 
 #############
 # RIVER BINDS
@@ -160,19 +160,19 @@ riverctl map normal None XF86Calculator spawn "galculator"
 
 # Focus between tags
 for i in $(seq 1 9); do
-  tags=$((1 << ($i - 1)))
+    tags=$((1 << ($i - 1)))
 
-  # Super+[1-9] to focus tag [0-8]
-  riverctl map normal Super $i set-focused-tags $tags
+    # Super+[1-9] to focus tag [0-8]
+    riverctl map normal Super $i set-focused-tags $tags
 
-  # Super+Shift+[1-9] to tag focused view with tag [0-8]
-  riverctl map normal Super+Shift $i set-view-tags $tags
+    # Super+Shift+[1-9] to tag focused view with tag [0-8]
+    riverctl map normal Super+Shift $i set-view-tags $tags
 
-  # Super+Control+[1-9] to toggle focus of tag [0-8]
-  riverctl map normal Super+Control $i toggle-focused-tags $tags
+    # Super+Control+[1-9] to toggle focus of tag [0-8]
+    riverctl map normal Super+Control $i toggle-focused-tags $tags
 
-  # Super+Shift+Control+[1-9] to toggle tag [0-8] of focused view
-  riverctl map normal Super+Shift+Control $i toggle-view-tags $tags
+    # Super+Shift+Control+[1-9] to toggle tag [0-8] of focused view
+    riverctl map normal Super+Shift+Control $i toggle-view-tags $tags
 done
 
 all_tags=$(((1 << 32) - 1))
@@ -180,7 +180,7 @@ all_tags=$(((1 << 32) - 1))
 riverctl map normal Super 0 set-focused-tags $all_tags
 riverctl map normal Super+Shift 0 set-view-tags $all_tags
 
-#############
+##############
 # SCRATCHPADS
 #############
 
@@ -218,9 +218,9 @@ riverctl border-color-urgent 0xa2191f
 riverctl border-color-unfocused 0x262626
 riverctl border-width 1
 
-#######
+########
 # RULES
-#######
+########
 
 # Spawn to
 riverctl rule-add -app-id "Thunderbird" tags $((1 << (3 - 1)))
@@ -264,7 +264,7 @@ riverctl rule-add -app-id "float-*" float
 riverctl rule-add ssd
 riverctl rule-add -app-id "steam" csd
 
-#######
+########
 # START
 #######
 
@@ -273,25 +273,25 @@ riverctl spawn "dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY"
 executes="kanshi swayidle foot pipewire mako wl-paste swaybg /usr/libexec/polkit-gnome-authentication-agent-1"
 
 for execute in $executes; do
-  pidof -q "$execute" && continue
-  case $execute in
-  "foot") "$execute" -s & ;;
-  "wl-paste")
-    "$execute" --watch cliphist -max-items 100 store &
-    ;;
-  "swaybg")
-    "$execute" -m fill -i ~/.local/share/wall/bg &
-    ;;
-  "swayidle")
-    "$execute" -w \
-      timeout 1800 "swaylock" \
-      timeout 3600 "wlopm --off '*'" resume "wlopm --on '*'" \
-      before-sleep "swaylock" &
-    ;;
-  *)
-    "$execute" &
-    ;;
-  esac
+    pidof -q "$execute" && continue
+    case $execute in
+    "foot") "$execute" -s & ;;
+    "wl-paste")
+        "$execute" --watch cliphist -max-items 100 store &
+        ;;
+    "swaybg")
+        "$execute" -m fill -i ~/.local/share/wall/bg &
+        ;;
+    "swayidle")
+        "$execute" -w \
+            timeout 1800 "swaylock" \
+            timeout 3600 "wlopm --off '*'" resume "wlopm --on '*'" \
+            before-sleep "swaylock" &
+        ;;
+    *)
+        "$execute" &
+        ;;
+    esac
 done >/dev/null 2>&1
 
 pkill -f waybar
@@ -300,5 +300,5 @@ waybar &
 riverctl default-attach-mode bottom
 riverctl default-layout rivertile
 if ! pgrep -x "rivertile" >/dev/null; then
-  rivertile -view-padding 5 -outer-padding 0 &
+    rivertile -view-padding 5 -outer-padding 0 &
 fi

@@ -3,8 +3,8 @@
 LOCK_FILE="/tmp/hyprpicker.lock"
 
 if [ -f "$LOCK_FILE" ]; then
-  echo "Script is already running."
-  exit 1
+    echo "Script is already running."
+    exit 1
 fi
 
 touch "$LOCK_FILE"
