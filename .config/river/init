@@ -3,8 +3,14 @@
 #### Many of the ideas are stolen from: https://github.com/SwayKh/dotfiles/blob/main/river/init
 ## So if you like the way this works, consider dropping a *star* on the original author ^
 
+# Links to default init and wiki if you get lost
+# https://codeberg.org/river/river/src/branch/master/example/init
+# https://codeberg.org/river/wiki
+
+# HAVE FUN!
+
 #########
-# Options
+# OPTIONS
 #########
 
 term="footclient" # If you want single instance change: "footclient" > "foot"
@@ -14,7 +20,7 @@ drun="j4-dmenu-desktop --dmenu='bemenu_runner -B1 -n -l10 -p drun:'"
 run="bemenu_runner run --no-exec -B1 -n -p "run:" -l10  | xargs riverctl spawn >/dev/null 2>&1"
 
 #########
-# Inputs
+# INPUTS
 #########
 
 # Find your inputs by typing "priverctl list-inputs"
@@ -26,7 +32,7 @@ riverctl input "$mouse" accel-profile flat
 riverctl input "$mouse" pointer-accel 0
 
 ########
-# Launch
+# LAUNCH
 ########
 
 riverctl map normal Super D spawn "$drun"
@@ -59,7 +65,7 @@ riverctl map normal Super+Control C spawn "bemenu_clipboard wipe"
 riverctl map normal Super F12 spawn "~/.config/river/scripts/dot-settings"
 
 #############
-# River binds
+# RIVER BINDS
 #############
 
 # Close the focused view
@@ -96,6 +102,7 @@ riverctl map normal Super L send-layout-cmd rivertile "main-ratio +0.05"
 riverctl map normal Super H send-layout-cmd rivertile "main-ratio -0.05"
 riverctl map normal Super Right send-layout-cmd rivertile "main-ratio +0.05"
 riverctl map normal Super Left send-layout-cmd rivertile "main-ratio -0.05"
+
 # Increment/decrement the main count of rivertile(1)
 riverctl map normal Super+Shift Prior send-layout-cmd rivertile "main-count +1"
 riverctl map normal Super+Shift Next send-layout-cmd rivertile "main-count -1"
@@ -121,6 +128,33 @@ riverctl map-pointer normal Super BTN_RIGHT resize-view
 # Super + Middle Mouse Button to toggle float
 riverctl map-pointer normal Super BTN_MIDDLE toggle-float
 
+# Super+Space to toggle float
+riverctl map normal Super Space toggle-float
+
+# Super+F to toggle fullscreen
+riverctl map normal Super F toggle-fullscreen
+
+# Use cursed arrow keys: Super+Alt{F10,F12,F11,F9} to change layout orientation
+riverctl map normal Super+Alt F10 send-layout-cmd rivertile "main-location top"
+riverctl map normal Super+Alt F12 send-layout-cmd rivertile "main-location right"
+riverctl map normal Super+Alt F11 send-layout-cmd rivertile "main-location bottom"
+riverctl map normal Super+Alt F9 send-layout-cmd rivertile "main-location left"
+
+# Media keys
+riverctl map -repeat normal None XF86AudioRaiseVolume spawn "~/.config/river/scripts/volume-thing.sh up"
+riverctl map -repeat normal None XF86AudioLowerVolume spawn "~/.config/river/scripts/volume-thing.sh down"
+riverctl map normal None XF86AudioMute spawn "~/.config/river/scripts/volume-thing.sh mute"
+riverctl map normal None XF86AudioMedia spawn "playerctl play-pause"
+riverctl map normal None XF86AudioPlay spawn "playerctl play-pause"
+riverctl map normal None XF86AudioPrev spawn "playerctl previous"
+riverctl map normal None XF86AudioNext spawn "playerctl next"
+riverctl map normal None XF86Calculator spawn "galculator"
+
+######
+# TAGS
+######
+
+# Focus between tags
 for i in $(seq 1 9); do
     tags=$((1 << ($i - 1)))
 
@@ -137,54 +171,59 @@ for i in $(seq 1 9); do
     riverctl map normal Super+Shift+Control $i toggle-view-tags $tags
 done
 
-# Super+0 to focus all tags
-# Super+Shift+0 to tag focused view with all tags
 all_tags=$(((1 << 32) - 1))
+# Super+0 to focus all tags / Super+Shift+0 to tag focused view with all tags
 riverctl map normal Super 0 set-focused-tags $all_tags
 riverctl map normal Super+Shift 0 set-view-tags $all_tags
 
-# Super+Space to toggle float
-riverctl map normal Super Space toggle-float
+##############
+# SCRATCHPADS
+#############
 
-# Super+F to toggle fullscreen
-riverctl map normal Super F toggle-fullscreen
+terminal_tag=$((1 << 11))
+secrets_tag=$((1 << 12))
+chat_tag=$((1 << 13))
+dyn_tag=$((1 << 14))
 
-# Use cursed arrow keys: Super+Alt{F10,F12,F11,F9} to change layout orientation
-riverctl map normal Super+Alt F10 send-layout-cmd rivertile "main-location top"
-riverctl map normal Super+Alt F12 send-layout-cmd rivertile "main-location right"
-riverctl map normal Super+Alt F11 send-layout-cmd rivertile "main-location bottom"
-riverctl map normal Super+Alt F9 send-layout-cmd rivertile "main-location left"
+scratch_tags=$((terminal_tag | secrets_tag | dyn_tag | chat_tag))
+all_but_scratch_tag=$((((1 << 32) - 1) ^ $scratch_tags))
+riverctl spawn-tagmask ${all_but_scratch_tag}
 
-# Various media keys
-riverctl map -repeat normal None XF86AudioRaiseVolume spawn "~/.config/river/scripts/volume-thing.sh up"
-riverctl map -repeat normal None XF86AudioLowerVolume spawn "~/.config/river/scripts/volume-thing.sh down"
-riverctl map normal None XF86AudioMute spawn "~/.config/river/scripts/volume-thing.sh mute"
-riverctl map normal None XF86AudioMedia spawn "playerctl play-pause"
-riverctl map normal None XF86AudioPlay spawn "playerctl play-pause"
-riverctl map normal None XF86AudioPrev spawn "playerctl previous"
-riverctl map normal None XF86AudioNext spawn "playerctl next"
-riverctl map normal None XF86Calculator spawn "galculator"
+# Spawn hidden workspaces
+scratchpad="$HOME/.config/river/scripts/scratchpads.sh"
+riverctl map normal Super+Shift R spawn "$scratchpad lf"
+riverctl map normal Super+Shift E spawn "$scratchpad nvim"
+riverctl map normal Super+Shift T spawn "$scratchpad term"
+riverctl map normal Super F5 spawn "$scratchpad keepassxc"
+riverctl map normal Super F6 spawn "$scratchpad discord"
+
+# Send windows to the scratchpad
+riverctl map normal Super+Shift Minus set-view-tags "${dyn_tag}"
+# Toggle the scratchpad(s)
+riverctl map normal Super Minus toggle-focused-tags "${dyn_tag}"
+riverctl map normal Super C toggle-focused-tags "${chat_tag}"
+#riverctl map normal Super C toggle-focused-tags "${secrets_tag}"
 
 ########
-# Colors
+# COLORS
 ########
 
 riverctl background-color 0x000000
 riverctl border-color-focused 0xBE95FF
-border-color-urgent 0xa2191f
+riverctl border-color-urgent 0xa2191f
 riverctl border-color-unfocused 0x262626
 riverctl border-width 1
 
-######
-#Rules
-######
+########
+# RULES
+########
 
-# Tags
+# Spawn to
 riverctl rule-add -app-id "Thunderbird" tags $((1 << (3 - 1)))
 riverctl rule-add -app-id "Signal" tags $((1 << (3 - 1)))
 riverctl rule-add -app-id "Firefox" tags $((1 << (2 - 1)))
 riverctl rule-add -app-id "steam" tags $((1 << (5 - 1)))
-#riverctl rule-add -app-id "com.discordapp.Discord" tags tags $((1 << (6 - 1)))
+#riverctl rule-add -app-id "com.discordapp.Discord" tags $chat_tag
 riverctl rule-add -app-id "virt-manager" tags $((1 << (8 - 1)))
 riverctl rule-add -app-id "com.transmissionbt.transmission_*" tags $((1 << (4 - 1)))
 
@@ -221,33 +260,9 @@ riverctl rule-add -app-id "float-*" float
 riverctl rule-add ssd
 riverctl rule-add -app-id "steam" csd
 
-########################
-# "Special-workspaces"
-########################
-
-scratchpad="$HOME/.config/river/scripts/scratchpads.sh"
-terminal_tag=$((1 << 11))
-secrets_tag=$((1 << 12))
-chat_tag=$((1 << 13))
-dyn_tag=$((1 << 20))
-
-scratch_tags=$((terminal_tag | secrets_tag | dyn_tag | chat_tag))
-all_but_scratch_tag=$((((1 << 32) - 1) ^ $scratch_tags))
-riverctl spawn-tagmask ${all_but_scratch_tag}
-riverctl map normal Super+Shift R spawn "$scratchpad lf"
-riverctl map normal Super+Shift E spawn "$scratchpad nvim"
-riverctl map normal Super+Shift T spawn "$scratchpad term"
-riverctl map normal Super F5 spawn "$scratchpad keepassxc"
-riverctl map normal Super F6 spawn "$scratchpad discord"
-
-# Dynamic Sway-like scratchpad
-riverctl map normal Super C toggle-focused-tags "${chat_tag}"
-riverctl map normal Super Minus toggle-focused-tags "${dyn_tag}"
-riverctl map normal Super+Shift Minus set-view-tags "${dyn_tag}"
-
-##########
-# Starters
-##########
+########
+# START
+#######
 
 riverctl spawn "dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY"
 
@@ -279,7 +294,7 @@ pkill -f waybar
 waybar &
 
 ########
-# Layout
+# LAYOUT
 ########
 
 riverctl default-attach-mode bottom
