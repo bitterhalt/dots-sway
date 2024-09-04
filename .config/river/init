@@ -19,6 +19,10 @@ lf="foot -e lf"
 drun="j4-dmenu-desktop --dmenu='bemenu_runner -B1 -n -l10 -p drun:'"
 run="bemenu_runner run --no-exec -B1 -n -p "run:" -l10  | xargs riverctl spawn >/dev/null 2>&1"
 
+# Waybar signals
+sig_1="pkill -RTMIN+1 waybar"
+sig_2="pkill -RTMIN+2 waybar"
+
 #########
 # INPUTS
 #########
@@ -26,7 +30,7 @@ run="bemenu_runner run --no-exec -B1 -n -p "run:" -l10  | xargs riverctl spawn >
 # Find your inputs by typing "riverctl list-inputs"
 mouse="pointer-9610-54-Glorious_Model_O"
 
-riverctl keyboard-layout -options grp:sclk_toggle,caps:escape "fi"
+riverctl keyboard-layout -options caps:escape "fi"
 riverctl focus-follows-cursor normal
 riverctl input "$mouse" accel-profile flat
 riverctl input "$mouse" pointer-accel 0
@@ -45,12 +49,12 @@ riverctl map normal Super F2 spawn "noti_usage cpu"
 riverctl map normal Super F3 spawn "noti_usage ram"
 riverctl map normal Super F4 spawn "bemenu_killer"
 riverctl map normal Super F7 spawn "bemenu_screenshot"
-riverctl map normal Super F9 spawn "~/.config/river/scripts/mic-toggle.sh && pkill -RTMIN+2 waybar"
+riverctl map normal Super F9 spawn "~/.config/river/scripts/mic-toggle.sh && $sig_2"
 riverctl map normal Super F11 spawn "~/.config/river/scripts/locker.sh"
-riverctl map normal Super+Shift F11 spawn "~/.config/river/scripts/swayidle-toggle.sh && pkill -RTMIN+3 waybar"
+riverctl map normal Super+Shift F11 spawn "~/.config/river/scripts/swayidle-toggle.sh && $sig_1"
 riverctl map normal Super W spawn "firefox"
-riverctl map normal Super e spawn "thunar"
-riverctl map normal Super m spawn "thunderbird"
+riverctl map normal Super E spawn "thunar"
+riverctl map normal Super M spawn "thunderbird"
 riverctl map normal Super Print spawn "wl-shot -f"
 riverctl map normal Super+Shift Print spawn "wl-shot -re"
 riverctl map normal Super+Control P spawn "colorpicker_fancy"
@@ -223,7 +227,7 @@ riverctl rule-add -app-id "Thunderbird" tags $((1 << (3 - 1)))
 riverctl rule-add -app-id "Signal" tags $((1 << (3 - 1)))
 riverctl rule-add -app-id "Firefox" tags $((1 << (2 - 1)))
 riverctl rule-add -app-id "steam" tags $((1 << (5 - 1)))
-#riverctl rule-add -app-id "com.discordapp.Discord" tags $chat_tag
+riverctl rule-add -app-id "com.discordapp.Discord" tags $chat_tag
 riverctl rule-add -app-id "virt-manager" tags $((1 << (8 - 1)))
 riverctl rule-add -app-id "com.transmissionbt.transmission_*" tags $((1 << (4 - 1)))
 
@@ -293,10 +297,8 @@ done >/dev/null 2>&1
 pkill -f waybar
 waybar &
 
-########
-# LAYOUT
-########
-
 riverctl default-attach-mode bottom
 riverctl default-layout rivertile
-rivertile -view-padding 5 -outer-padding 0 &
+if ! pgrep -x "rivertile" >/dev/null; then
+    rivertile -view-padding 5 -outer-padding 0 &
+fi
