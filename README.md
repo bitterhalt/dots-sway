@@ -10,6 +10,7 @@ There are no install scripts and things are bit messy, so I wouldn't recommend c
 - Bar: [Waybar](https://github.com/Alexays/Waybar)
 - Fonts: JetBrains Mono
 - GTK-theme: [adw-gtk3](https://github.com/lassekongo83/adw-gtk3)
+- Icons: [Papirus Dark](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
 - Symbols and icons: [Nerd Font Symbols](https://www.nerdfonts.com/)
 - Image Viewer: [imv](https://sr.ht/~exec64/imv/)
 - Media Player: [mpv](https://mpv.io/)
