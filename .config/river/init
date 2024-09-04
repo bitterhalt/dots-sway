@@ -23,10 +23,10 @@ run="bemenu_runner run --no-exec -B1 -n -p "run:" -l10  | xargs riverctl spawn >
 # INPUTS
 #########
 
-# Find your inputs by typing "priverctl list-inputs"
+# Find your inputs by typing "riverctl list-inputs"
 mouse="pointer-9610-54-Glorious_Model_O"
 
-riverctl keyboard-layout "fi"
+riverctl keyboard-layout -options grp:sclk_toggle,caps:escape "fi"
 riverctl focus-follows-cursor normal
 riverctl input "$mouse" accel-profile flat
 riverctl input "$mouse" pointer-accel 0
