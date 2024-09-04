@@ -2,7 +2,7 @@
 set -euo pipefail
 
 if wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -qi 'MUTED'; then
-    echo ""
+  echo ""
 else
-    echo ""
+  echo ""
 fi

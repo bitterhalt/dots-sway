@@ -113,9 +113,9 @@
     "custom/useless": {
         "interval": "once",
         "format": "",
-        "tooltip-format": "<b>Useless module</b>\n left or  + D opens appmenu\n middle checks updates\n right or  + F12 opens setting menu",
+        "tooltip-format": " left or  + D opens appmenu\n middle checks updates\n right or  + F12 opens setting menu",
         "on-click": "j4-dmenu-desktop --dmenu='bemenu_runner -B1 -n -l10 -p drun:'",
-        "on-click-right": "~/.config/river/scripts/dot-settings",
+        "on-click-right": "~/.config/river/scripts/dot-settings.sh",
         "on-click-middle": "$TERMINAL -a floatterm -e ~/.local/bin/popupgrade"
     },
     "custom/mic": {
