@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 # Riverctl script to open scratchpads, and open programs if Scratchpads are
 # empty. Usage "./scratchpads.sh <term|lf|nvim>"
-#
 # Check if an argument is provided
+
 if [ -z "$1" ]; then
-    echo "Error: No argument provided."
-    exit 1
+  echo "Error: No argument provided."
+  exit 1
 fi
 term="foot"
 term="$term --app-id special-term"
@@ -17,35 +17,35 @@ secrets_tag=$((1 << 12))
 chat_tag=$((1 << 13))
 case "$1" in
 "term")
-    search="special-term"
-    tag="$terminal_tag"
-    cmd="$term"
-    ;;
+  search="special-term"
+  tag="$terminal_tag"
+  cmd="$term"
+  ;;
 "lf")
-    search="special-lf"
-    tag="$terminal_tag"
-    cmd="$lf"
-    ;;
+  search="special-lf"
+  tag="$terminal_tag"
+  cmd="$lf"
+  ;;
 "nvim")
-    search="special-nvim"
-    tag="$terminal_tag"
-    cmd="$nvim"
-    ;;
+  search="special-nvim"
+  tag="$terminal_tag"
+  cmd="$nvim"
+  ;;
 "keepassxc")
-    search="keepassxc"
-    tag="$secrets_tag"
-    cmd="keepassxc"
-    ;;
+  search="keepassxc"
+  tag="$secrets_tag"
+  cmd="keepassxc"
+  ;;
 "discord")
-    search="discord"
-    tag="$chat_tag"
-    cmd="flatpak run com.discordapp.Discord"
-    ;;
+  search="discord"
+  tag="$chat_tag"
+  cmd="flatpak run com.discordapp.Discord"
+  ;;
 esac
 
 if lswt | grep -q "$search"; then
-    riverctl set-focused-tags "$tag"
+  riverctl set-focused-tags "$tag"
 else
-    riverctl spawn "$cmd"
-    riverctl set-focused-tags "$tag"
+  riverctl spawn "$cmd"
+  riverctl set-focused-tags "$tag"
 fi

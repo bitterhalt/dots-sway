@@ -12,46 +12,46 @@ TIMESTAMP=$(date +'%Y-%m-%d-%H-%M-%S')
 FILENAME="$SAVEDIR/${TIMESTAMP}_capture.mp4"
 
 fullscreen() {
-    wf-recorder \
-        -r 30 \
-        -c libx264rgb \
-        -f "$FILENAME"
-    notify-send "Screen record" "File saved as $SAVEDIR" -i "$FILENAME"
+  wf-recorder \
+    -r 30 \
+    -c libx264rgb \
+    -f "$FILENAME"
+  notify-send "Screen record" "File saved as $SAVEDIR" -i "$FILENAME"
 }
 
 region() {
-    wf-recorder \
-        -r 30 \
-        -c libx264rgb \
-        -g "$(slurp)" \
-        -f "$FILENAME"
-    notify-send "Screen record" "File saved as $SAVEDIR" -i "$FILENAME"
+  wf-recorder \
+    -r 30 \
+    -c libx264rgb \
+    -g "$(slurp)" \
+    -f "$FILENAME"
+  notify-send "Screen record" "File saved as $SAVEDIR" -i "$FILENAME"
 }
 
 kill() {
-    killall -s SIGINT wf-recorder
+  killall -s SIGINT wf-recorder
 }
 
 print_help() {
-    echo "Usage: wl-record [options]"
-    echo "Options:"
-    echo "  -f, --fullscreen   Capture the fullscreen."
-    echo "  -r, --region       Select a region to capture."
-    echo "  -k, --kill         Kill record"
-    echo "  -h, --help         Show this help message."
+  echo "Usage: wl-record [options]"
+  echo "Options:"
+  echo "  -f, --fullscreen   Capture the fullscreen."
+  echo "  -r, --region       Select a region to capture."
+  echo "  -k, --kill         Kill record"
+  echo "  -h, --help         Show this help message."
 }
 
 while [[ $# -gt 0 ]]; do
-    case "$1" in
-    -f | --fullscreen) fullscreen ;;
-    -r | --region) region ;;
-    -k | --kill) kill ;;
-    -h | --help) print_help ;;
-    *)
-        echo "Unknown option: $1"
-        print_help
-        exit 1
-        ;;
-    esac
-    shift
+  case "$1" in
+  -f | --fullscreen) fullscreen ;;
+  -r | --region) region ;;
+  -k | --kill) kill ;;
+  -h | --help) print_help ;;
+  *)
+    echo "Unknown option: $1"
+    print_help
+    exit 1
+    ;;
+  esac
+  shift
 done

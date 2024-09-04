@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
 command -v jq >/dev/null 2>&1 || {
-    echo >&2 "Program 'jq' required but it is not installed. Aborting."
-    exit 1
+  echo >&2 "Program 'jq' required but it is not installed. Aborting."
+  exit 1
 }
 command -v curl >/dev/null 2>&1 || {
-    echo >&2 "Program 'curl' required but is not installed. Aborting."
-    exit 1
+  echo >&2 "Program 'curl' required but is not installed. Aborting."
+  exit 1
 }
 
 # To use this script you need to create an API key: https://home.openweathermap.org
@@ -33,29 +33,29 @@ CURRENT_TIME=$(date +%s)
 
 case $WEATHER_CONDITION in
 'Thunderstorm')
-    WEATHER_ICON="⛈️"
-    ;;
+  WEATHER_ICON="⛈️"
+  ;;
 'Clouds')
-    WEATHER_ICON="☁️"
-    ;;
+  WEATHER_ICON="☁️"
+  ;;
 'Rain')
-    WEATHER_ICON="☔"
-    ;;
+  WEATHER_ICON="☔"
+  ;;
 'Snow')
-    WEATHER_ICON="🌨️"
-    ;;
+  WEATHER_ICON="🌨️"
+  ;;
 *)
-    # Check if it's day or night
-    CURRENT_TIME=$(date +%s)
-    if [ "$CURRENT_TIME" -ge "$SUNRISE" ] && [ "$CURRENT_TIME" -lt "$SUNSET" ]; then
-        # Daytime
-        WEATHER_ICON="🌞"
-    else
-        # Nighttime
-        WEATHER_ICON="🌜"
-    fi
-    ;;
+  # Check if it's day or night
+  CURRENT_TIME=$(date +%s)
+  if [ "$CURRENT_TIME" -ge "$SUNRISE" ] && [ "$CURRENT_TIME" -lt "$SUNSET" ]; then
+    # Daytime
+    WEATHER_ICON="🌞"
+  else
+    # Nighttime
+    WEATHER_ICON="🌜"
+  fi
+  ;;
 esac
 notify-send -t 8000 -a weather_notify "Weather: ${CITY_NAME}" "$(
-    printf "$WEATHER_ICON $WEATHER_CONDITION $WEATHER_TEMP°C\n🌈 Feels like $FEELS_LIKE_TEMP\n🌞 Sunrise: $(date -d @"$SUNRISE" '+%H:%M')\n🌙 Sunset: $(date -d @"$SUNSET" '+%H:%M')"
+  printf "$WEATHER_ICON $WEATHER_CONDITION $WEATHER_TEMP°C\n🌈 Feels like $FEELS_LIKE_TEMP\n🌞 Sunrise: $(date -d @"$SUNRISE" '+%H:%M')\n🌙 Sunset: $(date -d @"$SUNSET" '+%H:%M')"
 )"
