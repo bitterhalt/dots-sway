@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Small helper script to record your desktop on sway
 # Depends on: wf-recoder, and slurp

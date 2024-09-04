@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 #### Many of the ideas are stolen from: https://github.com/SwayKh/dotfiles/blob/main/river/init
 ## So if you like the way this works, consider dropping a *star* on the original author ^

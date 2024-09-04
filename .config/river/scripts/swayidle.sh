@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 swayidle -w \
     timeout 1800 "swaylock" \

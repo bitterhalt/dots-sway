@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Times the screen off and puts it to background
 swayidle \
     timeout 120 "wlopm --off '*'" \

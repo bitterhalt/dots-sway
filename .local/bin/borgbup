@@ -1,6 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 if [[ ! -d ~/temp ]]; then
-    mkdir ~/temp > /dev/null 2>&1
+    mkdir ~/temp >/dev/null 2>&1
 fi
 
 umount_temp() {

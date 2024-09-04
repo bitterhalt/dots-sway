@@ -1,18 +1,18 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # https://github.com/bitterhalt
 set -euo pipefail
 
 CONFIRM="bemenu_runner -n -B1 -l2 -p "Sure?""
 
-case $(printf "%s\n" "Lock"  "Logout" "Suspend" "Reboot" "Shutdown" | bemenu_runner -n -B1 -l5 -p "Quit?" ) in
- "Shutdown")
-    confirm=$(echo -e "Yes\nNo" | $CONFIRM )
+case $(printf "%s\n" "Lock" "Logout" "Suspend" "Reboot" "Shutdown" | bemenu_runner -n -B1 -l5 -p "Quit?") in
+"Shutdown")
+    confirm=$(echo -e "Yes\nNo" | $CONFIRM)
     if [[ "$confirm" == "Yes" ]]; then
         loginctl poweroff
     fi
     ;;
 "Reboot")
-    confirm=$(echo -e "Yes\nNo" | $CONFIRM )
+    confirm=$(echo -e "Yes\nNo" | $CONFIRM)
     if [[ "$confirm" == "Yes" ]]; then
         loginctl reboot
     fi

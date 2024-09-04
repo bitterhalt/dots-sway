@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Small helper script to take Screenshots in Sway
 # Depends on: grim, swappy, and slurp

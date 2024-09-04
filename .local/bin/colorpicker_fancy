@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 LOCK_FILE="/tmp/hyprpicker.lock"
 
@@ -14,4 +14,3 @@ wl-copy "$color"
 notify-send 'Color to Clipboard' "$color"
 
 rm "$LOCK_FILE"
-
