@@ -1,4 +1,4 @@
-#!/usr/bin/env bashh
+#!/usr/bin/env bash
 #
 # This small script shows system info with libnotify
 # check your sensors and edit grep value according to your temp sensor
