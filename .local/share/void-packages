@@ -68,6 +68,7 @@ lswt
 lvm2
 mako
 mdadm
+meld
 mesa-dri-32bit
 mesa-vaapi
 mesa-vdpau
@@ -157,6 +158,7 @@ xtools
 xz
 zathura
 zathura-pdf-poppler
+zoxide
 zsh
 zsh-autosuggestions
 zsh-completions
