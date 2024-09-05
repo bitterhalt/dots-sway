@@ -69,3 +69,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza --group-directories-fir
 # Load aliases and functions if existent.
 [ -f "$HOME/.config/zsh/aliases" ] && source "$HOME/.config/zsh/aliases"
 [ -f "$HOME/.config/zsh/functions" ] && source "$HOME/.config/zsh/functions"
+
+# Shell integrations
+eval "$(fzf --zsh)"
+eval "$(zoxide init --cmd cd zsh)"
