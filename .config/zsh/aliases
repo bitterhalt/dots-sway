@@ -4,7 +4,7 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias vpm='vpm --color=yes'
 
-# pacman
+# Pacman
 #alias cleanup='sudo pacman -Rns $(pacman -Qtdq)' # remove orphaned packages
 #alias pacs='sudo pacman -S'                      # Install standard pkg
 #alias pacsyu='sudo pacman -Syu'                  # Update the system and upgrade all system packages
@@ -17,10 +17,9 @@ alias vpm='vpm --color=yes'
 alias flatclean='flatpak uninstall --unused'    #cleans unused packages
 
 alias ..='cd ..'
-alias sensorwatch='watch -n 1 sensors'
 alias history='fc -l 1'
 
-# Dir / exa  / lsd
+# Dir / eza
 alias df='df -h'
 alias ls='eza -al --group-directories-first'
 alias la='eza -a --group-directories-first'
@@ -36,7 +35,6 @@ alias weather='curl wttr.in/'
 # System Journal
 alias loger='journalctl -p 3 -xb'
 alias logf='journalctl -f'
-alias logx='tail -f .xsession-errors'
 alias logr='sudo journalctl --rotate'
 alias logs='journalctl --disk-usage'
 alias logv='journalctl --verify'
@@ -53,15 +51,15 @@ alias dot='/usr/bin/git --git-dir=$HOME/Documents/.dots/ --work-tree=$HOME'
 alias hg='history | grep '
 
 # XBPS
-alias xcu="xbps-install -nuM | awk '{print $1}'"
-alias xiu="sudo xbps-install -Su && flatpak update"
-alias xir="sudo xbps-remove"
-alias xbs="xbps-query -Rs"
-alias xblist="xpkg -m > ~/.local/share/void-packages"
+alias xcu='xbps-install -nuM | awk "{print $1}"'
+alias xiu='sudo xbps-install -Su && flatpak update'
+alias xir='sudo xbps-remove'
+alias xbs='xbps-query -Rs'
+alias xblist='xpkg -m > ~/.local/share/void-packages'
 
 # Aliases for dotbare
-alias dba="dotbare fadd"
-alias dbc="dotbare commit"
-alias dbp="dotbare push"
-alias dbf="dotbare fstat"
-alias dbe="dotbare fedit"
+alias dba='dotbare fadd'
+alias dbc='dotbare commit'
+alias dbp='dotbare push'
+alias dbf='dotbare fstat'
+alias dbe='dotbare fedit'
