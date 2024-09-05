@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 if [[ ! -d ~/temp ]]; then
-    mkdir ~/temp >/dev/null 2>&1
+  mkdir ~/temp >/dev/null 2>&1
 fi
 
 umount_temp() {
-    if mountpoint -q ~/temp; then
-        borgmatic umount --mount-point $HOME/temp
-    fi
+  if mountpoint -q ~/temp; then
+    borgmatic umount --mount-point $HOME/temp
+  fi
 }
 umount_temp
 borgmatic --verbosity -1 --syslog-verbosity 1
