@@ -18,6 +18,8 @@ export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
 export INPUTRC="$XDG_CONFIG_HOME/shell/inputrc"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export SSH_AUTH_SOCK="$XDG_CACHE_HOME/ssh-agent.sock"
+export DOTBARE_DIR="$HOME/Documents/.dots/"
+export DOTBARE_TREE="$HOME"
 
 # Start River environment
 if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then

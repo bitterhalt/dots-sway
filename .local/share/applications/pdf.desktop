@@ -1,4 +1,5 @@
 [Desktop Entry]
 Type=Application
-Name=PDF reader
+Name=PDF Reader
 Exec=/usr/bin/zathura %u
+MimeType=application/pdf;
