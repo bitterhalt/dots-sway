@@ -57,5 +57,11 @@ alias xcu="xbps-install -nuM | awk '{print $1}'"
 alias xiu="sudo xbps-install -Su && flatpak update"
 alias xir="sudo xbps-remove"
 alias xbs="xbps-query -Rs"
-
 alias xblist="xpkg -m > ~/.local/share/void-packages"
+
+# Aliases for dotbare
+alias dba="dotbare fadd"
+alias dbc="dotbare commit"
+alias dbp="dotbare push"
+alias dbf="dotbare fstat"
+alias dbe="dotbare fedit"
