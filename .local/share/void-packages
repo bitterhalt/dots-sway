@@ -69,6 +69,7 @@ lvm2
 mako
 mdadm
 meld
+mold
 mesa-dri-32bit
 mesa-vaapi
 mesa-vdpau
@@ -113,7 +114,6 @@ snooze
 socklog-void
 steam
 swappy
-sway
 swaybg
 swayidle
 swaylock
@@ -122,7 +122,6 @@ thunar-archive-plugin
 thunar-volman
 thunderbird
 timeshift
-tofi
 transmission-gtk
 trash-cli
 tty-clock
@@ -160,6 +159,3 @@ zathura
 zathura-pdf-poppler
 zoxide
 zsh
-zsh-autosuggestions
-zsh-completions
-zsh-syntax-highlighting

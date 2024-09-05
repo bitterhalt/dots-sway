@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
+
 set -e
+
 case "$1" in
 wipe)
   answer=$(echo -e "Yes\nNo" | bemenu_runner -l2 -B1 -p "Wipe clipboard?")

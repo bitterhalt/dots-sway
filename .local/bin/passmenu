@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
-#
 # Taken from: https://github.com/udayvir-singh/pass-menu
-
 # Dependencies
 #    pass
 #    pass-otp (optional)

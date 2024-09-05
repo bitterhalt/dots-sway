@@ -1,5 +1,4 @@
 #!/bin/sh
-
 ## Grimshot: a helper for screenshots within sway
 ## Requirements:
 ##  - `grim`: screenshot utility for wayland

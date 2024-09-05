@@ -1,0 +1,13 @@
+[build]
+rustflags = ["-C", "target-cpu=native", "-C", "link-arg=-fuse-ld=mold"]
+
+[profile.release]
+codegen-units = 1
+lto = "fat"
+
+[profile.profiling]
+inherits = "release"
+debug = true
+codegen-units = 64
+lto = "off"
+incremental = true

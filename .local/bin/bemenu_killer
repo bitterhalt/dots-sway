@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 set -e
 
 MENU="bemenu_runner --bdr #DA1E28 -n -B1 -l18"

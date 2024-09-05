@@ -73,7 +73,7 @@ riverctl map normal Super F12 spawn "~/.config/river/scripts/dot-settings.sh"
 #############
 
 # Close the focused view
-riverctl map normal Super Q close
+riverctl map -repeat normal Super Q close
 
 # Reload config
 riverctl map normal Super+Control R spawn "$HOME/.config/river/init && notify-send -a center_notify 'River' 'Config reloaded'"

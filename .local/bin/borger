@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # Small helper script to borgmatic
 # You can use this with dmenu, rofi or what ever applauncher you prefer
 # This script does not work if you run borgmatic as root!
