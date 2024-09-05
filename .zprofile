@@ -9,9 +9,13 @@ export XDG_CACHE_HOME="$HOME/.cache"
 
 # Path
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export FZF_DEFAULT_OPTS_FILE="$XDG_CONFIG_HOME/fzf/fzf-opts"
 export GOPATH="$XDG_DATA_HOME/go"
+export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
+export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
+export INPUTRC="$XDG_CONFIG_HOME/shell/inputrc"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export SSH_AUTH_SOCK="$XDG_CACHE_HOME/ssh-agent.sock"
 
