@@ -19,10 +19,20 @@ return {
         event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     },
 
-    -- Nvim-highlight-colors
+    -- NvChad/nvim-colorizer
     {
-        "brenoprata10/nvim-highlight-colors",
-        opts = {}
+        "NvChad/nvim-colorizer.lua",
+        config = function()
+            require("colorizer").setup({
+                opts = {
+                    user_default_options = { names = false },
+                    filetypes = {
+                        "*",
+                        "!lazy",
+                    },
+                },
+            })
+        end,
     },
 
     -- Nnvim-autopairs
