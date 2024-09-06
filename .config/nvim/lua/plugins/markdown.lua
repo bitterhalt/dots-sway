@@ -30,32 +30,26 @@ return {
         dependencies = {
             "nvim-lua/plenary.nvim",
         },
-        opts = {
-            workspaces = {
-                {
-                    name = "personal",
-                    path = "~/Documents/personal/notes/",
+        opts = function()
+            -- Default directory if no path is provided
+            local default_dir = vim.fn.expand("$HOME/Documents/personal/notes")
+
+            -- Check if the default directory exists, if not, create it
+            if vim.fn.isdirectory(default_dir) == 0 then
+                vim.fn.mkdir(default_dir, "p") -- "p" ensures that parent directories are created
+            end
+
+            return {
+                workspaces = {
+                    {
+                        -- Default to this folder if no path is provided by the user
+                        name = "personal",
+                        -- Replace the default_dir if you want to use different path
+                        path = default_dir,
+                    },
                 },
-            },
-            ui = {
-                enable = false
-            },
-            daily_notes = {
-                folder = "daily_note",
-                date_format = "%d-%m-%Y",
-                alias_format = "%B %-d, %Y",
-                default_tags = { "daily-notes" },
-                template = nil
-            },
-            templates = {
-                folder = "templates",
-                date_format = "%a-%d-%m-%Y",
-                time_format = "%H:%M",
-            },
-            follow_url_func = function(url)
-                vim.fn.jobstart({ "xdg-open", url })
-            end,
-        },
+            }
+        end,
         keys = {
             { "<leader>os",  "<cmd>ObsidianSearch<CR>",      desc = "Open obsidian search menu" },
             { "<leader>os",  "<cmd>ObsidianSearch<CR>",      desc = "Open obsidian search menu" },
