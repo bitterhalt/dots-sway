@@ -73,6 +73,7 @@ mesa-dri-32bit
 mesa-vaapi
 mesa-vdpau
 mesa-vulkan-radeon
+mold
 mpc
 mpd
 mpv
