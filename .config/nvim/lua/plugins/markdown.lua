@@ -36,13 +36,13 @@ return {
 
             -- Check if the default directory exists, if not, create it
             if vim.fn.isdirectory(default_dir) == 0 then
-                vim.fn.mkdir(default_dir, "p") -- "p" ensures that parent directories are created
+                vim.fn.mkdir(default_dir, "p")
             end
 
             return {
                 workspaces = {
                     {
-                        -- Default to this folder if no path is provided by the user
+                        -- Default to this directory if no path is provided by the user
                         name = "personal",
                         -- Replace the default_dir if you want to use different path
                         path = default_dir,
