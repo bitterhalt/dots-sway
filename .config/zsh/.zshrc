@@ -68,8 +68,8 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza --group-directories-first --col
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza --group-directories-first --color=always $realpath'
 
 # Load aliases and functions if existent.
-[ -f "$HOME/.config/zsh/aliases" ] && source "$HOME/.config/zsh/aliases"
-[ -f "$HOME/.config/zsh/functions" ] && source "$HOME/.config/zsh/functions"
+[ -f "$HOME/.config/shell/aliases" ] && source "$HOME/.config/shell/aliases"
+[ -f "$HOME/.config/shell/functions" ] && source "$HOME/.config/shell/functions"
 
 # Shell integrations
 eval "$(fzf --zsh)"
