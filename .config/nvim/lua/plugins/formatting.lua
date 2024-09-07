@@ -2,7 +2,8 @@ return {
 	-- Conform
 	{
 		"stevearc/conform.nvim",
-		event = { "BufReadPre", "BufNewFile" },
+		event = { "BufWritePre" },
+		cmd = { "ConformInfo" },
 		config = function()
 			local conform = require("conform")
 
@@ -42,7 +43,7 @@ return {
 	--Nvim-lint
 	{
 		"mfussenegger/nvim-lint",
-		event = { "BufReadPre", "BufNewFile" },
+		event = { "BufWritePost" },
 		config = function()
 			local lint = require("lint")
 
