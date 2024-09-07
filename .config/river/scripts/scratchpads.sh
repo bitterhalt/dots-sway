@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Riverctl script to open scratchpads, and open programs if Scratchpads are
-# empty. Usage "./scratchpads.sh <term|lf|nvim>"
+# empty. Usage "./scratchpads.sh <term|lf|nvim|keepassxc|discord>"
 # Check if an argument is provided
 
 if [ -z "$1" ]; then

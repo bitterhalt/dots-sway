@@ -29,15 +29,13 @@ vim.opt.splitbelow = true
 vim.opt.mouse = "a"
 
 -- Remove trailing whitespace on save
-vim.api.nvim_create_autocmd('BufWritePre', {
-    command = '%s/\\s\\+$//e',
+vim.api.nvim_create_autocmd("BufWritePre", {
+	command = "%s/\\s\\+$//e",
 })
 
 -- Highlight yanked text
-vim.api.nvim_create_autocmd('TextYankPost', {
-    callback = function()
-        vim.highlight.on_yank(
-            { igroup = "IncSearch", timeout = 150, on_visual = true }
-        )
-    end,
+vim.api.nvim_create_autocmd("TextYankPost", {
+	callback = function()
+		vim.highlight.on_yank({ igroup = "IncSearch", timeout = 150, on_visual = true })
+	end,
 })
