@@ -44,12 +44,6 @@ return {
 	},
 
 	{
-		"williamboman/mason.nvim",
-		lazy = true,
-		opts = {},
-	},
-
-	{
 		"williamboman/mason-lspconfig.nvim",
 		lazy = true,
 		opts = {
