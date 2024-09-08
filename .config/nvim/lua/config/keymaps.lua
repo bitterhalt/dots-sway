@@ -1,6 +1,3 @@
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 -- Remove highlights
 vim.keymap.set("n", "<Esc>", "<Cmd>noh<CR>")
 
