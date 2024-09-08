@@ -21,9 +21,6 @@ vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 
--- Close all windows and exit from Neovim with <leader>
-vim.keymap.set("n", "<leader>q", ":qa!<CR>")
-
 -- Save file
 vim.keymap.set("n", "<C-s>", "<CMD>:w<CR>")
 
