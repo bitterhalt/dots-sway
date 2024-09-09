@@ -48,6 +48,9 @@ group-by=app-name
 text-alignment=center
 width=150
 
+[app-name=playerctrl_notify]
+text-alignment=center
+
 [app-name=sysnfo_notify]
 font=JetBrains Mono 12
 width=250

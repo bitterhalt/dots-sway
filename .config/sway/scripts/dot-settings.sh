@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Menu options
-ARCHIVE="RIVER
+ARCHIVE="SWAY
 FOOT
 BEMENU
 LF
@@ -23,7 +23,7 @@ GTK-SETTINGS) nwg-look ;;
 LF) $TERMCMD -e nvim $HOME/.config/lf/lfrc ;;
 MAKO) $TERMCMD -e nvim $HOME/.config/mako/config ;;
 NEOVIM) $TERMCMD -e nvim $HOME/.config/nvim/init.lua ;;
-RIVER) $TERMCMD -e nvim $HOME/.config/river/init ;;
+SWAY) $TERMCMD -e nvim $HOME/.config/sway/config ;;
 SWAYLOCK) $TERMCMD -e nvim $HOME/.config/swaylock/config ;;
 WAYBAR) $TERMCMD -e nvim $HOME/.config/waybar/config.jsonc ;;
 ZSH) $TERMCMD -e nvim $HOME/.config/zsh/.zshrc ;;

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-if pgrep -x "swayidle" >/dev/null; then
-  echo ""
+if pgrep -x "swayidle" > /dev/null; then
+    echo ""
 else
-  echo "{\"text\": \"󰒳\", \"tooltip\": \"<b>Swayidle is disabled</b>\n left or   + Shift + F11 to enable\"}"
+    echo "{\"text\": \"󰒳\", \"tooltip\": \"<b>Swayidle</b> is disabled\"}"
 fi

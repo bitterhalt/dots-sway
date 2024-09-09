@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 # Logging
-LOGFILE=~/.local/state/.riverlog
+LOGFILE=~/.local/state/.swaylog
 exec 1>$LOGFILE 2>&1
-echo "River Starting: $(date)"
+echo "Sway Starting: $(date)"
 set -x
 
 # Defaults
@@ -17,11 +17,11 @@ export MOZ_ENABLE_WAYLAND=1
 export QT_QPA_PLATFORM=wayland
 export BEMENU_BACKEND=wayland
 export XDG_SESSION_TYPE=wayland
-export XDG_CURRENT_DESKTOP=river
-export XDG_SESSION_DESKTOP=river
+export XDG_CURRENT_DESKTOP=sway
+export XDG_SESSION_DESKTOP=sway
 
 # Start Pipewire before new session (delete if your're running systemd!)
 pkill -u "${USER}" -x pipewire\|wireplumber 1>/dev/null 2>&1
 pipewire &
-# Start River
-dbus-run-session river
+# Start Sway
+dbus-run-session sway

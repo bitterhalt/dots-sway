@@ -7,7 +7,7 @@ There are no install scripts and things are bit messy, so I wouldn't recommend c
 
 ### Software I use
 - Distro: [Void](https://voidlinux.org/)
-- WM: [River](https://codeberg.org/river/river)
+- WM: [Sway](https://github.com/swaywm/sway)
 - Bar: [Waybar](https://github.com/Alexays/Waybar)
 - Fonts: JetBrains Mono
 - GTK-theme: [adw-gtk3](https://github.com/lassekongo83/adw-gtk3)

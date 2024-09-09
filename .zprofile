@@ -25,5 +25,5 @@ export DOTBARE_TREE="$HOME"
 
 # Start River environment
 if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
-  exec $HOME/.local/bin/river-start
+  exec $HOME/.local/bin/sway-start
 fi

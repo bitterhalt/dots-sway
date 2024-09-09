@@ -6,7 +6,8 @@
     // Modules
     "modules-left": [
         "custom/useless",
-        "river/tags"
+        "sway/workspaces",
+        "sway/mode"
     ],
     "modules-center": [
         "clock"
@@ -16,12 +17,14 @@
         "custom/mic",
         "custom/mako",
         "custom/todo",
-        "custom/discord",
         "network",
         "custom/swayidle",
         "custom/power"
     ],
     // Modules configuration
+    "sway/workspaces": {
+        "disable-scroll": true
+    },
     "battery": {
         "bat": "BAT0",
         "interval": 60,
@@ -38,6 +41,9 @@
             ""
         ],
         "max-length": 25
+    },
+    "sway/window": {
+        "max-length": 80
     },
     "cpu": {
         "format": "CPU: {usage}%",
@@ -89,7 +95,7 @@
         "format": "{}",
         "exec": "~/.config/waybar/scripts/swayidle.sh",
         "signal": 1,
-        "on-click": "~/.config/river/scripts/swayidle-toggle.sh; pkill -RTMIN+1 waybar"
+        "on-click": "~/.config/sway/scripts/swayidle-toggle.sh; pkill -RTMIN+1 waybar"
     },
     "custom/mako": {
         "interval": "once",
@@ -99,9 +105,9 @@
             "default": "󰂚",
             "dnd": "󰂛"
         },
-        "on-click": "makoctl mode | grep 'dnd' && makoctl mode -r dnd || makoctl mode -a dnd; pkill -RTMIN+3 waybar",
+        "on-click": "makoctl mode | grep 'dnd' && makoctl mode -r dnd || makoctl mode -a dnd; pkill -RTMIN+7 waybar",
         "exec": "printf '{\"alt\":\"%s\",\"tooltip\":\"mode: %s\"}' $(makoctl mode | grep -q 'dnd' && echo dnd || echo default) $(makoctl mode | tail -1)",
-        "signal": 3
+        "signal": 7
     },
     "custom/todo": {
         "exec": "~/.config/waybar/scripts/todo.sh",
@@ -113,9 +119,9 @@
     "custom/useless": {
         "interval": "once",
         "format": "",
-        "tooltip-format": " left or  + D opens appmenu\n middle checks updates\n right or  + F12 opens setting menu",
+        "tooltip-format": "Click to open setting menu\nClick right to check updates",
         "on-click": "j4-dmenu-desktop --dmenu='bemenu_runner -B1 -n -l10 -p drun:'",
-        "on-click-right": "~/.config/river/scripts/dot-settings.sh",
+        "on-click-right": "~/.config/sway/scripts/dot-settings.sh",
         "on-click-middle": "$TERMINAL -a floatterm -e ~/.local/bin/popupgrade"
     },
     "custom/mic": {
@@ -126,14 +132,5 @@
         "signal": 2,
         "on-click": "pavucontrol",
         "on-click-right": "wpctl set-mute @DEFAULT_SOURCE@ toggle"
-    },
-    // Not sure will I leave this here... :p
-    "custom/discord": {
-        "interval": 10,
-        "return-type": "json",
-        "format": "{}",
-        "exec": "~/.config/waybar/scripts/discord.sh",
-        "on-click": "~/.config/river/scripts/scratchpads.sh discord",
-        "on-click-middle": "pkill Discord;"
     },
 }
