@@ -25,7 +25,6 @@ cronie
 cryptsetup
 dbus
 duf
-dunst
 elogind
 exiftool
 eza
@@ -53,7 +52,6 @@ hyprpicker
 imv
 j4-dmenu-desktop
 jq
-kanshi
 keepassxc
 lf
 libadwaita
@@ -64,7 +62,6 @@ libsixel
 libstdc++-32bit
 libvirt
 lm_sensors
-lswt
 lvm2
 mako
 mdadm
@@ -100,13 +97,14 @@ polkit-gnome
 ps_mem
 psensor
 python3-gobject
+python3-i3ipc
 python3-pipx
+python3-xlib
 qemu
 qt5-wayland
 qt6-wayland
 radeontop
 ripgrep
-river
 rsync
 sassc
 slurp
@@ -114,6 +112,7 @@ snooze
 socklog-void
 steam
 swappy
+sway
 swaybg
 swayidle
 swaylock
@@ -141,7 +140,6 @@ wf-recorder
 wget
 wl-clipboard
 wlopm
-wlr-randr
 wtype
 xdg-desktop-portal-gtk
 xdg-desktop-portal-wlr
