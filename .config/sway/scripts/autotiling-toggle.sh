@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if pgrepx autotiling >/dev/null; then
+if pgrep autotiling >/dev/null; then
   pkill autotiling
   notify-send -a center_notify "Autotiling" "Disabled" -t 1500 -h string:x-canonical-private-synchronous:volume
 else
