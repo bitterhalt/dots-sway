@@ -318,15 +318,9 @@ for_window [window_type="menu"] floating enable
 for_window [app_id="firefox"] inhibit_idle fullscreen
 for_window [app_id="mpv"] inhibit_idle fullscreen
 
-###############
-# Bar command #
-###############
-#
-#bar {
-#    swaybar_command waybar
-#}
-
-# Colors
+##########
+# Colors #
+##########
 set $bg      #161616
 set $bg2     #262626
 set $bg3     #525252
