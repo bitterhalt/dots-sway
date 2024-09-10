@@ -80,7 +80,7 @@
   "clock": {
     "format": "{:%b %d %H:%M}",
     "on-click-middle": "~/.local/bin/noti_weather",
-    "tooltip-format": "<span color='#FFFFFF'><tt><small>{calendar}</small></tt></span>",
+    "tooltip-format": "<span color='#FFFFFF'><tt>{calendar}</tt></span>",
     "calendar": {
       "mode-mon-col": 4,
       "weeks-pos": "left",
@@ -88,9 +88,9 @@
       "on-click-right": "mode",
       "format": {
         "months": "<span color='#BE95FF'><b>{}</b></span>",
-        "weeks": "<span color='#DDE1E6'><b>{}</b></span>",
+        "weeks": "<span color='#525252'><b>{}</b></span>",
         "weekdays": "<span color='#78A9FF'><b>{}</b></span>",
-        "today": "<span color='#161616' background='#BE95FF'><b>{}</b></span>"
+        "today": "<span color='#BE95FF' background='#161616'><b>{}</b></span>"
       }
     },
     "actions": {
@@ -135,7 +135,7 @@
   },
   "custom/useless": {
     "interval": "once",
-    "format": " ",
+    "format": "  ",
     "tooltip-format": " left or  + D opens app-menu\n middle checks updates\n right or  + F12 opens setting-menu",
     "on-click": "j4-dmenu-desktop --dmenu='bemenu_runner -B1 -n -l10 -p drun:'",
     "on-click-right": "~/.config/sway/scripts/dot-settings.sh",

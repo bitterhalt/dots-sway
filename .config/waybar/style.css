@@ -26,7 +26,6 @@ tooltip {
     background: @bg;
     border: solid 1px @bg3;
 }
-
 tooltip label {
     color: @fg;
 }
@@ -81,7 +80,7 @@ window#waybar.hidden {
  * ----------------------------------------------------- */
 
 #cpu,
-#memory,
+#memory ,
 #battery,
 #pulseaudio,
 #wireplumber,
@@ -131,7 +130,7 @@ window#waybar.hidden {
 
 #custom-useless {
     color: @fg;
-    padding-left: 10px;
+    padding-left: 5px;
 }
 #custom-power {
     color: @fg;
