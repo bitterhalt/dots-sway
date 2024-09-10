@@ -19,11 +19,8 @@ export INPUTRC="$XDG_CONFIG_HOME/shell/inputrc"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export HISTFILE="$XDG_DATA_HOME/history"
 export SSH_AUTH_SOCK="$XDG_CACHE_HOME/ssh-agent.sock"
-export DOTBARE_BACKUP="${XDG_DATA_HOME:-$HOME/.local/share}/dotbare"
-export DOTBARE_DIR="$HOME/Documents/.dots/"
-export DOTBARE_TREE="$HOME"
 
-# Start River environment
+# Start Sway environment
 if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
   exec $HOME/.local/bin/sway-start
 fi

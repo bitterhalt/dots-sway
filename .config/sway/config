@@ -22,7 +22,7 @@ set $down j
 set $up k
 set $right l
 set $term footclient
-set $lock ~/.config/sway/scripts/screenlocker
+set $lock ~/.config/sway/scripts/screenlocker.sh
 set $killer ~/.local/bin/bemenu_killer
 
 set $drun j4-dmenu-desktop --dmenu="bemenu_runner -B1 -n -l10 -p drun:"
@@ -349,7 +349,7 @@ client.background       $fg
 # Auto start
 exec foot --server
 exec_always ~/.config/waybar/scripts/waybar-launcher.sh
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec /usr/libexec/polkit-gnome-authentication-agent-1
 exec wl-paste --watch cliphist -max-items 100 store
 exec mako
 exec dbus-update-activation-environment DISPLAY I3SOCK SWAYSOCK WAYLAND_DISPLAY
