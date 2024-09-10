@@ -17,6 +17,7 @@ bemenu
 borgmatic
 bridge-utils
 btop
+calcurse
 chafa
 chrony
 cliphist
@@ -94,7 +95,6 @@ pipewire
 polkit
 polkit-gnome
 ps_mem
-psensor
 python3-gobject
 python3-i3ipc
 python3-pipx
@@ -138,7 +138,6 @@ wev
 wf-recorder
 wget
 wl-clipboard
-wlopm
 xdg-desktop-portal-gtk
 xdg-desktop-portal-wlr
 xdg-user-dirs
