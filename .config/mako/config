@@ -1,7 +1,7 @@
 #####################
 # General settings #
 #####################
-font=JetBrains Mono, Symbols Nerd Font 10
+font=JetBrainsMono Nerd Font 10
 default-timeout=5000
 icons=1
 ignore-timeout=0
@@ -43,7 +43,7 @@ default-timeout=0
 [app-name=vol_notify]
 anchor=top-center
 border-size=1
-font=JetBrains Mono 13
+font=JetBrainsMono Nerd Font 13
 group-by=app-name
 text-alignment=center
 width=150
@@ -52,43 +52,43 @@ width=150
 text-alignment=center
 
 [app-name=sysnfo_notify]
-font=JetBrains Mono 12
+font=JetBrainsMono Nerd Font 12
 width=250
 group-by=app-name
 default-timeout=10000
 padding=20
 
 [app-name=fat_notify]
-font=JetBrains Mono 10
+font=JetBrainsMono Nerd Font 10
 height=800
 group-by=app-name
 
 [app-name=date_notify]
-font=JetBrains Mono 12
+font=JetBrainsMono Nerd Font 12
 width=160
 group-by=app-name
 text-alignment=center
 
 [app-name=cal_notify]
-font=JetBrains Mono 10
+font=JetBrainsMono Nerd Font 10
 width=190
 group-by=app-name
 
 [app-name=weather_notify]
-font=JetBrains Mono 12
+font=JetBrainsMono Nerd Font 12
 width=230
 group-by=app-name
 padding=20
 
 [app-name=center_notify]
-font=JetBrains Mono 12
+font=JetBrainsMono Nerd Font 12
 width=260
 anchor=top-center
 group-by=app-name
 text-alignment=center
 
 [app-name=center_notify_s]
-font=JetBrains Mono 12
+font=JetBrainsMono Nerd Font 12
 width=130
 anchor=top-center
 group-by=app-name

@@ -1,3 +1,3 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-cat ~/.config/sway/config | grep 'bindsym' | grep -v '^\s*#' | sed 's/bindsym / /' | bemenu_runner -n -l 15 -p "Search keybindings: "
+cat ~/.config/sway/config | grep 'bindsym' | grep -v '^\s*#' | sed 's/bindsym / /' | bemenu_runner -n -l 15 -p "Search keyboard shortcuts:"

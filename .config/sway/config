@@ -2,7 +2,7 @@
 # Sway config #
 ###############
 
-font pango: JetBrains Mono 10
+font pango: JetBrainsMono Nerd Font 10
 
 # Center window title
 title_align center
@@ -25,14 +25,15 @@ set $term footclient
 set $lock ~/.config/sway/scripts/screenlocker
 set $killer ~/.local/bin/bemenu_killer
 
-#set $drun tofi-drun --promp "drun:" | xargs swaymsg exec -- >/dev/null 2>&1
 set $drun j4-dmenu-desktop --dmenu="bemenu_runner -B1 -n -l10 -p drun:"
-#set $drun j4-dmenu-desktop --dmenu="bemenu_runner -B2 -n -l8 -p 'drun:'"
 set $run bemenu_runner run --no-exec -B1 -n -p "run:" -l10  | xargs swaymsg exec >/dev/null 2>&1
-#set $run bemenu_runner run --no-exec -B2 -n -l8 -p run:| xargs swaymsg exec >/dev/null 2>&1
 set $winlist ~/.local/bin/bemenu_window
 set $powermenu ~/.local/bin/bemenu_power
 set $screenshot ~/.local/bin/bemenu_screenshot
+set $emojimenu ~/.local/bin/bemenu_emoji
+set $keyhint ~/.config/sway/scripts/keyhint.sh
+set $clip ~/.local/bin/bemenu_clipboard
+set $fontfinder ~/.local/bin/bemenu_font
 
 ################
 # Input/output #
@@ -85,10 +86,12 @@ bindsym $mod+p exec $run
 bindsym $mod+shift+p exec $powermenu
 bindsym $mod+tab exec $winlist
 bindsym $mod+f7 exec $screenshot
-
-# FZF
-bindsym $mod+shift+c exec ~/.local/bin/bemenu_clipboard
-bindsym $mod+ctrl+c exec ~/.local/bin/bemenu_clipboard wipe
+bindsym $mod+shift+f1 exec $keyhint
+bindsym $mod+control+e exec $emojimenu
+bindsym $mod+shift+c exec $clip
+bindsym $mod+ctrl+c exec $clip wipe
+bindsym $mod+f3 exec $keyhint
+bindsym $mod+shift+f exec $fontfinder
 
 # Start a terminal
 bindsym $mod+Return exec $term
@@ -97,7 +100,7 @@ bindsym $mod+Return exec $term
 bindsym $mod+q kill
 
 # Hide/restart waybar
-bindsym $mod+shift+b exec killall -SIGUSR1 waybar
+bindsym $mod+shift+b exec ~/.config/waybar/scripts/bar-hider.sh
 
 # When the modifier key is held down, you may hold left click to move windows, and right click to resize them
 floating_modifier $mod normal
@@ -164,8 +167,9 @@ bindsym $mod+f fullscreen
 
 # Toggle the current focus between tiling and floating mode
 bindsym $mod+shift+space floating toggle
+bindsym --whole-window $mod+button2 floating toggle
 
-# Toggle sticky
+# Show floating window in all workspaces
 bindsym $mod+y sticky toggle
 
 # Swap focus between the tiling area and the floating area
@@ -180,8 +184,8 @@ bindsym $mod+shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 bindsym $mod+shift+x exec pgrep -f '^foot -a scpterm' >/dev/null 2>&1 || foot -a scpterm
 bindsym $mod+x [app_id="scpterm"] scratchpad show
-bindsym $mod+shift+r exec pgrep -f '^foot -a scplf -e lf' >/dev/null 2>&1 || foot -a scplf -e lf
-bindsym $mod+r [app_id="scplf"] scratchpad show
+bindsym $mod+shift+r exec pgrep -f '^foot -a scpyazi -e yazi' >/dev/null 2>&1 || foot -a scpyazi -e yazi
+bindsym $mod+r [app_id="scpyazi"] scratchpad show
 bindsym $mod+F5 [app_id="KeePassXC"] scratchpad show
 
 # Resizing containers
@@ -205,7 +209,7 @@ bindsym $mod+ctrl+shift+minus gaps outer current minus 5
 
 bindsym $mod+F1 exec ~/.local/bin/noti_sysnfo
 bindsym $mod+F2 exec ~/.local/bin/noti_usage cpu
-bindsym $mod+F3 exec ~/.local/bin/noti_usage ram
+bindsym $mod+shift+F2 exec ~/.local/bin/noti_usage ram
 bindsym $mod+F4 exec $killer
 bindsym $mod+shift+F7 exec ~/.local/bin/sway-record -k
 bindsym $mod+F8 exec pavucontrol
@@ -315,10 +319,10 @@ for_window [app_id="mpv"] inhibit_idle fullscreen
 ###############
 # Bar command #
 ###############
-
-bar {
-    swaybar_command waybar
-}
+#
+#bar {
+#    swaybar_command waybar
+#}
 
 # Colors
 set $bg      #161616
@@ -342,6 +346,7 @@ client.background       $fg
 
 # Auto start
 exec foot --server
+exec_always ~/.config/waybar/scripts/waybar-launcher.sh
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec wl-paste --watch cliphist -max-items 100 store
 exec mako
