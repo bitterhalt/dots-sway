@@ -12,14 +12,14 @@ There are no install scripts and things are bit messy, so I wouldn't recommend c
 - Fonts: JetBrains Mono
 - GTK-theme: [adw-gtk3](https://github.com/lassekongo83/adw-gtk3)
 - Icons: [Papirus Dark](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
-- Symbols and icons: [Nerd Font Symbols](https://www.nerdfonts.com/)
+- Font: [JetBrainsMono Nerd Font](https://github.com/ryanoasis/nerd-fonts)
 - Image Viewer: [imv](https://sr.ht/~exec64/imv/)
 - Media Player: [mpv](https://mpv.io/)
 - Notification daemon: [mako](https://github.com/emersion/mako)
 - Terminal [foot](https://codeberg.org/dnkl/foot)
 - Shell: [zsh](https://www.zsh.org/)
 - Editor: [neovim](https://neovim.io/)
-- Filemanager: [lf](https://github.com/gokcehan/lf)
+- Filemanager: [Yazi](https://yazi-rs.github.io/)
 - Launcher [bemenu](https://github.com/Cloudef/bemenu)
 ### Inspiration
 - [See my stars](https://github.com/bitterhalt?tab=stars)

@@ -55,7 +55,7 @@ window#waybar.hidden {
 
 #workspaces {
   background-color: @bg;
-  padding: 2px 5px;
+  padding: 2px 10px;
 }
 
 #workspaces button {
@@ -96,6 +96,7 @@ window#waybar.hidden {
 #network {
     color: @fg;
     padding: 0 6px;
+    margin: 0 3px;
 }
 
 #network.disconnected {
@@ -133,7 +134,7 @@ window#waybar.hidden {
 }
 #custom-power {
     color: @fg;
-    padding: 0 10px;
+    padding: 0 12px;
 }
 
 #custom-sep,
