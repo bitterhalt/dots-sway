@@ -96,6 +96,7 @@ window#waybar.hidden {
 #network {
     color: @fg;
     padding: 0 6px;
+    margin: 0 3px;
 }
 
 #network.disconnected {
