@@ -83,15 +83,39 @@ exec swayidle -w \
 
 bindsym $mod+d exec $drun
 bindsym $mod+p exec $run
+bindsym $mod+e exec /usr/bin/thunar
+bindsym $mod+m exec /usr/bin/thunderbird
+bindsym $mod+w exec /usr/bin/firefox
 bindsym $mod+shift+p exec $powermenu
 bindsym $mod+tab exec $winlist
+bindsym $mod+F1 exec ~/.local/bin/noti_sysnfo
+bindsym $mod+F2 exec ~/.local/bin/noti_usage cpu
+bindsym $mod+F4 exec $killer
+bindsym $mod+F8 exec pavucontrol
+bindsym $mod+F9 exec ~/.config/sway/scripts/mic-toggle.sh && pkill -RTMIN+2 waybar
+bindsym $mod+f3 exec $keyhint
 bindsym $mod+f7 exec $screenshot
-bindsym $mod+shift+f1 exec $keyhint
-bindsym $mod+control+e exec $emojimenu
+bindsym $mod+F11 exec ~/.config/sway/scripts/screenlocker.sh
+bindsym $mod+F12 exec ~/.config/sway/scripts/dot-settings.sh
+bindsym $mod+shift+F11 exec ~/.config/sway/scripts/swayidle-toggle.sh && pkill -RTMIN+1 waybar
+bindsym $mod+shift+F2 exec ~/.local/bin/noti_usage ram
+bindsym $mod+shift+F7 exec ~/.local/bin/sway-record -k
+bindsym $mod+shift+F1 exec $keyhint
+bindsym $mod+ctrl+e exec $emojimenu
 bindsym $mod+shift+c exec $clip
 bindsym $mod+ctrl+c exec $clip wipe
-bindsym $mod+f3 exec $keyhint
 bindsym $mod+shift+f exec $fontfinder
+bindsym $mod+Print exec ~/.local/bin/wl-shot -f
+bindsym $mod+shift+Print exec ~/.local/bin/wl-shot -re
+bindsym $mod+c [app_id="com.discordapp.Discord"] scratchpad show
+bindsym $mod+ctrl+p exec ~/.local/bin/colorpicker_fancy
+bindsym $mod+ctrl+t exec ~/.local/bin/noti_date
+bindsym $mod+ctrl+w exec ~/.local/bin/noti_weather
+bindsym $mod+ctrl+a exec ~/.config/sway/scripts/autotiling-toggle.sh
+bindsym $mod+shift+delete exec $term -a floatterm -e htop
+bindsym $mod+shift+n exec $term -a quick_note -e ~/.local/bin/quick_note
+bindsym $mod+n exec $term -e nvim ~/Documents/personal/notes/index.md
+bindsym $mod+t exec $term -a floatterm -e nvim ~/Documents/personal/notes/todo.md
 
 # Start a terminal
 bindsym $mod+Return exec $term
@@ -207,31 +231,6 @@ bindsym $mod+ctrl+minus gaps inner current minus 5
 bindsym $mod+ctrl+shift+plus gaps outer current plus 5
 bindsym $mod+ctrl+shift+minus gaps outer current minus 5
 
-bindsym $mod+F1 exec ~/.local/bin/noti_sysnfo
-bindsym $mod+F2 exec ~/.local/bin/noti_usage cpu
-bindsym $mod+shift+F2 exec ~/.local/bin/noti_usage ram
-bindsym $mod+F4 exec $killer
-bindsym $mod+shift+F7 exec ~/.local/bin/sway-record -k
-bindsym $mod+F8 exec pavucontrol
-bindsym $mod+F9 exec ~/.config/sway/scripts/mic-toggle.sh && pkill -RTMIN+2 waybar
-bindsym $mod+F11 exec ~/.config/sway/scripts/screenlocker.sh
-bindsym $mod+shift+F11 exec ~/.config/sway/scripts/swayidle-toggle.sh && pkill -RTMIN+1 waybar
-bindsym $mod+F12 exec ~/.config/sway/scripts/dot-settings.sh
-bindsym $mod+Print exec ~/.local/bin/wl-shot -f
-bindsym $mod+shift+Print exec ~/.local/bin/wl-shot -re
-bindsym $mod+c [app_id="com.discordapp.Discord"] scratchpad show
-bindsym $mod+ctrl+p exec ~/.local/bin/colorpicker_fancy
-bindsym $mod+ctrl+t exec ~/.local/bin/noti_date
-bindsym $mod+ctrl+w exec ~/.local/bin/noti_weather
-bindsym $mod+ctrl+a exec ~/.config/sway/scripts/autotiling-toggle.sh
-bindsym $mod+e exec /usr/bin/thunar
-bindsym $mod+m exec thunderbird
-bindsym $mod+w exec /usr/bin/firefox
-bindsym $mod+shift+delete exec $term -a floatterm -e htop
-bindsym $mod+shift+n exec $term -a quick_note -e ~/.local/bin/quick_note
-bindsym $mod+n exec $term -e nvim ~/Documents/personal/notes/index.md
-bindsym $mod+t exec $term -a floatterm -e nvim ~/Documents/personal/notes/todo.md
-
 # Media keys
 bindsym XF86AudioRaiseVolume exec ~/.config/sway/scripts/volume.sh up
 bindsym XF86AudioLowerVolume exec ~/.config/sway/scripts/volume.sh down
@@ -242,8 +241,9 @@ bindsym XF86AudioPlay exec ~/.config/sway/scripts/mediactrl.sh --play
 bindsym XF86AudioStop exec ~/.config/sway/scripts/mediactrl.sh --stop
 bindsym XF86AudioNext exec ~/.config/sway/scripts/mediactrl.sh --nxt
 bindsym XF86AudioPrev exec ~/.config/sway/scripts/mediactrl.sh --prv
-bindsym $mod+control+m exec ~/.config/sway/scripts/mediactrl.sh --noti
-# Brightness control
+bindsym $mod+ctrl+m exec ~/.config/sway/scripts/mediactrl.sh --noti
+
+# Brightness ctrl
 bindsym XF86MonBrightnessUp exec sh -c "brightnessctl set 5%+; ~/.config/sway/scripts/brightness.sh"
 bindsym XF86MonBrightnessDown exec sh -c "brightnessctl set 5%-; ~/.config/sway/scripts/brightness.sh"
 
@@ -251,68 +251,59 @@ bindsym XF86MonBrightnessDown exec sh -c "brightnessctl set 5%-; ~/.config/sway/
 # Rules #
 #########
 
-for_window [class="Yad" instance="yad"] floating enable
-for_window [app_id="yad"] floating enable
-for_window [app_id="blueman-manager"] floating enable, resize set width 40 ppt height 30 ppt
-
 # Assign workspaces
-assign [app_id="LibreWolf"] 2
-assign [app_id="com.transmissionbt.transmission_*"] 4
 assign [app_id="Firefox"] 2
+assign [app_id="LibreWolf"] 2
 assign [app_id="Thunderbird"] 3
+assign [app_id="com.transmissionbt.transmission_*"] 4
 assign [app_id="org.keepassxc.KeePassXC"] 3
-assign [class="Signal"] 3
 assign [app_id="virt-manager"] 8
+assign [class="Signal"] 3
 assign [class="steam"] 5
 
 # Floaters
 for_window [app_id="(?i)(?:blueman-manager|azote|gnome-disks|nwg-shell-config)"] floating enable
 for_window [app_id="(?i)(?:pavucontrol|nm-connection-editor|gsimplecal|galculator)"] floating enable
-for_window [app_id="file-roller"] floating enable
+for_window [app_id="blueman-manager"] floating enable, resize set width 40 ppt height 30 ppt
 for_window [app_id="brave-calendar"] floating enable, resize set width 40 ppt height 50 ppt
+for_window [app_id="file-roller"] floating enable
 for_window [app_id="floating_shell_portrait"] floating enable, border pixel 1, sticky enable, resize set width 30 ppt height 40 ppt
 for_window [app_id="floatterm"] floating enable, resize set width 40 ppt height 60 ppt
-for_window [app_id="quick_note"] floating enable, resize set width 40 ppt height 60 ppt
-for_window [app_id="^launcher$"] floating enable, resize set 100 ppt 20 ppt, move position 0 0, border pixel 1
-for_window [app_id="fzf_menu"] floating enable, resize set width 40 ppt height 40 ppt, border pixel 1
-for_window [app_id="fzf_menu_top"] floating enable, resize set 100 ppt 20 ppt, move position 0 0, border pixel 1
-#for_window [app_id="fzf_menu$"] floating enable, sticky enable, resize set 100 ppt 30 ppt, move position 0 0
-for_window [app_id="slim_menu"] floating enable, resize set width 25 ppt height 60 ppt
 for_window [app_id="imv"] floating enable
-for_window [app_id="missioncenter"] floating enable
 for_window [app_id="mpv"] floating enable
 for_window [app_id="nwg-look"] floating enable, resize set width 40 ppt height 50 ppt
 for_window [app_id="pavucontrol"] floating enable, resize set width 40 ppt height 50 ppt
+for_window [app_id="quick_note"] floating enable, resize set width 40 ppt height 60 ppt
 for_window [app_id="virt-manager"] floating enable
 for_window [app_id="waypaper"] floating enable, resize set width 50 ppt height 70 ppt
+for_window [app_id="yad"] floating enable
 for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
 for_window [class="Gimp"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="Nsxiv"] floating enable, resize set width 60 ppt height 80 ppt
 for_window [class="Xsane" instance="xsane"] floating enable
+for_window [class="Yad" instance="yad"] floating enable
 for_window [class="qt5ct" instance="qt5ct"] floating enable, resize set width 60 ppt height 50 ppt
 for_window [class="steam" instance="steam"] floating enable
 for_window [instance="origin.exe"] floating enable
-for_window [title="fzf-switcher"] floating enable
+for_window [title="(?:Open|Save) (?:File|Folder|As)"] floating enable
 for_window [title="About Mozilla Firefox"] floating enable
 for_window [title="Choose User Profile"] floating enable
 for_window [title="File Operation Progress"] floating enable, border pixel 1, resize set width 40 ppt height 30 ppt
-for_window [title="Picture-in-Picture"] floating enable, sticky enable
-#for_window [title="Save File"] floating enable
-for_window [title="(?:Open|Save) (?:File|Folder|As)"] floating enable
-for_window [title="KeePassXC - Passkey credentials"] floating enable, move position center, focus
 for_window [title="KeePassXC - Browser Access Request"] floating enable, move position center, focus
+for_window [title="KeePassXC - Passkey credentials"] floating enable, move position center, focus
+for_window [title="Picture-in-Picture"] floating enable, sticky enable
+for_window [title="fzf-switcher"] floating enable
+for_window [window_role="About"] floating enable
 for_window [window_role="GtkFileChooserDialog"] move position center
 for_window [window_role="GtkFileChooserDialog"] resize set 590 340
 for_window [window_role="Preferences"] floating enable
-for_window [window_role="About"] floating enable
 for_window [window_role="bubble"] floating enable
 for_window [window_role="dialog"] floating enable
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
-
 
 # Inhibit idle
 for_window [app_id="firefox"] inhibit_idle fullscreen
@@ -332,7 +323,7 @@ set $purple  #be95ff
 set $black   #000000
 set $white   #ffffff
 
-# class                 border  backgr. text    indicator child_border
+# Class                 Border  Backgr. Text    Indigator Child border
 client.focused          $bg3    $bg     $fg     $bg3      $bg3
 client.focused_inactive $bg2    $bg     $bg3    $bg2      $bg2
 client.unfocused        $bg2    $bg     $bg3    $bg2      $bg2
