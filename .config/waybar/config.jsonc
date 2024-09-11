@@ -83,7 +83,6 @@
     "tooltip-format": "<span color='#FFFFFF'><tt>{calendar}</tt></span>",
     "calendar": {
       "mode-mon-col": 4,
-      "weeks-pos": "left",
       "on-scroll": 1,
       "on-click-right": "mode",
       "format": {
