@@ -3,5 +3,5 @@ return {
   { "nvim-neo-tree/neo-tree.nvim", enabled = false },
 
   -- disable dashboard
-  --{ "nvimdev/dashboard-nvim", enabled = false },
+  { "folke/flash.nvim", enabled = false },
 }
