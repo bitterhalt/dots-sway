@@ -3,7 +3,7 @@ List of configs to my keyboard-driven system. My point was to get light weight s
 
 There are no install scripts and things are bit messy, so I wouldn't recommend cloning my entire setup, but instead to try copying bits and pieces as you put together your own dotfiles unique to you.
 
-![image](https://github.com/user-attachments/assets/648101e3-dae4-49f8-90a7-bd5ccb1a0bbb)
+![2024-10-09-14-56-13_screenshot](https://github.com/user-attachments/assets/5d41ddf9-46e7-4fae-8b6c-95e405ed07a0)
 
 ### Software I use
 - Distro: [Void](https://voidlinux.org/)
